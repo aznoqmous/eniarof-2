@@ -1,8 +1,11 @@
 class_name Player extends CharacterBase
 @onready var camera_3d: Camera3D = $Camera3D
+var can_talk_to: NPC
 
 func _process(_delta: float) -> void:
 	sprite_container.rotation.y = lerp(sprite_container.rotation.y, PI if current_movement.x < 0 else 0.0, _delta * 5.0)
+	if(can_talk_to and Input.is_action_just_pressed("Interaction")):
+		can_talk_to.talk()
 
 func _physics_process(_delta: float) -> void:
 	var movement := Vector3.ZERO
