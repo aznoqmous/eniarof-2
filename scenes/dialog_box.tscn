@@ -16,6 +16,7 @@ albedo_texture = SubResource("ViewportTexture_1bvp3")
 size = Vector2(2, 2)
 
 [node name="DialogBox" type="MeshInstance3D"]
+sorting_offset = 10000.0
 material_override = SubResource("StandardMaterial3D_lquwl")
 mesh = SubResource("QuadMesh_7mycd")
 skeleton = NodePath("SubViewport")

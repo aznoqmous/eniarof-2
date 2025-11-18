@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbdx5o2s0g3kf"]
+[gd_scene load_steps=8 format=3 uid="uid://dbdx5o2s0g3kf"]
 
 [ext_resource type="Script" uid="uid://jv4kbdyptpua" path="res://scripts/npc.gd" id="1_abqhh"]
 [ext_resource type="Texture2D" uid="uid://ptpg2b08b5jr" path="res://sprites/peer.png" id="2_rv78h"]
+[ext_resource type="PackedScene" uid="uid://dhw6roxou051m" path="res://scenes/dialog_box.tscn" id="3_rv78h"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_abqhh"]
 size = Vector3(1, 2.1558228, 0.76904297)
@@ -9,6 +10,15 @@ size = Vector3(1, 2.1558228, 0.76904297)
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_abqhh"]
 height = 2.152832
 radius = 1.9023438
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_rv78h"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7n8xq"]
+resource_local_to_scene = true
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_rv78h")
 
 [node name="NPC" type="RigidBody3D"]
 axis_lock_angular_x = true
@@ -38,6 +48,14 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionZone"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0757215, 0)
 shape = SubResource("CylinderShape3D_abqhh")
+
+[node name="DialogBox" parent="." instance=ExtResource("3_rv78h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.384995, 2.4616344, 0)
+material_override = SubResource("StandardMaterial3D_7n8xq")
+
+[node name="InteractLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.053975, 0)
+text = "[E] Talk"
 
 [connection signal="body_entered" from="InteractionZone" to="." method="_on_interaction_zone_body_entered"]
 [connection signal="body_exited" from="InteractionZone" to="." method="_on_interaction_zone_body_exited"]

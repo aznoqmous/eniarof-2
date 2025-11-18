@@ -8,6 +8,7 @@ class_name DialogBox extends MeshInstance3D
 @onready var margin_container: MarginContainer = $SubViewport/Control/Container/MarginContainer
 
 var target_y := 0
+	
 func _process(_delta: float) -> void:
 	#look_at(main.player.camera_3d.global_position)
 	pass
@@ -27,4 +28,3 @@ func write_text(text: String):
 		if character == ".": dialog_speed = dot_speed
 		if not is_tag:
 			await get_tree().create_timer(dialog_speed).timeout
-	pass
