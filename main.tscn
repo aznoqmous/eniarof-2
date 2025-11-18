@@ -1,14 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://cmlhp3bgeip3e"]
+[gd_scene load_steps=12 format=3 uid="uid://cmlhp3bgeip3e"]
 
 [ext_resource type="Script" uid="uid://dlsptbxcmtms2" path="res://scripts/main.gd" id="1_h2yge"]
 [ext_resource type="Texture2D" uid="uid://cfypland4tfa0" path="res://icon.svg" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://cctudjvbp8bmj" path="res://scenes/player.tscn" id="2_h2yge"]
-[ext_resource type="PackedScene" uid="uid://crs04b65vwhy2" path="res://scenes/npc.tscn" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://dd3c68xr0c4da" path="res://scripts/foliage.gd" id="3_5vw27"]
+[ext_resource type="PackedScene" uid="uid://dbdx5o2s0g3kf" path="res://scenes/npc.tscn" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://bsjxs0qm4pghh" path="res://scripts/npc_action_resource.gd" id="5_7mycd"]
+[ext_resource type="Resource" uid="uid://bcxfy8qv77y5k" path="res://resources/npc_actions/idle.tres" id="6_272bh"]
+[ext_resource type="Resource" uid="uid://r83tbw00lixe" path="res://resources/npc_actions/random_move.tres" id="7_272bh"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_h2yge"]
-size = Vector2(12, 12)
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_272bh"]
+height = 0.9897461
+radius = 5.9907227
 
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_0xm2m"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_5vw27"]
 
 [sub_resource type="Environment" id="Environment_1bvp3"]
 
@@ -21,18 +26,42 @@ JUMP_SPEED = 5.0
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 collision_mask = 3
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-mesh = SubResource("PlaneMesh_h2yge")
-skeleton = NodePath("../..")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("WorldBoundaryShape3D_0xm2m")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.50512695, 0)
+shape = SubResource("CylinderShape3D_272bh")
 
-[node name="Foliage" type="Node3D" parent="."]
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.51031494, 0)
+radius = 5.9682617
+height = 0.9793701
+sides = 32
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8888535, 0, 2.9258537)
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.3329535, 0)
+shape = SubResource("CylinderShape3D_272bh")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.3338428, 0)
+radius = 5.9682617
+height = 0.9793701
+sides = 32
+
+[node name="Foliage" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.198501, 0, 0)
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("3_5vw27")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Foliage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_5vw27")
 
 [node name="Sprite3D" type="Sprite3D" parent="Foliage"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69312525, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 texture = ExtResource("1_ig7tw")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -42,6 +71,5 @@ environment = SubResource("Environment_1bvp3")
 transform = Transform3D(0.14634205, -0.73774934, 0.6590219, 0, 0.66619414, 0.7457784, -0.98923403, -0.10913874, 0.09749222, 3.122682, 2.3306007, 2.4698005)
 
 [node name="NPC" parent="." instance=ExtResource("4_1bvp3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 4)
-
-[editable path="NPC"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7640026, 0, 3.1104853)
+actions = Array[ExtResource("5_7mycd")]([ExtResource("6_272bh"), ExtResource("7_272bh")])

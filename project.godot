@@ -57,3 +57,5 @@ ActionBull={
 
 3d_physics/layer_1="Ground"
 3d_physics/layer_2="Characters"
+3d_physics/layer_3="Level"
+3d_physics/layer_4="Foliages"

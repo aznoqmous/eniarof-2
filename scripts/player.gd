@@ -1,12 +1,19 @@
 class_name Player extends CharacterBase
+
 @onready var camera_3d: Camera3D = $Camera3D
+@onready var ray_cast_3d: RayCast3D = $Camera3D/RayCast3D
+
 var can_talk_to: NPC
 
 func _process(_delta: float) -> void:
 	sprite_container.rotation.y = lerp(sprite_container.rotation.y, PI if current_movement.x < 0 else 0.0, _delta * 5.0)
 	if(can_talk_to and Input.is_action_just_pressed("Interaction")):
 		can_talk_to.talk()
-
+	
+	if ray_cast_3d.is_colliding():
+		var foliage := ray_cast_3d.get_collider() as Foliage
+		foliage.hide = true
+		
 func _physics_process(_delta: float) -> void:
 	var movement := Vector3.ZERO
 	if Input.is_action_pressed("MoveForward"): movement += Vector3.FORWARD
