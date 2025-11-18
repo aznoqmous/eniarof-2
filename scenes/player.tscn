@@ -8,10 +8,12 @@ size = Vector3(1, 2.1558228, 0.45410156)
 
 [node name="Player" type="RigidBody3D"]
 collision_layer = 2
-collision_mask = 3
+collision_mask = 7
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
+contact_monitor = true
+max_contacts_reported = 5
 script = ExtResource("1_g2els")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

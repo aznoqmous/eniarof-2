@@ -21,10 +21,16 @@ shading_mode = 0
 albedo_texture = SubResource("ViewportTexture_rv78h")
 
 [node name="NPC" type="RigidBody3D"]
+collision_layer = 5
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
 script = ExtResource("1_abqhh")
+SPEED = null
+JUMP_SPEED = null
+BASE_ACCELERATION = null
+CHARGE_SPEED = null
+REBOUND_SPEED = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.076197, -0.21948242)

@@ -7,13 +7,20 @@ class_name CharacterBase extends RigidBody3D
 @export var SPEED := 3.0
 @export var JUMP_SPEED := 10.0
 @export var BASE_ACCELERATION := 10.0
-var ACCELERATION = BASE_ACCELERATION
-@export var CHARGE_SPEED := 10.0
+var ACCELERATION := BASE_ACCELERATION
 var current_speed := 0.0
 var current_movement := Vector3.ZERO
 
+@export var CHARGE_SPEED := 10.0
+@export var REBOUND_SPEED := 5.0
+var is_charging := false
+var is_rebounding:= false
+
 var is_grounded := false:
 	get: return ground_ray_cast_3d.is_colliding()
+
+func _ready() -> void:
+	body_entered.connect(handle_body_entered)
 
 func _process(_delta: float) -> void:
 	sprite_container.rotation.y = lerp(sprite_container.rotation.y, PI if current_movement.x < 0 else 0.0, _delta * 5.0)
@@ -36,11 +43,32 @@ func jump() -> void:
 	
 func charge() -> void:
 	if not is_grounded: return;
-	print("charge !")
-	var charge_movement = current_movement.normalized() * CHARGE_SPEED
+	if is_charging: return;
+	if is_rebounding: return;
+	var charge_movement := current_movement.normalized() * CHARGE_SPEED
 	charge_movement.y = 0
-	print(charge_movement)
 	current_movement = charge_movement
 	ACCELERATION = 0
+	is_charging = true
+	
 	await get_tree().create_timer(0.1).timeout
+	
+	is_charging = false
 	ACCELERATION = BASE_ACCELERATION
+	
+func handle_body_entered(body: Node3D):
+	if body.get_collision_layer_value(3) and is_charging:
+		print("wow")
+		is_charging = false
+		ACCELERATION = BASE_ACCELERATION
+		var rebound_movement := position - body.position
+		rebound_movement = rebound_movement.normalized() * REBOUND_SPEED
+		current_movement = rebound_movement
+		ACCELERATION = 0
+		is_rebounding = true
+		
+		await get_tree().create_timer(0.1).timeout
+		
+		is_rebounding = false
+		ACCELERATION = BASE_ACCELERATION
+		
