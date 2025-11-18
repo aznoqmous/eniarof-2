@@ -1,0 +1,84 @@
+[gd_scene load_steps=6 format=3 uid="uid://dhw6roxou051m"]
+
+[ext_resource type="Script" uid="uid://bklmmpal6es0j" path="res://dialog_box.gd" id="1_tihiy"]
+[ext_resource type="Texture2D" uid="uid://cayjb22yhe047" path="res://sprites/ball.png" id="2_df88m"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_1bvp3"]
+viewport_path = NodePath("DialogBox/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lquwl"]
+resource_local_to_scene = true
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_1bvp3")
+
+[sub_resource type="QuadMesh" id="QuadMesh_7mycd"]
+size = Vector2(2, 2)
+
+[node name="DialogBox" type="MeshInstance3D"]
+material_override = SubResource("StandardMaterial3D_lquwl")
+mesh = SubResource("QuadMesh_7mycd")
+skeleton = NodePath("SubViewport")
+script = ExtResource("1_tihiy")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+disable_3d = true
+transparent_bg = true
+render_target_update_mode = 4
+
+[node name="Control" type="Control" parent="SubViewport"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 512.0
+offset_bottom = 512.0
+
+[node name="Container" type="Control" parent="SubViewport/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="SubViewport/Control/Container"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 46.0
+offset_top = -111.0
+offset_right = 465.0
+offset_bottom = -111.0
+grow_vertical = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SubViewport/Control/Container/MarginContainer"]
+clip_contents = false
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 48
+theme_override_font_sizes/bold_font_size = 48
+theme_override_font_sizes/bold_italics_font_size = 48
+theme_override_font_sizes/italics_font_size = 48
+theme_override_font_sizes/mono_font_size = 48
+bbcode_enabled = true
+text = "azd"
+fit_content = true
+scroll_active = false
+
+[node name="NinePatchRect" type="NinePatchRect" parent="SubViewport/Control/Container/MarginContainer/RichTextLabel"]
+modulate = Color(0.25390625, 0.25390625, 0.25390625, 1)
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -82.0
+offset_top = -83.0
+offset_right = 82.0
+offset_bottom = 83.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_df88m")
+patch_margin_left = 116
+patch_margin_top = 119
+patch_margin_right = 111
+patch_margin_bottom = 123
