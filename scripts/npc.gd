@@ -45,10 +45,10 @@ func talk():
 	dialog_box.write_text("blabla")
 
 func live(_delta):
+	if not current_action: return;
 	if is_interactable:
 		current_movement = Vector3.ZERO
 		return;
-	if not current_action: return;
 	if main.get_time() - action_start_time > current_action.time:
 		action_index = (action_index + 1) % actions.size()
 		start_action(actions[action_index])
