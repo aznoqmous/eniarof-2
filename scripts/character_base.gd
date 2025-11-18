@@ -6,7 +6,9 @@ class_name CharacterBase extends RigidBody3D
 @export_category("Movement")
 @export var SPEED := 3.0
 @export var JUMP_SPEED := 10.0
-@export var ACCELERATION := 10.0
+@export var BASE_ACCELERATION := 10.0
+var ACCELERATION = BASE_ACCELERATION
+@export var CHARGE_SPEED := 10.0
 var current_speed := 0.0
 var current_movement := Vector3.ZERO
 
@@ -27,7 +29,18 @@ func _physics_process(_delta: float) -> void:
 func move_toward_direction(direction:Vector3, _delta: float):
 	current_movement = lerp(current_movement, direction.normalized(), _delta * ACCELERATION)
 
-func jump():
+func jump() -> void:
 	if not is_grounded: return;
 	linear_velocity += Vector3.UP * JUMP_SPEED
 	ground_ray_cast_3d.enabled = false
+	
+func charge() -> void:
+	if not is_grounded: return;
+	print("charge !")
+	var charge_movement = current_movement.normalized() * CHARGE_SPEED
+	charge_movement.y = 0
+	print(charge_movement)
+	current_movement = charge_movement
+	ACCELERATION = 0
+	await get_tree().create_timer(0.1).timeout
+	ACCELERATION = BASE_ACCELERATION

@@ -14,6 +14,7 @@ func _physics_process(_delta: float) -> void:
 	if Input.is_action_pressed("MoveLeft"): movement += Vector3.LEFT
 	if Input.is_action_pressed("MoveRight"): movement += Vector3.RIGHT
 	if Input.is_action_just_pressed("Jump"): jump()
+	if Input.is_action_just_pressed("ActionBull"): charge()
 	move_toward_direction(movement, _delta)
 	
 	super(_delta)
