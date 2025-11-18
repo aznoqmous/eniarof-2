@@ -19,7 +19,7 @@ axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
 script = ExtResource("1_0xm2m")
-JUMP_SPEED = 10.0
+JUMP_SPEED = 5.0
 GRAVITY = 0.5
 ACCELERATION = 10.0
 

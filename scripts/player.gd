@@ -20,7 +20,6 @@ func _physics_process(_delta: float) -> void:
 	if Input.is_action_pressed("MoveLeft"): movement += Vector3.LEFT
 	if Input.is_action_pressed("MoveRight"): movement += Vector3.RIGHT
 	current_movement = lerp(current_movement, movement, _delta * ACCELERATION)
-	if Input.is_action_just_pressed("Jump"): current_movement += Vector3.UP * JUMP_SPEED
-	if global_position.y > 0:
-		current_movement.y -= GRAVITY
-	linear_velocity = current_movement * SPEED
+	if Input.is_action_just_pressed("Jump"): linear_velocity += Vector3.UP * JUMP_SPEED
+	
+	linear_velocity = Vector3(current_movement.x * SPEED, linear_velocity.y, current_movement.z * SPEED)
