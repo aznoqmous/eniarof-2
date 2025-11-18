@@ -18,4 +18,3 @@ func _physics_process(_delta: float) -> void:
 	move_toward_direction(movement, _delta)
 	
 	super(_delta)
-	

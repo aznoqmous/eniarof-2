@@ -1,32 +1,52 @@
-[gd_scene load_steps=8 format=3 uid="uid://cmlhp3bgeip3e"]
+[gd_scene load_steps=11 format=3 uid="uid://cmlhp3bgeip3e"]
 
 [ext_resource type="Script" uid="uid://dlsptbxcmtms2" path="res://scripts/main.gd" id="1_h2yge"]
 [ext_resource type="Texture2D" uid="uid://cfypland4tfa0" path="res://icon.svg" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://cctudjvbp8bmj" path="res://scenes/player.tscn" id="2_h2yge"]
-[ext_resource type="PackedScene" uid="uid://crs04b65vwhy2" path="res://scenes/npc.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://dbdx5o2s0g3kf" path="res://scenes/npc.tscn" id="4_1bvp3"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_h2yge"]
 size = Vector2(12, 12)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_0xm2m"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_1bvp3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_lquwl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1bvp3"]
+albedo_color = Color(1, 0, 0, 1)
+
 [sub_resource type="Environment" id="Environment_1bvp3"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_h2yge")
 
-[node name="Player" parent="." instance=ExtResource("2_h2yge")]
-JUMP_SPEED = 5.0
+[node name="Level" type="Node3D" parent="."]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="Floor" type="StaticBody3D" parent="Level"]
 collision_mask = 3
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/Floor"]
 mesh = SubResource("PlaneMesh_h2yge")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Floor"]
 shape = SubResource("WorldBoundaryShape3D_0xm2m")
+
+[node name="Cube" type="StaticBody3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, 0)
+collision_layer = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Cube"]
+shape = SubResource("BoxShape3D_1bvp3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/Cube"]
+mesh = SubResource("BoxMesh_lquwl")
+surface_material_override/0 = SubResource("StandardMaterial3D_1bvp3")
+
+[node name="Player" parent="." instance=ExtResource("2_h2yge")]
+JUMP_SPEED = 5.0
 
 [node name="Foliage" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.198501, 0, 0)
