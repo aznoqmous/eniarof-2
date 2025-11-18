@@ -25,3 +25,19 @@ func _physics_process(_delta: float) -> void:
 	move_toward_direction(movement, _delta)
 	
 	super(_delta)
+
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if is_charging and not is_rebounding:
+		print("wow")
+		ACCELERATION = BASE_ACCELERATION
+		var rebound_movement := position - body.position
+		rebound_movement = rebound_movement.normalized() * REBOUND_SPEED
+		current_movement = rebound_movement
+		ACCELERATION = 0
+		is_rebounding = true
+		
+		await get_tree().create_timer(0.1).timeout
+		
+		is_rebounding = false
+		ACCELERATION = BASE_ACCELERATION
