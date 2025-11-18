@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmlhp3bgeip3e"]
+[gd_scene load_steps=8 format=3 uid="uid://cmlhp3bgeip3e"]
 
 [ext_resource type="Script" uid="uid://dlsptbxcmtms2" path="res://scripts/main.gd" id="1_h2yge"]
 [ext_resource type="Texture2D" uid="uid://cfypland4tfa0" path="res://icon.svg" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://cctudjvbp8bmj" path="res://scenes/player.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://crs04b65vwhy2" path="res://scenes/npc.tscn" id="4_1bvp3"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_h2yge"]
 size = Vector2(12, 12)
@@ -15,6 +16,7 @@ size = Vector2(12, 12)
 script = ExtResource("1_h2yge")
 
 [node name="Player" parent="." instance=ExtResource("2_h2yge")]
+JUMP_SPEED = 5.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 collision_mask = 3
@@ -35,3 +37,11 @@ texture = ExtResource("1_ig7tw")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_1bvp3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(0.14634205, -0.73774934, 0.6590219, 0, 0.66619414, 0.7457784, -0.98923403, -0.10913874, 0.09749222, 3.122682, 2.3306007, 2.4698005)
+
+[node name="NPC" parent="." instance=ExtResource("4_1bvp3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 4)
+
+[editable path="NPC"]

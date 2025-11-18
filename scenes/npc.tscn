@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://crs04b65vwhy2"]
+
+[ext_resource type="Script" uid="uid://2loacjav5gt1" path="res://scripts/npc.gd" id="1_abqhh"]
+[ext_resource type="Texture2D" uid="uid://ptpg2b08b5jr" path="res://sprites/peer.png" id="2_rv78h"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_7n8xq"]
+
+[node name="NPC" type="RigidBody3D"]
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+script = ExtResource("1_abqhh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9992622, 0)
+shape = SubResource("CylinderShape3D_7n8xq")
+
+[node name="SpriteContainer" type="Node3D" parent="."]
+
+[node name="Sprite3D" type="Sprite3D" parent="SpriteContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9416977, 0)
+modulate = Color(0.515625, 1, 0.52319336, 1)
+texture = ExtResource("2_rv78h")
+
+[node name="GroundRayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1404779, 0)
+target_position = Vector3(0, -0.2, 0)

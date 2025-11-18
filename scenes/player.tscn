@@ -12,9 +12,6 @@ axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
 script = ExtResource("1_g2els")
-JUMP_SPEED = 10.0
-GRAVITY = 0.5
-ACCELERATION = 10.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9992622, 0)
