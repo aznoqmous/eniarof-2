@@ -24,7 +24,7 @@ species_resource = Array[ExtResource("3_qhqgy")]([ExtResource("4_tuyoq"), ExtRes
 max_stamina = 10.0
 
 [node name="Camera3D" type="Camera3D" parent="." index="4"]
-transform = Transform3D(1, 0, 0, 0, 0.8958049, 0.44444758, 0, -0.44444758, 0.8958049, 0, 6.037996, 6.9111423)
+transform = Transform3D(1, 0, 0, 0, 0.553566, 0.83280534, 0, -0.83280534, 0.553566, 0, 7.037996, 4.9111423)
 
 [node name="VisualRayCast3D" type="RayCast3D" parent="Camera3D" index="0"]
 target_position = Vector3(0, 0, -10)
