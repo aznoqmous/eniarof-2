@@ -43,6 +43,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1404779, 0)
 target_position = Vector3(0, -0.2, 0)
 
 [node name="ChargeReboundArea3D" type="Area3D" parent="."]
+collision_mask = 13
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="ChargeReboundArea3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0675049, 0)

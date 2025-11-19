@@ -41,6 +41,8 @@ func _ready():
 			register_action(SpeciesResource.ActionType.Tongue)
 			lose_stamina()
 	)
+	charge_rebound_area_3d.body_entered.connect(handle_foliage_charge)
+
 
 func _process(delta: float) -> void:
 	super(delta)
@@ -51,7 +53,7 @@ func _process(delta: float) -> void:
 	
 	if visual_ray_cast_3d.is_colliding():
 		var foliage := visual_ray_cast_3d.get_collider() as Foliage
-		foliage.hide = true
+		foliage.is_hidden = true
 		
 func _physics_process(delta: float) -> void:
 	var movement := Vector3.ZERO
@@ -63,7 +65,9 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Jump"): jump()
 	if Input.is_action_just_pressed("ActionBull"): charge()
 	if Input.is_action_just_pressed("ActionTongue"): tongue(last_input_movement)
-	move_toward_direction(movement, delta)
+	
+	var grounded_ratio = 1.0 if is_grounded or charge_rebound_area_3d.get_overlapping_bodies().size() <= 0.0 else 0.0
+	move_toward_direction(movement * grounded_ratio, delta)
 	
 	super(delta)
 
@@ -107,3 +111,8 @@ func update_modifiers():
 				CHARGE_MODIFIER = s.modifiers[s.current_level]
 			SpeciesResource.ActionType.Tongue:
 				TONGUE_MODIFIER = s.modifiers[s.current_level]
+
+func handle_foliage_charge(foliage: RigidFoliage):
+	if not is_charging: return;
+	if foliage.charge_breakable and foliage.charge_breakable_level <= species[SpeciesResource.ActionType.Charge].current_level:
+		foliage.break_self()

@@ -1,18 +1,18 @@
-[gd_scene load_steps=26 format=3 uid="uid://cmlhp3bgeip3e"]
+[gd_scene load_steps=24 format=3 uid="uid://cmlhp3bgeip3e"]
 
 [ext_resource type="Script" uid="uid://dlsptbxcmtms2" path="res://scripts/main.gd" id="1_h2yge"]
-[ext_resource type="Texture2D" uid="uid://cfypland4tfa0" path="res://icon.svg" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://d2jcxmqkru15e" path="res://scenes/player.tscn" id="2_h2yge"]
 [ext_resource type="Texture2D" uid="uid://qp556mhmny4v" path="res://assets/sprites/clairière_tileable.jpg" id="2_kek77"]
-[ext_resource type="Script" uid="uid://dd3c68xr0c4da" path="res://scripts/foliage.gd" id="3_5vw27"]
 [ext_resource type="Texture2D" uid="uid://b6fmhq68o82ga" path="res://assets/sprites/belier_v3_tileable.jpg" id="3_kek77"]
 [ext_resource type="PackedScene" uid="uid://crs04b65vwhy2" path="res://scenes/npc.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://c1nv2b80us7gx" path="res://scenes/foliage.tscn" id="4_efxa6"]
 [ext_resource type="Script" uid="uid://bsjxs0qm4pghh" path="res://scripts/npc_action_resource.gd" id="5_7mycd"]
 [ext_resource type="Script" uid="uid://1eqrfby7r8i4" path="res://scripts/directional_light_3d.gd" id="6_ycdy4"]
 [ext_resource type="Resource" uid="uid://cq0skdj7me8wq" path="res://resources/npc_actions/tongue.tres" id="10_4c57u"]
 [ext_resource type="Resource" uid="uid://c6jb78bykgjlj" path="res://resources/npc_actions/jump.tres" id="10_efxa6"]
 [ext_resource type="Resource" uid="uid://cwdv7j5781076" path="res://resources/npc_actions/charge.tres" id="11_dg77c"]
 [ext_resource type="Script" uid="uid://dnlxmm83vk1pd" path="res://scripts/spend_night_canvas_layer.gd" id="12_dg77c"]
+[ext_resource type="PackedScene" uid="uid://da84dcpolgi8x" path="res://scenes/rigid_foliage.tscn" id="12_ycdy4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_efxa6"]
 albedo_texture = ExtResource("2_kek77")
@@ -34,9 +34,6 @@ size = Vector3(100, 1, 100)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dg77c"]
 size = Vector3(100, 1, 100)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_5vw27"]
-size = Vector3(1, 12, 1)
 
 [sub_resource type="Environment" id="Environment_1bvp3"]
 
@@ -93,26 +90,15 @@ shape = SubResource("BoxShape3D_4c57u")
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -2.768567, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Level/FloorBélier"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07971573, 0, -0.0020866464)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07971572, 0, -0.06996632)
 material_override = SubResource("StandardMaterial3D_w48qg")
 mesh = SubResource("BoxMesh_efxa6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level/FloorBélier"]
 shape = SubResource("BoxShape3D_dg77c")
 
-[node name="Foliage" type="Area3D" parent="."]
+[node name="Foliage" parent="." instance=ExtResource("4_efxa6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.198501, -2.268567, 0)
-collision_layer = 8
-collision_mask = 0
-script = ExtResource("3_5vw27")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Foliage"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
-shape = SubResource("BoxShape3D_5vw27")
-
-[node name="Sprite3D" type="Sprite3D" parent="Foliage"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-texture = ExtResource("1_ig7tw")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_1bvp3")
@@ -122,7 +108,7 @@ transform = Transform3D(-3.2531837e-08, -0.6679105, 0.7442416, -2.9195299e-08, 0
 script = ExtResource("6_ycdy4")
 
 [node name="Player" parent="." instance=ExtResource("2_h2yge")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.056534, 1.201756, -4.4315796)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.532275, -2.2183847, 2.0943203)
 
 [node name="NPC" parent="." instance=ExtResource("4_1bvp3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.689857, 0.8256235, -5.783312)
@@ -131,9 +117,11 @@ MAX_TONGUE_DISTANCE = 5
 JUMP_MODIFIER = 0.5
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9621398, -2.2569203, 4.123581)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.523931, -2.2569194, -7.9766836)
 collision_layer = 4
 collision_mask = 7
+axis_lock_angular_x = true
+axis_lock_angular_z = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4883533, 0)
@@ -215,3 +203,6 @@ offset_bottom = -32.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Ok bruh"
+
+[node name="RigidFoliage" parent="." instance=ExtResource("12_ycdy4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.7373409, 0)
