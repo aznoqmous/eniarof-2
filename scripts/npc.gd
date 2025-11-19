@@ -22,6 +22,7 @@ func _ready():
 	if actions.size(): start_action(actions[0])
 
 func _process(delta: float) -> void:
+	super(delta)
 	interact_label.scale = lerp(interact_label.scale, Vector3.ONE if is_interactable and not dialog_box.visible else Vector3.ZERO, delta * 10.0)
 
 func _physics_process(delta: float) -> void:

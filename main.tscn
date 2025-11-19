@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cmlhp3bgeip3e"]
+[gd_scene load_steps=14 format=3 uid="uid://cmlhp3bgeip3e"]
 
 [ext_resource type="Script" uid="uid://dlsptbxcmtms2" path="res://scripts/main.gd" id="1_h2yge"]
 [ext_resource type="Texture2D" uid="uid://cfypland4tfa0" path="res://icon.svg" id="1_ig7tw"]
@@ -7,16 +7,22 @@
 [ext_resource type="PackedScene" uid="uid://crs04b65vwhy2" path="res://scenes/npc.tscn" id="4_1bvp3"]
 [ext_resource type="Script" uid="uid://bsjxs0qm4pghh" path="res://scripts/npc_action_resource.gd" id="5_7mycd"]
 [ext_resource type="Resource" uid="uid://bcxfy8qv77y5k" path="res://resources/npc_actions/idle.tres" id="6_272bh"]
-[ext_resource type="Resource" uid="uid://r83tbw00lixe" path="res://resources/npc_actions/random_move.tres" id="7_272bh"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_272bh"]
 height = 0.9897461
 radius = 5.9907227
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_272bh"]
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_5vw27"]
 size = Vector3(1, 12, 1)
 
 [sub_resource type="Environment" id="Environment_1bvp3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_272bh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5vw27"]
+albedo_color = Color(1, 0, 0, 1)
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_h2yge")
@@ -35,6 +41,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.51031494, 0)
 radius = 5.9682617
 height = 0.9793701
 sides = 32
+material = SubResource("StandardMaterial3D_272bh")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8888535, 0, 2.9258537)
@@ -75,4 +82,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34678793, 0.3280486, 1.3915
 
 [node name="NPC" parent="." instance=ExtResource("4_1bvp3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5655332, 0.32804835, 3.9615512)
-actions = Array[ExtResource("5_7mycd")]([ExtResource("6_272bh"), ExtResource("7_272bh")])
+actions = Array[ExtResource("5_7mycd")]([ExtResource("6_272bh")])
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9621398, 0, 4.123581)
+collision_layer = 4
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4883533, 0)
+shape = SubResource("BoxShape3D_272bh")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4883533, 0)
+material = SubResource("StandardMaterial3D_5vw27")

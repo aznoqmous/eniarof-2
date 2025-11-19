@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqnonb3eyynto"]
+[gd_scene load_steps=8 format=3 uid="uid://dqnonb3eyynto"]
 
 [ext_resource type="Script" uid="uid://ducp6unuvdagk" path="res://scripts/character_base.gd" id="1_mx1f8"]
 [ext_resource type="Texture2D" uid="uid://ptpg2b08b5jr" path="res://sprites/peer.png" id="2_n45ic"]
@@ -9,6 +9,18 @@ size = Vector3(1, 2.1558228, 0.45410156)
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_f35ln"]
 height = 1.2956543
 radius = 0.59277344
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n45ic"]
+albedo_color = Color(1, 0.578125, 0.9835205, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_n45ic"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_n45ic")
+size = Vector2(0.1, 2)
+center_offset = Vector3(0, 0, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_n45ic"]
+radius = 0.100671
 
 [node name="CharacterBase" type="RigidBody3D"]
 axis_lock_angular_x = true
@@ -35,3 +47,19 @@ target_position = Vector3(0, -0.2, 0)
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="ChargeReboundArea3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0675049, 0)
 shape = SubResource("CylinderShape3D_f35ln")
+
+[node name="TongueContainer" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8136692, 0)
+
+[node name="TongueMesh" type="MeshInstance3D" parent="TongueContainer"]
+mesh = SubResource("PlaneMesh_n45ic")
+
+[node name="TongueArea3D" type="Area3D" parent="TongueContainer"]
+collision_layer = 0
+collision_mask = 4
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TongueContainer/TongueArea3D"]
+shape = SubResource("SphereShape3D_n45ic")
+
+[connection signal="body_entered" from="TongueContainer/TongueArea3D" to="." method="_on_tongue_area_3d_body_entered"]
