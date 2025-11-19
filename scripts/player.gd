@@ -23,16 +23,19 @@ func _ready():
 	update_modifiers()
 	
 	jumped.connect(func():
-		register_action(SpeciesResource.ActionType.Jump)
-		lose_stamina()
+		if current_stamina > 0:
+			register_action(SpeciesResource.ActionType.Jump)
+			lose_stamina()
 	)
 	charged.connect(func():
-		register_action(SpeciesResource.ActionType.Charge)
-		lose_stamina()
+		if current_stamina > 0:
+			register_action(SpeciesResource.ActionType.Charge)
+			lose_stamina()
 	)
 	tongued.connect(func():
-		register_action(SpeciesResource.ActionType.Tongue)
-		lose_stamina()
+		if current_stamina > 0:
+			register_action(SpeciesResource.ActionType.Tongue)
+			lose_stamina()
 	)
 
 func _process(delta: float) -> void:
