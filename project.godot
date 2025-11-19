@@ -8,12 +8,24 @@
 
 config_version=5
 
+[Fmod]
+
+General/banks_path="res://assets/soundbanks/Desktop"
+
 [application]
 
 config/name="hiawatha"
 run/main_scene="uid://cmlhp3bgeip3e"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+FmodManager="*res://addons/fmod/FmodManager.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/fmod/plugin.cfg")
 
 [input]
 

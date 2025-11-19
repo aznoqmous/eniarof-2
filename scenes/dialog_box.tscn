@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dhw6roxou051m"]
 
 [ext_resource type="Script" uid="uid://bklmmpal6es0j" path="res://dialog_box.gd" id="1_tihiy"]
-[ext_resource type="Texture2D" uid="uid://cayjb22yhe047" path="res://sprites/ball.png" id="2_df88m"]
+[ext_resource type="Texture2D" uid="uid://cayjb22yhe047" path="res://assets/sprites/ball.png" id="2_df88m"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_1bvp3"]
 viewport_path = NodePath("SubViewport")

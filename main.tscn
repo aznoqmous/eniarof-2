@@ -27,6 +27,9 @@ albedo_color = Color(1, 0, 0, 1)
 [node name="Main" type="Node3D"]
 script = ExtResource("1_h2yge")
 
+[node name="FmodBankLoader" type="FmodBankLoader" parent="."]
+bank_paths = ["res://assets/soundbanks/Desktop/Master.strings.bank", "res://assets/soundbanks/Desktop/Master.bank"]
+
 [node name="Level" type="Node3D" parent="."]
 
 [node name="Floor" type="StaticBody3D" parent="Level"]
