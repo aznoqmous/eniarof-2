@@ -1,7 +1,7 @@
 class_name Player extends CharacterBase
 
 @onready var camera_3d: Camera3D = $Camera3D
-@onready var ray_cast_3d: RayCast3D = $Camera3D/RayCast3D
+@onready var visual_ray_cast_3d: RayCast3D = $Camera3D/VisualRayCast3D
 
 var can_talk_to: NPC
 
