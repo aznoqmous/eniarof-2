@@ -19,11 +19,6 @@ axis_lock_angular_z = true
 contact_monitor = true
 max_contacts_reported = 5
 script = ExtResource("1_g2els")
-SPEED = null
-JUMP_SPEED = null
-BASE_ACCELERATION = null
-CHARGE_SPEED = null
-REBOUND_SPEED = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.076197, 0)

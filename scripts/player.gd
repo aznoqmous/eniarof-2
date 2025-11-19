@@ -10,8 +10,8 @@ func _process(_delta: float) -> void:
 	if(can_talk_to and Input.is_action_just_pressed("Interaction")):
 		can_talk_to.talk()
 	
-	if ray_cast_3d.is_colliding():
-		var foliage := ray_cast_3d.get_collider() as Foliage
+	if visual_ray_cast_3d.is_colliding():
+		var foliage := visual_ray_cast_3d.get_collider() as Foliage
 		foliage.hide = true
 		
 func _physics_process(_delta: float) -> void:
