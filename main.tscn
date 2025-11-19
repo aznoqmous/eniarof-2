@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cmlhp3bgeip3e"]
+[gd_scene load_steps=25 format=3 uid="uid://cmlhp3bgeip3e"]
 
 [ext_resource type="Script" uid="uid://dlsptbxcmtms2" path="res://scripts/main.gd" id="1_h2yge"]
 [ext_resource type="Texture2D" uid="uid://cfypland4tfa0" path="res://icon.svg" id="1_ig7tw"]
@@ -11,6 +11,7 @@
 [ext_resource type="Resource" uid="uid://cq0skdj7me8wq" path="res://resources/npc_actions/tongue.tres" id="10_4c57u"]
 [ext_resource type="Resource" uid="uid://c6jb78bykgjlj" path="res://resources/npc_actions/jump.tres" id="10_efxa6"]
 [ext_resource type="Resource" uid="uid://cwdv7j5781076" path="res://resources/npc_actions/charge.tres" id="11_dg77c"]
+[ext_resource type="Script" uid="uid://dnlxmm83vk1pd" path="res://scripts/spend_night_canvas_layer.gd" id="12_dg77c"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_efxa6"]
 albedo_texture = ExtResource("2_kek77")
@@ -46,6 +47,18 @@ detail_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5vw27"]
 albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dg77c"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_h2yge")
@@ -128,3 +141,75 @@ shape = SubResource("BoxShape3D_272bh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4883533, 0)
 material_override = SubResource("StandardMaterial3D_vivmo")
 material = SubResource("StandardMaterial3D_5vw27")
+
+[node name="SpendNightCanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("12_dg77c")
+
+[node name="Control" type="Control" parent="SpendNightCanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SpendNightButton" type="Button" parent="SpendNightCanvasLayer/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -54.0
+offset_top = -65.0
+offset_right = 54.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "GO TO SLEEP"
+
+[node name="NightOverlayControl" type="Control" parent="SpendNightCanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="SpendNightCanvasLayer/NightOverlayControl"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dg77c")
+
+[node name="Label" type="Label" parent="SpendNightCanvasLayer/NightOverlayControl"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -21.5
+offset_top = 41.0
+offset_right = 21.5
+offset_bottom = 64.0
+grow_horizontal = 2
+text = "Day 2"
+
+[node name="NightConfirmButton" type="Button" parent="SpendNightCanvasLayer/NightOverlayControl"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -36.0
+offset_top = -63.0
+offset_right = 36.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Ok bruh"

@@ -1,5 +1,6 @@
 class_name Player extends CharacterBase
 
+@onready var main: Main = $/root/Main
 @onready var camera_3d: Camera3D = $Camera3D
 @onready var visual_ray_cast_3d: RayCast3D = $Camera3D/VisualRayCast3D
 
@@ -71,7 +72,9 @@ func reset_stamina():
 
 func lose_stamina(value=1.0):
 	current_stamina = max(0, current_stamina - value)
-	if current_stamina <= 0: force_modifiers_level(0)
+	if current_stamina <= 0:
+		main.spend_night_canvas_layer.spend_night_button.set_visible(true)
+		force_modifiers_level(0)
 	
 func register_action(action: SpeciesResource.ActionType, count:=1):
 	species[action].action_count += count
