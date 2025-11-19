@@ -17,6 +17,7 @@ var action_direction: Vector3
 var max_action_distance = 1
 
 func _ready():
+	starting_position = global_position
 	dialog_box.set_visible(false)
 	interact_label.scale = Vector3.ZERO
 	if actions.size(): start_action(actions[0])
@@ -45,7 +46,7 @@ func talk():
 	dialog_box.set_visible(true)
 	dialog_box.write_text("blabla")
 
-func live(_delta):
+func live(delta):
 	if not current_action: return;
 	if is_interactable:
 		current_movement = Vector3.ZERO
@@ -57,15 +58,16 @@ func live(_delta):
 	match current_action.action:
 		NPCActionResource.Action.Idle: pass
 		NPCActionResource.Action.Move:
-			move_toward_direction(Vector3(current_action.direction.x, 0, current_action.direction.y), _delta)
-			pass
-		NPCActionResource.Action.RandomMove:
-			move_toward_direction(Vector3(action_direction.x, 0, action_direction.z), _delta)
+			move_toward_direction(Vector3(action_direction.x, 0, action_direction.z), delta)
 			pass
 		NPCActionResource.Action.Jump:
-			
-			pass
-		NPCActionResource.Action.Charge: pass
+			if is_grounded:
+				move_toward_direction(Vector3.ZERO, delta)
+		NPCActionResource.Action.Charge:
+			move_toward_direction(Vector3.ZERO, delta)
+		NPCActionResource.Action.Tongue:
+			move_toward_direction(Vector3.ZERO, delta)
+
 		
 func start_action(action_resource: NPCActionResource):
 	current_action = action_resource
@@ -74,11 +76,21 @@ func start_action(action_resource: NPCActionResource):
 		NPCActionResource.Action.Idle:
 			current_movement = Vector3.ZERO
 		NPCActionResource.Action.Jump:
+			update_action_direction()
+			current_movement = action_direction
 			jump()
 		NPCActionResource.Action.Charge:
+			update_action_direction()
+			current_movement = action_direction
 			charge()
-		NPCActionResource.Action.RandomMove:
-			action_direction = Vector3.LEFT.rotated(Vector3.UP, randf() * TAU)
-			if global_position.distance_to(starting_position) > max_action_distance:
-				action_direction = (starting_position - global_position).normalized()
+		NPCActionResource.Action.Tongue:
+			update_action_direction()
+			tongue(action_direction)
+		NPCActionResource.Action.Move:
+			update_action_direction()
 			pass
+
+func update_action_direction():
+	action_direction = Vector3.LEFT.rotated(Vector3.UP, randf() * TAU)
+	if global_position.distance_to(starting_position) > current_action.max_start_position_distance:
+		action_direction = (starting_position - global_position).normalized().rotated(Vector3.UP, randf_range(-1, 1) * PI / 5.0)

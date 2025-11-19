@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="NPCActionResource" load_steps=2 format=3 uid="uid://r83tbw00lixe"]
-
-[ext_resource type="Script" uid="uid://bsjxs0qm4pghh" path="res://scripts/npc_action_resource.gd" id="1_1d8ar"]
-
-[resource]
-script = ExtResource("1_1d8ar")
-time = 1
-action = 4
-metadata/_custom_type_script = "uid://bsjxs0qm4pghh"

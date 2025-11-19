@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://crs04b65vwhy2"]
+[gd_scene load_steps=10 format=3 uid="uid://crs04b65vwhy2"]
 
 [ext_resource type="PackedScene" uid="uid://dqnonb3eyynto" path="res://scenes/character_base.tscn" id="1_abqhh"]
 [ext_resource type="Script" uid="uid://jv4kbdyptpua" path="res://scripts/npc.gd" id="2_7n8xq"]
@@ -17,6 +17,15 @@ resource_local_to_scene = true
 transparency = 1
 shading_mode = 0
 albedo_texture = SubResource("ViewportTexture_rv78h")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n45ic"]
+albedo_color = Color(1, 0.578125, 0.9835205, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7n8xq"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_n45ic")
+size = Vector2(0.1, 2)
+center_offset = Vector3(0, 0, 1)
 
 [node name="NPC" instance=ExtResource("1_abqhh")]
 collision_layer = 5
@@ -41,6 +50,12 @@ material_override = SubResource("StandardMaterial3D_7n8xq")
 [node name="InteractLabel" type="Label3D" parent="." index="6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.053975, 0)
 text = "[E] Talk"
+
+[node name="TongueMesh" parent="TongueContainer" index="0"]
+mesh = SubResource("PlaneMesh_7n8xq")
+
+[node name="TongueArea3D" parent="TongueContainer" index="1"]
+collision_mask = 0
 
 [connection signal="body_entered" from="InteractionZone" to="." method="_on_interaction_zone_body_entered"]
 [connection signal="body_exited" from="InteractionZone" to="." method="_on_interaction_zone_body_exited"]
