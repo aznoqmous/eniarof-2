@@ -5,6 +5,36 @@ class_name Player extends CharacterBase
 
 var can_talk_to: NPC
 
+@export_category("Species")
+@export var species_resource : Array[SpeciesResource] # reference, not to be modified in code
+var actions : Array[SpeciesResource.ActionType]
+var species : Dictionary[SpeciesResource.ActionType, SpeciesResource]
+
+@export_category("Stamina")
+@export var max_stamina = 10.0
+var current_stamina = 0.0
+
+func _ready():
+	super()
+	for s in species_resource:
+		species[s.action] = s.duplicate()
+	
+	reset_stamina()
+	update_modifiers()
+	
+	jumped.connect(func():
+		register_action(SpeciesResource.ActionType.Jump)
+		lose_stamina()
+	)
+	charged.connect(func():
+		register_action(SpeciesResource.ActionType.Charge)
+		lose_stamina()
+	)
+	tongued.connect(func():
+		register_action(SpeciesResource.ActionType.Tongue)
+		lose_stamina()
+	)
+
 func _process(delta: float) -> void:
 	super(delta)
 	
@@ -28,3 +58,42 @@ func _physics_process(delta: float) -> void:
 	move_toward_direction(movement, delta)
 	
 	super(delta)
+
+func reset_stamina():
+	current_stamina = max_stamina
+
+func lose_stamina(value=1.0):
+	current_stamina = max(0, current_stamina - value)
+	if current_stamina <= 0: force_modifiers_level(0)
+	
+func register_action(action: SpeciesResource.ActionType, count:=1):
+	species[action].action_count += count
+	
+func reset_action_counts():
+	for s in species.values():
+		s.action_count = 0
+
+func get_most_performed_action() -> SpeciesResource.ActionType:
+	var actions_copy = species.values()
+	actions_copy.sort_custom(func(a,b): return a.action_count > b.action_count)
+	return actions_copy[0]
+	
+func force_modifiers_level(level=0):
+	for s in species.values():
+		match s.action:
+			SpeciesResource.ActionType.Jump:
+				JUMP_MODIFIER = s.modifiers[level]
+			SpeciesResource.ActionType.Charge:
+				CHARGE_MODIFIER = s.modifiers[level]
+			SpeciesResource.ActionType.Tongue:
+				TONGUE_MODIFIER = s.modifiers[level]
+				
+func update_modifiers():
+	for s in species.values():
+		match s.action:
+			SpeciesResource.ActionType.Jump:
+				JUMP_MODIFIER = s.modifiers[s.current_level]
+			SpeciesResource.ActionType.Charge:
+				CHARGE_MODIFIER = s.modifiers[s.current_level]
+			SpeciesResource.ActionType.Tongue:
+				TONGUE_MODIFIER = s.modifiers[s.current_level]
