@@ -62,4 +62,8 @@ monitoring = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TongueContainer/TongueArea3D"]
 shape = SubResource("SphereShape3D_n45ic")
 
+[node name="TongueRayCast" type="RayCast3D" parent="TongueContainer"]
+target_position = Vector3(0, 0, 1)
+collision_mask = 4
+
 [connection signal="body_entered" from="TongueContainer/TongueArea3D" to="." method="_on_tongue_area_3d_body_entered"]

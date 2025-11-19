@@ -7,6 +7,7 @@ class_name CharacterBase extends RigidBody3D
 @onready var tongue_container: Node3D = $TongueContainer
 @onready var tongue_mesh: MeshInstance3D = $TongueContainer/TongueMesh
 @onready var tongue_area_3d: Area3D = $TongueContainer/TongueArea3D
+@onready var tongue_ray_cast: RayCast3D = $TongueContainer/TongueRayCast
 
 @export_category("Movement")
 @export var SPEED := 3.0
@@ -26,6 +27,9 @@ var is_rebounding := false
 
 @export_category("Tongue")
 @export var MAX_TONGUE_DISTANCE := 10
+@export var tongue_guided_angle := 45.0
+var tongue_animation_duration := 0.5
+var tongue_guided_steps = 5
 var is_tonguing := false
 var tongue_length := 0.0
 var tongue_tween : Tween
@@ -93,44 +97,43 @@ func hide_tongue():
 	tongue_mesh.mesh.size.y = 0.0
 	tongue_mesh.mesh.center_offset.z = 0.0
 	
-func tongue():
+func tongue(direction):
 	if is_tonguing: return;
-		
 	is_tonguing = true
 	
 	var tongue_distance = MAX_TONGUE_DISTANCE * TONGUE_MODIFIER
-	tongue_target_position = current_movement.normalized() * tongue_distance
-	var animation_duration = tongue_target_position.length() / tongue_distance
-	tongue_container.look_at(-tongue_target_position)
 	tongue_area_3d.position = Vector3.ZERO
 	tongue_area_3d.monitoring = true
+	
+	tongue_target_position = global_position + direction.normalized() * tongue_distance
+	tongue_container.rotation.y = atan2(direction.x, direction.z)
+	
+	var start_angle = - tongue_guided_steps / 2.0
+	tongue_ray_cast.target_position.z = tongue_distance
+	for i in range(0.0, float(tongue_guided_steps)):
+		tongue_ray_cast.rotation.y = (start_angle + i) / tongue_guided_steps * deg_to_rad(tongue_guided_angle)
+		tongue_ray_cast.force_raycast_update()
+		
+		var rbody = tongue_ray_cast.get_collider() as RigidBody3D
+		if rbody:
+				tongue_target_position = rbody.global_position
+				direction = rbody.global_position - global_position
+				tongue_container.rotation.y = atan2(direction.x, direction.z)
 	
 	ACCELERATION = 0.0
 	current_movement = Vector3.ZERO
 
 	hide_tongue()
 	tongue_tween = get_tree().create_tween()
-	tongue_tween.tween_property(self, "tongue_length", 1.0, animation_duration)
+	tongue_tween.tween_property(self, "tongue_length", 1.0, tongue_animation_duration)
 	tongue_tween.finished.connect(func():
-		get_tree().create_tween().tween_property(self, "tongue_length", 0.0, animation_duration / 4.0)
+		get_tree().create_tween().tween_property(self, "tongue_length", 0.0, tongue_animation_duration / 4.0)
 		tongue_area_3d.monitoring = false
 		is_tonguing = false
 		ACCELERATION = BASE_ACCELERATION
 		
 		tongued.emit()
 	)
-	#tween.tween_property(tongue_mesh.mesh, "size:y", distance.length(), animation_duration)
-	#tween.tween_property(tongue_mesh.mesh, "center_offset:z", distance.length() / 2.0, animation_duration)
-	#tween.tween_property(tongue_area_3d, "global_position", target_position, animation_duration)
-	
-	#await get_tree().create_timer(animation_duration).timeout
-	#
-	#get_tree().create_tween().tween_property(tongue_mesh.mesh, "size:y", 0.0, animation_duration / 4.0)
-	#get_tree().create_tween().tween_property(tongue_mesh.mesh, "center_offset:z", 0.0, animation_duration / 4.0)
-#
-	#tongue_area_3d.monitoring = false
-	#is_tonguing = false
-	#ACCELERATION = BASE_ACCELERATION
 	
 func handle_charge_rebound(body: Node3D) -> void:
 	if is_charging and not is_rebounding:

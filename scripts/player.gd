@@ -5,6 +5,8 @@ class_name Player extends CharacterBase
 
 var can_talk_to: NPC
 
+var last_input_movement : Vector3 
+
 @export_category("Species")
 @export var species_resource : Array[SpeciesResource] # reference, not to be modified in code
 var actions : Array[SpeciesResource.ActionType]
@@ -12,7 +14,8 @@ var species : Dictionary[SpeciesResource.ActionType, SpeciesResource]
 
 @export_category("Stamina")
 @export var max_stamina = 10.0
-var current_stamina = 0.0
+var current_stamina := 0.0
+
 
 func _ready():
 	super()
@@ -55,9 +58,10 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("MoveBack"): movement += Vector3.BACK
 	if Input.is_action_pressed("MoveLeft"): movement += Vector3.LEFT
 	if Input.is_action_pressed("MoveRight"): movement += Vector3.RIGHT
+	if movement != Vector3.ZERO: last_input_movement = movement
 	if Input.is_action_just_pressed("Jump"): jump()
 	if Input.is_action_just_pressed("ActionBull"): charge()
-	if Input.is_action_just_pressed("ActionTongue"): tongue()
+	if Input.is_action_just_pressed("ActionTongue"): tongue(last_input_movement)
 	move_toward_direction(movement, delta)
 	
 	super(delta)

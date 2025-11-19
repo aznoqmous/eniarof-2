@@ -6,5 +6,5 @@
 script = ExtResource("1_ivut0")
 species_name = "Anteater"
 action = 2
-modifiers = Array[float]([0.1, 0.5, 1.0])
+modifiers = Array[float]([1.0, 1.0, 1.0])
 metadata/_custom_type_script = "uid://bkknh0a1kjpuu"
