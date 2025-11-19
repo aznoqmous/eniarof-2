@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cmlhp3bgeip3e"]
+[gd_scene load_steps=26 format=3 uid="uid://cmlhp3bgeip3e"]
 
 [ext_resource type="Script" uid="uid://dlsptbxcmtms2" path="res://scripts/main.gd" id="1_h2yge"]
 [ext_resource type="Texture2D" uid="uid://cfypland4tfa0" path="res://icon.svg" id="1_ig7tw"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b6fmhq68o82ga" path="res://assets/sprites/belier_v3_tileable.jpg" id="3_kek77"]
 [ext_resource type="PackedScene" uid="uid://crs04b65vwhy2" path="res://scenes/npc.tscn" id="4_1bvp3"]
 [ext_resource type="Script" uid="uid://bsjxs0qm4pghh" path="res://scripts/npc_action_resource.gd" id="5_7mycd"]
+[ext_resource type="Script" uid="uid://1eqrfby7r8i4" path="res://scripts/directional_light_3d.gd" id="6_ycdy4"]
 [ext_resource type="Resource" uid="uid://cq0skdj7me8wq" path="res://resources/npc_actions/tongue.tres" id="10_4c57u"]
 [ext_resource type="Resource" uid="uid://c6jb78bykgjlj" path="res://resources/npc_actions/jump.tres" id="10_efxa6"]
 [ext_resource type="Resource" uid="uid://cwdv7j5781076" path="res://resources/npc_actions/charge.tres" id="11_dg77c"]
@@ -117,7 +118,8 @@ texture = ExtResource("1_ig7tw")
 environment = SubResource("Environment_1bvp3")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
-transform = Transform3D(0.113880076, -0.15570024, 0.981218, -0.09190931, 0.9817567, 0.16645277, -0.98923403, -0.109138735, 0.09749221, 3.122682, 2.3306007, 2.4698005)
+transform = Transform3D(-3.2531837e-08, -0.6679105, 0.7442416, -2.9195299e-08, 0.7442416, 0.6679105, -1, 0, -4.3711392e-08, 3.122682, 2.3306007, 2.4698005)
+script = ExtResource("6_ycdy4")
 
 [node name="Player" parent="." instance=ExtResource("2_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.056534, 1.201756, -4.4315796)
