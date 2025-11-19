@@ -2,6 +2,7 @@ class_name CharacterBase extends RigidBody3D
 
 @onready var sprite_container: Node3D = $SpriteContainer
 @onready var ground_ray_cast_3d: RayCast3D = $GroundRayCast3D
+@onready var charge_rebound_area_3d: Area3D = $ChargeReboundArea3D
 
 @export_category("Movement")
 @export var SPEED := 3.0
@@ -19,6 +20,9 @@ var is_rebounding:= false
 var is_grounded := false:
 	get: return ground_ray_cast_3d.is_colliding()
 
+func _ready() -> void:
+	charge_rebound_area_3d.body_entered.connect(handle_charge_rebound)
+	
 func _process(_delta: float) -> void:
 	sprite_container.rotation.y = lerp(sprite_container.rotation.y, PI if current_movement.x < 0 else 0.0, _delta * 5.0)
 
@@ -52,3 +56,15 @@ func charge() -> void:
 	
 	is_charging = false
 	ACCELERATION = BASE_ACCELERATION
+
+func handle_charge_rebound(body: Node3D) -> void:
+	if is_charging and not is_rebounding:
+		ACCELERATION = BASE_ACCELERATION
+		var rebound_movement := position - body.position
+		rebound_movement = rebound_movement.normalized() * REBOUND_SPEED
+		current_movement = rebound_movement
+		ACCELERATION = 0
+		is_rebounding = true
+		await get_tree().create_timer(0.1).timeout
+		is_rebounding = false
+		ACCELERATION = BASE_ACCELERATION
