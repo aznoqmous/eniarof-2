@@ -31,6 +31,11 @@ var tongue_length := 0.0
 var tongue_tween : Tween
 var tongue_target_position : Vector3
 
+@export_category("Modifiers")
+@export var JUMP_MODIFIER = 1.0
+@export var CHARGE_MODIFIER = 1.0
+@export var TONGUE_MODIFIER = 1.0
+
 var is_grounded := false:
 	get: return ground_ray_cast_3d.is_colliding()
 
@@ -62,15 +67,16 @@ func jump() -> void:
 	if is_charging: return;
 	if is_rebounding: return;
 	if is_tonguing: return;
-	linear_velocity += Vector3.UP * JUMP_SPEED
+	linear_velocity += Vector3.UP * JUMP_SPEED * JUMP_MODIFIER
 	ground_ray_cast_3d.enabled = false
+	jumped.emit()
 	
 func charge() -> void:
 	if not is_grounded: return;
 	if is_charging: return;
 	if is_rebounding: return;
 	if is_tonguing: return;
-	var charge_movement := current_movement.normalized() * CHARGE_SPEED
+	var charge_movement : Vector3 = current_movement.normalized() * CHARGE_SPEED * CHARGE_MODIFIER
 	charge_movement.y = 0
 	current_movement = charge_movement
 	ACCELERATION = 0
@@ -80,6 +86,8 @@ func charge() -> void:
 	
 	is_charging = false
 	ACCELERATION = BASE_ACCELERATION
+	
+	charged.emit()
 
 func hide_tongue():
 	tongue_mesh.mesh.size.y = 0.0
@@ -87,11 +95,12 @@ func hide_tongue():
 	
 func tongue():
 	if is_tonguing: return;
-	
+		
 	is_tonguing = true
 	
-	tongue_target_position = current_movement.normalized() * MAX_TONGUE_DISTANCE
-	var animation_duration = tongue_target_position.length() * 0.1
+	var tongue_distance = MAX_TONGUE_DISTANCE * TONGUE_MODIFIER
+	tongue_target_position = current_movement.normalized() * tongue_distance
+	var animation_duration = tongue_target_position.length() / tongue_distance
 	tongue_container.look_at(-tongue_target_position)
 	tongue_area_3d.position = Vector3.ZERO
 	tongue_area_3d.monitoring = true
@@ -107,6 +116,8 @@ func tongue():
 		tongue_area_3d.monitoring = false
 		is_tonguing = false
 		ACCELERATION = BASE_ACCELERATION
+		
+		tongued.emit()
 	)
 	#tween.tween_property(tongue_mesh.mesh, "size:y", distance.length(), animation_duration)
 	#tween.tween_property(tongue_mesh.mesh, "center_offset:z", distance.length() / 2.0, animation_duration)
@@ -139,3 +150,7 @@ func _on_tongue_area_3d_body_entered(body: RigidBody3D) -> void:
 	tongue_tween.stop()
 	tongue_tween.finished.emit()
 	body.apply_central_impulse((global_position - body.global_position).normalized() * 10.0)
+
+signal jumped()
+signal charged()
+signal tongued()
