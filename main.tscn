@@ -22,6 +22,7 @@ size = Vector3(1, 12, 1)
 script = ExtResource("1_h2yge")
 
 [node name="FmodBankLoader" type="FmodBankLoader" parent="."]
+bank_paths = ["res://assets/soundbanks/Desktop/Master.strings.bank", "res://assets/soundbanks/Desktop/Master.bank"]
 
 [node name="Level" type="Node3D" parent="."]
 
