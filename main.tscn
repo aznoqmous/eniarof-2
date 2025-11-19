@@ -21,6 +21,8 @@ size = Vector3(1, 12, 1)
 [node name="Main" type="Node3D"]
 script = ExtResource("1_h2yge")
 
+[node name="FmodBankLoader" type="FmodBankLoader" parent="."]
+
 [node name="Level" type="Node3D" parent="."]
 
 [node name="Floor" type="StaticBody3D" parent="Level"]
