@@ -1,4 +1,6 @@
-[gd_scene load_steps=17 format=4 uid="uid://c7jxsig5q4dgf"]
+[gd_scene load_steps=18 format=4 uid="uid://c7jxsig5q4dgf"]
+
+[ext_resource type="Material" uid="uid://nogjss73jq2e" path="res://materials/two_side.tres" id="1_fm0g7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sdiue"]
 
@@ -150,6 +152,7 @@ data = PackedVector3Array(0.34059998, 0, 0.5621, 0.0748, 0, 0.2483, 0.0879, 0, 0
 
 [node name="part_1" type="MeshInstance3D" parent="."]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0.06612825, 0)
+material_override = ExtResource("1_fm0g7")
 mesh = SubResource("ArrayMesh_jloaf")
 skeleton = NodePath("")
 
@@ -160,6 +163,7 @@ shape = SubResource("ConcavePolygonShape3D_jloaf")
 
 [node name="part_2" type="MeshInstance3D" parent="."]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0.06612825, 0)
+material_override = ExtResource("1_fm0g7")
 mesh = SubResource("ArrayMesh_fm0g7")
 skeleton = NodePath("")
 
@@ -170,6 +174,7 @@ shape = SubResource("ConcavePolygonShape3D_fm0g7")
 
 [node name="part_4" type="MeshInstance3D" parent="."]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
+material_override = ExtResource("1_fm0g7")
 mesh = SubResource("ArrayMesh_k0e5p")
 skeleton = NodePath("")
 
@@ -180,6 +185,7 @@ shape = SubResource("ConcavePolygonShape3D_k0e5p")
 
 [node name="part_3" type="MeshInstance3D" parent="."]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
+material_override = ExtResource("1_fm0g7")
 mesh = SubResource("ArrayMesh_ep8g3")
 skeleton = NodePath("")
 
