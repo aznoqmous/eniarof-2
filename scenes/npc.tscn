@@ -1,22 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://crs04b65vwhy2"]
+[gd_scene load_steps=8 format=3 uid="uid://crs04b65vwhy2"]
 
 [ext_resource type="PackedScene" uid="uid://dqnonb3eyynto" path="res://scenes/character_base.tscn" id="1_abqhh"]
 [ext_resource type="Script" uid="uid://jv4kbdyptpua" path="res://scripts/npc.gd" id="2_7n8xq"]
 [ext_resource type="Script" uid="uid://bsjxs0qm4pghh" path="res://scripts/npc_action_resource.gd" id="3_4wlns"]
-[ext_resource type="PackedScene" uid="uid://dhw6roxou051m" path="res://scenes/dialog_box.tscn" id="3_rv78h"]
+[ext_resource type="Texture2D" uid="uid://dy1j8hscy8tlj" path="res://sprites/speech-bubble.png" id="4_7n8xq"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_rv78h"]
 height = 2.152832
 radius = 1.9023438
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_rv78h"]
-viewport_path = NodePath("SubViewport")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7n8xq"]
-resource_local_to_scene = true
-transparency = 1
-shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_rv78h")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n45ic"]
 albedo_color = Color(1, 0.578125, 0.9835205, 1)
@@ -31,6 +22,7 @@ center_offset = Vector3(0, 0, 1)
 collision_layer = 5
 script = ExtResource("2_7n8xq")
 actions = Array[ExtResource("3_4wlns")]([])
+speech = ""
 
 [node name="Sprite3D" parent="SpriteContainer" index="0"]
 modulate = Color(0.6987915, 1, 0.44921875, 1)
@@ -43,13 +35,19 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0757215, 0)
 shape = SubResource("CylinderShape3D_rv78h")
 
-[node name="DialogBox" parent="." index="5" instance=ExtResource("3_rv78h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.384995, 2.4616344, 0)
-material_override = SubResource("StandardMaterial3D_7n8xq")
-
-[node name="InteractLabel" type="Label3D" parent="." index="6"]
+[node name="InteractLabel" type="Label3D" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.053975, 0)
 text = "[E] Talk"
+
+[node name="SpeechBubble" type="Sprite3D" parent="." index="6"]
+transform = Transform3D(0.61, 0, 0, 0, 0.61, 0, 0, 0, 0.61, 1.0292788, 2.2528949, 0)
+texture = ExtResource("4_7n8xq")
+
+[node name="SpeechDots" type="Label3D" parent="SpeechBubble" index="0"]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0.56638026, 0.11452266)
+modulate = Color(0, 0, 0, 1)
+text = "..."
+font_size = 256
 
 [node name="TongueMesh" parent="TongueContainer" index="0"]
 mesh = SubResource("PlaneMesh_7n8xq")

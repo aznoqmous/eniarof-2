@@ -22,7 +22,6 @@ var current_stamina := 0.0
 func _ready():
 	super()
 	
-	
 	for s in species_resource:
 		species[s.action] = s.duplicate()
 	current_species = species.values().pick_random()
@@ -61,14 +60,15 @@ func _process(delta: float) -> void:
 		
 func _physics_process(delta: float) -> void:
 	var movement := Vector3.ZERO
-	if Input.is_action_pressed("MoveForward"): movement += Vector3.FORWARD
-	if Input.is_action_pressed("MoveBack"): movement += Vector3.BACK
-	if Input.is_action_pressed("MoveLeft"): movement += Vector3.LEFT
-	if Input.is_action_pressed("MoveRight"): movement += Vector3.RIGHT
-	if movement != Vector3.ZERO: last_input_movement = movement
-	if Input.is_action_just_pressed("Jump"): jump()
-	if Input.is_action_just_pressed("ActionBull"): charge()
-	if Input.is_action_just_pressed("ActionTongue"): tongue(last_input_movement)
+	if not main.is_dialog:
+		if Input.is_action_pressed("MoveForward"): movement += Vector3.FORWARD
+		if Input.is_action_pressed("MoveBack"): movement += Vector3.BACK
+		if Input.is_action_pressed("MoveLeft"): movement += Vector3.LEFT
+		if Input.is_action_pressed("MoveRight"): movement += Vector3.RIGHT
+		if movement != Vector3.ZERO: last_input_movement = movement
+		if Input.is_action_just_pressed("Jump"): jump()
+		if Input.is_action_just_pressed("ActionBull"): charge()
+		if Input.is_action_just_pressed("ActionTongue"): tongue(last_input_movement)
 	
 	var grounded_ratio = 1.0 if is_grounded or charge_rebound_area_3d.get_overlapping_bodies().size() <= 0.0 else 0.0
 	move_toward_direction(movement * grounded_ratio, delta)

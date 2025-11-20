@@ -1,0 +1,61 @@
+class_name DialogCanvasLayer extends CanvasLayer
+
+@onready var main: Main = $/root/Main
+@export var char_speed := 0.02
+@export var space_speed := 0.1
+@export var dot_speed := 0.2
+@onready var rich_text_label: RichTextLabel = $Control/Control/RichTextLabel
+var talking_npc : NPC
+var base_speed = 1.0
+
+var speeches : Array
+var current_speech_index = 0
+var is_writing = false
+
+func _ready():
+	set_visible(false)
+
+func talk(speech: String, npc: NPC):
+	if not visible:
+		talking_npc = npc
+		talking_npc.speech_bubble.set_visible(true)
+		set_visible(true)
+		speech_sequence(speech)
+		return;
+		
+	if is_writing:
+		base_speed = 20.0
+		
+	if not is_writing:
+		current_speech_index += 1.0
+		if current_speech_index >= speeches.size():
+			await get_tree().create_timer(0.1).timeout
+			set_visible(false)
+			talking_npc.speech_bubble.set_visible(false)
+			talking_npc = null
+		else: write_text(speeches[current_speech_index])
+
+func speech_sequence(speech: String):
+	if is_writing: return;
+	speeches = Array(speech.split("|")).map(func(a: String): return a.strip_edges())
+	current_speech_index = 0
+	write_text(speeches[0])
+
+func write_text(text: String):
+	text = text.replace("[species]", str("[b]",main.player.current_species.species_name, "[/b]"))
+	rich_text_label.text = ""
+	var is_tag = false
+	is_writing = true
+	base_speed = 1.0
+	for character in text:
+		rich_text_label.text += character
+		if not is_tag and character == "[": is_tag = true
+		if character == "]": is_tag = false
+		
+		var dialog_speed = randf_range(char_speed, char_speed * 2.0)
+		if character == " ": dialog_speed = space_speed
+		if character == ".": dialog_speed = dot_speed
+		if not is_tag:
+			await get_tree().create_timer(dialog_speed / base_speed).timeout
+			
+	is_writing = false
