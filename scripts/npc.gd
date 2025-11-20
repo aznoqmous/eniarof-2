@@ -46,7 +46,7 @@ func _on_interaction_zone_body_exited(body: Node3D) -> void:
 
 func talk():
 	dialog_box.set_visible(true)
-	dialog_box.write_text(speech)
+	dialog_box.write_text(speech if not main.is_night else main.night_speechs.pick_random())
 
 func live(delta):
 	if not current_action: return;

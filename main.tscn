@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cmlhp3bgeip3e"]
+[gd_scene load_steps=25 format=3 uid="uid://cmlhp3bgeip3e"]
 
 [ext_resource type="Script" uid="uid://dlsptbxcmtms2" path="res://scripts/main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://d2jcxmqkru15e" path="res://scenes/player.tscn" id="2_h2yge"]
@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://crs04b65vwhy2" path="res://scenes/npc.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://c1nv2b80us7gx" path="res://scenes/foliage.tscn" id="4_efxa6"]
 [ext_resource type="Script" uid="uid://bsjxs0qm4pghh" path="res://scripts/npc_action_resource.gd" id="5_7mycd"]
-[ext_resource type="Script" uid="uid://1eqrfby7r8i4" path="res://scripts/directional_light_3d.gd" id="6_ycdy4"]
+[ext_resource type="Script" path="res://scripts/directional_light_3d.gd" id="6_ycdy4"]
 [ext_resource type="Resource" uid="uid://cq0skdj7me8wq" path="res://resources/npc_actions/tongue.tres" id="10_4c57u"]
 [ext_resource type="Resource" uid="uid://c6jb78bykgjlj" path="res://resources/npc_actions/jump.tres" id="10_efxa6"]
 [ext_resource type="Resource" uid="uid://cwdv7j5781076" path="res://resources/npc_actions/charge.tres" id="11_dg77c"]
