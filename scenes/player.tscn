@@ -57,12 +57,6 @@ texture = ExtResource("9_3v2ag")
 sorting_offset = 0.01
 texture = ExtResource("10_jej6c")
 
-[node name="TongueContainer" parent="SpriteContainer/Sprite3D" index="3"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, -0.12802851, 0)
-
-[node name="TongueMesh" parent="SpriteContainer/Sprite3D/TongueContainer" index="0"]
-mesh = SubResource("PlaneMesh_y4r1p")
-
 [node name="Camera3D" type="Camera3D" parent="." index="4"]
 transform = Transform3D(1, 0, 0, 0, 0.553566, 0.83280534, 0, -0.83280534, 0.553566, 0, 7.037996, 4.9111423)
 
@@ -73,6 +67,9 @@ collide_with_areas = true
 collide_with_bodies = false
 
 [node name="FmodListener3D" type="FmodListener3D" parent="Camera3D" index="1"]
+
+[node name="TongueMesh" parent="TongueContainer" index="0"]
+mesh = SubResource("PlaneMesh_y4r1p")
 
 [node name="Rebound" parent="Sounds" index="0"]
 event_name = "event:/SFX/Player_Actions/Belier/Player_Hit-Wall"

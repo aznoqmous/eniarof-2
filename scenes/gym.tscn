@@ -1,9 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://dy0stovegbo24"]
+[gd_scene load_steps=26 format=3 uid="uid://dy0stovegbo24"]
 
 [ext_resource type="Script" uid="uid://dlsptbxcmtms2" path="res://scripts/main.gd" id="1_rknjs"]
 [ext_resource type="Texture2D" uid="uid://qp556mhmny4v" path="res://assets/sprites/clairière_tileable.jpg" id="2_2vkav"]
 [ext_resource type="Texture2D" uid="uid://b6fmhq68o82ga" path="res://assets/sprites/belier_v3_tileable.jpg" id="3_d4r3x"]
-[ext_resource type="PackedScene" uid="uid://dbum7qxwtypc0" path="res://scenes/distance_max_jump.tscn" id="4_83nkw"]
+[ext_resource type="PackedScene" uid="uid://dbum7qxwtypc0" path="res://scenes/metrics/distance_max_jump.tscn" id="4_83nkw"]
 [ext_resource type="Script" uid="uid://1eqrfby7r8i4" path="res://scripts/directional_light_3d.gd" id="5_28ppp"]
 [ext_resource type="PackedScene" uid="uid://d2jcxmqkru15e" path="res://scenes/player.tscn" id="6_7rtth"]
 [ext_resource type="PackedScene" uid="uid://crs04b65vwhy2" path="res://scenes/npc.tscn" id="7_jvdbg"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cb33c6pcwsm7s" path="res://scenes/uis/spend_night_canvas_layer.tscn" id="12_x7j6v"]
 [ext_resource type="PackedScene" uid="uid://17emcoltidd5" path="res://scenes/uis/dialog_canvas_layer.tscn" id="13_rgsbe"]
 [ext_resource type="PackedScene" uid="uid://ddm3ge1xdaxa3" path="res://scenes/rigid_foliage.tscn" id="14_tgdal"]
+[ext_resource type="PackedScene" uid="uid://6ine6a8uim35" path="res://scenes/metrics/height_jumps_metrics.tscn" id="15_yftua"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_efxa6"]
 albedo_texture = ExtResource("2_2vkav")
@@ -150,19 +151,6 @@ shape = SubResource("BoxShape3D_4c57u")
 
 [node name="distance_max_jump" parent="Level" instance=ExtResource("4_83nkw")]
 
-[node name="Foliage" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.198501, -2.268567, 0)
-script = null
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_1bvp3")
 
@@ -263,3 +251,6 @@ transform = Transform3D(-0.0025199992, 0, -8.793992e-09, 0, 0.275, 0, 3.8050918e
 material_override = SubResource("StandardMaterial3D_efxa6")
 mesh = SubResource("BoxMesh_kek77")
 skeleton = NodePath("../Level/FloorTest2")
+
+[node name="metrics" parent="." instance=ExtResource("15_yftua")]
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, -35.350365, -2.2653556, -11.794775)
