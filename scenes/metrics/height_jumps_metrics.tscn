@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://6ine6a8uim35"]
+
+[ext_resource type="Texture2D" uid="uid://qp556mhmny4v" path="res://assets/sprites/clairière_tileable.jpg" id="1_hlmlt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_efxa6"]
+albedo_texture = ExtResource("1_hlmlt")
+rim = 0.1
+uv1_scale = Vector3(30, 30, 30)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kek77"]
+size = Vector3(100, 100, 100)
+
+[node name="FloorTest8" type="StaticBody3D"]
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.010499997, 0, 0, 0, 0.008216308, 0, 0, 0, 0.0055077844, 0, 0.40843844, 0)
+material_override = SubResource("StandardMaterial3D_efxa6")
+mesh = SubResource("BoxMesh_kek77")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.01, 0, -1.6653345e-16, 0, 0.018, 0, 3.330669e-16, 0, 0.006, -1.6225809, 0.8967886, -2.450029e-07)
+material_override = SubResource("StandardMaterial3D_efxa6")
+mesh = SubResource("BoxMesh_kek77")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.01, 0, -2.220446e-16, 0, 0.038, 0, 3.330669e-16, 0, 0.006, -3.2829719, 1.8873415, -4.9571497e-07)
+material_override = SubResource("StandardMaterial3D_efxa6")
+mesh = SubResource("BoxMesh_kek77")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.010499997, 0, 0, 0, 0.008216308, 0, 0, 0, 0.0055077844, 1.3768317e-06, 0.40843844, -9.118344)
+material_override = SubResource("StandardMaterial3D_efxa6")
+mesh = SubResource("BoxMesh_kek77")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.01, 0, -1.6653345e-16, 0, 0.018, 0, 3.330669e-16, 0, 0.006, -1.6225795, 0.8967886, -9.118344)
+material_override = SubResource("StandardMaterial3D_efxa6")
+mesh = SubResource("BoxMesh_kek77")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.01, 0, -2.220446e-16, 0, 0.038, 0, 3.330669e-16, 0, 0.006, -3.2829704, 1.8873415, -9.118345)
+material_override = SubResource("StandardMaterial3D_efxa6")
+mesh = SubResource("BoxMesh_kek77")
