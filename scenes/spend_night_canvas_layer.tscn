@@ -1,0 +1,171 @@
+[gd_scene load_steps=4 format=3 uid="uid://cb33c6pcwsm7s"]
+
+[ext_resource type="Script" uid="uid://dnlxmm83vk1pd" path="res://scripts/spend_night_canvas_layer.gd" id="1_fj3st"]
+[ext_resource type="Texture2D" uid="uid://ptpg2b08b5jr" path="res://assets/sprites/peer.png" id="2_s658f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dg77c"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="SpendNightCanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_fj3st")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SpendNightButton" type="Button" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -54.0
+offset_top = -65.0
+offset_right = 54.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "GO TO SLEEP"
+
+[node name="NightOverlayControl" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="NightOverlayControl"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dg77c")
+
+[node name="Label" type="Label" parent="NightOverlayControl"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -21.5
+offset_top = 41.0
+offset_right = 21.5
+offset_bottom = 64.0
+grow_horizontal = 2
+text = "Day 2"
+
+[node name="Label2" type="Label" parent="NightOverlayControl"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -21.5
+offset_top = 129.0
+offset_right = 21.5
+offset_bottom = 152.0
+grow_horizontal = 2
+text = "The night was long and you feel aoidoaizdhza"
+
+[node name="NightConfirmButton" type="Button" parent="NightOverlayControl"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -36.0
+offset_top = -63.0
+offset_right = 36.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Wake up"
+
+[node name="Control" type="Control" parent="NightOverlayControl"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RabbitContainer" type="Control" parent="NightOverlayControl/Control"]
+anchors_preset = 0
+offset_left = -31.0
+offset_top = -58.0
+offset_right = 69.0
+offset_bottom = 42.0
+pivot_offset = Vector2(50, 50)
+
+[node name="RabbitTexture" type="TextureRect" parent="NightOverlayControl/Control/RabbitContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_s658f")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RamContainer" type="Control" parent="NightOverlayControl/Control"]
+anchors_preset = 0
+offset_left = -92.0
+offset_top = 24.0
+offset_right = 8.0
+offset_bottom = 124.0
+pivot_offset = Vector2(50, 50)
+
+[node name="RabbitTexture" type="TextureRect" parent="NightOverlayControl/Control/RamContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_s658f")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AnteaterContainer" type="Control" parent="NightOverlayControl/Control"]
+anchors_preset = 0
+offset_left = 20.0
+offset_top = 25.0
+offset_right = 120.0
+offset_bottom = 125.0
+pivot_offset = Vector2(50, 50)
+
+[node name="RabbitTexture" type="TextureRect" parent="NightOverlayControl/Control/AnteaterContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_s658f")
+expand_mode = 1
+stretch_mode = 5
