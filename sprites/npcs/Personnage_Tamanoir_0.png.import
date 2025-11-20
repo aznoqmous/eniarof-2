@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cayjb22yhe047"
-path.s3tc="res://.godot/imported/ball.png-6d646625baca6299e5b8ec5b1e5166d6.s3tc.ctex"
+uid="uid://bcykti7rjksoh"
+path.s3tc="res://.godot/imported/Personnage_Tamanoir_0.png-c775589567ffe43b11155812c4dbe406.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/sprites/ball.png"
-dest_files=["res://.godot/imported/ball.png-6d646625baca6299e5b8ec5b1e5166d6.s3tc.ctex"]
+source_file="res://sprites/npcs/Personnage_Tamanoir_0.png"
+dest_files=["res://.godot/imported/Personnage_Tamanoir_0.png-c775589567ffe43b11155812c4dbe406.s3tc.ctex"]
 
 [params]
 

@@ -1,14 +1,17 @@
-[gd_scene load_steps=21 format=3 uid="uid://cmlhp3bgeip3e"]
+[gd_scene load_steps=24 format=3 uid="uid://cmlhp3bgeip3e"]
 
 [ext_resource type="Script" uid="uid://dlsptbxcmtms2" path="res://scripts/main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://d2jcxmqkru15e" path="res://scenes/player.tscn" id="2_h2yge"]
 [ext_resource type="Texture2D" uid="uid://qp556mhmny4v" path="res://assets/sprites/clairière_tileable.jpg" id="2_kek77"]
 [ext_resource type="Texture2D" uid="uid://b6fmhq68o82ga" path="res://assets/sprites/belier_v3_tileable.jpg" id="3_kek77"]
 [ext_resource type="Script" uid="uid://1eqrfby7r8i4" path="res://scripts/directional_light_3d.gd" id="6_ycdy4"]
+[ext_resource type="PackedScene" uid="uid://c4gq5premh6yy" path="res://scenes/npcs/ram.tscn" id="11_dg77c"]
 [ext_resource type="PackedScene" uid="uid://dvke267jyev2m" path="res://scenes/foliages/trees/big_tree_foliage.tscn" id="11_efxa6"]
 [ext_resource type="PackedScene" uid="uid://5pcwdkdkscl7" path="res://scenes/foliages/trees/thin_tree.tscn" id="12_dg77c"]
+[ext_resource type="Texture2D" uid="uid://dk6ee1ked2nev" path="res://sprites/foliages/trees/Decor_Arbre_Taillé_01.png" id="12_vivmo"]
 [ext_resource type="PackedScene" uid="uid://cb33c6pcwsm7s" path="res://scenes/uis/spend_night_canvas_layer.tscn" id="12_w48qg"]
 [ext_resource type="PackedScene" uid="uid://17emcoltidd5" path="res://scenes/uis/dialog_canvas_layer.tscn" id="13_w48qg"]
+[ext_resource type="PackedScene" uid="uid://bahkqavktnhuv" path="res://scenes/npcs/anteater.tscn" id="14_w48qg"]
 [ext_resource type="PackedScene" uid="uid://ua12uqm5pvg0" path="res://scenes/npcs/rabbit_base.tscn" id="15_vivmo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_efxa6"]
@@ -116,10 +119,6 @@ material = SubResource("StandardMaterial3D_5vw27")
 [node name="RabbitBase" parent="." instance=ExtResource("15_vivmo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.401298, -2.0602648, -6.898051)
 
-[node name="RabbitBase2" parent="." instance=ExtResource("15_vivmo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.043242, -2.0602648, -0.72424614)
-speech = "azudo ahdoihaz"
-
 [node name="BigTreeFoliage" parent="." instance=ExtResource("11_efxa6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.408601, -1.7955651, -3.8485208)
 texture = null
@@ -130,9 +129,16 @@ texture = null
 
 [node name="ThinTree" parent="." instance=ExtResource("12_dg77c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.930883, -1.9072385, -2.2852547)
+texture = ExtResource("12_vivmo")
 
 [node name="ThinTree3" parent="." instance=ExtResource("12_dg77c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.317254, -1.9072385, -12.293736)
 
 [node name="ThinTree2" parent="." instance=ExtResource("12_dg77c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.8491, 0.6192136, -8.029604)
+
+[node name="Ram" parent="." instance=ExtResource("11_dg77c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.504157, -2.079842, -3.2545767)
+
+[node name="Anteater" parent="." instance=ExtResource("14_w48qg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.605097, -2.0674505, -2.0803003)

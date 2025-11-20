@@ -10,6 +10,7 @@ class_name NPC extends CharacterBase
 @export_category("Sprite")
 @export var texture: CompressedTexture2D:
 	set(value):
+		texture = value
 		if not sprite_3d: return;
 		sprite_3d.texture = value
 
@@ -36,6 +37,7 @@ func _ready():
 	speech_bubble.set_visible(false)
 	interact_label.scale = Vector3.ZERO
 	if actions.size(): start_action(actions[0])
+	if texture: sprite_3d.texture = texture
 	
 func _process(delta: float) -> void:
 	super(delta)
