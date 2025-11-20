@@ -121,4 +121,8 @@ func update_modifiers():
 func handle_foliage_charge(foliage: RigidFoliage):
 	if not is_charging: return;
 	if foliage.charge_breakable and foliage.charge_breakable_level <= species[SpeciesResource.ActionType.Charge].current_level:
+		if foliage.charge_breakable_level == 1:
+			break_wood_sound.play()
+		elif foliage.charge_breakable_level == 2:
+			break_stone_sound.play()
 		foliage.break_self()

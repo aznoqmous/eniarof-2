@@ -16,7 +16,7 @@ material = SubResource("StandardMaterial3D_n45ic")
 size = Vector2(0.1, 2)
 center_offset = Vector3(0, 0, 1)
 
-[node name="Player" node_paths=PackedStringArray("jump_sound", "charge_sound", "tongue_sound", "rebound_sound", "tongue_return_sound") instance=ExtResource("1_qhqgy")]
+[node name="Player" node_paths=PackedStringArray("jump_sound", "charge_sound", "tongue_sound", "rebound_sound", "tongue_return_sound", "break_wood_sound", "break_stone_sound") instance=ExtResource("1_qhqgy")]
 collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_g2els")
@@ -27,6 +27,8 @@ charge_sound = NodePath("SoundsPlayer/ChargePlayer")
 tongue_sound = NodePath("SoundsPlayer/TonguePlayer")
 rebound_sound = NodePath("SoundsPlayer/ReboundPlayer")
 tongue_return_sound = NodePath("SoundsPlayer/TongueReturnPlayer")
+break_wood_sound = NodePath("SoundsPlayer/BreakWood")
+break_stone_sound = NodePath("SoundsPlayer/BreakStone")
 
 [node name="Camera3D" type="Camera3D" parent="." index="4"]
 transform = Transform3D(1, 0, 0, 0, 0.553566, 0.83280534, 0, -0.83280534, 0.553566, 0, 7.037996, 4.9111423)
@@ -79,3 +81,11 @@ event_guid = "{2cd900ff-f845-4d55-a9ae-f0ddd9c8a6e5}"
 [node name="TongueReturnPlayer" type="FmodEventEmitter3D" parent="SoundsPlayer" index="4"]
 event_name = "event:/SFX/Player_Actions/Tamanoir/Player_Tongue-Return"
 event_guid = "{400bece0-38e5-406d-b3b0-d7e48120cea1}"
+
+[node name="BreakWood" type="FmodEventEmitter3D" parent="SoundsPlayer" index="5"]
+event_name = "event:/SFX/Player_Actions/Belier/Player_Break-Wood"
+event_guid = "{6a87b911-c2e5-4bc6-b22f-81dbda2f521c}"
+
+[node name="BreakStone" type="FmodEventEmitter3D" parent="SoundsPlayer" index="6"]
+event_name = "event:/SFX/Player_Actions/Belier/Player_Break-Stone"
+event_guid = "{15dd2151-8e59-4934-bad5-75ccd70a0753}"

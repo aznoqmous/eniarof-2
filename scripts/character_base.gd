@@ -15,6 +15,8 @@ class_name CharacterBase extends RigidBody3D
 @export var tongue_sound: FmodEventEmitter3D
 @export var rebound_sound: FmodEventEmitter3D
 @export var tongue_return_sound: FmodEventEmitter3D
+@export var break_wood_sound: FmodEventEmitter3D
+@export var break_stone_sound: FmodEventEmitter3D
 
 @export_category("Movement")
 @export var SPEED := 3.0
