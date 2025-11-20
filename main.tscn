@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cmlhp3bgeip3e"]
+[gd_scene load_steps=26 format=3 uid="uid://cmlhp3bgeip3e"]
 
 [ext_resource type="Script" uid="uid://dlsptbxcmtms2" path="res://scripts/main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://d2jcxmqkru15e" path="res://scenes/player.tscn" id="2_h2yge"]
@@ -35,6 +35,8 @@ size = Vector3(100, 1, 100)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dg77c"]
 size = Vector3(100, 1, 100)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_w48qg"]
 
 [sub_resource type="Environment" id="Environment_1bvp3"]
 
@@ -77,6 +79,13 @@ mesh = SubResource("BoxMesh_efxa6")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level/FloorBélier"]
 shape = SubResource("BoxShape3D_dg77c")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Level"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_w48qg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/StaticBody3D"]
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_1bvp3")
 
@@ -112,8 +121,9 @@ material = SubResource("StandardMaterial3D_5vw27")
 
 [node name="DialogCanvasLayer" parent="." instance=ExtResource("13_w48qg")]
 
-[node name="RabbitBase" parent="." instance=ExtResource("15_vivmo")]
+[node name="RabbitBase" parent="." node_paths=PackedStringArray("jump_sound") instance=ExtResource("15_vivmo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.401298, -2.0602648, -6.898051)
+jump_sound = NodePath("TongueContainer/TongueRayCast")
 
 [node name="BigTreeFoliage" parent="." instance=ExtResource("11_efxa6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.408601, -1.7955651, -3.8485208)
@@ -133,14 +143,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.317254, -1.9072385, -12.29
 [node name="ThinTree2" parent="." instance=ExtResource("12_dg77c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.8491, 0.6192136, -8.029604)
 
-[node name="Ram" parent="." instance=ExtResource("11_dg77c")]
+[node name="Ram" parent="." node_paths=PackedStringArray("jump_sound") instance=ExtResource("11_dg77c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.504157, -2.079842, -3.2545767)
+jump_sound = NodePath("TongueContainer/TongueRayCast")
 
-[node name="Anteater" parent="." instance=ExtResource("14_w48qg")]
+[node name="Anteater" parent="." node_paths=PackedStringArray("jump_sound") instance=ExtResource("14_w48qg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.605097, -2.0674505, -2.0803003)
+jump_sound = NodePath("TongueContainer/TongueRayCast")
 
-[node name="Anteater2" parent="." instance=ExtResource("14_w48qg")]
+[node name="Anteater2" parent="." node_paths=PackedStringArray("jump_sound") instance=ExtResource("14_w48qg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.777756, -1.5909936, 3.1098533)
+jump_sound = NodePath("TongueContainer/TongueRayCast")
 
 [node name="LapinLevel" parent="." instance=ExtResource("14_vivmo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.113014, -10.947979, -61.309856)
