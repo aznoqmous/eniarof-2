@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://5pcwdkdkscl7"]
 
 [ext_resource type="PackedScene" uid="uid://c1nv2b80us7gx" path="res://scenes/foliages/foliage.tscn" id="1_7nacf"]
-[ext_resource type="Texture2D" uid="uid://cyr41kdsdebxa" path="res://sprites/foliages/trees/Decor_Arbre_Long_01.png" id="2_eaad3"]
+[ext_resource type="Texture2D" uid="uid://cyr41kdsdebxa" path="res://assets/sprites/foliages/trees/Decor_Arbre_Long_01.png" id="2_eaad3"]
 
 [node name="ThinTree" instance=ExtResource("1_7nacf")]
 

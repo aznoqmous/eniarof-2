@@ -1,10 +1,13 @@
-[gd_resource type="Resource" script_class="SpeciesResource" load_steps=2 format=3 uid="uid://btgioeil4q21s"]
+[gd_resource type="Resource" script_class="SpeciesResource" load_steps=4 format=3 uid="uid://btgioeil4q21s"]
 
 [ext_resource type="Script" uid="uid://bkknh0a1kjpuu" path="res://scripts/species_resource.gd" id="1_e2e6x"]
+[ext_resource type="Texture2D" uid="uid://ci8mmh7rj62ps" path="res://assets/sprites/player/Spriteplayer_Bélier_Phase0.png" id="2_oa646"]
+[ext_resource type="Texture2D" uid="uid://cnpunkiwe0fdk" path="res://assets/sprites/player/Spriteplayer_Bélier_Phase1.png" id="3_dxrov"]
 
 [resource]
 script = ExtResource("1_e2e6x")
 species_name = "Ram"
 action = 1
 modifiers = Array[float]([0.2, 0.5, 1.0])
+sprites = Array[CompressedTexture2D]([ExtResource("2_oa646"), ExtResource("3_dxrov"), null])
 metadata/_custom_type_script = "uid://bkknh0a1kjpuu"

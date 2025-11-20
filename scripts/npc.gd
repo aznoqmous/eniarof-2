@@ -60,6 +60,8 @@ func _on_interaction_zone_body_entered(body: Node3D) -> void:
 func _on_interaction_zone_body_exited(body: Node3D) -> void:
 	var player = body as Player
 	if player:
+		speech_bubble.set_visible(false)
+		main.dialog_canvas_layer.set_visible(false)
 		if (player.can_talk_to == self):
 			player.can_talk_to = null
 

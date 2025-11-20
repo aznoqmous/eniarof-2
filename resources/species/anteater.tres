@@ -1,10 +1,14 @@
-[gd_resource type="Resource" script_class="SpeciesResource" load_steps=2 format=3 uid="uid://bwwe8pa8jc075"]
+[gd_resource type="Resource" script_class="SpeciesResource" load_steps=5 format=3 uid="uid://bwwe8pa8jc075"]
 
 [ext_resource type="Script" uid="uid://bkknh0a1kjpuu" path="res://scripts/species_resource.gd" id="1_ivut0"]
+[ext_resource type="Texture2D" uid="uid://cckwaqt2he2m6" path="res://assets/sprites/player/Spriteplayer_Tamanoir_Phase0.png" id="2_b5dqv"]
+[ext_resource type="Texture2D" uid="uid://btwqkt4f4dnmn" path="res://assets/sprites/player/Spriteplayer_Tamanoir_Phase1.png" id="3_eftem"]
+[ext_resource type="Texture2D" uid="uid://dmnlery2lt6wu" path="res://assets/sprites/player/Spriteplayer_Tamanoir_Phase2.png" id="4_ljibl"]
 
 [resource]
 script = ExtResource("1_ivut0")
 species_name = "Anteater"
 action = 2
 modifiers = Array[float]([1.0, 1.0, 1.0])
+sprites = Array[CompressedTexture2D]([ExtResource("2_b5dqv"), ExtResource("3_eftem"), ExtResource("4_ljibl")])
 metadata/_custom_type_script = "uid://bkknh0a1kjpuu"

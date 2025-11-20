@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bsjxs0qm4pghh" path="res://scripts/npc_action_resource.gd" id="2_5cj4i"]
 [ext_resource type="Resource" uid="uid://bcxfy8qv77y5k" path="res://resources/npc_actions/idle.tres" id="3_ajf46"]
 [ext_resource type="Resource" uid="uid://c6jb78bykgjlj" path="res://resources/npc_actions/jump.tres" id="4_d5p6e"]
-[ext_resource type="Texture2D" uid="uid://bny7tggf535xd" path="res://sprites/npcs/Characters_PNJ_Lapin_Brun_02.png" id="5_5cj4i"]
+[ext_resource type="Texture2D" uid="uid://bny7tggf535xd" path="res://assets/sprites/npcs/Characters_PNJ_Lapin_Brun_02.png" id="5_5cj4i"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n45ic"]
 albedo_color = Color(1, 0.578125, 0.9835205, 1)
@@ -20,14 +20,5 @@ actions = Array[ExtResource("2_5cj4i")]([ExtResource("3_ajf46"), ExtResource("4_
 [node name="Sprite3D" parent="SpriteContainer" index="0"]
 texture = ExtResource("5_5cj4i")
 
-[node name="InteractLabel" parent="." index="5"]
-transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2.053975, 0)
-
-[node name="SpeechBubble" parent="." index="6"]
-visible = false
-
 [node name="TongueMesh" parent="TongueContainer" index="0"]
 mesh = SubResource("PlaneMesh_2jaej")
-
-[node name="TongueArea3D" parent="TongueContainer" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8136692, 0)

@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://dqnonb3eyynto" path="res://scenes/character_base.tscn" id="1_abqhh"]
 [ext_resource type="Script" uid="uid://jv4kbdyptpua" path="res://scripts/npc.gd" id="2_7n8xq"]
 [ext_resource type="Script" uid="uid://bsjxs0qm4pghh" path="res://scripts/npc_action_resource.gd" id="3_4wlns"]
-[ext_resource type="Texture2D" uid="uid://do5vth2it6qy7" path="res://sprites/npcs/Characters_PNJ_Lapin_Brun_01.png" id="4_4wlns"]
-[ext_resource type="Texture2D" uid="uid://dy1j8hscy8tlj" path="res://sprites/speech-bubble.png" id="4_7n8xq"]
+[ext_resource type="Texture2D" uid="uid://do5vth2it6qy7" path="res://assets/sprites/npcs/Characters_PNJ_Lapin_Brun_01.png" id="4_4wlns"]
+[ext_resource type="Texture2D" uid="uid://dy1j8hscy8tlj" path="res://assets/sprites/speech-bubble.png" id="4_7n8xq"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_rv78h"]
 height = 2.152832

@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://dcrs1qatqwlf4"]
+
+[ext_resource type="PackedScene" uid="uid://b7jl00yavhgpu" path="res://scenes/levels/parts/lapin_ground.tscn" id="1_hp1lk"]
+[ext_resource type="PackedScene" uid="uid://b8865ulgxw3ru" path="res://scenes/levels/parts/lapin_elevation_1.tscn" id="2_rmt7n"]
+[ext_resource type="PackedScene" uid="uid://djq4e4xx31fit" path="res://scenes/levels/parts/platform_1.tscn" id="3_hco53"]
+[ext_resource type="PackedScene" uid="uid://d3kvs84nbroyd" path="res://scenes/levels/parts/platform_2.tscn" id="4_b8hau"]
+[ext_resource type="PackedScene" uid="uid://bujumm47i8rtu" path="res://scenes/levels/parts/platform_3.tscn" id="5_jkroq"]
+
+[node name="LapinLevel" type="Node3D"]
+
+[node name="LapinGround" parent="." instance=ExtResource("1_hp1lk")]
+
+[node name="LapinElevation_1" parent="." instance=ExtResource("2_rmt7n")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -2.6059198, 3.2135391, 5.383718)
+
+[node name="Platform_1" parent="." instance=ExtResource("3_hco53")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -20.863464, 7.984684, 0.56440353)
+
+[node name="Platform_2" parent="." instance=ExtResource("4_b8hau")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -12.532911, 11.942076, -19.202103)
+
+[node name="Platform_3" parent="." instance=ExtResource("5_jkroq")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -3.271141, 11.942104, -4.190945)

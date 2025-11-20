@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7jxsig5q4dgf"]
+
+[ext_resource type="PackedScene" uid="uid://5f5xr2exty41" path="res://scenes/levels/parts/anteater_ground_1.tscn" id="1_fm0g7"]
+
+[node name="AnteaterLevel" type="Node3D"]
+
+[node name="anteater_ground_1" parent="." instance=ExtResource("1_fm0g7")]

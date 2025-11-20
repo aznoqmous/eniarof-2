@@ -1,9 +1,13 @@
-[gd_resource type="Resource" script_class="SpeciesResource" load_steps=2 format=3 uid="uid://b28gdffi3vkwg"]
+[gd_resource type="Resource" script_class="SpeciesResource" load_steps=5 format=3 uid="uid://b28gdffi3vkwg"]
 
 [ext_resource type="Script" uid="uid://bkknh0a1kjpuu" path="res://scripts/species_resource.gd" id="1_eaymy"]
+[ext_resource type="Texture2D" uid="uid://d17bgu8chuo6m" path="res://assets/sprites/player/Playersprite_Lapin_Phase0.png" id="2_2rgtw"]
+[ext_resource type="Texture2D" uid="uid://d1a7nyp8mmaqc" path="res://assets/sprites/player/Spriteplayer_Lapin_Phase1.png" id="3_7wjsw"]
+[ext_resource type="Texture2D" uid="uid://bk0i62ww53p5h" path="res://assets/sprites/player/Spriteplayer_Lapin_Phase2.png" id="4_u5njp"]
 
 [resource]
 script = ExtResource("1_eaymy")
 species_name = "Rabbit"
 modifiers = Array[float]([0.5, 0.7, 1.0])
+sprites = Array[CompressedTexture2D]([ExtResource("2_2rgtw"), ExtResource("3_7wjsw"), ExtResource("4_u5njp")])
 metadata/_custom_type_script = "uid://bkknh0a1kjpuu"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cmlhp3bgeip3e"]
+[gd_scene load_steps=25 format=3 uid="uid://cmlhp3bgeip3e"]
 
 [ext_resource type="Script" uid="uid://dlsptbxcmtms2" path="res://scripts/main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://d2jcxmqkru15e" path="res://scenes/player.tscn" id="2_h2yge"]
@@ -8,9 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://c4gq5premh6yy" path="res://scenes/npcs/ram.tscn" id="11_dg77c"]
 [ext_resource type="PackedScene" uid="uid://dvke267jyev2m" path="res://scenes/foliages/trees/big_tree_foliage.tscn" id="11_efxa6"]
 [ext_resource type="PackedScene" uid="uid://5pcwdkdkscl7" path="res://scenes/foliages/trees/thin_tree.tscn" id="12_dg77c"]
-[ext_resource type="Texture2D" uid="uid://dk6ee1ked2nev" path="res://sprites/foliages/trees/Decor_Arbre_Taillé_01.png" id="12_vivmo"]
+[ext_resource type="Texture2D" uid="uid://dk6ee1ked2nev" path="res://assets/sprites/foliages/trees/Decor_Arbre_Taillé_01.png" id="12_vivmo"]
 [ext_resource type="PackedScene" uid="uid://cb33c6pcwsm7s" path="res://scenes/uis/spend_night_canvas_layer.tscn" id="12_w48qg"]
 [ext_resource type="PackedScene" uid="uid://17emcoltidd5" path="res://scenes/uis/dialog_canvas_layer.tscn" id="13_w48qg"]
+[ext_resource type="PackedScene" uid="uid://dcrs1qatqwlf4" path="res://scenes/levels/lapin_level.tscn" id="14_vivmo"]
 [ext_resource type="PackedScene" uid="uid://bahkqavktnhuv" path="res://scenes/npcs/anteater.tscn" id="14_w48qg"]
 [ext_resource type="PackedScene" uid="uid://ua12uqm5pvg0" path="res://scenes/npcs/rabbit_base.tscn" id="15_vivmo"]
 
@@ -55,16 +56,6 @@ bank_paths = ["res://assets/soundbanks/Desktop/Master.strings.bank", "res://asse
 
 [node name="Level" type="Node3D" parent="."]
 
-[node name="FloorClairière" type="StaticBody3D" parent="Level"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 51.7905, -48.531017, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/FloorClairière"]
-material_override = SubResource("StandardMaterial3D_efxa6")
-mesh = SubResource("BoxMesh_kek77")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/FloorClairière"]
-shape = SubResource("BoxShape3D_4c57u")
-
 [node name="FloorTest" type="StaticBody3D" parent="Level"]
 transform = Transform3D(-0.105, 0, -1.9629454e-08, 0, 0.275, 0, 1.5854559e-08, 0, -0.13, -21.987953, -13.186258, -6.9731064)
 
@@ -93,8 +84,13 @@ environment = SubResource("Environment_1bvp3")
 transform = Transform3D(-3.2531837e-08, -0.6679105, 0.7442416, -2.9195299e-08, 0.7442416, 0.6679105, -1, 0, -4.3711392e-08, 3.122682, 2.3306007, 2.4698005)
 script = ExtResource("6_ycdy4")
 
-[node name="Player" parent="." instance=ExtResource("2_h2yge")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.532275, -2.2183847, 2.0943203)
+[node name="Player" parent="." node_paths=PackedStringArray("species_sprites") instance=ExtResource("2_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9289627, 0.95663166, 10.767887)
+species_sprites = {
+0: NodePath("SpriteContainer/Sprite3D/Rabbit"),
+1: NodePath("SpriteContainer/Sprite3D/Ram"),
+2: NodePath("SpriteContainer/Sprite3D/Anteater")
+}
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.523931, -2.2569194, -7.9766836)
@@ -142,3 +138,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.504157, -2.079842, -3.2545
 
 [node name="Anteater" parent="." instance=ExtResource("14_w48qg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.605097, -2.0674505, -2.0803003)
+
+[node name="Anteater2" parent="." instance=ExtResource("14_w48qg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.777756, -1.5909936, 3.1098533)
+
+[node name="LapinLevel" parent="." instance=ExtResource("14_vivmo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.113014, -10.947979, -61.309856)

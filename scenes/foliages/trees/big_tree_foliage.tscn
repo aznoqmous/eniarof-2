@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dvke267jyev2m"]
 
 [ext_resource type="PackedScene" uid="uid://da84dcpolgi8x" path="res://scenes/foliages/rigid_foliage.tscn" id="1_7axmg"]
-[ext_resource type="Texture2D" uid="uid://cwmeyd6eo6st0" path="res://sprites/foliages/trees/Decor_Arbre_Blanc_02.png" id="2_5ij37"]
-[ext_resource type="Texture2D" uid="uid://c1a8873h4cd6h" path="res://sprites/foliages/trees/Decor_Arbre_Vert_02.png" id="2_ynyoi"]
+[ext_resource type="Texture2D" uid="uid://cwmeyd6eo6st0" path="res://assets/sprites/foliages/trees/Decor_Arbre_Blanc_02.png" id="2_5ij37"]
+[ext_resource type="Texture2D" uid="uid://c1a8873h4cd6h" path="res://assets/sprites/foliages/trees/Decor_Arbre_Vert_02.png" id="2_ynyoi"]
 
 [node name="BigTreeFoliage" instance=ExtResource("1_7axmg")]
 collision_layer = 13

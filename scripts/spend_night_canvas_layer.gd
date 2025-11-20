@@ -32,7 +32,7 @@ func spend_night():
 	evolve(SpeciesResource.ActionType.Jump, total, rabbit_container, duration)
 	evolve(SpeciesResource.ActionType.Charge, total, ram_container, duration)
 	evolve(SpeciesResource.ActionType.Tongue, total, anteater_container, duration)
-	
+	main.player.update_species_sprites()
 	
 func evolve(action : SpeciesResource.ActionType, total_actions : int, texture, duration: float):
 	var ratio = float(main.player.species[action].action_count) / float(total_actions)
@@ -44,6 +44,7 @@ func evolve(action : SpeciesResource.ActionType, total_actions : int, texture, d
 		Vector2.ONE * lerp(1, 2, float(main.player.species[action].current_level) / 2.0),
 		duration
 	)
+	
 
 
 func close():

@@ -10,6 +10,7 @@ var last_input_movement : Vector3
 
 @export_category("Species")
 @export var species_resource : Array[SpeciesResource] # reference, not to be modified in code
+@export var species_sprites : Dictionary[SpeciesResource.ActionType, Sprite3D]
 var actions : Array[SpeciesResource.ActionType]
 var species : Dictionary[SpeciesResource.ActionType, SpeciesResource]
 var current_species : SpeciesResource
@@ -24,6 +25,7 @@ func _ready():
 	for s in species_resource:
 		species[s.action] = s.duplicate()
 	current_species = species.values().pick_random()
+	update_species_sprites()
 	
 	reset_stamina()
 	update_modifiers()
@@ -126,3 +128,7 @@ func handle_foliage_charge(foliage: RigidFoliage):
 		elif foliage.charge_breakable_level == 2:
 			break_stone_sound.play()
 		foliage.break_self()
+
+func update_species_sprites():
+	for spec in species.values():
+		species_sprites[spec.action].texture = spec.sprites[spec.current_level]

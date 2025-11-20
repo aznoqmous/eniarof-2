@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://c4gq5premh6yy"]
 
 [ext_resource type="PackedScene" uid="uid://crs04b65vwhy2" path="res://scenes/npc.tscn" id="1_gmt71"]
-[ext_resource type="Texture2D" uid="uid://dxi8qbssptdgl" path="res://sprites/npcs/Characters_PNJ_Belier_Brun.png" id="2_a6whb"]
+[ext_resource type="Texture2D" uid="uid://dxi8qbssptdgl" path="res://assets/sprites/npcs/Characters_PNJ_Belier_Brun.png" id="2_a6whb"]
 [ext_resource type="Script" uid="uid://bsjxs0qm4pghh" path="res://scripts/npc_action_resource.gd" id="2_d2pwb"]
 [ext_resource type="Resource" uid="uid://bcxfy8qv77y5k" path="res://resources/npc_actions/idle.tres" id="3_7bfb2"]
 [ext_resource type="Resource" uid="uid://cwdv7j5781076" path="res://resources/npc_actions/charge.tres" id="4_ukf3b"]
