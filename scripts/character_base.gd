@@ -3,6 +3,8 @@ class_name CharacterBase extends RigidBody3D
 @onready var sprite_container: Node3D = $SpriteContainer
 @onready var ground_ray_cast_3d: RayCast3D = $GroundRayCast3D
 @onready var charge_rebound_area_3d: Area3D = $ChargeReboundArea3D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+var is_walking:= false
 
 @onready var tongue_container: Node3D = $TongueContainer
 @onready var tongue_mesh: MeshInstance3D = $TongueContainer/TongueMesh
@@ -57,6 +59,20 @@ func _ready() -> void:
 	hide_tongue()
 	
 func _process(_delta: float) -> void:
+	if current_movement.x > 0.1 or current_movement.x < -0.1 or current_movement.z > 0.1 or current_movement.z < -0.1:
+		if is_walking == false:
+			animation_player.current_animation = "walk"
+			animation_player.play()
+			is_walking = true
+	else:
+		animation_player.current_animation = "RESET"
+		animation_player.play()
+		is_walking = false
+	if not is_grounded or is_charging or is_tonguing:
+		animation_player.current_animation = "RESET"
+		animation_player.play()
+		is_walking = false
+	
 	sprite_container.rotation.y = lerp(sprite_container.rotation.y, PI if current_movement.x < 0 else 0.0, _delta * 5.0)
 	
 	var tongue_distance = tongue_container.global_position - tongue_target_position

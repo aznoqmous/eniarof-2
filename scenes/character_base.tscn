@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dqnonb3eyynto"]
+[gd_scene load_steps=12 format=3 uid="uid://dqnonb3eyynto"]
 
 [ext_resource type="Script" uid="uid://ducp6unuvdagk" path="res://scripts/character_base.gd" id="1_mx1f8"]
 [ext_resource type="Texture2D" uid="uid://ptpg2b08b5jr" path="res://assets/sprites/peer.png" id="2_n45ic"]
@@ -22,6 +22,38 @@ center_offset = Vector3(0, 0, 1)
 [sub_resource type="SphereShape3D" id="SphereShape3D_n45ic"]
 radius = 0.100671
 
+[sub_resource type="Animation" id="Animation_n45ic"]
+resource_name = "walk"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteContainer")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0.2, 1, 0, 0.15, 0, 0.4, 1, 0, 0, 0)
+
+[sub_resource type="Animation" id="Animation_psumi"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteContainer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.15, 0)
+
+[sub_resource type="Animation" id="Animation_f35ln"]
+resource_name = "charge"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_psumi"]
+_data = {
+&"RESET": SubResource("Animation_psumi"),
+&"charge": SubResource("Animation_f35ln"),
+&"walk": SubResource("Animation_n45ic")
+}
+
 [node name="CharacterBase" type="RigidBody3D" node_paths=PackedStringArray("jump_sound", "charge_sound", "tongue_sound", "rebound_sound", "tongue_return_sound")]
 axis_lock_angular_x = true
 axis_lock_angular_y = true
@@ -38,6 +70,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.076197, 0)
 shape = SubResource("BoxShape3D_psumi")
 
 [node name="SpriteContainer" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
 
 [node name="Sprite3D" type="Sprite3D" parent="SpriteContainer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9416977, 0)
@@ -94,5 +127,10 @@ event_guid = "{b71acc77-46ec-421c-956c-19abf8078782}"
 [node name="TongueReturn" type="FmodEventEmitter3D" parent="Sounds"]
 event_name = "event:/SFX/PNJ/Tamanoir/PNJ_Tongue-Return"
 event_guid = "{c41dcc8a-41af-4dad-8a0c-e233c3de070b}"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_psumi")
+}
 
 [connection signal="body_entered" from="TongueContainer/TongueArea3D" to="." method="_on_tongue_area_3d_body_entered"]
