@@ -9,6 +9,13 @@ class_name CharacterBase extends RigidBody3D
 @onready var tongue_area_3d: Area3D = $TongueContainer/TongueArea3D
 @onready var tongue_ray_cast: RayCast3D = $TongueContainer/TongueRayCast
 
+@export_category("Sounds")
+@export var jump_sound: FmodEventEmitter3D
+@export var charge_sound: FmodEventEmitter3D
+@export var tongue_sound: FmodEventEmitter3D
+@export var rebound_sound: FmodEventEmitter3D
+@export var tongue_return_sound: FmodEventEmitter3D
+
 @export_category("Movement")
 @export var SPEED := 3.0
 @export var BASE_ACCELERATION := 10.0
@@ -74,6 +81,7 @@ func jump() -> void:
 	linear_velocity += Vector3.UP * JUMP_SPEED * JUMP_MODIFIER
 	ground_ray_cast_3d.enabled = false
 	jumped.emit()
+	jump_sound.play()
 	
 func charge() -> void:
 	if not is_grounded: return;
@@ -85,13 +93,15 @@ func charge() -> void:
 	current_movement = charge_movement
 	ACCELERATION = 0
 	is_charging = true
+	charged.emit()
+	charge_sound.play()
 	
 	await get_tree().create_timer(0.1).timeout
 	
 	is_charging = false
 	ACCELERATION = BASE_ACCELERATION
 	
-	charged.emit()
+	
 
 func hide_tongue():
 	tongue_mesh.mesh.size.y = 0.0
@@ -100,6 +110,8 @@ func hide_tongue():
 func tongue(direction):
 	if is_tonguing: return;
 	is_tonguing = true
+	tongued.emit()
+	tongue_sound.play()
 	
 	var tongue_distance = MAX_TONGUE_DISTANCE * TONGUE_MODIFIER
 	tongue_area_3d.position = Vector3.ZERO
@@ -127,12 +139,13 @@ func tongue(direction):
 	tongue_tween = get_tree().create_tween()
 	tongue_tween.tween_property(self, "tongue_length", 1.0, tongue_animation_duration)
 	tongue_tween.finished.connect(func():
+		tongue_return_sound.play()
 		get_tree().create_tween().tween_property(self, "tongue_length", 0.0, tongue_animation_duration / 4.0)
 		tongue_area_3d.monitoring = false
 		is_tonguing = false
 		ACCELERATION = BASE_ACCELERATION
 		
-		tongued.emit()
+		
 	)
 	
 func handle_charge_rebound(body: Node3D) -> void:
@@ -143,6 +156,7 @@ func handle_charge_rebound(body: Node3D) -> void:
 		current_movement = rebound_movement
 		ACCELERATION = 0
 		is_rebounding = true
+		rebound_sound.play()
 		await get_tree().create_timer(0.1).timeout
 		is_rebounding = false
 		ACCELERATION = BASE_ACCELERATION

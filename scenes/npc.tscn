@@ -31,6 +31,7 @@ center_offset = Vector3(0, 0, 1)
 collision_layer = 5
 script = ExtResource("2_7n8xq")
 actions = Array[ExtResource("3_4wlns")]([])
+speech = ""
 
 [node name="Sprite3D" parent="SpriteContainer" index="0"]
 modulate = Color(0.6987915, 1, 0.44921875, 1)

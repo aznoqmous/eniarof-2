@@ -18,7 +18,6 @@ var current_species : SpeciesResource
 @export var max_stamina = 10.0
 var current_stamina := 0.0
 
-
 func _ready():
 	super()
 	
@@ -31,11 +30,14 @@ func _ready():
 	update_modifiers()
 	
 	jumped.connect(func():
+		jump_sound.set_parameter("Lapin_State", species[SpeciesResource.ActionType.Jump].current_level)
 		if current_stamina > 0:
 			register_action(SpeciesResource.ActionType.Jump)
 			lose_stamina()
+		
 	)
 	charged.connect(func():
+		charge_sound.set_parameter("Belier_State", species[SpeciesResource.ActionType.Charge].current_level)
 		if current_stamina > 0:
 			register_action(SpeciesResource.ActionType.Charge)
 			lose_stamina()
