@@ -1,10 +1,9 @@
 [gd_resource type="Resource" script_class="SpeciesResource" load_steps=2 format=3 uid="uid://btgioeil4q21s"]
 
-[ext_resource type="Script" uid="uid://bkknh0a1kjpuu" path="res://scripts/species_resource.gd" id="1_e2e6x"]
+[ext_resource type="Script" path="res://scripts/species_resource.gd" id="1_e2e6x"]
 
 [resource]
 script = ExtResource("1_e2e6x")
 species_name = "Ram"
 action = 1
 modifiers = Array[float]([0.2, 0.5, 1.0])
-metadata/_custom_type_script = "uid://bkknh0a1kjpuu"

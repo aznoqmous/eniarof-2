@@ -99,6 +99,7 @@ script = ExtResource("6_ycdy4")
 
 [node name="Player" parent="." instance=ExtResource("2_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.532275, -2.2183847, 2.0943203)
+JUMP_SPEED = 8.5
 
 [node name="NPC" parent="." instance=ExtResource("4_1bvp3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.933179, -2.1903467, -3.563425)

@@ -6,4 +6,3 @@
 script = ExtResource("1_eaymy")
 species_name = "Rabbit"
 modifiers = Array[float]([0.5, 0.7, 1.0])
-metadata/_custom_type_script = "uid://bkknh0a1kjpuu"
