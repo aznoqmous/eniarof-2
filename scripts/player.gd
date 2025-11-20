@@ -1,6 +1,5 @@
 class_name Player extends CharacterBase
 
-@onready var main: Main = $/root/Main
 @onready var camera_3d: Camera3D = $Camera3D
 @onready var visual_ray_cast_3d: RayCast3D = $Camera3D/VisualRayCast3D
 

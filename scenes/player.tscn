@@ -14,7 +14,7 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n45ic"]
 albedo_color = Color(1, 0.578125, 0.9835205, 1)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_g2els"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_y4r1p"]
 resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_n45ic")
 size = Vector2(0.1, 2)
@@ -57,6 +57,9 @@ texture = ExtResource("9_3v2ag")
 sorting_offset = 0.01
 texture = ExtResource("10_jej6c")
 
+[node name="TongueMesh" parent="SpriteContainer/Sprite3D/TongueContainer" index="0"]
+mesh = SubResource("PlaneMesh_y4r1p")
+
 [node name="Camera3D" type="Camera3D" parent="." index="4"]
 transform = Transform3D(1, 0, 0, 0, 0.553566, 0.83280534, 0, -0.83280534, 0.553566, 0, 7.037996, 4.9111423)
 
@@ -67,9 +70,6 @@ collide_with_areas = true
 collide_with_bodies = false
 
 [node name="FmodListener3D" type="FmodListener3D" parent="Camera3D" index="1"]
-
-[node name="TongueMesh" parent="TongueContainer" index="0"]
-mesh = SubResource("PlaneMesh_g2els")
 
 [node name="Rebound" parent="Sounds" index="0"]
 event_name = "event:/SFX/Player_Actions/Belier/Player_Hit-Wall"

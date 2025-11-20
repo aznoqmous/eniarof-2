@@ -6,10 +6,6 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_psumi"]
 size = Vector3(1, 2.1558228, 0.45410156)
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_f35ln"]
-height = 1.2956543
-radius = 0.7
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n45ic"]
 albedo_color = Color(1, 0.578125, 0.9835205, 1)
 
@@ -21,6 +17,10 @@ center_offset = Vector3(0, 0, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_n45ic"]
 radius = 0.100671
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_f35ln"]
+height = 1.2956543
+radius = 0.7
 
 [sub_resource type="Animation" id="Animation_n5hut"]
 resource_name = "walk"
@@ -107,6 +107,24 @@ shape = SubResource("BoxShape3D_psumi")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9416977, 0)
 texture = ExtResource("2_n45ic")
 
+[node name="TongueContainer" type="Node3D" parent="SpriteContainer/Sprite3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.12802851, 0)
+
+[node name="TongueMesh" type="MeshInstance3D" parent="SpriteContainer/Sprite3D/TongueContainer"]
+mesh = SubResource("PlaneMesh_n45ic")
+
+[node name="TongueArea3D" type="Area3D" parent="SpriteContainer/Sprite3D/TongueContainer"]
+collision_layer = 0
+collision_mask = 4
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpriteContainer/Sprite3D/TongueContainer/TongueArea3D"]
+shape = SubResource("SphereShape3D_n45ic")
+
+[node name="TongueRayCast" type="RayCast3D" parent="SpriteContainer/Sprite3D/TongueContainer"]
+target_position = Vector3(0, 0, 1)
+collision_mask = 4
+
 [node name="GroundRayCast3D" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1404779, 0)
 target_position = Vector3(0, -0.2, 0)
@@ -117,24 +135,6 @@ collision_mask = 13
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="ChargeReboundArea3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0675049, 0)
 shape = SubResource("CylinderShape3D_f35ln")
-
-[node name="TongueContainer" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8136692, 0)
-
-[node name="TongueMesh" type="MeshInstance3D" parent="TongueContainer"]
-mesh = SubResource("PlaneMesh_n45ic")
-
-[node name="TongueArea3D" type="Area3D" parent="TongueContainer"]
-collision_layer = 0
-collision_mask = 4
-monitoring = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TongueContainer/TongueArea3D"]
-shape = SubResource("SphereShape3D_n45ic")
-
-[node name="TongueRayCast" type="RayCast3D" parent="TongueContainer"]
-target_position = Vector3(0, 0, 1)
-collision_mask = 4
 
 [node name="Sounds" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
@@ -170,4 +170,4 @@ libraries = {
 &"": SubResource("AnimationLibrary_psumi")
 }
 
-[connection signal="body_entered" from="TongueContainer/TongueArea3D" to="." method="_on_tongue_area_3d_body_entered"]
+[connection signal="body_entered" from="SpriteContainer/Sprite3D/TongueContainer/TongueArea3D" to="." method="_on_tongue_area_3d_body_entered"]
