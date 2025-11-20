@@ -29,6 +29,8 @@ rebound_sound = NodePath("SoundsPlayer/ReboundPlayer")
 tongue_return_sound = NodePath("SoundsPlayer/TongueReturnPlayer")
 break_wood_sound = NodePath("SoundsPlayer/BreakWood")
 break_stone_sound = NodePath("SoundsPlayer/BreakStone")
+SPEED = 5.0
+JUMP_SPEED = 9.5
 
 [node name="Camera3D" type="Camera3D" parent="." index="4"]
 transform = Transform3D(1, 0, 0, 0, 0.553566, 0.83280534, 0, -0.83280534, 0.553566, 0, 7.037996, 4.9111423)

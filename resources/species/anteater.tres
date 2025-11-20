@@ -6,4 +6,4 @@
 script = ExtResource("1_ivut0")
 species_name = "Anteater"
 action = 2
-modifiers = Array[float]([0.16, 0.5, 1.0])
+modifiers = Array[float]([0.3, 0.5, 1.0])
