@@ -1,6 +1,12 @@
+@tool
 class_name Foliage extends CollisionObject3D
 @onready var sprite_3d: Sprite3D = $Sprite3D
 
+@export var texture: CompressedTexture2D:
+	set(value):
+		if not sprite_3d: return;
+		sprite_3d.texture = value
+		
 var is_hidden := false
 
 func set_opacity(value):

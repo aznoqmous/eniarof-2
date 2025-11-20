@@ -1,3 +1,4 @@
+@tool
 class_name NPC extends CharacterBase
 
 @onready var main: Main = $/root/Main
@@ -5,8 +6,15 @@ class_name NPC extends CharacterBase
 @onready var speech_bubble: Sprite3D = $SpeechBubble
 @onready var speech_dots: Label3D = $SpeechBubble/SpeechDots
 
+@onready var sprite_3d: Sprite3D = $SpriteContainer/Sprite3D
+@export_category("Sprite")
+@export var texture: CompressedTexture2D:
+	set(value):
+		if not sprite_3d: return;
+		sprite_3d.texture = value
+
 var is_interactable:bool:
-	get: return main.player.can_talk_to == self
+	get: return main and main.player.can_talk_to == self
 
 @export_category("Actions")
 @export var actions: Array[NPCActionResource]
@@ -33,7 +41,7 @@ func _process(delta: float) -> void:
 	super(delta)
 	interact_label.scale = lerp(interact_label.scale, Vector3.ONE if is_interactable and not speech_bubble.visible else Vector3.ZERO, delta * 10.0)
 	
-	if main.get_time() - speech_time > speech_animation_speed:
+	if main and main.get_time() - speech_time > speech_animation_speed:
 		speech_time = main.get_time()
 		speech_dots.text += "."
 		if speech_dots.text.length() > 3: speech_dots.text = "."
@@ -62,7 +70,7 @@ func live(delta):
 	if is_interactable:
 		current_movement = Vector3.ZERO
 		return;
-	if main.get_time() - action_start_time > current_action.time:
+	if main and main.get_time() - action_start_time > current_action.time:
 		action_index = (action_index + 1) % actions.size()
 		start_action(actions[action_index])
 		
@@ -81,6 +89,7 @@ func live(delta):
 
 		
 func start_action(action_resource: NPCActionResource):
+	if not main: return;
 	current_action = action_resource
 	action_start_time = main.get_time()
 	match current_action.action:
