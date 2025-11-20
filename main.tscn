@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dlsptbxcmtms2" path="res://scripts/main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://d2jcxmqkru15e" path="res://scenes/player.tscn" id="2_h2yge"]
 [ext_resource type="Texture2D" uid="uid://qp556mhmny4v" path="res://assets/sprites/clairière_tileable.jpg" id="2_kek77"]
-[ext_resource type="Texture2D" uid="uid://b6fmhq68o82ga" path="res://assets/sprites/belier_v3_tileable.jpg" id="3_kek77"]
+[ext_resource type="Texture2D" uid="uid://dcs77mnpgvnug" path="res://assets/sprites/textures/Texture_SolBélier_01.jpg" id="3_yaehf"]
 [ext_resource type="Shader" uid="uid://ceyqrsqchfjot" path="res://shaders/water.gdshader" id="4_2cqfq"]
 [ext_resource type="Script" uid="uid://3ie2b8f123dv" path="res://scripts/water.gd" id="4_yaehf"]
 [ext_resource type="Texture2D" uid="uid://crr1h60asguyr" path="res://assets/sprites/water/voronoi.png" id="5_yaehf"]
@@ -29,9 +29,8 @@ size = Vector3(100, 100, 100)
 [sub_resource type="BoxShape3D" id="BoxShape3D_4c57u"]
 size = Vector3(100, 100, 100)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w48qg"]
-albedo_texture = ExtResource("3_kek77")
-uv1_scale = Vector3(30, 30, 30)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_074og"]
+albedo_texture = ExtResource("3_yaehf")
 
 [sub_resource type="BoxMesh" id="BoxMesh_efxa6"]
 size = Vector3(100, 1, 100)
@@ -90,7 +89,7 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Level/FloorBélier"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07971572, 0, -0.06996632)
-material_override = SubResource("StandardMaterial3D_w48qg")
+material_override = SubResource("StandardMaterial3D_074og")
 mesh = SubResource("BoxMesh_efxa6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level/FloorBélier"]
