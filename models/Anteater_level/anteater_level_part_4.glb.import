@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://clpsay2refafw"
-path="res://.godot/imported/anteater_level.glb-d1a38c60cfd6fa5895aebac9d9cd7eaf.scn"
+uid="uid://7lvoysf4b6xm"
+path="res://.godot/imported/anteater_level_part_4.glb-2ee4afcfa67e94947d1d131c98d4bff1.scn"
 
 [deps]
 
-source_file="res://models/anteater_level.glb"
-dest_files=["res://.godot/imported/anteater_level.glb-d1a38c60cfd6fa5895aebac9d9cd7eaf.scn"]
+source_file="res://models/Anteater_level/anteater_level_part_4.glb"
+dest_files=["res://.godot/imported/anteater_level_part_4.glb-2ee4afcfa67e94947d1d131c98d4bff1.scn"]
 
 [params]
 
