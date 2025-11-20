@@ -71,10 +71,11 @@ func _process(_delta: float) -> void:
 	
 	sprite_container.rotation.y = lerp(sprite_container.rotation.y, PI if current_movement.x < 0 else 0.0, _delta * 5.0)
 	
-	var tongue_distance = tongue_container.global_position - tongue_target_position
-	tongue_mesh.mesh.size.y =  tongue_distance.length() * tongue_length
-	tongue_mesh.mesh.center_offset.z =  tongue_distance.length() / 2.0 * tongue_length
-	tongue_area_3d.global_position =  lerp(global_position, tongue_target_position, tongue_length)
+	if is_tonguing:
+		var tongue_distance = tongue_container.global_position - tongue_target_position
+		tongue_mesh.mesh.size.y =  tongue_distance.length() * tongue_length
+		tongue_mesh.mesh.center_offset.z =  tongue_distance.length() / 2.0 * tongue_length
+		tongue_area_3d.global_position =  lerp(global_position, tongue_target_position, tongue_length)
 	
 func _physics_process(_delta: float) -> void:
 	
