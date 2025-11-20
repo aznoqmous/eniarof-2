@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dlsptbxcmtms2" path="res://scripts/main.gd" id="1_rknjs"]
 [ext_resource type="Texture2D" uid="uid://qp556mhmny4v" path="res://assets/sprites/clairière_tileable.jpg" id="2_2vkav"]
 [ext_resource type="Texture2D" uid="uid://b6fmhq68o82ga" path="res://assets/sprites/belier_v3_tileable.jpg" id="3_d4r3x"]
-[ext_resource type="PackedScene" uid="uid://c1nv2b80us7gx" path="res://scenes/foliage.tscn" id="4_lpctg"]
+[ext_resource type="PackedScene" path="res://scenes/foliage.tscn" id="4_lpctg"]
 [ext_resource type="Script" uid="uid://1eqrfby7r8i4" path="res://scripts/directional_light_3d.gd" id="5_28ppp"]
 [ext_resource type="PackedScene" uid="uid://d2jcxmqkru15e" path="res://scenes/player.tscn" id="6_7rtth"]
 [ext_resource type="PackedScene" uid="uid://crs04b65vwhy2" path="res://scenes/npc.tscn" id="7_jvdbg"]
@@ -13,7 +13,7 @@
 [ext_resource type="Resource" uid="uid://cwdv7j5781076" path="res://resources/npc_actions/charge.tres" id="11_nfpr2"]
 [ext_resource type="PackedScene" uid="uid://cb33c6pcwsm7s" path="res://scenes/uis/spend_night_canvas_layer.tscn" id="12_x7j6v"]
 [ext_resource type="PackedScene" uid="uid://17emcoltidd5" path="res://scenes/uis/dialog_canvas_layer.tscn" id="13_rgsbe"]
-[ext_resource type="PackedScene" uid="uid://da84dcpolgi8x" path="res://scenes/rigid_foliage.tscn" id="14_tgdal"]
+[ext_resource type="PackedScene" path="res://scenes/rigid_foliage.tscn" id="14_tgdal"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_efxa6"]
 albedo_texture = ExtResource("2_2vkav")
@@ -120,10 +120,11 @@ script = ExtResource("5_28ppp")
 
 [node name="Player" parent="." instance=ExtResource("6_7rtth")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.532275, -2.2183847, 2.0943203)
-max_stamina = 20.0
+max_stamina = 40.0
 
 [node name="NPC" parent="." instance=ExtResource("7_jvdbg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.933179, -2.1903467, 2.936575)
+texture = null
 actions = Array[ExtResource("8_csysb")]([ExtResource("9_8niny"), ExtResource("10_di6o6"), ExtResource("11_nfpr2")])
 speech = "Hello ! How are you kind [species] !|Another speech yoooo|azoidhaiodiohaziodazd|azoizdazod"
 MAX_TONGUE_DISTANCE = 5
