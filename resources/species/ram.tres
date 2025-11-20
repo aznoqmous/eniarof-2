@@ -7,3 +7,4 @@ script = ExtResource("1_e2e6x")
 species_name = "Ram"
 action = 1
 modifiers = Array[float]([0.2, 0.5, 1.0])
+metadata/_custom_type_script = "uid://bkknh0a1kjpuu"
