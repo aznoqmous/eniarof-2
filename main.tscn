@@ -145,11 +145,9 @@ material = SubResource("StandardMaterial3D_5vw27")
 
 [node name="DialogCanvasLayer" parent="." instance=ExtResource("13_w48qg")]
 
-[node name="RabbitBase" parent="." node_paths=PackedStringArray("jump_sound", "charge_sound") instance=ExtResource("15_vivmo")]
+[node name="RabbitBase" parent="." instance=ExtResource("15_vivmo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86.88397, -2.0602648, -34.087116)
 collision_mask = 1
-jump_sound = NodePath("TongueContainer/TongueArea3D")
-charge_sound = NodePath("TongueContainer/TongueRayCast")
 
 [node name="BigTreeFoliage" parent="." instance=ExtResource("11_efxa6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78.89127, -1.7955651, -31.037584)
@@ -169,23 +167,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.79993, -1.9072385, -39.48
 [node name="ThinTree2" parent="." instance=ExtResource("12_dg77c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -92.33177, 0.6192136, -35.218666)
 
-[node name="Ram" parent="." node_paths=PackedStringArray("jump_sound", "charge_sound") instance=ExtResource("11_dg77c")]
+[node name="Ram" parent="." instance=ExtResource("11_dg77c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.98683, -2.079842, -30.443642)
 collision_mask = 1
-jump_sound = NodePath("TongueContainer/TongueArea3D")
-charge_sound = NodePath("TongueContainer/TongueRayCast")
 
-[node name="Anteater" parent="." node_paths=PackedStringArray("jump_sound", "charge_sound") instance=ExtResource("14_w48qg")]
+[node name="Anteater" parent="." instance=ExtResource("14_w48qg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.08777, -2.0674505, -29.269363)
 collision_mask = 1
-jump_sound = NodePath("TongueContainer/TongueArea3D")
-charge_sound = NodePath("TongueContainer/TongueRayCast")
 
-[node name="Anteater2" parent="." node_paths=PackedStringArray("jump_sound", "charge_sound") instance=ExtResource("14_w48qg")]
+[node name="Anteater2" parent="." instance=ExtResource("14_w48qg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84.26043, -1.5909936, -24.07921)
 collision_mask = 1
-jump_sound = NodePath("TongueContainer/TongueArea3D")
-charge_sound = NodePath("TongueContainer/TongueRayCast")
 
 [node name="LapinLevel" parent="." instance=ExtResource("14_vivmo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.113014, -10.947979, -61.309856)

@@ -57,6 +57,9 @@ texture = ExtResource("9_3v2ag")
 sorting_offset = 0.01
 texture = ExtResource("10_jej6c")
 
+[node name="TongueContainer" parent="SpriteContainer/Sprite3D" index="3"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, -0.12802851, 0)
+
 [node name="TongueMesh" parent="SpriteContainer/Sprite3D/TongueContainer" index="0"]
 mesh = SubResource("PlaneMesh_y4r1p")
 
