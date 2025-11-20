@@ -8,7 +8,7 @@ size = Vector3(1, 2.1558228, 0.45410156)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_f35ln"]
 height = 1.2956543
-radius = 0.59277344
+radius = 0.7
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n45ic"]
 albedo_color = Color(1, 0.578125, 0.9835205, 1)
@@ -22,11 +22,16 @@ center_offset = Vector3(0, 0, 1)
 [sub_resource type="SphereShape3D" id="SphereShape3D_n45ic"]
 radius = 0.100671
 
-[node name="CharacterBase" type="RigidBody3D"]
+[node name="CharacterBase" type="RigidBody3D" node_paths=PackedStringArray("jump_sound", "charge_sound", "tongue_sound", "rebound_sound", "tongue_return_sound")]
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
 script = ExtResource("1_mx1f8")
+jump_sound = NodePath("Sounds/Jump")
+charge_sound = NodePath("Sounds/Charge")
+tongue_sound = NodePath("Sounds/Tongue")
+rebound_sound = NodePath("Sounds/Rebound")
+tongue_return_sound = NodePath("Sounds/TongueReturn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.076197, 0)
@@ -66,5 +71,28 @@ shape = SubResource("SphereShape3D_n45ic")
 [node name="TongueRayCast" type="RayCast3D" parent="TongueContainer"]
 target_position = Vector3(0, 0, 1)
 collision_mask = 4
+
+[node name="Sounds" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Rebound" type="FmodEventEmitter3D" parent="Sounds"]
+event_name = "event:/SFX/PNJ/Belier/PNJ_Hit-Wall"
+event_guid = "{ec76715e-5a92-4fd9-97bd-926cbbad38c9}"
+
+[node name="Jump" type="FmodEventEmitter3D" parent="Sounds"]
+event_name = "event:/SFX/PNJ/Lapin/PNJ_Jump"
+event_guid = "{d0cdf081-4b28-4cf3-a65f-39c9e9e8025d}"
+
+[node name="Charge" type="FmodEventEmitter3D" parent="Sounds"]
+event_name = "event:/SFX/PNJ/Belier/PNJ_Charge"
+event_guid = "{b2a9f720-5332-41dd-9cca-638e294138ce}"
+
+[node name="Tongue" type="FmodEventEmitter3D" parent="Sounds"]
+event_name = "event:/SFX/PNJ/Tamanoir/PNJ_Tongue-Launch"
+event_guid = "{b71acc77-46ec-421c-956c-19abf8078782}"
+
+[node name="TongueReturn" type="FmodEventEmitter3D" parent="Sounds"]
+event_name = "event:/SFX/PNJ/Tamanoir/PNJ_Tongue-Return"
+event_guid = "{c41dcc8a-41af-4dad-8a0c-e233c3de070b}"
 
 [connection signal="body_entered" from="TongueContainer/TongueArea3D" to="." method="_on_tongue_area_3d_body_entered"]
