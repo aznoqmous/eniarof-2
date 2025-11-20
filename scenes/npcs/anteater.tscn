@@ -1,0 +1,26 @@
+[gd_scene load_steps=8 format=3 uid="uid://bahkqavktnhuv"]
+
+[ext_resource type="PackedScene" uid="uid://crs04b65vwhy2" path="res://scenes/npc.tscn" id="1_8nbdf"]
+[ext_resource type="Texture2D" uid="uid://bcykti7rjksoh" path="res://sprites/npcs/Personnage_Tamanoir_0.png" id="2_o127y"]
+[ext_resource type="Script" uid="uid://bsjxs0qm4pghh" path="res://scripts/npc_action_resource.gd" id="2_xg4w8"]
+[ext_resource type="Resource" uid="uid://bcxfy8qv77y5k" path="res://resources/npc_actions/idle.tres" id="3_syi13"]
+[ext_resource type="Resource" uid="uid://cq0skdj7me8wq" path="res://resources/npc_actions/tongue.tres" id="4_qcdb2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n45ic"]
+albedo_color = Color(1, 0.578125, 0.9835205, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ev0wi"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_n45ic")
+size = Vector2(0.1, 0)
+
+[node name="Anteater" instance=ExtResource("1_8nbdf")]
+actions = Array[ExtResource("2_xg4w8")]([ExtResource("3_syi13"), ExtResource("4_qcdb2"), ExtResource("4_qcdb2")])
+speech = "licky licky yo"
+
+[node name="Sprite3D" parent="SpriteContainer" index="0"]
+transform = Transform3D(0.395, 0, 0, 0, 0.395, 0, 0, 0, 0.395, 0, 0.8392266, 0)
+texture = ExtResource("2_o127y")
+
+[node name="TongueMesh" parent="TongueContainer" index="0"]
+mesh = SubResource("PlaneMesh_ev0wi")

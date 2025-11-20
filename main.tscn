@@ -1,19 +1,18 @@
-[gd_scene load_steps=25 format=3 uid="uid://cmlhp3bgeip3e"]
+[gd_scene load_steps=24 format=3 uid="uid://cmlhp3bgeip3e"]
 
 [ext_resource type="Script" uid="uid://dlsptbxcmtms2" path="res://scripts/main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://d2jcxmqkru15e" path="res://scenes/player.tscn" id="2_h2yge"]
 [ext_resource type="Texture2D" uid="uid://qp556mhmny4v" path="res://assets/sprites/clairière_tileable.jpg" id="2_kek77"]
 [ext_resource type="Texture2D" uid="uid://b6fmhq68o82ga" path="res://assets/sprites/belier_v3_tileable.jpg" id="3_kek77"]
-[ext_resource type="PackedScene" uid="uid://crs04b65vwhy2" path="res://scenes/npc.tscn" id="4_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://c1nv2b80us7gx" path="res://scenes/foliage.tscn" id="4_efxa6"]
-[ext_resource type="Script" uid="uid://bsjxs0qm4pghh" path="res://scripts/npc_action_resource.gd" id="5_7mycd"]
 [ext_resource type="Script" uid="uid://1eqrfby7r8i4" path="res://scripts/directional_light_3d.gd" id="6_ycdy4"]
-[ext_resource type="Resource" uid="uid://cq0skdj7me8wq" path="res://resources/npc_actions/tongue.tres" id="10_4c57u"]
-[ext_resource type="Resource" uid="uid://c6jb78bykgjlj" path="res://resources/npc_actions/jump.tres" id="10_efxa6"]
-[ext_resource type="Resource" uid="uid://cwdv7j5781076" path="res://resources/npc_actions/charge.tres" id="11_dg77c"]
+[ext_resource type="PackedScene" uid="uid://c4gq5premh6yy" path="res://scenes/npcs/ram.tscn" id="11_dg77c"]
+[ext_resource type="PackedScene" uid="uid://dvke267jyev2m" path="res://scenes/foliages/trees/big_tree_foliage.tscn" id="11_efxa6"]
+[ext_resource type="PackedScene" uid="uid://5pcwdkdkscl7" path="res://scenes/foliages/trees/thin_tree.tscn" id="12_dg77c"]
+[ext_resource type="Texture2D" uid="uid://dk6ee1ked2nev" path="res://sprites/foliages/trees/Decor_Arbre_Taillé_01.png" id="12_vivmo"]
 [ext_resource type="PackedScene" uid="uid://cb33c6pcwsm7s" path="res://scenes/uis/spend_night_canvas_layer.tscn" id="12_w48qg"]
-[ext_resource type="PackedScene" uid="uid://da84dcpolgi8x" path="res://scenes/rigid_foliage.tscn" id="12_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://17emcoltidd5" path="res://scenes/uis/dialog_canvas_layer.tscn" id="13_w48qg"]
+[ext_resource type="PackedScene" uid="uid://bahkqavktnhuv" path="res://scenes/npcs/anteater.tscn" id="14_w48qg"]
+[ext_resource type="PackedScene" uid="uid://ua12uqm5pvg0" path="res://scenes/npcs/rabbit_base.tscn" id="15_vivmo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_efxa6"]
 albedo_texture = ExtResource("2_kek77")
@@ -87,9 +86,6 @@ mesh = SubResource("BoxMesh_efxa6")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level/FloorBélier"]
 shape = SubResource("BoxShape3D_dg77c")
 
-[node name="Foliage" parent="." instance=ExtResource("4_efxa6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.198501, -2.268567, 0)
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_1bvp3")
 
@@ -100,13 +96,6 @@ script = ExtResource("6_ycdy4")
 [node name="Player" parent="." instance=ExtResource("2_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.532275, -2.2183847, 2.0943203)
 JUMP_SPEED = 8.5
-
-[node name="NPC" parent="." instance=ExtResource("4_1bvp3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.933179, -2.1903467, -3.563425)
-actions = Array[ExtResource("5_7mycd")]([ExtResource("10_efxa6"), ExtResource("10_4c57u"), ExtResource("11_dg77c")])
-speech = "Hello ! How are you kind [species] !|Another speech yoooo|azoidhaiodiohaziodazd|azoizdazod"
-MAX_TONGUE_DISTANCE = 5
-JUMP_MODIFIER = 0.5
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.523931, -2.2569194, -7.9766836)
@@ -128,5 +117,29 @@ material = SubResource("StandardMaterial3D_5vw27")
 
 [node name="DialogCanvasLayer" parent="." instance=ExtResource("13_w48qg")]
 
-[node name="RigidFoliage" parent="." instance=ExtResource("12_ycdy4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.7373409, 0)
+[node name="RabbitBase" parent="." instance=ExtResource("15_vivmo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.401298, -2.0602648, -6.898051)
+
+[node name="BigTreeFoliage" parent="." instance=ExtResource("11_efxa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.408601, -1.7955651, -3.8485208)
+texture = null
+
+[node name="BigTreeFoliage2" parent="." instance=ExtResource("11_efxa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.585251, -1.7955651, -10.511816)
+texture = null
+
+[node name="ThinTree" parent="." instance=ExtResource("12_dg77c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.930883, -1.9072385, -2.2852547)
+texture = ExtResource("12_vivmo")
+
+[node name="ThinTree3" parent="." instance=ExtResource("12_dg77c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.317254, -1.9072385, -12.293736)
+
+[node name="ThinTree2" parent="." instance=ExtResource("12_dg77c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.8491, 0.6192136, -8.029604)
+
+[node name="Ram" parent="." instance=ExtResource("11_dg77c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.504157, -2.079842, -3.2545767)
+
+[node name="Anteater" parent="." instance=ExtResource("14_w48qg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.605097, -2.0674505, -2.0803003)

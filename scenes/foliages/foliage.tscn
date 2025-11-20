@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cfypland4tfa0" path="res://icon.svg" id="2_4dxek"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5vw27"]
-size = Vector3(1, 12, 1)
+size = Vector3(1, 4.5249023, 1)
 
 [node name="Foliage" type="Area3D"]
 collision_layer = 9

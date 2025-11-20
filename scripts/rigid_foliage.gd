@@ -1,3 +1,4 @@
+@tool
 class_name RigidFoliage extends Foliage
 
 @export var charge_breakable := false
