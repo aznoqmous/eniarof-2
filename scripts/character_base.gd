@@ -4,6 +4,7 @@ class_name CharacterBase extends RigidBody3D
 @onready var ground_ray_cast_3d: RayCast3D = $GroundRayCast3D
 @onready var charge_rebound_area_3d: Area3D = $ChargeReboundArea3D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var walking_player: AnimationPlayer = $WalkingAnim
 var is_walking:= false
 
 @onready var tongue_container: Node3D = $TongueContainer
@@ -51,34 +52,35 @@ var tongue_target_position : Vector3
 @export var CHARGE_MODIFIER = 1.0
 @export var TONGUE_MODIFIER = 1.0
 
+var last_walking_position : Vector3
+
 var is_grounded := false:
 	get: return ground_ray_cast_3d.is_colliding()
 
 func _ready() -> void:
+	walking_player.current_animation = "walk"
 	charge_rebound_area_3d.body_entered.connect(handle_charge_rebound)
 	hide_tongue()
 	
 func _process(_delta: float) -> void:
 	if current_movement.x > 0.1 or current_movement.x < -0.1 or current_movement.z > 0.1 or current_movement.z < -0.1:
-		if is_walking == false:
-			animation_player.current_animation = "walk"
-			animation_player.play()
-			is_walking = true
+		if not is_charging:
+			walking_player.play()
 	else:
-		animation_player.current_animation = "RESET"
-		animation_player.play()
-		is_walking = false
+			walking_player.stop()
 	if not is_grounded or is_charging or is_tonguing:
-		animation_player.current_animation = "RESET"
-		animation_player.play()
-		is_walking = false
+		walking_player.stop()
 	
+	if is_grounded:
+		last_walking_position = ground_ray_cast_3d.get_collision_point()
+		
 	sprite_container.rotation.y = lerp(sprite_container.rotation.y, PI if current_movement.x < 0 else 0.0, _delta * 5.0)
 	
-	var tongue_distance = tongue_container.global_position - tongue_target_position
-	tongue_mesh.mesh.size.y =  tongue_distance.length() * tongue_length
-	tongue_mesh.mesh.center_offset.z =  tongue_distance.length() / 2.0 * tongue_length
-	tongue_area_3d.global_position =  lerp(global_position, tongue_target_position, tongue_length)
+	if is_tonguing:
+		var tongue_distance = tongue_container.global_position - tongue_target_position
+		tongue_mesh.mesh.size.y =  tongue_distance.length() * tongue_length
+		tongue_mesh.mesh.center_offset.z =  tongue_distance.length() / 2.0 * tongue_length
+		tongue_area_3d.global_position =  lerp(global_position, tongue_target_position, tongue_length)
 	
 func _physics_process(_delta: float) -> void:
 	
@@ -100,6 +102,8 @@ func jump() -> void:
 	ground_ray_cast_3d.enabled = false
 	jumped.emit()
 	jump_sound.play()
+	animation_player.current_animation = "jump"
+	animation_player.play()
 	
 func charge() -> void:
 	if not is_grounded: return;
@@ -113,6 +117,8 @@ func charge() -> void:
 	is_charging = true
 	charged.emit()
 	charge_sound.play()
+	animation_player.current_animation = "charge"
+	animation_player.play()
 	
 	await get_tree().create_timer(0.1).timeout
 	
