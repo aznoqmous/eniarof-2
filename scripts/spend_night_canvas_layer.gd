@@ -22,5 +22,6 @@ func close():
 	get_tree().create_tween().tween_property(night_overlay_control, "modulate:a", 0.0, animation_duration)
 	await get_tree().create_timer(animation_duration).timeout
 	night_overlay_control.set_visible(false)
+	main.player.current_species = main.player.species[main.player.get_most_performed_action()]
 	main.player.reset_action_counts()
 	main.player.reset_stamina()

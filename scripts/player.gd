@@ -12,6 +12,7 @@ var last_input_movement : Vector3
 @export var species_resource : Array[SpeciesResource] # reference, not to be modified in code
 var actions : Array[SpeciesResource.ActionType]
 var species : Dictionary[SpeciesResource.ActionType, SpeciesResource]
+var current_species : SpeciesResource
 
 @export_category("Stamina")
 @export var max_stamina = 10.0
@@ -20,8 +21,11 @@ var current_stamina := 0.0
 
 func _ready():
 	super()
+	
+	
 	for s in species_resource:
 		species[s.action] = s.duplicate()
+	current_species = species.values().pick_random()
 	
 	reset_stamina()
 	update_modifiers()
@@ -90,8 +94,8 @@ func reset_action_counts():
 func get_most_performed_action() -> SpeciesResource.ActionType:
 	var actions_copy = species.values()
 	actions_copy.sort_custom(func(a,b): return a.action_count > b.action_count)
-	return actions_copy[0]
-	
+	return actions_copy[0].action
+
 func force_modifiers_level(level=0):
 	for s in species.values():
 		match s.action:

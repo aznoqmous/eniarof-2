@@ -14,6 +14,7 @@ func _process(_delta: float) -> void:
 	pass
 
 func write_text(text: String):
+	text = text.replace("[species]", str("[b]",main.player.current_species.species_name, "[/b]"))
 	var is_tag = false
 	rich_text_label.text = ""
 	margin_container.size.y = 0

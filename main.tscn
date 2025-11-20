@@ -59,6 +59,7 @@ corner_detail = 5
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_h2yge")
+night_speechs = Array[String](["zzzzzzz...", "Im sleepy..."])
 
 [node name="FmodBankLoader" type="FmodBankLoader" parent="."]
 bank_paths = ["res://assets/soundbanks/Desktop/Master.strings.bank", "res://assets/soundbanks/Desktop/Master.bank"]
@@ -109,8 +110,9 @@ transform = Transform3D(0.113880076, -0.15570024, 0.981218, -0.09190931, 0.98175
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.532275, -2.2183847, 2.0943203)
 
 [node name="NPC" parent="." instance=ExtResource("4_1bvp3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.689857, 0.8256235, -5.783312)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.933179, -2.1903467, -3.563425)
 actions = Array[ExtResource("5_7mycd")]([ExtResource("10_efxa6"), ExtResource("10_4c57u"), ExtResource("11_dg77c")])
+speech = "Hello ! How are you kind [species] !"
 MAX_TONGUE_DISTANCE = 5
 JUMP_MODIFIER = 0.5
 

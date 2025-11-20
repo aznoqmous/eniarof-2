@@ -16,6 +16,8 @@ var starting_position: Vector3
 var action_direction: Vector3
 var max_action_distance = 1
 
+@export_multiline var speech : String
+
 func _ready():
 	starting_position = global_position
 	dialog_box.set_visible(false)
@@ -44,7 +46,7 @@ func _on_interaction_zone_body_exited(body: Node3D) -> void:
 
 func talk():
 	dialog_box.set_visible(true)
-	dialog_box.write_text("blabla")
+	dialog_box.write_text(speech)
 
 func live(delta):
 	if not current_action: return;
