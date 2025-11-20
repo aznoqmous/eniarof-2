@@ -1,0 +1,303 @@
+[gd_scene load_steps=16 format=3 uid="uid://dijixgpayqd2x"]
+
+[ext_resource type="Script" uid="uid://dlsptbxcmtms2" path="res://scripts/main.gd" id="1_la1ra"]
+[ext_resource type="PackedScene" uid="uid://17emcoltidd5" path="res://scenes/uis/dialog_canvas_layer.tscn" id="2_6h1lp"]
+[ext_resource type="PackedScene" uid="uid://d2jcxmqkru15e" path="res://scenes/player.tscn" id="3_kysct"]
+[ext_resource type="Texture2D" uid="uid://bdeid6ms7xvb2" path="res://sprites/Textures/Texture_Boite_01.jpg" id="4_vbnrv"]
+[ext_resource type="Texture2D" uid="uid://bavoflxmtddu7" path="res://sprites/Textures/Texture_SolLapin_01.jpg" id="5_gpul0"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_m8n28"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_suxv6"]
+size = Vector3(1, 1.1274185, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7luoh"]
+albedo_texture = ExtResource("4_vbnrv")
+uv1_scale = Vector3(20, 20, 20)
+uv1_offset = Vector3(20, 0, 0)
+uv2_scale = Vector3(20, 20, 20)
+uv2_offset = Vector3(20, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x3x3y"]
+albedo_texture = ExtResource("4_vbnrv")
+uv1_scale = Vector3(20, 20, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vbrct"]
+albedo_texture = ExtResource("4_vbnrv")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wibxk"]
+albedo_texture = ExtResource("5_gpul0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1inbp"]
+albedo_texture = ExtResource("5_gpul0")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0803f"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m8n28"]
+albedo_texture = ExtResource("4_vbnrv")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_suxv6"]
+albedo_color = Color(1, 0, 0, 1)
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_la1ra")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.16900548, 0.8535678, -0.4928075, 2.7805946e-08, 0.49999994, 0.86602545, 0.9856151, 0.14636302, -0.08450276, -5.5364776, 11.2446995, 0)
+shadow_enabled = true
+
+[node name="DialogCanvasLayer" parent="." instance=ExtResource("2_6h1lp")]
+
+[node name="Player" parent="." instance=ExtResource("3_kysct")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6644481, 0, 5.4647193)
+max_stamina = 5000.0
+
+[node name="level_unb_tama" type="Node3D" parent="."]
+
+[node name="cube" type="StaticBody3D" parent="level_unb_tama"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.72996, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="level_unb_tama/cube"]
+mesh = SubResource("BoxMesh_m8n28")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="level_unb_tama/cube"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0017776489, 0)
+shape = SubResource("BoxShape3D_suxv6")
+
+[node name="cube3" type="StaticBody3D" parent="level_unb_tama"]
+transform = Transform3D(42.51978, 0, 0, 0, 11.445492, 0, 0, 0, 1, 10.007761, 0, -11.981342)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="level_unb_tama/cube3"]
+mesh = SubResource("BoxMesh_m8n28")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="level_unb_tama/cube3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0017776489, 0)
+shape = SubResource("BoxShape3D_suxv6")
+
+[node name="cube2" type="StaticBody3D" parent="level_unb_tama"]
+transform = Transform3D(1, 0, 0, 0, 11.427023, 0, 0, 0, 23.508295, -9.470552, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="level_unb_tama/cube2"]
+mesh = SubResource("BoxMesh_m8n28")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="level_unb_tama/cube2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0017776489, 0)
+shape = SubResource("BoxShape3D_suxv6")
+
+[node name="bridge" type="StaticBody3D" parent="level_unb_tama"]
+transform = Transform3D(12.742142, 0, 0, 0, 1, 0, 0, 0, 4.122198, 10.560049, 0.059194326, 6.533311)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="level_unb_tama/bridge"]
+material_override = SubResource("StandardMaterial3D_7luoh")
+mesh = SubResource("BoxMesh_m8n28")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="level_unb_tama/bridge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0017776489, 0)
+shape = SubResource("BoxShape3D_suxv6")
+
+[node name="bridge2" type="StaticBody3D" parent="level_unb_tama"]
+transform = Transform3D(12.742142, 0, 0, 0, 2.6954403, 0, 0, 0, 0.40333754, 10.560049, 0.059194326, 8.670517)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="level_unb_tama/bridge2"]
+material_override = SubResource("StandardMaterial3D_x3x3y")
+mesh = SubResource("BoxMesh_m8n28")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="level_unb_tama/bridge2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.36333552, 0)
+shape = SubResource("BoxShape3D_suxv6")
+
+[node name="bridge3" type="StaticBody3D" parent="level_unb_tama"]
+transform = Transform3D(12.742142, 0, 0, 0, 2.6954403, 0, 0, 0, 0.40333754, 10.560049, 0.059194326, 4.3734756)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="level_unb_tama/bridge3"]
+material_override = SubResource("StandardMaterial3D_vbrct")
+mesh = SubResource("BoxMesh_m8n28")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="level_unb_tama/bridge3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43453044, 0)
+shape = SubResource("BoxShape3D_suxv6")
+
+[node name="wall_tama1" type="StaticBody3D" parent="level_unb_tama"]
+transform = Transform3D(39.70514, 0, 0, 0, 2.35298, 0, 0, 0, 1, 10.886753, 0.38895988, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="level_unb_tama/wall_tama1"]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 0, 0.085360065, 0)
+mesh = SubResource("BoxMesh_m8n28")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="level_unb_tama/wall_tama1"]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 0, 0.3915406, 0)
+shape = SubResource("BoxShape3D_suxv6")
+
+[node name="wall_tama2" type="StaticBody3D" parent="level_unb_tama"]
+transform = Transform3D(39.70514, 0, 0, 0, 2.35298, 0, 0, 0, 1, 10.886753, -1.3054514, 11.613097)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="level_unb_tama/wall_tama2"]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 0, 0.085360065, 0)
+mesh = SubResource("BoxMesh_m8n28")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="level_unb_tama/wall_tama2"]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 0, 0.8829972, 0)
+shape = SubResource("BoxShape3D_suxv6")
+
+[node name="wall_tama3" type="StaticBody3D" parent="level_unb_tama"]
+transform = Transform3D(0.06178247, 0, 1.0349021, 0, 2.35298, 0, -2.4475222, 0, 0.026123874, 7.492811, -1.3054514, 10.087907)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="level_unb_tama/wall_tama3"]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 0, 0.085360065, 0)
+mesh = SubResource("BoxMesh_m8n28")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="level_unb_tama/wall_tama3"]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 0, 0.8829972, 0)
+shape = SubResource("BoxShape3D_suxv6")
+
+[node name="wall_tama4" type="StaticBody3D" parent="level_unb_tama"]
+transform = Transform3D(0.06178247, 0, 1.0349021, 0, 2.35298, 0, -2.4475222, 0, 0.026123874, 14.646654, -1.3054514, 10.087907)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="level_unb_tama/wall_tama4"]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 0, 0.085360065, 0)
+mesh = SubResource("BoxMesh_m8n28")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="level_unb_tama/wall_tama4"]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 0, 0.8829972, 0)
+shape = SubResource("BoxShape3D_suxv6")
+
+[node name="wall_tama5" type="StaticBody3D" parent="level_unb_tama"]
+transform = Transform3D(0.092758164, 0, 1.0218045, 0, 2.35298, 0, -3.674629, 0, 0.025793253, 14.646654, -1.3054514, 2.3887868)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="level_unb_tama/wall_tama5"]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 0, 0.085360065, 0)
+mesh = SubResource("BoxMesh_m8n28")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="level_unb_tama/wall_tama5"]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 0, 0.8829972, 0)
+shape = SubResource("BoxShape3D_suxv6")
+
+[node name="wall_tama6" type="StaticBody3D" parent="level_unb_tama"]
+transform = Transform3D(0.092758164, 0, 1.0218045, 0, 2.35298, 0, -3.674629, 0, 0.025793253, 7.370947, -1.3054514, 2.3887868)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="level_unb_tama/wall_tama6"]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 0, 0.085360065, 0)
+mesh = SubResource("BoxMesh_m8n28")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="level_unb_tama/wall_tama6"]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 0, 0.8829972, 0)
+shape = SubResource("BoxShape3D_suxv6")
+
+[node name="floar_tama" type="StaticBody3D" parent="level_unb_tama"]
+transform = Transform3D(15.952847, 0, 0, 0, 1, 0, 0, 0, 23.191702, -1.0374722, -0.51487446, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="level_unb_tama/floar_tama"]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09172535, 0)
+material_override = SubResource("StandardMaterial3D_wibxk")
+mesh = SubResource("BoxMesh_m8n28")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="level_unb_tama/floar_tama"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0643425, 0)
+shape = SubResource("BoxShape3D_suxv6")
+
+[node name="floar_tama2" type="StaticBody3D" parent="level_unb_tama"]
+transform = Transform3D(15.952847, 0, 0, 0, 1, 0, 0, 0, 23.191702, 22.869818, -0.51487446, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="level_unb_tama/floar_tama2"]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09172535, 0)
+material_override = SubResource("StandardMaterial3D_1inbp")
+mesh = SubResource("BoxMesh_m8n28")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="level_unb_tama/floar_tama2"]
+shape = SubResource("BoxShape3D_suxv6")
+
+[node name="boite" type="RigidBody3D" parent="level_unb_tama"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.182797, 0.8313396, 5.7584105)
+collision_layer = 4
+collision_mask = 7
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="level_unb_tama/boite"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4883533, 0)
+shape = SubResource("BoxShape3D_0803f")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="level_unb_tama/boite"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4883533, 0)
+material_override = SubResource("StandardMaterial3D_m8n28")
+material = SubResource("StandardMaterial3D_suxv6")
+
+[node name="boite4" type="RigidBody3D" parent="level_unb_tama"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.020033, 0.8313396, 7.717955)
+collision_layer = 4
+collision_mask = 7
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="level_unb_tama/boite4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4883533, 0)
+shape = SubResource("BoxShape3D_0803f")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="level_unb_tama/boite4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4883533, 0)
+material_override = SubResource("StandardMaterial3D_m8n28")
+material = SubResource("StandardMaterial3D_suxv6")
+
+[node name="boite5" type="RigidBody3D" parent="level_unb_tama"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.231093, 0.8313396, 8.007631)
+collision_layer = 4
+collision_mask = 7
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="level_unb_tama/boite5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4883533, 0)
+shape = SubResource("BoxShape3D_0803f")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="level_unb_tama/boite5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4883533, 0)
+material_override = SubResource("StandardMaterial3D_m8n28")
+material = SubResource("StandardMaterial3D_suxv6")
+
+[node name="boite6" type="RigidBody3D" parent="level_unb_tama"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.555281, 0.8313396, 8.007631)
+collision_layer = 4
+collision_mask = 7
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="level_unb_tama/boite6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4883533, 0)
+shape = SubResource("BoxShape3D_0803f")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="level_unb_tama/boite6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4883533, 0)
+material_override = SubResource("StandardMaterial3D_m8n28")
+material = SubResource("StandardMaterial3D_suxv6")
+
+[node name="boite2" type="RigidBody3D" parent="level_unb_tama"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.170413, 0.8313396, 6.957137)
+collision_layer = 4
+collision_mask = 7
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="level_unb_tama/boite2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4883533, 0)
+shape = SubResource("BoxShape3D_0803f")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="level_unb_tama/boite2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4883533, 0)
+material_override = SubResource("StandardMaterial3D_m8n28")
+material = SubResource("StandardMaterial3D_suxv6")
+
+[node name="boite3" type="RigidBody3D" parent="level_unb_tama"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.331885, 0.8313396, 5.927573)
+collision_layer = 4
+collision_mask = 7
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="level_unb_tama/boite3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4883533, 0)
+shape = SubResource("BoxShape3D_0803f")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="level_unb_tama/boite3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4883533, 0)
+material_override = SubResource("StandardMaterial3D_m8n28")
+material = SubResource("StandardMaterial3D_suxv6")
