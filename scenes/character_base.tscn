@@ -86,6 +86,7 @@ _data = {
 }
 
 [node name="CharacterBase" type="RigidBody3D" node_paths=PackedStringArray("jump_sound", "charge_sound", "tongue_sound", "rebound_sound", "tongue_return_sound")]
+collision_mask = 17
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true

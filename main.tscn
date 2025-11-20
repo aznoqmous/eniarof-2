@@ -1,9 +1,12 @@
-[gd_scene load_steps=26 format=3 uid="uid://cmlhp3bgeip3e"]
+[gd_scene load_steps=31 format=3 uid="uid://cmlhp3bgeip3e"]
 
 [ext_resource type="Script" uid="uid://dlsptbxcmtms2" path="res://scripts/main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://d2jcxmqkru15e" path="res://scenes/player.tscn" id="2_h2yge"]
 [ext_resource type="Texture2D" uid="uid://qp556mhmny4v" path="res://assets/sprites/clairière_tileable.jpg" id="2_kek77"]
 [ext_resource type="Texture2D" uid="uid://b6fmhq68o82ga" path="res://assets/sprites/belier_v3_tileable.jpg" id="3_kek77"]
+[ext_resource type="Shader" uid="uid://ceyqrsqchfjot" path="res://shaders/water.gdshader" id="4_2cqfq"]
+[ext_resource type="Script" uid="uid://3ie2b8f123dv" path="res://scripts/water.gd" id="4_yaehf"]
+[ext_resource type="Texture2D" uid="uid://crr1h60asguyr" path="res://assets/sprites/water/voronoi.png" id="5_yaehf"]
 [ext_resource type="Script" uid="uid://1eqrfby7r8i4" path="res://scripts/directional_light_3d.gd" id="6_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://c4gq5premh6yy" path="res://scenes/npcs/ram.tscn" id="11_dg77c"]
 [ext_resource type="PackedScene" uid="uid://dvke267jyev2m" path="res://scenes/foliages/trees/big_tree_foliage.tscn" id="11_efxa6"]
@@ -37,6 +40,20 @@ size = Vector3(100, 1, 100)
 size = Vector3(100, 1, 100)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_w48qg"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_074og"]
+size = Vector2(1000, 1000)
+subdivide_width = 400
+subdivide_depth = 400
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cegan"]
+render_priority = 0
+shader = ExtResource("4_2cqfq")
+shader_parameter/water_color = Color(0.33143616, 0.54270107, 0.79296875, 1)
+shader_parameter/light_foam_color = Color(0.49998474, 0.63990134, 0.84765625, 1)
+shader_parameter/dark_foam_color = Color(0.21566772, 0.47498703, 0.74609375, 1)
+shader_parameter/voronoi_texture = ExtResource("5_yaehf")
+shader_parameter/voronoi_size = 0.1
 
 [sub_resource type="Environment" id="Environment_1bvp3"]
 
@@ -79,12 +96,19 @@ mesh = SubResource("BoxMesh_efxa6")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level/FloorBélier"]
 shape = SubResource("BoxShape3D_dg77c")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Level"]
+[node name="Water" type="Area3D" parent="Level"]
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("4_yaehf")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Water"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
 shape = SubResource("WorldBoundaryShape3D_w48qg")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/StaticBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/Water"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
+mesh = SubResource("PlaneMesh_074og")
+surface_material_override/0 = SubResource("ShaderMaterial_cegan")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_1bvp3")
@@ -94,7 +118,7 @@ transform = Transform3D(-3.2531837e-08, -0.6679105, 0.7442416, -2.9195299e-08, 0
 script = ExtResource("6_ycdy4")
 
 [node name="Player" parent="." node_paths=PackedStringArray("species_sprites") instance=ExtResource("2_h2yge")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9289627, 0.95663166, 10.767887)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.78909, -1.4117012, -16.01734)
 species_sprites = {
 0: NodePath("SpriteContainer/Sprite3D/Rabbit"),
 1: NodePath("SpriteContainer/Sprite3D/Ram"),
@@ -121,39 +145,49 @@ material = SubResource("StandardMaterial3D_5vw27")
 
 [node name="DialogCanvasLayer" parent="." instance=ExtResource("13_w48qg")]
 
-[node name="RabbitBase" parent="." node_paths=PackedStringArray("jump_sound") instance=ExtResource("15_vivmo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.401298, -2.0602648, -6.898051)
-jump_sound = NodePath("TongueContainer/TongueRayCast")
+[node name="RabbitBase" parent="." node_paths=PackedStringArray("jump_sound", "charge_sound") instance=ExtResource("15_vivmo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86.88397, -2.0602648, -34.087116)
+collision_mask = 1
+jump_sound = NodePath("TongueContainer/TongueArea3D")
+charge_sound = NodePath("TongueContainer/TongueRayCast")
 
 [node name="BigTreeFoliage" parent="." instance=ExtResource("11_efxa6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.408601, -1.7955651, -3.8485208)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78.89127, -1.7955651, -31.037584)
 texture = null
 
 [node name="BigTreeFoliage2" parent="." instance=ExtResource("11_efxa6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.585251, -1.7955651, -10.511816)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -83.067924, -1.7955651, -37.700882)
 texture = null
 
 [node name="ThinTree" parent="." instance=ExtResource("12_dg77c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.930883, -1.9072385, -2.2852547)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -87.41356, -1.9072385, -29.47432)
 texture = ExtResource("12_vivmo")
 
 [node name="ThinTree3" parent="." instance=ExtResource("12_dg77c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.317254, -1.9072385, -12.293736)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.79993, -1.9072385, -39.4828)
 
 [node name="ThinTree2" parent="." instance=ExtResource("12_dg77c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.8491, 0.6192136, -8.029604)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -92.33177, 0.6192136, -35.218666)
 
-[node name="Ram" parent="." node_paths=PackedStringArray("jump_sound") instance=ExtResource("11_dg77c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.504157, -2.079842, -3.2545767)
-jump_sound = NodePath("TongueContainer/TongueRayCast")
+[node name="Ram" parent="." node_paths=PackedStringArray("jump_sound", "charge_sound") instance=ExtResource("11_dg77c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.98683, -2.079842, -30.443642)
+collision_mask = 1
+jump_sound = NodePath("TongueContainer/TongueArea3D")
+charge_sound = NodePath("TongueContainer/TongueRayCast")
 
-[node name="Anteater" parent="." node_paths=PackedStringArray("jump_sound") instance=ExtResource("14_w48qg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.605097, -2.0674505, -2.0803003)
-jump_sound = NodePath("TongueContainer/TongueRayCast")
+[node name="Anteater" parent="." node_paths=PackedStringArray("jump_sound", "charge_sound") instance=ExtResource("14_w48qg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.08777, -2.0674505, -29.269363)
+collision_mask = 1
+jump_sound = NodePath("TongueContainer/TongueArea3D")
+charge_sound = NodePath("TongueContainer/TongueRayCast")
 
-[node name="Anteater2" parent="." node_paths=PackedStringArray("jump_sound") instance=ExtResource("14_w48qg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.777756, -1.5909936, 3.1098533)
-jump_sound = NodePath("TongueContainer/TongueRayCast")
+[node name="Anteater2" parent="." node_paths=PackedStringArray("jump_sound", "charge_sound") instance=ExtResource("14_w48qg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84.26043, -1.5909936, -24.07921)
+collision_mask = 1
+jump_sound = NodePath("TongueContainer/TongueArea3D")
+charge_sound = NodePath("TongueContainer/TongueRayCast")
 
 [node name="LapinLevel" parent="." instance=ExtResource("14_vivmo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.113014, -10.947979, -61.309856)
+
+[connection signal="body_entered" from="Level/Water" to="Level/Water" method="_on_body_entered"]

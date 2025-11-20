@@ -52,6 +52,8 @@ var tongue_target_position : Vector3
 @export var CHARGE_MODIFIER = 1.0
 @export var TONGUE_MODIFIER = 1.0
 
+var last_walking_position : Vector3
+
 var is_grounded := false:
 	get: return ground_ray_cast_3d.is_colliding()
 
@@ -69,6 +71,9 @@ func _process(_delta: float) -> void:
 	if not is_grounded or is_charging or is_tonguing:
 		walking_player.stop()
 	
+	if is_grounded:
+		last_walking_position = ground_ray_cast_3d.get_collision_point()
+		
 	sprite_container.rotation.y = lerp(sprite_container.rotation.y, PI if current_movement.x < 0 else 0.0, _delta * 5.0)
 	
 	if is_tonguing:
