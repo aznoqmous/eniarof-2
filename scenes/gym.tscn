@@ -1,0 +1,210 @@
+[gd_scene load_steps=25 format=3 uid="uid://dy0stovegbo24"]
+
+[ext_resource type="Script" uid="uid://dlsptbxcmtms2" path="res://scripts/main.gd" id="1_rknjs"]
+[ext_resource type="Texture2D" uid="uid://qp556mhmny4v" path="res://assets/sprites/clairière_tileable.jpg" id="2_2vkav"]
+[ext_resource type="Texture2D" uid="uid://b6fmhq68o82ga" path="res://assets/sprites/belier_v3_tileable.jpg" id="3_d4r3x"]
+[ext_resource type="PackedScene" path="res://scenes/foliage.tscn" id="4_lpctg"]
+[ext_resource type="Script" uid="uid://1eqrfby7r8i4" path="res://scripts/directional_light_3d.gd" id="5_28ppp"]
+[ext_resource type="PackedScene" uid="uid://d2jcxmqkru15e" path="res://scenes/player.tscn" id="6_7rtth"]
+[ext_resource type="PackedScene" uid="uid://crs04b65vwhy2" path="res://scenes/npc.tscn" id="7_jvdbg"]
+[ext_resource type="Script" uid="uid://bsjxs0qm4pghh" path="res://scripts/npc_action_resource.gd" id="8_csysb"]
+[ext_resource type="Resource" uid="uid://c6jb78bykgjlj" path="res://resources/npc_actions/jump.tres" id="9_8niny"]
+[ext_resource type="Resource" uid="uid://cq0skdj7me8wq" path="res://resources/npc_actions/tongue.tres" id="10_di6o6"]
+[ext_resource type="Resource" uid="uid://cwdv7j5781076" path="res://resources/npc_actions/charge.tres" id="11_nfpr2"]
+[ext_resource type="PackedScene" uid="uid://cb33c6pcwsm7s" path="res://scenes/uis/spend_night_canvas_layer.tscn" id="12_x7j6v"]
+[ext_resource type="PackedScene" uid="uid://17emcoltidd5" path="res://scenes/uis/dialog_canvas_layer.tscn" id="13_rgsbe"]
+[ext_resource type="PackedScene" path="res://scenes/rigid_foliage.tscn" id="14_tgdal"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_efxa6"]
+albedo_texture = ExtResource("2_2vkav")
+rim = 0.1
+uv1_scale = Vector3(30, 30, 30)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kek77"]
+size = Vector3(100, 100, 100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4c57u"]
+size = Vector3(100, 100, 100)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w48qg"]
+albedo_texture = ExtResource("3_d4r3x")
+uv1_scale = Vector3(30, 30, 30)
+
+[sub_resource type="BoxMesh" id="BoxMesh_efxa6"]
+size = Vector3(100, 1, 100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dg77c"]
+size = Vector3(100, 1, 100)
+
+[sub_resource type="Environment" id="Environment_1bvp3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_272bh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vivmo"]
+albedo_texture = ExtResource("2_2vkav")
+detail_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5vw27"]
+albedo_color = Color(1, 0, 0, 1)
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_rknjs")
+night_speechs = Array[String](["zzzzzzz...", "Im sleepy..."])
+
+[node name="FmodBankLoader" type="FmodBankLoader" parent="."]
+bank_paths = ["res://assets/soundbanks/Desktop/Master.strings.bank", "res://assets/soundbanks/Desktop/Master.bank"]
+
+[node name="Level" type="Node3D" parent="."]
+
+[node name="FloorClairière" type="StaticBody3D" parent="Level"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 51.7905, -48.531017, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/FloorClairière"]
+material_override = SubResource("StandardMaterial3D_efxa6")
+mesh = SubResource("BoxMesh_kek77")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/FloorClairière"]
+shape = SubResource("BoxShape3D_4c57u")
+
+[node name="FloorTest" type="StaticBody3D" parent="Level"]
+transform = Transform3D(-0.105, 0, -1.9629454e-08, 0, 0.275, 0, 1.5854559e-08, 0, -0.13, -21.987953, -12.186258, -6.9731064)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/FloorTest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 1.4210855e-14, 0, 1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_efxa6")
+mesh = SubResource("BoxMesh_kek77")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/FloorTest"]
+shape = SubResource("BoxShape3D_4c57u")
+
+[node name="FloorBélier" type="StaticBody3D" parent="Level"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -2.768567, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/FloorBélier"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07971572, 0, -0.06996632)
+material_override = SubResource("StandardMaterial3D_w48qg")
+mesh = SubResource("BoxMesh_efxa6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/FloorBélier"]
+shape = SubResource("BoxShape3D_dg77c")
+
+[node name="FloorTest2" type="StaticBody3D" parent="Level"]
+transform = Transform3D(-0.105, 0, -1.9629454e-08, 0, 0.275, 0, 1.5854559e-08, 0, -0.13, -11.487953, -14.186258, -11.973106)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/FloorTest2"]
+material_override = SubResource("StandardMaterial3D_efxa6")
+mesh = SubResource("BoxMesh_kek77")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/FloorTest2"]
+shape = SubResource("BoxShape3D_4c57u")
+
+[node name="FloorTest3" type="StaticBody3D" parent="Level"]
+transform = Transform3D(-0.105, 0, -1.9629454e-08, 0, 0.275, 0, 1.5854559e-08, 0, -0.13, -2.4879532, -15.186258, -8.473106)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/FloorTest3"]
+material_override = SubResource("StandardMaterial3D_efxa6")
+mesh = SubResource("BoxMesh_kek77")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/FloorTest3"]
+shape = SubResource("BoxShape3D_4c57u")
+
+[node name="Foliage" parent="." instance=ExtResource("4_lpctg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.198501, -2.268567, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1bvp3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(-3.2531837e-08, -0.6679105, 0.7442416, -2.9195299e-08, 0.7442416, 0.6679105, -1, 0, -4.3711392e-08, 3.122682, 2.3306007, 2.4698005)
+script = ExtResource("5_28ppp")
+
+[node name="Player" parent="." instance=ExtResource("6_7rtth")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.532275, -2.2183847, 2.0943203)
+max_stamina = 40.0
+
+[node name="NPC" parent="." instance=ExtResource("7_jvdbg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.933179, -2.1903467, 2.936575)
+texture = null
+actions = Array[ExtResource("8_csysb")]([ExtResource("9_8niny"), ExtResource("10_di6o6"), ExtResource("11_nfpr2")])
+speech = "Hello ! How are you kind [species] !|Another speech yoooo|azoidhaiodiohaziodazd|azoizdazod"
+MAX_TONGUE_DISTANCE = 5
+JUMP_MODIFIER = 0.5
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.02393, -2.2569194, 1.5233164)
+collision_layer = 4
+collision_mask = 7
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4883533, 0)
+shape = SubResource("BoxShape3D_272bh")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4883533, 0)
+material_override = SubResource("StandardMaterial3D_vivmo")
+material = SubResource("StandardMaterial3D_5vw27")
+
+[node name="SpendNightCanvasLayer" parent="." instance=ExtResource("12_x7j6v")]
+
+[node name="DialogCanvasLayer" parent="." instance=ExtResource("13_rgsbe")]
+
+[node name="RigidFoliage" parent="." instance=ExtResource("14_tgdal")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.7373409, 0)
+
+[node name="RigidBody3D2" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.02393, -2.2569194, 4.0233164)
+collision_layer = 4
+collision_mask = 7
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4883533, 0)
+shape = SubResource("BoxShape3D_272bh")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="RigidBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4883533, 0)
+material_override = SubResource("StandardMaterial3D_vivmo")
+material = SubResource("StandardMaterial3D_5vw27")
+
+[node name="RigidBody3D3" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.52393, -2.2569194, 7.0233164)
+collision_layer = 4
+collision_mask = 7
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4883533, 0)
+shape = SubResource("BoxShape3D_272bh")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="RigidBody3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4883533, 0)
+material_override = SubResource("StandardMaterial3D_vivmo")
+material = SubResource("StandardMaterial3D_5vw27")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.0025199992, 0, -8.793992e-09, 0, 0.275, 0, 3.8050918e-10, 0, -0.058239974, -11.487953, -15.686258, 18.526896)
+material_override = SubResource("StandardMaterial3D_efxa6")
+mesh = SubResource("BoxMesh_kek77")
+skeleton = NodePath("../Level/FloorTest2")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.0025199992, 0, -8.793992e-09, 0, 0.275, 0, 3.8050918e-10, 0, -0.058239974, -13.487953, -15.686258, 18.526896)
+material_override = SubResource("StandardMaterial3D_efxa6")
+mesh = SubResource("BoxMesh_kek77")
+skeleton = NodePath("../Level/FloorTest2")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.0025199992, 0, -8.793992e-09, 0, 0.275, 0, 3.8050918e-10, 0, -0.058239974, -16.487953, -15.686258, 18.526896)
+material_override = SubResource("StandardMaterial3D_efxa6")
+mesh = SubResource("BoxMesh_kek77")
+skeleton = NodePath("../Level/FloorTest2")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.0025199992, 0, -8.793992e-09, 0, 0.275, 0, 3.8050918e-10, 0, -0.058239974, -20.487953, -15.686258, 18.526896)
+material_override = SubResource("StandardMaterial3D_efxa6")
+mesh = SubResource("BoxMesh_kek77")
+skeleton = NodePath("../Level/FloorTest2")

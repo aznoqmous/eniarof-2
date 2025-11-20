@@ -1,0 +1,101 @@
+[gd_scene load_steps=10 format=3 uid="uid://dtrhrvqach0i6"]
+
+[ext_resource type="PackedScene" uid="uid://d2jcxmqkru15e" path="res://scenes/player.tscn" id="1_d5iaf"]
+[ext_resource type="Texture2D" uid="uid://b6fmhq68o82ga" path="res://assets/sprites/belier_v3_tileable.jpg" id="2_0cgt5"]
+[ext_resource type="PackedScene" uid="uid://crs04b65vwhy2" path="res://scenes/npc.tscn" id="3_147n4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0cgt5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v1mf5"]
+albedo_texture = ExtResource("2_0cgt5")
+uv1_scale = Vector3(15, 15, 15)
+
+[sub_resource type="BoxMesh" id="BoxMesh_v1mf5"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_0cgt5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0cgt5"]
+albedo_texture = ExtResource("2_0cgt5")
+uv1_scale = Vector3(3, 3, 3)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_v1mf5"]
+
+[node name="Bunnies" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_d5iaf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7141593, 0)
+
+[node name="ground" type="StaticBody3D" parent="."]
+transform = Transform3D(40, 0, 0, 0, 40, 0, 0, 0, 40, 0, -19, 5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground"]
+shape = SubResource("BoxShape3D_0cgt5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ground"]
+material_override = SubResource("StandardMaterial3D_v1mf5")
+mesh = SubResource("BoxMesh_v1mf5")
+
+[node name="Plateforms" type="Node3D" parent="."]
+
+[node name="plateforme2" type="StaticBody3D" parent="Plateforms"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -25, -2, -3)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Plateforms/plateforme2"]
+shape = SubResource("CylinderShape3D_0cgt5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Plateforms/plateforme2"]
+material_override = SubResource("StandardMaterial3D_0cgt5")
+mesh = SubResource("CylinderMesh_v1mf5")
+
+[node name="plateforme" type="StaticBody3D" parent="Plateforms"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -20, -7, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Plateforms/plateforme"]
+shape = SubResource("CylinderShape3D_0cgt5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Plateforms/plateforme"]
+material_override = SubResource("StandardMaterial3D_0cgt5")
+mesh = SubResource("CylinderMesh_v1mf5")
+
+[node name="plateforme3" type="StaticBody3D" parent="Plateforms"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -20, -7, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Plateforms/plateforme3"]
+shape = SubResource("CylinderShape3D_0cgt5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Plateforms/plateforme3"]
+material_override = SubResource("StandardMaterial3D_0cgt5")
+mesh = SubResource("CylinderMesh_v1mf5")
+
+[node name="ground2" type="StaticBody3D" parent="."]
+transform = Transform3D(40, 0, 0, 0, 40, 0, 0, 0, 40, -40, -19, -35)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground2"]
+shape = SubResource("BoxShape3D_0cgt5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ground2"]
+material_override = SubResource("StandardMaterial3D_v1mf5")
+mesh = SubResource("BoxMesh_v1mf5")
+
+[node name="ground3" type="StaticBody3D" parent="."]
+transform = Transform3D(40, 0, 0, 0, 40, 0, 0, 0, 40, -40, -19, 5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground3"]
+shape = SubResource("BoxShape3D_0cgt5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ground3"]
+material_override = SubResource("StandardMaterial3D_v1mf5")
+mesh = SubResource("BoxMesh_v1mf5")
+
+[node name="ground4" type="StaticBody3D" parent="."]
+transform = Transform3D(40, 0, 0, 0, 40, 0, 0, 0, 40, 0, -19, -35)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground4"]
+shape = SubResource("BoxShape3D_0cgt5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ground4"]
+material_override = SubResource("StandardMaterial3D_v1mf5")
+mesh = SubResource("BoxMesh_v1mf5")
+
+[node name="NPC" parent="." instance=ExtResource("3_147n4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.832243, 1.3383024, 2.9590654)

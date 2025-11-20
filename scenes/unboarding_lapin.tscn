@@ -1,0 +1,156 @@
+[gd_scene load_steps=13 format=3 uid="uid://bs7jpq4sr2wq"]
+
+[ext_resource type="Script" uid="uid://dlsptbxcmtms2" path="res://scripts/main.gd" id="1_ijab1"]
+[ext_resource type="PackedScene" uid="uid://d2jcxmqkru15e" path="res://scenes/player.tscn" id="2_yqw4i"]
+[ext_resource type="PackedScene" uid="uid://17emcoltidd5" path="res://scenes/uis/dialog_canvas_layer.tscn" id="3_gkjoq"]
+[ext_resource type="Texture2D" uid="uid://cebs1vpbs452i" path="res://assets/sprites/Texture_SolTamanoir.png" id="4_jner6"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xy3p7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s6kqn"]
+albedo_texture = ExtResource("4_jner6")
+uv1_scale = Vector3(2, 2, 2)
+uv2_scale = Vector3(5, 5, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xy3p7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_68c3h"]
+size = Vector3(1.1107712, 1.6417065, 1.6488498)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mylfl"]
+albedo_texture = ExtResource("4_jner6")
+uv1_scale = Vector3(2, 2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qq1ir"]
+albedo_texture = ExtResource("4_jner6")
+uv1_scale = Vector3(2, 2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vyajk"]
+albedo_texture = ExtResource("4_jner6")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qoj3v"]
+albedo_texture = ExtResource("4_jner6")
+
+[node name="Main" type="Node3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.028, 0, 0, 0, 0.15, 0, 0, 0)
+script = ExtResource("1_ijab1")
+
+[node name="Player" parent="." instance=ExtResource("2_yqw4i")]
+transform = Transform3D(10, 0, 0, 0, 35.714275, 0, 0, 0, 6.6666646, -88.837585, 18.83451, 36.198048)
+max_stamina = 500.0
+JUMP_SPEED = 20.0
+JUMP_MODIFIER = 70.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.84873486, -7.708328, 6.3135834, 1.4292227, 22.70609, 27.529997, -6.637252, -0.2677202, 0.56538284, 110.321945, 636.1519, 78.463)
+shadow_enabled = true
+
+[node name="DialogCanvasLayer" parent="." instance=ExtResource("3_gkjoq")]
+
+[node name="level_unb_lapin" type="Node3D" parent="."]
+transform = Transform3D(1.54276, 0, 0, 0, 0.9999997, 0, 0, 0, 0.7739911, 0, 0, 0)
+
+[node name="floar_unb_lapin" type="StaticBody3D" parent="level_unb_lapin"]
+physics_interpolation_mode = 1
+transform = Transform3D(0.8326028, 0, 0, 0, 0.9999999, 0, 0, 0, 0.644524, 0, 0, 0)
+disable_mode = 1
+physics_material_override = SubResource("PhysicsMaterial_xy3p7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="level_unb_lapin/floar_unb_lapin"]
+transform = Transform3D(321.68243, 0, 0, 0, 2.015788, 0, 0, 0, 265.52512, 0, 0, 9.127995)
+material_override = SubResource("StandardMaterial3D_s6kqn")
+mesh = SubResource("BoxMesh_xy3p7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="level_unb_lapin/floar_unb_lapin"]
+transform = Transform3D(342.42288, 0, 0, 0, 1.000002, 0, 0, 0, 220.06262, 0, 0, 23.20286)
+shape = SubResource("BoxShape3D_68c3h")
+
+[node name="floar_unb_lapin2" type="StaticBody3D" parent="level_unb_lapin"]
+physics_interpolation_mode = 1
+transform = Transform3D(0.8326028, 0, 0, 0, 0.9999999, 0, 0, 0, 0.644524, 0, 0, 0)
+disable_mode = 1
+physics_material_override = SubResource("PhysicsMaterial_xy3p7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="level_unb_lapin/floar_unb_lapin2"]
+transform = Transform3D(321.68243, 0, 0, 0, 2.015788, 0, 0, 0, 265.52512, 0, 0, 9.127995)
+material_override = SubResource("StandardMaterial3D_s6kqn")
+mesh = SubResource("BoxMesh_xy3p7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="level_unb_lapin/floar_unb_lapin2"]
+transform = Transform3D(342.42288, 0, 0, 0, 1.000002, 0, 0, 0, 220.06262, 0, 0, 23.20286)
+shape = SubResource("BoxShape3D_68c3h")
+
+[node name="plateform1_unb_lapin" type="StaticBody3D" parent="level_unb_lapin"]
+physics_interpolation_mode = 1
+transform = Transform3D(0.4269078, 0, 0, 0, 60.281525, 0, 0, 0, -0.2539221, 77.62444, -22.955593, 50.26358)
+disable_mode = 1
+physics_material_override = SubResource("PhysicsMaterial_xy3p7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="level_unb_lapin/plateform1_unb_lapin"]
+transform = Transform3D(380.7782, 0, 0, 0, 2.0157862, 0, 0, 0, 342.17847, 0, -0.05182123, 17.357834)
+material_override = SubResource("StandardMaterial3D_mylfl")
+mesh = SubResource("BoxMesh_xy3p7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="level_unb_lapin/plateform1_unb_lapin"]
+transform = Transform3D(342.418, 0, 0, 0, 0.9999812, 0, 0, 0, 220.05899, 0.8621063, 0.14541584, 25.347626)
+shape = SubResource("BoxShape3D_68c3h")
+
+[node name="plateform2_unb_lapin2" type="StaticBody3D" parent="level_unb_lapin"]
+physics_interpolation_mode = 1
+transform = Transform3D(0.4269078, 0, 0, 0, 60.281525, 0, 0, 0, -0.2539221, 77.62444, 27.973688, -32.600212)
+disable_mode = 1
+physics_material_override = SubResource("PhysicsMaterial_xy3p7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="level_unb_lapin/plateform2_unb_lapin2"]
+transform = Transform3D(380.77826, 0, 0, 0, 2.0157864, 0, 0, 0, 311.69446, 0, 0.051585883, 17.357834)
+material_override = SubResource("StandardMaterial3D_qq1ir")
+mesh = SubResource("BoxMesh_xy3p7")
+
+[node name="d" type="CollisionShape3D" parent="level_unb_lapin/plateform2_unb_lapin2"]
+transform = Transform3D(342.40927, 0, 0, 0, 0.9999465, 0, 0, 0, 220.05214, 1.1644592, 0.24622077, 42.287643)
+shape = SubResource("BoxShape3D_68c3h")
+
+[node name="plateform2_unb_lapin3" type="StaticBody3D" parent="level_unb_lapin"]
+physics_interpolation_mode = 1
+transform = Transform3D(0.8206518, 0, 0, 0, 318.34717, 0, 0, 0, -0.082406975, 21.43333, 27.973688, -87.44401)
+disable_mode = 1
+physics_material_override = SubResource("PhysicsMaterial_xy3p7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="level_unb_lapin/plateform2_unb_lapin3"]
+transform = Transform3D(380.77826, 0, 0, 0, 2.1092558, 0, 0, 0, 311.69443, 0.5596733, 0.05158584, 16.924316)
+material_override = SubResource("StandardMaterial3D_vyajk")
+mesh = SubResource("BoxMesh_xy3p7")
+
+[node name="d" type="CollisionShape3D" parent="level_unb_lapin/plateform2_unb_lapin3"]
+transform = Transform3D(342.40927, 0, 0, 0, 0.9999465, 0, 0, 0, 220.05179, 0.13415527, 0.2819155, 17.851685)
+shape = SubResource("BoxShape3D_68c3h")
+
+[node name="plateform2_unb_lapin5" type="StaticBody3D" parent="level_unb_lapin"]
+physics_interpolation_mode = 1
+transform = Transform3D(0.8206518, 0, 0, 0, 318.34717, 0, 0, 0, -0.05371611, 21.43333, -170.99156, 102.566734)
+disable_mode = 1
+physics_material_override = SubResource("PhysicsMaterial_xy3p7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="level_unb_lapin/plateform2_unb_lapin5"]
+transform = Transform3D(380.77817, 0, 0, 0, 2.1092558, 0, 0, 0, 311.69443, -22.72659, -0.28667092, 200.5321)
+material_override = SubResource("StandardMaterial3D_vyajk")
+mesh = SubResource("BoxMesh_xy3p7")
+
+[node name="d" type="CollisionShape3D" parent="level_unb_lapin/plateform2_unb_lapin5"]
+transform = Transform3D(342.40927, 0, 0, 0, 0.9999465, 0, 0, 0, 220.05179, 0.13415527, 0.43807417, 17.851685)
+shape = SubResource("BoxShape3D_68c3h")
+
+[node name="plateform2_unb_lapin4" type="StaticBody3D" parent="level_unb_lapin"]
+physics_interpolation_mode = 1
+transform = Transform3D(0.02559072, 0, 0, 0, 318.34717, 0, 0, 0, -0.6116758, -138.85825, 27.973688, 2.6999388)
+disable_mode = 1
+physics_material_override = SubResource("PhysicsMaterial_xy3p7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="level_unb_lapin/plateform2_unb_lapin4"]
+transform = Transform3D(380.77832, 0, 0, 0, 1.4796009, 0, 0, 0, 311.69446, 0, 0.3196251, 17.35791)
+material_override = SubResource("StandardMaterial3D_qoj3v")
+mesh = SubResource("BoxMesh_xy3p7")
+
+[node name="d" type="CollisionShape3D" parent="level_unb_lapin/plateform2_unb_lapin4"]
+transform = Transform3D(342.40927, 0, 0, 0, 0.9999465, 0, 0, 0, 220.05214, 0.13415527, 0.26217645, 17.85173)
+shape = SubResource("BoxShape3D_68c3h")
