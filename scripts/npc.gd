@@ -1,7 +1,6 @@
 @tool
 class_name NPC extends CharacterBase
 
-@onready var main: Main = $/root/Main
 @onready var interact_label: Label3D = $InteractLabel
 @onready var speech_bubble: Sprite3D = $SpeechBubble
 @onready var speech_dots: Label3D = $SpeechBubble/SpeechDots

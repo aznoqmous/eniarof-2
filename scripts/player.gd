@@ -1,6 +1,5 @@
 class_name Player extends CharacterBase
 
-@onready var main: Main = $/root/Main
 @onready var camera_3d: Camera3D = $Camera3D
 @onready var visual_ray_cast_3d: RayCast3D = $Camera3D/VisualRayCast3D
 
@@ -31,19 +30,20 @@ func _ready():
 	update_modifiers()
 	
 	jumped.connect(func():
-		jump_sound.set_parameter("Lapin_State", species[SpeciesResource.ActionType.Jump].current_level)
+		FmodServer.set_global_parameter_by_name("Lapin_State", species[SpeciesResource.ActionType.Jump].current_level)
 		if current_stamina > 0:
 			register_action(SpeciesResource.ActionType.Jump)
 			lose_stamina()
 		
 	)
 	charged.connect(func():
-		charge_sound.set_parameter("Belier_State", species[SpeciesResource.ActionType.Charge].current_level)
+		FmodServer.set_global_parameter_by_name("Belier_State", species[SpeciesResource.ActionType.Charge].current_level)
 		if current_stamina > 0:
 			register_action(SpeciesResource.ActionType.Charge)
 			lose_stamina()
 	)
 	tongued.connect(func():
+		FmodServer.set_global_parameter_by_name("Tamanoir_State", species[SpeciesResource.ActionType.Tongue].current_level)
 		if current_stamina > 0:
 			register_action(SpeciesResource.ActionType.Tongue)
 			lose_stamina()

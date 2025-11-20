@@ -1,5 +1,6 @@
 class_name CharacterBase extends RigidBody3D
 
+@onready var main : Main = $/root/Main
 @onready var sprite_container: Node3D = $SpriteContainer
 @onready var ground_ray_cast_3d: RayCast3D = $GroundRayCast3D
 @onready var charge_rebound_area_3d: Area3D = $ChargeReboundArea3D
@@ -7,10 +8,11 @@ class_name CharacterBase extends RigidBody3D
 @onready var walking_player: AnimationPlayer = $WalkingAnim
 var is_walking:= false
 
-@onready var tongue_container: Node3D = $TongueContainer
-@onready var tongue_mesh: MeshInstance3D = $TongueContainer/TongueMesh
-@onready var tongue_area_3d: Area3D = $TongueContainer/TongueArea3D
-@onready var tongue_ray_cast: RayCast3D = $TongueContainer/TongueRayCast
+
+@onready var tongue_container: Node3D = $SpriteContainer/Sprite3D/TongueContainer
+@onready var tongue_mesh: MeshInstance3D = $SpriteContainer/Sprite3D/TongueContainer/TongueMesh
+@onready var tongue_ray_cast: RayCast3D = $SpriteContainer/Sprite3D/TongueContainer/TongueRayCast
+@onready var tongue_area_3d: Area3D = $SpriteContainer/Sprite3D/TongueContainer/TongueArea3D
 
 @export_category("Sounds")
 @export var jump_sound: FmodEventEmitter3D
@@ -76,7 +78,7 @@ func _process(_delta: float) -> void:
 		
 	sprite_container.rotation.y = lerp(sprite_container.rotation.y, PI if current_movement.x < 0 else 0.0, _delta * 5.0)
 	
-	if is_tonguing:
+	if main:
 		var tongue_distance = tongue_container.global_position - tongue_target_position
 		tongue_mesh.mesh.size.y =  tongue_distance.length() * tongue_length
 		tongue_mesh.mesh.center_offset.z =  tongue_distance.length() / 2.0 * tongue_length
