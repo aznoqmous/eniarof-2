@@ -34,27 +34,20 @@ albedo_texture = ExtResource("4_jner6")
 albedo_texture = ExtResource("4_jner6")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gkjoq"]
-size = Vector3(50.088577, 172.99683, 4.124939)
+size = Vector3(4.713623, 6.022339, 3.0557861)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yqw4i"]
-size = Vector3(4.9644775, 6.1330566, 3.2554932)
+size = Vector3(10.1397705, 7.380371, 0.83856964)
 
 [node name="Main" type="Node3D"]
 transform = Transform3D(0.1, 0, 0, 0, 0.028, 0, 0, 0, 0.15, 0, 0, 0)
 script = ExtResource("1_ijab1")
 
-[node name="Player" parent="." node_paths=PackedStringArray("species_sprites") instance=ExtResource("2_yqw4i")]
+[node name="Player" parent="." instance=ExtResource("2_yqw4i")]
 transform = Transform3D(10, 0, 0, 0, 35.714275, 0, 0, 0, 6.6666646, -88.837585, 18.83451, 36.198048)
-species_sprites = {
-0: NodePath("SpriteContainer/Sprite3D/Rabbit"),
-1: NodePath("SpriteContainer/Sprite3D/Ram"),
-2: NodePath("SpriteContainer/Sprite3D/Anteater")
-}
-max_stamina = 500.0
-JUMP_SPEED = 11.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.9853279, 7.4914427, -6.229892, 1.4292222, 22.706085, 27.529993, 6.6183524, -1.8353356, 1.1701514, 110.32195, 636.15186, 78.463)
+transform = Transform3D(4.834223, 11.825125, 1.2998748, 0.47653604, 19.327875, 28.9279, 5.916441, -2.5988562, 1.6389365, 92.710236, 636.15173, 78.463)
 shadow_enabled = true
 
 [node name="DialogCanvasLayer" parent="." instance=ExtResource("3_gkjoq")]
@@ -114,7 +107,7 @@ disable_mode = 1
 physics_material_override = SubResource("PhysicsMaterial_xy3p7")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="level_unb_lapin/plateform2_unb_lapin2"]
-transform = Transform3D(380.77826, 0, 0, 0, 2.0157864, 0, 0, 0, 311.69446, 0.023086548, 0.052286208, 17.224838)
+transform = Transform3D(380.77826, 0, 0, 0, 2.0157864, 0, 0, 0, 311.69446, 0, 0.051585883, 17.357834)
 material_override = SubResource("StandardMaterial3D_qq1ir")
 mesh = SubResource("BoxMesh_xy3p7")
 
@@ -129,7 +122,7 @@ disable_mode = 1
 physics_material_override = SubResource("PhysicsMaterial_xy3p7")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="level_unb_lapin/plateform2_unb_lapin3"]
-transform = Transform3D(380.77826, 0, 0, 0, 2.1092558, 0, 0, 0, 311.6944, 0.6327534, 0.051585883, 16.964966)
+transform = Transform3D(380.77826, 0, 0, 0, 2.1092558, 0, 0, 0, 311.69443, 0.5596733, 0.05158584, 16.924316)
 material_override = SubResource("StandardMaterial3D_vyajk")
 mesh = SubResource("BoxMesh_xy3p7")
 
@@ -169,7 +162,7 @@ shape = SubResource("BoxShape3D_68c3h")
 
 [node name="plateform2_unb_lapin6" type="StaticBody3D" parent="level_unb_lapin"]
 physics_interpolation_mode = 1
-transform = Transform3D(-3.587183e-08, -1.2165227e-12, 0.082406975, -7.174366e-08, 318.34717, 0, 0.8206517, 2.7830789e-05, 3.6021228e-09, 154.71492, 27.973688, -44.507053)
+transform = Transform3D(-3.587183e-08, -1.2165227e-12, 0.08240698, -7.174366e-08, 318.34717, 0, 0.82065165, 2.7830787e-05, 3.602123e-09, 164.09175, 27.973688, -33.868896)
 disable_mode = 1
 physics_material_override = SubResource("PhysicsMaterial_xy3p7")
 
@@ -183,17 +176,10 @@ transform = Transform3D(342.40927, 0, 0, 0, 0.9999465, 0, 0, 0, 220.05179, 0.134
 shape = SubResource("BoxShape3D_68c3h")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(7.526, 0, 0, 0, 28.065, 0, 0, 0, 5.9900002, 185.1185, 149.49132, -42.35808)
+transform = Transform3D(7.59, 0, 0, 0, 33.63499, 0, 0, 0, 7.5900006, 198.29541, 177.98572, -35.2228)
 shaded = true
 alpha_cut = 1
 texture = ExtResource("5_yqw4i")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Sprite3D"]
-transform = Transform3D(0.17695978, 0, 0, 0, 0.035631545, 0, 0, 0, 0.16694489, 1.5910645, -0.41071844, 1.0365071)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Sprite3D/StaticBody3D"]
-transform = Transform3D(0.99992734, 0, 0, 0, 0.99995136, 0, 0, 0, 0.99992734, -6.6586914, 31.006027, -4.224468)
-shape = SubResource("BoxShape3D_gkjoq")
 
 [node name="Area3D" type="Area3D" parent="Sprite3D"]
 collision_layer = 0
@@ -201,14 +187,20 @@ collision_mask = 2
 script = ExtResource("6_gkjoq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sprite3D/Area3D"]
-transform = Transform3D(0.99999917, 0, 0, 0, 0.9995136, -0.029927233, 0, 0.029927498, 0.9995521, 5.563654, 0.16774511, -1.8564634)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0010967, -0.24078226, -1.7006245)
+shape = SubResource("BoxShape3D_gkjoq")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sprite3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sprite3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2808151, -0.006588936, 0.411211)
 shape = SubResource("BoxShape3D_yqw4i")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(10, 0, 0, 0, 35.714283, 0, 0, 0, 6.6666665, 202.46948, 197.90788, -52.030727)
-light_color = Color(1, 0.8901961, 0.67058825, 1)
-light_energy = 15.9
+transform = Transform3D(10, 0, 0, 0, 35.714283, 0, 0, 0, 6.6666665, 217.63687, 178.59543, -46.045708)
+light_color = Color(1, 0.90588236, 0.69411767, 1)
+light_energy = 6.937
 shadow_enabled = true
-omni_range = 14.0
+omni_range = 9.677857
 
 [connection signal="body_entered" from="Sprite3D/Area3D" to="Sprite3D/Area3D" method="_on_body_entered"]

@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdk7gru6u03e4"
-path.s3tc="res://.godot/imported/Décor_Fleur_11.png-dcbbad8b01c46f549ba1f64dbef560d0.s3tc.ctex"
+uid="uid://csk81fbd6tr02"
+path.s3tc="res://.godot/imported/Terrier v1_terrier.png-70ea43c083a0d7a9c9582437c61a1728.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "3f775e01866564912c7ab968bc41ed28"
+}
 
 [deps]
 
-source_file="res://assets/sprites/flower/Décor_Fleur_11.png"
-dest_files=["res://.godot/imported/Décor_Fleur_11.png-dcbbad8b01c46f549ba1f64dbef560d0.s3tc.ctex"]
+source_file="res://models/Terrier v1_terrier.png"
+dest_files=["res://.godot/imported/Terrier v1_terrier.png-70ea43c083a0d7a9c9582437c61a1728.s3tc.ctex"]
 
 [params]
 

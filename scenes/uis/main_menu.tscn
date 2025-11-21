@@ -1,0 +1,173 @@
+[gd_scene load_steps=8 format=3 uid="uid://d3icrtajubwy2"]
+
+[ext_resource type="Script" uid="uid://bd1wo8ndju3qq" path="res://scripts/main_menu.gd" id="1_g5up0"]
+[ext_resource type="Texture2D" uid="uid://b1xibvpqtvc0i" path="res://assets/terrier/Decor_MaisonProta_interieur_02.png" id="1_qgruj"]
+[ext_resource type="Script" path="res://scripts/tile_scale_container.gd" id="3_18yf2"]
+[ext_resource type="Texture2D" uid="uid://b2b4sa75v0hi" path="res://assets/sprites/uis/UI_Logosanstitre.png" id="3_te4sj"]
+[ext_resource type="Texture2D" uid="uid://bubqivync3g6d" path="res://assets/sprites/uis/UI_boitedialogue_01.png" id="4_35gci"]
+[ext_resource type="FontFile" uid="uid://b3pwe165xrl06" path="res://assets/fonts/CraftyGirls-Regular.ttf" id="5_bbokv"]
+[ext_resource type="FontFile" uid="uid://c3s20mmkmgw68" path="res://assets/fonts/Gaegu-Bold.ttf" id="7_yfuaq"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g5up0")
+
+[node name="Background" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_qgruj")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="ColorRect2" type="ColorRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.27450982)
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = 148.0
+offset_right = 154.0
+offset_bottom = 254.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_bbokv")
+theme_override_font_sizes/font_size = 50
+text = "Exit"
+
+[node name="Start" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = -4.0
+offset_right = 160.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.00013016051
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("5_bbokv")
+theme_override_font_sizes/font_size = 50
+text = "Start"
+
+[node name="Logo" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="UiLogosanstitre" type="Sprite2D" parent="Logo"]
+position = Vector2(192, -120.000015)
+scale = Vector2(0.32552087, 0.32552087)
+skew = -0.17802358
+texture = ExtResource("3_te4sj")
+
+[node name="Names" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -364.0
+offset_top = -240.0
+offset_right = -8.0
+offset_bottom = -24.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="TileScaleContainer" type="Container" parent="Names"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_18yf2")
+tile_scale = 0.095
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Names/TileScaleContainer"]
+modulate = Color(0.375, 0.375, 0.375, 1)
+layout_mode = 2
+texture = ExtResource("4_35gci")
+region_rect = Rect2(140.53531, 228.1026, 956.6438, 430.4897)
+patch_margin_left = 71
+patch_margin_top = 359
+patch_margin_right = 74
+patch_margin_bottom = 333
+
+[node name="NameRichTextLabel" type="RichTextLabel" parent="Names"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 17.0
+offset_top = 10.0
+offset_right = -17.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/normal_font = ExtResource("7_yfuaq")
+theme_override_font_sizes/normal_font_size = 22
+bbcode_enabled = true
+text = "Paul  Tristan
+David Goblot - Vassili
+Sibylle Loayza - Iness Cheniti
+Loïc Florentin - Joris Pineda
+Antoine Castro - Séverin Richard
+Audrey Wagner  "
+scroll_active = false
+
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
