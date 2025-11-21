@@ -189,5 +189,11 @@ position = Vector2(-425.57294, 310)
 scale = Vector2(0.7135416, 0.7135417)
 texture = ExtResource("10_bfbqf")
 
+[node name="LogoJeu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
