@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dcrs1qatqwlf4"]
+[gd_scene load_steps=18 format=3 uid="uid://dcrs1qatqwlf4"]
 
 [ext_resource type="PackedScene" uid="uid://b7jl00yavhgpu" path="res://scenes/levels/parts/lapin_ground.tscn" id="1_hp1lk"]
 [ext_resource type="PackedScene" uid="uid://b8865ulgxw3ru" path="res://scenes/levels/parts/lapin_elevation_1.tscn" id="2_rmt7n"]
@@ -10,7 +10,13 @@
 [ext_resource type="PackedScene" uid="uid://6ine6a8uim35" path="res://scenes/metrics/height_jumps_metrics.tscn" id="6_rmt7n"]
 [ext_resource type="PackedScene" uid="uid://ua12uqm5pvg0" path="res://scenes/npcs/rabbit_base.tscn" id="7_hco53"]
 [ext_resource type="Texture2D" uid="uid://by6df8hbun6gy" path="res://assets/sprites/npcs/Characters_PNJ_Lapin_Gris_02.png" id="8_jkroq"]
-[ext_resource type="Texture2D" uid="uid://cuwavubci103r" path="res://assets/sprites/npcs/Characters_PNJ_Lapin_Brun_03.png" id="9_7yi17"]
+[ext_resource type="Texture2D" uid="uid://ccntbw7vm0eg6" path="res://assets/sprites/npcs/Characters_RoiLapin.png" id="11_rifx7"]
+[ext_resource type="Texture2D" uid="uid://v27fqqf35haa" path="res://assets/sprites/npcs/Characters_PNJ_Lapin_Blond_03.png" id="12_ciyc6"]
+[ext_resource type="PackedScene" uid="uid://dvke267jyev2m" path="res://scenes/foliages/trees/big_tree_foliage.tscn" id="12_t7fdv"]
+[ext_resource type="PackedScene" uid="uid://5pcwdkdkscl7" path="res://scenes/foliages/trees/thin_tree.tscn" id="13_rifx7"]
+[ext_resource type="Texture2D" uid="uid://dk6ee1ked2nev" path="res://assets/sprites/foliages/trees/Decor_Arbre_Taillé_01.png" id="14_ciyc6"]
+[ext_resource type="PackedScene" uid="uid://c4gq5premh6yy" path="res://scenes/npcs/ram.tscn" id="15_aiceo"]
+[ext_resource type="PackedScene" uid="uid://bahkqavktnhuv" path="res://scenes/npcs/anteater.tscn" id="16_ir1fq"]
 
 [node name="LapinLevel" type="Node3D"]
 
@@ -110,17 +116,60 @@ visible = false
 
 [node name="NPCs" type="Node3D" parent="."]
 
-[node name="RabbitBase" parent="." instance=ExtResource("7_hco53")]
+[node name="RabbitBase" parent="NPCs" instance=ExtResource("7_hco53")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0286903, 14.82085, -3.4338837)
 texture = ExtResource("8_jkroq")
+npc_name = "Garenne malin"
 speech = "HAAAAA ! | Tu m'as fait peur ! | J'ai cru que c'était un bélier | Y'en a un qui me suis, j'en suis sûr ! | J'ai commencé à creuser un trou derrière ce rocher ! | Comme ça quand il foncera dedans, PAAAF | Il va chuter, le cornu !  "
 
-[node name="RabbitBase2" parent="." instance=ExtResource("7_hco53")]
+[node name="RabbitBase2" parent="NPCs" instance=ExtResource("7_hco53")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.521563, 24.423449, -19.736427)
-texture = ExtResource("9_7yi17")
+texture = ExtResource("11_rifx7")
+npc_name = "Le Conseil des Lievres"
 speech = "Sa-salut ! | Pourquoi t'es là ? | Tu nous espionnes ? | Ah non, tu fais partie du plan ? | Le tunnel est presque prêt. Ils vont payer ces cornus ! | Etape 1 On s'infiltre. | Etape 2 on vole la couronne. | Etape 3 : on se tire. | Etape 4 : Ils vont se cogner les uns les autres. | Ca leur apprendra. [b]ILS AVAIENT QU A PAS NOUS NOYER ![/b] | Saletés d'ovidés !"
 
-[node name="RabbitBase3" parent="." instance=ExtResource("7_hco53")]
+[node name="RabbitBase3" parent="NPCs" instance=ExtResource("7_hco53")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5664806, 10.2128725, 16.736502)
-texture = ExtResource("8_jkroq")
+texture = ExtResource("12_ciyc6")
+npc_name = "Sourdeoreille"
 speech = "Quoi ? | Mes oreilles sont plus toutes jeunes, gamin. Elles se sont bouchées à cause de l'eau. | Tu sais petit, l'eau ça mouille. | Et ça s'infiltre dans nos galeries. | Et ensuite on est mouillés. | Avant on était dans une plaine, à l'est. | Mais un jour, ces fumiers de béliers ont voulu nous chasser. | Ils ont vidé le lac dans notre plaine. | Comment on le sait ? Parceque la pierre qui retenait l'eau a été brisée. | Y'a que des cornus pour casser une pierre si dure. | On est bien ici. On est protégés. | Qu'est ce que tu dis ? J'entends rien. "
+
+[node name="RabbitBase4" parent="NPCs" instance=ExtResource("7_hco53")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1428404, 9.1764965, 30.534966)
+collision_mask = 1
+npc_name = null
+
+[node name="Ram" parent="NPCs" instance=ExtResource("15_aiceo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2457, 9.1569195, 34.17844)
+collision_mask = 1
+npc_name = null
+
+[node name="Anteater" parent="NPCs" instance=ExtResource("16_ir1fq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6533632, 9.169311, 35.35272)
+collision_mask = 1
+npc_name = null
+
+[node name="Anteater2" parent="NPCs" instance=ExtResource("16_ir1fq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5192976, 9.645767, 40.542873)
+collision_mask = 1
+npc_name = null
+
+[node name="Foliage" type="Node3D" parent="."]
+
+[node name="BigTreeFoliage" parent="Foliage" instance=ExtResource("12_t7fdv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8498584, 9.441196, 33.5845)
+texture = null
+
+[node name="BigTreeFoliage2" parent="Foliage" instance=ExtResource("12_t7fdv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3267927, 9.441196, 26.9212)
+texture = null
+
+[node name="ThinTree" parent="Foliage" instance=ExtResource("13_rifx7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.672427, 9.329523, 35.147762)
+texture = ExtResource("14_ciyc6")
+
+[node name="ThinTree3" parent="Foliage" instance=ExtResource("13_rifx7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.941205, 9.329523, 25.139282)
+
+[node name="ThinTree2" parent="Foliage" instance=ExtResource("13_rifx7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.59064, 11.855974, 29.403416)

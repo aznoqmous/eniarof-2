@@ -26,6 +26,7 @@ var action_direction: Vector3
 var max_action_distance = 1
 
 @export_category("Speech")
+@export var npc_name : String
 @export_multiline var speech : String
 var speech_animation_speed := 0.5
 var speech_time := 0.0
@@ -46,6 +47,8 @@ func _process(delta: float) -> void:
 		speech_time = main.get_time()
 		speech_dots.text += "."
 		if speech_dots.text.length() > 3: speech_dots.text = "."
+	
+	global_rotation.y = 0
 	
 func _physics_process(delta: float) -> void:
 	live(delta)
