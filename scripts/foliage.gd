@@ -12,7 +12,7 @@ var is_hidden := false
 
 func _ready():
 	if texture: sprite_3d.texture = texture
-	
+	global_rotation.y = 0
 func _process(delta):
 	if sprite_3d: sprite_3d.modulate.a = lerp(sprite_3d.modulate.a, 0.5 if is_hidden else 1.0, delta * 5.0)
 	is_hidden = false
