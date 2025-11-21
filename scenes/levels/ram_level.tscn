@@ -532,6 +532,10 @@ charge_breakable = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9540105, 10.5308695, 14.1843605)
 charge_breakable = false
 
+[node name="RockBase40" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2036834, 10.5308695, 15.398306)
+charge_breakable = false
+
 [node name="RockBase35" parent="." instance=ExtResource("3_kpji2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13648725, 10.53087, 12.218522)
 charge_breakable = false

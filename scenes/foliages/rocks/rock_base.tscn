@@ -5,7 +5,7 @@
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_udj1m"]
 height = 6.4107666
-radius = 1.9790039
+radius = 1.4291992
 
 [node name="RockBase" instance=ExtResource("1_udj1m")]
 texture = ExtResource("2_q3n58")
