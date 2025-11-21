@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://d3icrtajubwy2"]
+[gd_scene load_steps=10 format=3 uid="uid://d3icrtajubwy2"]
 
 [ext_resource type="Script" uid="uid://bd1wo8ndju3qq" path="res://scripts/main_menu.gd" id="1_g5up0"]
 [ext_resource type="Texture2D" uid="uid://b1xibvpqtvc0i" path="res://assets/terrier/Decor_MaisonProta_interieur_02.png" id="1_qgruj"]
 [ext_resource type="Script" path="res://scripts/tile_scale_container.gd" id="3_18yf2"]
-[ext_resource type="Texture2D" uid="uid://b2b4sa75v0hi" path="res://assets/sprites/uis/UI_Logosanstitre.png" id="3_te4sj"]
+[ext_resource type="Texture2D" uid="uid://tg20ut2w8dhs" path="res://assets/sprites/uis/logo enjmin.png" id="3_wrpo0"]
+[ext_resource type="Texture2D" uid="uid://osypfw0x55m4" path="res://assets/sprites/uis/Logo_Magelis_25.jpg" id="4_3wgmo"]
 [ext_resource type="Texture2D" uid="uid://bubqivync3g6d" path="res://assets/sprites/uis/UI_boitedialogue_01.png" id="4_35gci"]
 [ext_resource type="FontFile" uid="uid://b3pwe165xrl06" path="res://assets/fonts/CraftyGirls-Regular.ttf" id="5_bbokv"]
+[ext_resource type="Texture2D" uid="uid://drh6nj8uvrbb1" path="res://assets/sprites/uis/logo_eesi.png" id="5_wrpo0"]
 [ext_resource type="FontFile" uid="uid://c3s20mmkmgw68" path="res://assets/fonts/Gaegu-Bold.ttf" id="7_yfuaq"]
 
 [node name="MainMenu" type="Control"]
@@ -104,11 +106,20 @@ offset_top = -40.0
 offset_right = 40.0
 grow_vertical = 0
 
-[node name="UiLogosanstitre" type="Sprite2D" parent="Logo"]
-position = Vector2(192, -120.000015)
-scale = Vector2(0.32552087, 0.32552087)
-skew = -0.17802358
-texture = ExtResource("3_te4sj")
+[node name="LogoMagelis25" type="Sprite2D" parent="Logo"]
+position = Vector2(64.00001, -23.999996)
+scale = Vector2(0.16100003, 0.16162647)
+texture = ExtResource("4_3wgmo")
+
+[node name="LogoEesi" type="Sprite2D" parent="Logo"]
+position = Vector2(160, -23.999985)
+scale = Vector2(0.3560417, 0.3572545)
+texture = ExtResource("5_wrpo0")
+
+[node name="LogoEnjmin" type="Sprite2D" parent="Logo"]
+position = Vector2(256, -24)
+scale = Vector2(0.3559722, 0.3514662)
+texture = ExtResource("3_wrpo0")
 
 [node name="Names" type="Control" parent="."]
 layout_mode = 1
@@ -161,7 +172,7 @@ theme_override_constants/outline_size = 1
 theme_override_fonts/normal_font = ExtResource("7_yfuaq")
 theme_override_font_sizes/normal_font_size = 22
 bbcode_enabled = true
-text = "Paul  Tristan
+text = "Paul - Tristan Debeaune
 David Goblot - Vassili
 Sibylle Loayza - Iness Cheniti
 Loïc Florentin - Joris Pineda
