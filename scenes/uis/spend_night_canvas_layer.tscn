@@ -68,6 +68,7 @@ grow_vertical = 0
 text = "GO TO SLEEP"
 
 [node name="NightOverlayControl" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
