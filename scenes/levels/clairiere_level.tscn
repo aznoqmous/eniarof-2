@@ -96,7 +96,7 @@ material_override = ExtResource("5_kkuiy")
 [node name="NPCs" type="Node3D" parent="."]
 
 [node name="Anteater" parent="NPCs" instance=ExtResource("6_kkuiy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.697659, 7.5207725, 22.792284)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.424603, 7.520774, 19.081312)
 texture = SubResource("CompressedTexture2D_67852")
 actions = Array[ExtResource("12_ef2cb")]([ExtResource("13_yb8ec"), ExtResource("16_8kf30"), ExtResource("15_d3ea0"), ExtResource("14_viq5n")])
 npc_name = "Tamataggueur"
@@ -106,7 +106,7 @@ CHARGE_MODIFIER = 0.2
 TONGUE_MODIFIER = 0.5
 
 [node name="RabbitBase" parent="NPCs" instance=ExtResource("7_vy0r0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.065712, 7.051502, 20.733398)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.931755, 8.177541, 25.61615)
 texture = ExtResource("7_bpcmn")
 actions = Array[ExtResource("12_ef2cb")]([ExtResource("13_yb8ec"), ExtResource("14_viq5n"), ExtResource("12_yb8ec"), ExtResource("15_d3ea0")])
 npc_name = "Julio"
@@ -115,7 +115,7 @@ JUMP_MODIFIER = 0.75
 TONGUE_MODIFIER = 0.2
 
 [node name="Ram" parent="NPCs" instance=ExtResource("8_bpcmn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.903912, 7.1566706, 20.796545)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.394676, 7.1566706, 21.500809)
 texture = ExtResource("10_67852")
 actions = Array[ExtResource("12_ef2cb")]([ExtResource("13_yb8ec"), ExtResource("12_yb8ec"), ExtResource("15_d3ea0"), ExtResource("12_yb8ec"), ExtResource("16_8kf30")])
 npc_name = "Tamacorne"
@@ -125,7 +125,7 @@ CHARGE_MODIFIER = 1.0
 TONGUE_MODIFIER = 0.5
 
 [node name="Ram2" parent="NPCs" instance=ExtResource("8_bpcmn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.312946, 7.1566706, 28.496418)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.464155, 7.1566696, 27.328913)
 texture = ExtResource("7_bpcmn")
 actions = Array[ExtResource("12_ef2cb")]([ExtResource("13_yb8ec"), ExtResource("12_yb8ec"), ExtResource("16_8kf30")])
 npc_name = "Gilbert"
@@ -134,7 +134,7 @@ JUMP_MODIFIER = 0.2
 TONGUE_MODIFIER = 0.5
 
 [node name="RabbitBase2" parent="NPCs" instance=ExtResource("7_vy0r0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.60527, 7.051502, 23.809217)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.569958, 8.05403, 6.2255764)
 texture = ExtResource("11_e72gq")
 actions = Array[ExtResource("12_ef2cb")]([ExtResource("13_yb8ec"), ExtResource("14_viq5n"), ExtResource("14_viq5n"), ExtResource("15_d3ea0"), ExtResource("16_8kf30")])
 npc_name = "Jumpmaaaaaaaaan"
@@ -144,7 +144,7 @@ CHARGE_MODIFIER = 0.2
 TONGUE_MODIFIER = 0.5
 
 [node name="Anteater2" parent="NPCs" instance=ExtResource("6_kkuiy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.662252, 7.5207725, 29.760307)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.090534, 7.5207725, 2.1105309)
 texture = ExtResource("12_5qjab")
 actions = Array[ExtResource("12_ef2cb")]([ExtResource("13_yb8ec"), ExtResource("15_d3ea0"), ExtResource("16_8kf30"), ExtResource("16_8kf30"), ExtResource("14_viq5n")])
 npc_name = "Le Facteur ahuri"
@@ -153,7 +153,7 @@ JUMP_MODIFIER = 0.75
 CHARGE_MODIFIER = 0.2
 
 [node name="Anteater3" parent="NPCs" instance=ExtResource("6_kkuiy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.32991, 7.5207725, 28.3685)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.561367, 7.5207725, 13.143011)
 texture = ExtResource("13_04ry0")
 actions = Array[ExtResource("12_ef2cb")]([ExtResource("13_yb8ec"), ExtResource("16_8kf30"), ExtResource("16_8kf30"), ExtResource("12_yb8ec"), ExtResource("15_d3ea0")])
 npc_name = "Corne de miel"

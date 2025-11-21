@@ -5,10 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://qp556mhmny4v" path="res://assets/sprites/clairière_tileable.jpg" id="2_kek77"]
 [ext_resource type="Shader" uid="uid://ceyqrsqchfjot" path="res://shaders/water.gdshader" id="4_2cqfq"]
 [ext_resource type="PackedScene" uid="uid://c7jxsig5q4dgf" path="res://scenes/levels/anteater_level.tscn" id="4_074og"]
-[ext_resource type="Script" uid="uid://3ie2b8f123dv" path="res://scripts/water.gd" id="4_yaehf"]
+[ext_resource type="Script" path="res://scripts/water.gd" id="4_yaehf"]
 [ext_resource type="Texture2D" uid="uid://crr1h60asguyr" path="res://assets/sprites/water/voronoi.png" id="5_yaehf"]
 [ext_resource type="Script" uid="uid://1eqrfby7r8i4" path="res://scripts/directional_light_3d.gd" id="6_ycdy4"]
-[ext_resource type="PackedScene" path="res://scenes/levels/ram_level.tscn" id="8_ycdy4"]
+[ext_resource type="PackedScene" uid="uid://bd7vcr4so1sr4" path="res://scenes/levels/ram_level.tscn" id="8_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://dxjabvfh4xcul" path="res://scenes/levels/clairiere_level.tscn" id="9_w48qg"]
 [ext_resource type="PackedScene" uid="uid://cb33c6pcwsm7s" path="res://scenes/uis/spend_night_canvas_layer.tscn" id="12_w48qg"]
 [ext_resource type="PackedScene" uid="uid://17emcoltidd5" path="res://scenes/uis/dialog_canvas_layer.tscn" id="13_w48qg"]
@@ -74,7 +74,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_cegan")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.252388, -9.937084, 26.072475)
 
 [node name="ClairiereLevel" parent="Level" instance=ExtResource("9_w48qg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.824837, -8.568832, -22.080254)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.824837, -8.331719, -22.080254)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_1bvp3")
