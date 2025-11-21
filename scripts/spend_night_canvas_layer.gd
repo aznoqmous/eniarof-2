@@ -92,3 +92,7 @@ func close():
 	main.player.update_modifiers()
 
 signal spend_night_end()
+
+
+func _on_spend_night_end() -> void:
+	main.player.position = main.start.position

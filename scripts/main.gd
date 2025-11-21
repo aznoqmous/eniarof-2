@@ -1,6 +1,7 @@
 class_name Main extends Node3D
 
 @onready var player: Player = $Player
+@onready var start: Node3D = $Start
 @onready var spend_night_canvas_layer: SpendNightCanvasLayer = $SpendNightCanvasLayer
 @onready var dialog_canvas_layer: DialogCanvasLayer = $DialogCanvasLayer
 
