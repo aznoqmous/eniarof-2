@@ -26,6 +26,7 @@ var action_direction: Vector3
 var max_action_distance = 1
 
 @export_category("Speech")
+@export var npc_name : String
 @export_multiline var speech : String
 var speech_animation_speed := 0.5
 var speech_time := 0.0

@@ -1,10 +1,12 @@
 class_name DialogCanvasLayer extends CanvasLayer
 
 @onready var main: Main = $/root/Main
+@onready var name_rich_text_label: RichTextLabel = $Control/NameControl/NameRichTextLabel
+@onready var dialog_rich_text_label: RichTextLabel = $Control/DialogControl/DialogRichTextLabel
+
 @export var char_speed := 0.02
 @export var space_speed := 0.1
 @export var dot_speed := 0.2
-@onready var rich_text_label: RichTextLabel = $Control/Control/RichTextLabel
 var talking_npc : NPC
 var base_speed = 1.0
 
@@ -21,6 +23,7 @@ func talk(speech: String, npc: NPC):
 		talking_npc.speech_bubble.set_visible(true)
 		set_visible(true)
 		speech_sequence(speech)
+		name_rich_text_label.text = npc.npc_name
 		return;
 		
 	if is_writing:
@@ -43,12 +46,12 @@ func speech_sequence(speech: String):
 
 func write_text(text: String):
 	text = text.replace("[species]", str("[b]",main.player.current_species.species_name, "[/b]"))
-	rich_text_label.text = ""
+	dialog_rich_text_label.text = ""
 	var is_tag = false
 	is_writing = true
 	base_speed = 1.0
 	for character in text:
-		rich_text_label.text += character
+		dialog_rich_text_label.text += character
 		if not is_tag and character == "[": is_tag = true
 		if character == "]": is_tag = false
 		

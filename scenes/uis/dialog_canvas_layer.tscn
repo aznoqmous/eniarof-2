@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://17emcoltidd5"]
+[gd_scene load_steps=5 format=3 uid="uid://17emcoltidd5"]
 
 [ext_resource type="Script" uid="uid://c3uxt0ilmtsvi" path="res://scripts/dialog_canvas_layer.gd" id="1_lu1jx"]
 [ext_resource type="Script" uid="uid://t0fm3kyt6ama" path="res://scripts/tile_scale_container.gd" id="2_6tlti"]
-[ext_resource type="Texture2D" uid="uid://dy4bx4vuva086" path="res://assets/sprites/dialogbox-ninepatchrect.png" id="3_y7uqn"]
+[ext_resource type="Texture2D" uid="uid://bubqivync3g6d" path="res://assets/sprites/uis/UI_boitedialogue_01.png" id="3_f6jax"]
+[ext_resource type="FontFile" uid="uid://b3pwe165xrl06" path="res://assets/fonts/CraftyGirls-Regular.ttf" id="4_k7kej"]
 
 [node name="DialogCanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_lu1jx")
@@ -15,7 +16,60 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Control" type="Control" parent="Control"]
+[node name="NameControl" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -335.0
+offset_top = -194.0
+offset_right = -2.0
+offset_bottom = -123.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TileScaleContainer" type="Container" parent="Control/NameControl"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_6tlti")
+tile_scale = 0.095
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control/NameControl/TileScaleContainer"]
+modulate = Color(0.375, 0.375, 0.375, 1)
+layout_mode = 2
+texture = ExtResource("3_f6jax")
+region_rect = Rect2(140.53531, 228.1026, 956.6438, 430.4897)
+patch_margin_left = 71
+patch_margin_top = 359
+patch_margin_right = 74
+patch_margin_bottom = 333
+
+[node name="NameRichTextLabel" type="RichTextLabel" parent="Control/NameControl"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 17.0
+offset_top = 10.0
+offset_right = -17.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/normal_font = ExtResource("4_k7kej")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "David"
+
+[node name="DialogControl" type="Control" parent="Control"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -28,7 +82,7 @@ offset_right = 347.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="TileScaleContainer" type="Container" parent="Control/Control"]
+[node name="TileScaleContainer" type="Container" parent="Control/DialogControl"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -36,26 +90,30 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_6tlti")
-tile_scale = 4.895
+tile_scale = 0.24
 
-[node name="NinePatchRect" type="NinePatchRect" parent="Control/Control/TileScaleContainer"]
+[node name="NinePatchRect" type="NinePatchRect" parent="Control/DialogControl/TileScaleContainer"]
 layout_mode = 2
-texture = ExtResource("3_y7uqn")
-patch_margin_left = 25
-patch_margin_top = 12
-patch_margin_right = 24
-patch_margin_bottom = 12
+texture = ExtResource("3_f6jax")
+region_rect = Rect2(140.53531, 228.1026, 956.6438, 430.4897)
+patch_margin_left = 239
+patch_margin_top = 359
+patch_margin_right = 238
+patch_margin_bottom = 205
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/Control"]
-layout_mode = 1
-anchors_preset = 15
+[node name="DialogRichTextLabel" type="RichTextLabel" parent="Control/DialogControl"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 21.0
-offset_top = 2.0
-offset_right = -16.0
-offset_bottom = -31.0
+offset_left = 23.0
+offset_top = 21.0
+offset_right = -23.0
+offset_bottom = -21.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/default_color = Color(0.47265625, 0.4071289, 0.247406, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/normal_font = ExtResource("4_k7kej")
+theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
-text = "ahdh ioazdh oahzdoaizdho"
+text = "Salut je m'appelle David, je suis un développeur"
