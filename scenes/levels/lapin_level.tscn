@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dcrs1qatqwlf4"]
+[gd_scene load_steps=21 format=3 uid="uid://dcrs1qatqwlf4"]
 
 [ext_resource type="PackedScene" uid="uid://b7jl00yavhgpu" path="res://scenes/levels/parts/lapin_ground.tscn" id="1_hp1lk"]
 [ext_resource type="PackedScene" uid="uid://b8865ulgxw3ru" path="res://scenes/levels/parts/lapin_elevation_1.tscn" id="2_rmt7n"]
@@ -15,16 +15,31 @@
 [ext_resource type="PackedScene" uid="uid://dvke267jyev2m" path="res://scenes/foliages/trees/big_tree_foliage.tscn" id="12_t7fdv"]
 [ext_resource type="PackedScene" uid="uid://5pcwdkdkscl7" path="res://scenes/foliages/trees/thin_tree.tscn" id="13_rifx7"]
 [ext_resource type="Texture2D" uid="uid://dk6ee1ked2nev" path="res://assets/sprites/foliages/trees/Decor_Arbre_Taillé_01.png" id="14_ciyc6"]
-[ext_resource type="PackedScene" uid="uid://c4gq5premh6yy" path="res://scenes/npcs/ram.tscn" id="15_aiceo"]
-[ext_resource type="PackedScene" uid="uid://bahkqavktnhuv" path="res://scenes/npcs/anteater.tscn" id="16_ir1fq"]
+[ext_resource type="Texture2D" uid="uid://dywu550tholta" path="res://assets/sprites/foliages/trees/Decor_Arbre_Bleu_02.png" id="16_ciyc6"]
+[ext_resource type="Texture2D" uid="uid://1dp4d8wgx6ci" path="res://assets/sprites/foliages/trees/Decor_Arbre_Blanc_01.png" id="17_aiceo"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rifx7"]
+load_path = "res://.godot/imported/Texture_Herbe.png-1d2f2f3bf46c32e124365c26eaf42ead.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ciyc6"]
+transparency = 1
+albedo_texture = SubResource("CompressedTexture2D_rifx7")
+uv1_scale = Vector3(10, 10, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rifx7"]
+transparency = 1
+albedo_texture = SubResource("CompressedTexture2D_rifx7")
+uv1_scale = Vector3(8, 8, 8)
 
 [node name="LapinLevel" type="Node3D"]
 
 [node name="LapinGround" parent="." instance=ExtResource("1_hp1lk")]
+material_overlay = SubResource("StandardMaterial3D_ciyc6")
 
 [node name="LapinElevation_1" parent="." instance=ExtResource("2_rmt7n")]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -2.6059198, 2.3375964, 5.383718)
 material_override = ExtResource("3_87o4d")
+material_overlay = SubResource("StandardMaterial3D_rifx7")
 
 [node name="Plateforms" type="Node3D" parent="."]
 
@@ -134,38 +149,50 @@ texture = ExtResource("12_ciyc6")
 npc_name = "Sourdeoreille"
 speech = "Quoi ? | Mes oreilles sont plus toutes jeunes, gamin. Elles se sont bouchées à cause de l'eau. | Tu sais petit, l'eau ça mouille. | Et ça s'infiltre dans nos galeries. | Et ensuite on est mouillés. | Avant on était dans une plaine, à l'est. | Mais un jour, ces fumiers de béliers ont voulu nous chasser. | Ils ont vidé le lac dans notre plaine. | Comment on le sait ? Parceque la pierre qui retenait l'eau a été brisée. | Y'a que des cornus pour casser une pierre si dure. | On est bien ici. On est protégés. | Qu'est ce que tu dis ? J'entends rien. "
 
-[node name="RabbitBase4" parent="NPCs" instance=ExtResource("7_hco53")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1428404, 9.1764965, 30.534966)
-collision_mask = 1
-npc_name = null
-
-[node name="Ram" parent="NPCs" instance=ExtResource("15_aiceo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2457, 9.1569195, 34.17844)
-collision_mask = 1
-npc_name = null
-
-[node name="Anteater" parent="NPCs" instance=ExtResource("16_ir1fq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6533632, 9.169311, 35.35272)
-collision_mask = 1
-npc_name = null
-
-[node name="Anteater2" parent="NPCs" instance=ExtResource("16_ir1fq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5192976, 9.645767, 40.542873)
-collision_mask = 1
-npc_name = null
-
 [node name="Foliage" type="Node3D" parent="."]
 
 [node name="BigTreeFoliage" parent="Foliage" instance=ExtResource("12_t7fdv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8498584, 9.441196, 33.5845)
-texture = null
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.58251, 9.441196, 31.564323)
+texture = ExtResource("16_ciyc6")
+
+[node name="BigTreeFoliage5" parent="Foliage" instance=ExtResource("12_t7fdv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.209654, 9.441196, 40.002415)
+texture = ExtResource("16_ciyc6")
+
+[node name="BigTreeFoliage6" parent="Foliage" instance=ExtResource("12_t7fdv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.596716, 9.441198, 35.454247)
+texture = ExtResource("16_ciyc6")
+
+[node name="BigTreeFoliage7" parent="Foliage" instance=ExtResource("12_t7fdv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.57564, 9.441198, -1.1143684)
+texture = ExtResource("16_ciyc6")
+
+[node name="BigTreeFoliage8" parent="Foliage" instance=ExtResource("12_t7fdv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.636295, 9.441198, -9.555981)
+texture = ExtResource("16_ciyc6")
 
 [node name="BigTreeFoliage2" parent="Foliage" instance=ExtResource("12_t7fdv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3267927, 9.441196, 26.9212)
-texture = null
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.630562, 9.441196, 14.403221)
+texture = ExtResource("17_aiceo")
+
+[node name="BigTreeFoliage3" parent="Foliage" instance=ExtResource("12_t7fdv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.798546, 9.441196, 27.490852)
+texture = ExtResource("17_aiceo")
+
+[node name="BigTreeFoliage4" parent="Foliage" instance=ExtResource("12_t7fdv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.843658, 9.441196, 1.6342163)
+texture = ExtResource("17_aiceo")
 
 [node name="ThinTree" parent="Foliage" instance=ExtResource("13_rifx7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.672427, 9.329523, 35.147762)
+texture = ExtResource("14_ciyc6")
+
+[node name="ThinTree4" parent="Foliage" instance=ExtResource("13_rifx7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.891273, 9.329523, 7.387062)
+texture = ExtResource("14_ciyc6")
+
+[node name="ThinTree5" parent="Foliage" instance=ExtResource("13_rifx7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.895645, 9.329523, 34.029533)
 texture = ExtResource("14_ciyc6")
 
 [node name="ThinTree3" parent="Foliage" instance=ExtResource("13_rifx7")]

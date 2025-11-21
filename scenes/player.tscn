@@ -40,6 +40,7 @@ break_wood_sound = NodePath("SoundsPlayer/BreakWood")
 break_stone_sound = NodePath("SoundsPlayer/BreakStone")
 SPEED = 5.0
 JUMP_SPEED = 9.5
+MAX_TONGUE_DISTANCE = 30
 
 [node name="Sprite3D" parent="SpriteContainer" index="0"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.4930296, 0.79229486, 0)
@@ -56,6 +57,9 @@ texture = ExtResource("9_3v2ag")
 [node name="Anteater" type="Sprite3D" parent="SpriteContainer/Sprite3D" index="2"]
 sorting_offset = 0.01
 texture = ExtResource("10_jej6c")
+
+[node name="TongueContainer" parent="SpriteContainer/Sprite3D" index="3"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, -0.12802851, 0)
 
 [node name="TongueMesh" parent="SpriteContainer/Sprite3D/TongueContainer" index="0"]
 mesh = SubResource("PlaneMesh_y4r1p")

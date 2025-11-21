@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://k2rnw8u25671"
-path.s3tc="res://.godot/imported/Decor_Rocher_01.png-58f986d4059a34be88fd5aee820fd75b.s3tc.ctex"
+uid="uid://y1s635cc5ole"
+path="res://.godot/imported/Decor_MaisonProta_interieur_01.png-e8204050a12a84dfc449f1a85c2fe0ad.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/rochers/Decor_Rocher_01.png"
-dest_files=["res://.godot/imported/Decor_Rocher_01.png-58f986d4059a34be88fd5aee820fd75b.s3tc.ctex"]
+source_file="res://assets/terrier/Decor_MaisonProta_interieur_01.png"
+dest_files=["res://.godot/imported/Decor_MaisonProta_interieur_01.png-e8204050a12a84dfc449f1a85c2fe0ad.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -24,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -38,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

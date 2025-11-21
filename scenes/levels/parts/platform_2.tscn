@@ -1,9 +1,17 @@
-[gd_scene load_steps=7 format=4 uid="uid://d3kvs84nbroyd"]
+[gd_scene load_steps=9 format=4 uid="uid://d3kvs84nbroyd"]
 
 [ext_resource type="Texture2D" uid="uid://bj6hoxt1a1etn" path="res://assets/sprites/bélier_tileable.jpg" id="1_a2pqy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_53jhy"]
 albedo_texture = ExtResource("1_a2pqy")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_53jhy"]
+load_path = "res://.godot/imported/Texture_Herbe.png-1d2f2f3bf46c32e124365c26eaf42ead.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lrm7g"]
+transparency = 1
+albedo_texture = SubResource("CompressedTexture2D_53jhy")
+uv1_scale = Vector3(2, 2, 2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l1ddd"]
 
@@ -43,6 +51,7 @@ data = PackedVector3Array(-0.29459998, -0.0036, 0.0786, -0.2536, 0.3189, 0.18519
 [node name="Platform_2" type="MeshInstance3D"]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_53jhy")
+material_overlay = SubResource("StandardMaterial3D_lrm7g")
 mesh = SubResource("ArrayMesh_lrm7g")
 skeleton = NodePath("")
 
