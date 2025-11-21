@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://nogjss73jq2e"]
+
+[ext_resource type="Shader" uid="uid://bhr2y4wnt3hs7" path="res://shaders/two_side.gdshader" id="1_watp8"]
+[ext_resource type="Texture2D" uid="uid://qp556mhmny4v" path="res://assets/sprites/clairière_tileable.jpg" id="3_axrvm"]
+[ext_resource type="Texture2D" uid="uid://bd2lppc20cuoq" path="res://sprites/Textures/Texture_SolLapin_02.jpg" id="3_ka35l"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_watp8")
+shader_parameter/side_texture = ExtResource("3_axrvm")
+shader_parameter/top_texture = ExtResource("3_ka35l")
+shader_parameter/tilling_side = Vector2(20, 10)
+shader_parameter/offset_side = Vector2(0, 0)
+shader_parameter/tilling_top = Vector2(10, 10)
+shader_parameter/offset_top = Vector2(0, 0)

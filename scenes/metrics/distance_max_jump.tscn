@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbum7qxwtypc0"]
+
+[ext_resource type="Texture2D" uid="uid://qp556mhmny4v" path="res://assets/sprites/clairière_tileable.jpg" id="1_2i50y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_efxa6"]
+albedo_texture = ExtResource("1_2i50y")
+rim = 0.1
+uv1_scale = Vector3(30, 30, 30)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kek77"]
+size = Vector3(100, 100, 100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4c57u"]
+size = Vector3(100, 100, 100)
+
+[node name="distance_max_jump" type="Node3D"]
+
+[node name="FloorTest8" type="StaticBody3D" parent="."]
+transform = Transform3D(-0.040198795, 0, -5.992422e-09, 0, 0.275, 0, 6.0698495e-09, 0, -0.039686017, -38.570007, -15.186258, 20.828217)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="FloorTest8"]
+material_override = SubResource("StandardMaterial3D_efxa6")
+mesh = SubResource("BoxMesh_kek77")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FloorTest8"]
+shape = SubResource("BoxShape3D_4c57u")
+
+[node name="FloorTest9" type="StaticBody3D" parent="."]
+transform = Transform3D(-0.040198795, 0, -5.992422e-09, 0, 0.275, 0, 6.0698495e-09, 0, -0.039686017, -26.05505, -15.186258, 20.9507)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="FloorTest9"]
+material_override = SubResource("StandardMaterial3D_efxa6")
+mesh = SubResource("BoxMesh_kek77")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FloorTest9"]
+shape = SubResource("BoxShape3D_4c57u")

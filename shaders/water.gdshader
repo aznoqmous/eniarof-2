@@ -12,7 +12,7 @@ void vertex() {
 	float frequency = 0.3;
 	float speed = 1.0;
 	float phase = (VERTEX.x + VERTEX.z * 2.0) * frequency + TIME * speed;
-	
+
 	VERTEX.y = sin(phase) * amplitude;
 	
 	float dx = cos(phase) * amplitude * frequency;
@@ -24,7 +24,7 @@ void fragment() {
 	float light_foam_mask = texture(voronoi_texture, vVertex * voronoi_size + vec2(TIME, TIME / 2.0) * 0.02).x;
 	float dark_foam_mask = texture(voronoi_texture, vVertex * voronoi_size + vec2(voronoi_size, voronoi_size) + vec2(TIME, TIME / 2.0) * 0.01).x;
 	dark_foam_mask *= 1.0 - light_foam_mask;
-	
+
 	vec3 color = water_color * (1.0 - light_foam_mask) * (1.0 - dark_foam_mask);
 	color += light_foam_mask * light_foam_color;
 	color += dark_foam_mask * dark_foam_color;

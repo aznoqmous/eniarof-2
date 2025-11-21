@@ -1,9 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://dy0stovegbo24"]
+[gd_scene load_steps=26 format=3 uid="uid://dy0stovegbo24"]
 
 [ext_resource type="Script" uid="uid://dlsptbxcmtms2" path="res://scripts/main.gd" id="1_rknjs"]
 [ext_resource type="Texture2D" uid="uid://qp556mhmny4v" path="res://assets/sprites/clairière_tileable.jpg" id="2_2vkav"]
 [ext_resource type="Texture2D" uid="uid://b6fmhq68o82ga" path="res://assets/sprites/belier_v3_tileable.jpg" id="3_d4r3x"]
-[ext_resource type="PackedScene" path="res://scenes/foliage.tscn" id="4_lpctg"]
+[ext_resource type="PackedScene" uid="uid://dbum7qxwtypc0" path="res://scenes/metrics/distance_max_jump.tscn" id="4_83nkw"]
 [ext_resource type="Script" uid="uid://1eqrfby7r8i4" path="res://scripts/directional_light_3d.gd" id="5_28ppp"]
 [ext_resource type="PackedScene" uid="uid://d2jcxmqkru15e" path="res://scenes/player.tscn" id="6_7rtth"]
 [ext_resource type="PackedScene" uid="uid://crs04b65vwhy2" path="res://scenes/npc.tscn" id="7_jvdbg"]
@@ -13,7 +13,8 @@
 [ext_resource type="Resource" uid="uid://cwdv7j5781076" path="res://resources/npc_actions/charge.tres" id="11_nfpr2"]
 [ext_resource type="PackedScene" uid="uid://cb33c6pcwsm7s" path="res://scenes/uis/spend_night_canvas_layer.tscn" id="12_x7j6v"]
 [ext_resource type="PackedScene" uid="uid://17emcoltidd5" path="res://scenes/uis/dialog_canvas_layer.tscn" id="13_rgsbe"]
-[ext_resource type="PackedScene" path="res://scenes/rigid_foliage.tscn" id="14_tgdal"]
+[ext_resource type="PackedScene" uid="uid://ddm3ge1xdaxa3" path="res://scenes/rigid_foliage.tscn" id="14_tgdal"]
+[ext_resource type="PackedScene" uid="uid://6ine6a8uim35" path="res://scenes/metrics/height_jumps_metrics.tscn" id="15_yftua"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_efxa6"]
 albedo_texture = ExtResource("2_2vkav")
@@ -108,8 +109,47 @@ mesh = SubResource("BoxMesh_kek77")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level/FloorTest3"]
 shape = SubResource("BoxShape3D_4c57u")
 
-[node name="Foliage" parent="." instance=ExtResource("4_lpctg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.198501, -2.268567, 0)
+[node name="FloorTest4" type="StaticBody3D" parent="Level"]
+transform = Transform3D(-0.040198795, 0, -5.992422e-09, 0, 0.275, 0, 6.0698495e-09, 0, -0.039686017, -26.05505, -15.186258, 12.702017)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/FloorTest4"]
+material_override = SubResource("StandardMaterial3D_efxa6")
+mesh = SubResource("BoxMesh_kek77")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/FloorTest4"]
+shape = SubResource("BoxShape3D_4c57u")
+
+[node name="FloorTest5" type="StaticBody3D" parent="Level"]
+transform = Transform3D(-0.040198795, 0, -5.992422e-09, 0, 0.275, 0, 6.0698495e-09, 0, -0.039686017, -34.492622, -15.186258, 12.702017)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/FloorTest5"]
+material_override = SubResource("StandardMaterial3D_efxa6")
+mesh = SubResource("BoxMesh_kek77")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/FloorTest5"]
+shape = SubResource("BoxShape3D_4c57u")
+
+[node name="FloorTest6" type="StaticBody3D" parent="Level"]
+transform = Transform3D(-0.040198795, 0, -5.992422e-09, 0, 0.275, 0, 6.0698495e-09, 0, -0.039686017, -26.05505, -15.186258, 16.740395)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/FloorTest6"]
+material_override = SubResource("StandardMaterial3D_efxa6")
+mesh = SubResource("BoxMesh_kek77")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/FloorTest6"]
+shape = SubResource("BoxShape3D_4c57u")
+
+[node name="FloorTest7" type="StaticBody3D" parent="Level"]
+transform = Transform3D(-0.040198795, 0, -5.992422e-09, 0, 0.275, 0, 6.0698495e-09, 0, -0.039686017, -36.853497, -15.186258, 16.740395)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/FloorTest7"]
+material_override = SubResource("StandardMaterial3D_efxa6")
+mesh = SubResource("BoxMesh_kek77")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/FloorTest7"]
+shape = SubResource("BoxShape3D_4c57u")
+
+[node name="distance_max_jump" parent="Level" instance=ExtResource("4_83nkw")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_1bvp3")
@@ -118,17 +158,20 @@ environment = SubResource("Environment_1bvp3")
 transform = Transform3D(-3.2531837e-08, -0.6679105, 0.7442416, -2.9195299e-08, 0.7442416, 0.6679105, -1, 0, -4.3711392e-08, 3.122682, 2.3306007, 2.4698005)
 script = ExtResource("5_28ppp")
 
-[node name="Player" parent="." instance=ExtResource("6_7rtth")]
+[node name="Player" parent="." node_paths=PackedStringArray("species_sprites") instance=ExtResource("6_7rtth")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.532275, -2.2183847, 2.0943203)
+species_sprites = {
+0: NodePath("SpriteContainer/Sprite3D/Rabbit"),
+1: NodePath("SpriteContainer/Sprite3D/Ram"),
+2: NodePath("SpriteContainer/Sprite3D/Anteater")
+}
 max_stamina = 40.0
 
 [node name="NPC" parent="." instance=ExtResource("7_jvdbg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.933179, -2.1903467, 2.936575)
-texture = null
 actions = Array[ExtResource("8_csysb")]([ExtResource("9_8niny"), ExtResource("10_di6o6"), ExtResource("11_nfpr2")])
 speech = "Hello ! How are you kind [species] !|Another speech yoooo|azoidhaiodiohaziodazd|azoizdazod"
 MAX_TONGUE_DISTANCE = 5
-JUMP_MODIFIER = 0.5
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.02393, -2.2569194, 1.5233164)
@@ -208,3 +251,6 @@ transform = Transform3D(-0.0025199992, 0, -8.793992e-09, 0, 0.275, 0, 3.8050918e
 material_override = SubResource("StandardMaterial3D_efxa6")
 mesh = SubResource("BoxMesh_kek77")
 skeleton = NodePath("../Level/FloorTest2")
+
+[node name="metrics" parent="." instance=ExtResource("15_yftua")]
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, -35.350365, -2.2653556, -11.794775)
