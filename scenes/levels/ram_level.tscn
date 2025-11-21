@@ -412,16 +412,8 @@ charge_breakable = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.028876, 9.996355, 7.6085467)
 charge_breakable = false
 
-[node name="RockBase17" parent="." instance=ExtResource("3_kpji2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.916102, 9.996355, 5.399878)
-charge_breakable = false
-
 [node name="RockBase8" parent="." instance=ExtResource("3_kpji2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.836123, 9.996355, -1.9527802)
-charge_breakable = false
-
-[node name="RockBase18" parent="." instance=ExtResource("3_kpji2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.884806, 9.996355, 0.0072717667)
 charge_breakable = false
 
 [node name="RockBase9" parent="." instance=ExtResource("3_kpji2")]
@@ -438,6 +430,14 @@ charge_breakable = false
 
 [node name="RockBase10" parent="." instance=ExtResource("3_kpji2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9742513, 9.996355, -7.9367)
+charge_breakable = false
+
+[node name="RockBase17" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6548054, 9.996355, -9.406335)
+charge_breakable = false
+
+[node name="RockBase18" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.86729217, 9.996354, -10.486263)
 charge_breakable = false
 
 [node name="RockBase11" parent="." instance=ExtResource("3_kpji2")]
@@ -489,11 +489,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.007284, 9.996355, -14.2853
 charge_breakable = false
 
 [node name="BreakerFoliage1" parent="." instance=ExtResource("3_kpji2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.166109, 9.996355, 3.0158749)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.802408, 9.996355, 2.6336808)
 texture = ExtResource("4_7ihqe")
 
-[node name="BreakerFoliage2" parent="." instance=ExtResource("3_kpji2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7879267, 9.996355, -9.970468)
+[node name="BreakerFoliage3" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.727432, 9.996355, 0.6895933)
+texture = ExtResource("4_7ihqe")
+
+[node name="BreakerFoliage4" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.507029, 9.996355, 4.960784)
 texture = ExtResource("4_7ihqe")
 
 [node name="RockBase27" parent="." instance=ExtResource("3_kpji2")]
@@ -548,10 +552,6 @@ charge_breakable = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6308823, 10.53087, 3.342909)
 charge_breakable = false
 
-[node name="RockBase40" parent="." instance=ExtResource("3_kpji2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8990417, 10.53087, 2.088097)
-charge_breakable = false
-
 [node name="RockBase41" parent="." instance=ExtResource("3_kpji2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.681623, 10.53087, -2.811633)
 charge_breakable = false
@@ -566,10 +566,6 @@ charge_breakable = false
 
 [node name="RockBase45" parent="." instance=ExtResource("3_kpji2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.640062, 11.459091, 5.1822057)
-charge_breakable = false
-
-[node name="RockBase46" parent="." instance=ExtResource("3_kpji2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.450638, 11.459093, 4.5524483)
 charge_breakable = false
 
 [node name="RockBase48" parent="." instance=ExtResource("3_kpji2")]
@@ -589,17 +585,32 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.121884, 11.459091, 8.81712
 charge_breakable = false
 
 [node name="BreakerStone1" parent="." instance=ExtResource("3_kpji2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.526491, 11.459091, 5.439435)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.580502, 11.459091, 5.88122)
+charge_breakable_level = 2
+texture = ExtResource("10_nvrdk")
+
+[node name="BreakerStone7" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.935455, 11.459091, 8.021137)
+charge_breakable_level = 2
+texture = ExtResource("10_nvrdk")
+
+[node name="BreakerStone5" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.68259, 11.459091, 5.347414)
+charge_breakable_level = 2
+texture = ExtResource("10_nvrdk")
+
+[node name="BreakerStone6" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.971533, 11.459091, 5.089388)
 charge_breakable_level = 2
 texture = ExtResource("10_nvrdk")
 
 [node name="BreakerStone3" parent="." instance=ExtResource("3_kpji2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.719992, 11.459091, 7.280567)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.719992, 11.459091, 6.9079113)
 charge_breakable_level = 2
 texture = ExtResource("10_nvrdk")
 
 [node name="BreakerStone4" parent="." instance=ExtResource("3_kpji2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.413269, 11.459091, 6.561158)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.824249, 11.459091, 7.3806467)
 charge_breakable_level = 2
 texture = ExtResource("10_nvrdk")
 
@@ -625,6 +636,11 @@ texture = ExtResource("5_rg3jb")
 
 [node name="BreakerWood2" parent="." instance=ExtResource("3_kpji2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.247147, 10.53087, 0.66995525)
+charge_breakable_level = 1
+texture = ExtResource("5_rg3jb")
+
+[node name="BreakerWood5" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9577403, 10.53087, 1.7525973)
 charge_breakable_level = 1
 texture = ExtResource("5_rg3jb")
 

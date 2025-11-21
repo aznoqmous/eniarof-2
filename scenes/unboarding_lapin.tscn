@@ -187,7 +187,7 @@ disable_mode = 1
 physics_material_override = SubResource("PhysicsMaterial_xy3p7")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="level_unb_lapin/plateform2_unb_lapin6"]
-transform = Transform3D(380.77826, 0, 0, 0, 2.109256, 0, 0, 3.469447e-18, 311.69443, 0.6813278, 0.04942967, 16.626343)
+transform = Transform3D(380.77826, 7.275958e-12, 0, 0, 2.1092563, 0, 0, 1.0408341e-17, 311.69443, 0.8007927, 0.049429893, 21.295166)
 material_override = SubResource("StandardMaterial3D_vyajk")
 mesh = SubResource("BoxMesh_xy3p7")
 

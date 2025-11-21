@@ -269,3 +269,5 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("6_med8x")
 theme_override_font_sizes/font_size = 26
 text = "QUITTER LE JEU"
+
+[connection signal="spend_night_end" from="." to="." method="_on_spend_night_end"]
