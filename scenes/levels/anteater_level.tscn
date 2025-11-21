@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://b5v4bwgbsj88x" path="res://assets/sprites/foliages/trees/Decor_Arbre_Rose_01.png" id="11_072fb"]
 [ext_resource type="Texture2D" uid="uid://b2ofcj1fv51d1" path="res://assets/sprites/flower/Décor_Fleur_05.png" id="12_auwxb"]
 [ext_resource type="Texture2D" uid="uid://bcvxq54e3k8g6" path="res://assets/sprites/flower/Décor_Fleur_07.png" id="13_a5v0j"]
-[ext_resource type="PackedScene" uid="uid://byicsqyng42p3" path="res://scenes/box.tscn" id="15_3wo5u"]
+[ext_resource type="PackedScene" uid="uid://da3oxe4m6e4fa" path="res://scenes/box.tscn" id="15_3wo5u"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sdiue"]
 

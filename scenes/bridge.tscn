@@ -1,8 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvm3u7fwuuof3"]
+[gd_scene load_steps=4 format=3 uid="uid://cvm3u7fwuuof3"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_4j2h4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7ct4w"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4j2h4"]
+size = Vector3(15, 5.5, 1.5)
 
 [node name="Bridge" type="Node3D"]
 
@@ -14,3 +17,11 @@ mesh = SubResource("BoxMesh_4j2h4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("BoxShape3D_7ct4w")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 2.25)
+shape = SubResource("BoxShape3D_4j2h4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2.25)
+shape = SubResource("BoxShape3D_4j2h4")
