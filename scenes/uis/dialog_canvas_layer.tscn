@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://17emcoltidd5"]
+[gd_scene load_steps=8 format=3 uid="uid://17emcoltidd5"]
 
 [ext_resource type="Script" uid="uid://c3uxt0ilmtsvi" path="res://scripts/dialog_canvas_layer.gd" id="1_lu1jx"]
 [ext_resource type="Script" uid="uid://t0fm3kyt6ama" path="res://scripts/tile_scale_container.gd" id="2_6tlti"]
 [ext_resource type="Texture2D" uid="uid://bubqivync3g6d" path="res://assets/sprites/uis/UI_boitedialogue_01.png" id="3_f6jax"]
-[ext_resource type="FontFile" uid="uid://b3pwe165xrl06" path="res://assets/fonts/CraftyGirls-Regular.ttf" id="4_k7kej"]
+[ext_resource type="Texture2D" uid="uid://dr8ykinfs0mad" path="res://assets/sprites/uis/UI_boîtedialogue_02.png" id="3_s5s1j"]
+[ext_resource type="FontFile" uid="uid://c3s20mmkmgw68" path="res://assets/fonts/Gaegu-Bold.ttf" id="4_1k4vp"]
+[ext_resource type="FontFile" uid="uid://blaaw468uyyon" path="res://assets/fonts/PatrickHand-Regular.ttf" id="4_s5s1j"]
+[ext_resource type="Texture2D" uid="uid://dbbyq2efmo65s" path="res://assets/sprites/uis/UI_fleche.png" id="6_ikg07"]
 
 [node name="DialogCanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_lu1jx")
@@ -16,73 +19,73 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="NameControl" type="Control" parent="Control"]
+[node name="DialogContainer" type="Control" parent="Control"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -335.0
-offset_top = -194.0
-offset_right = -2.0
-offset_bottom = -123.0
+offset_left = -348.0
+offset_top = -179.0
+offset_right = 348.0
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="TileScaleContainer" type="Container" parent="Control/NameControl"]
+[node name="NameMarginContainer" type="MarginContainer" parent="Control/DialogContainer"]
+layout_mode = 1
+offset_left = 30.0
+offset_top = -42.0
+offset_right = 523.0
+offset_bottom = 10.0
+
+[node name="NameControl" type="Control" parent="Control/DialogContainer/NameMarginContainer"]
+layout_mode = 2
+
+[node name="TileScaleContainer" type="Container" parent="Control/DialogContainer/NameMarginContainer/NameControl"]
+clip_contents = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -17.0
+offset_top = -10.0
+offset_right = 17.0
+offset_bottom = 31.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_6tlti")
-tile_scale = 0.095
+tile_scale = 0.42
 
-[node name="NinePatchRect" type="NinePatchRect" parent="Control/NameControl/TileScaleContainer"]
-modulate = Color(0.375, 0.375, 0.375, 1)
+[node name="NinePatchRect" type="NinePatchRect" parent="Control/DialogContainer/NameMarginContainer/NameControl/TileScaleContainer"]
+modulate = Color(0.45882353, 0.39215687, 0.24313726, 1)
 layout_mode = 2
-texture = ExtResource("3_f6jax")
-region_rect = Rect2(140.53531, 228.1026, 956.6438, 430.4897)
+texture = ExtResource("3_s5s1j")
+region_rect = Rect2(121.04813, 112.95105, 970.8163, 434.03284)
 patch_margin_left = 71
 patch_margin_top = 359
 patch_margin_right = 74
-patch_margin_bottom = 333
+patch_margin_bottom = 373
 
-[node name="NameRichTextLabel" type="RichTextLabel" parent="Control/NameControl"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 17.0
-offset_top = 10.0
-offset_right = -17.0
-offset_bottom = -14.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/default_color = Color(1, 1, 1, 1)
+[node name="NameRichTextLabel" type="RichTextLabel" parent="Control/DialogContainer/NameMarginContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 0.9483876, 0.7890625, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 1
-theme_override_fonts/normal_font = ExtResource("4_k7kej")
-theme_override_font_sizes/normal_font_size = 28
+theme_override_fonts/normal_font = ExtResource("4_1k4vp")
+theme_override_font_sizes/normal_font_size = 46
 bbcode_enabled = true
-text = "David"
+text = "LE CONSEIL DES LIEVRES"
+fit_content = true
+autowrap_mode = 0
 
-[node name="DialogControl" type="Control" parent="Control"]
+[node name="DialogControl" type="Control" parent="Control/DialogContainer"]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -347.0
-offset_top = -145.0
-offset_right = 347.0
-grow_horizontal = 2
-grow_vertical = 0
+anchors_preset = 0
+offset_right = 694.0
+offset_bottom = 145.0
 
-[node name="TileScaleContainer" type="Container" parent="Control/DialogControl"]
+[node name="TileScaleContainer" type="Container" parent="Control/DialogContainer/DialogControl"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -90,9 +93,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_6tlti")
-tile_scale = 0.24
+tile_scale = 0.255
 
-[node name="NinePatchRect" type="NinePatchRect" parent="Control/DialogControl/TileScaleContainer"]
+[node name="NinePatchRect" type="NinePatchRect" parent="Control/DialogContainer/DialogControl/TileScaleContainer"]
 layout_mode = 2
 texture = ExtResource("3_f6jax")
 region_rect = Rect2(140.53531, 228.1026, 956.6438, 430.4897)
@@ -101,7 +104,7 @@ patch_margin_top = 359
 patch_margin_right = 238
 patch_margin_bottom = 205
 
-[node name="DialogRichTextLabel" type="RichTextLabel" parent="Control/DialogControl"]
+[node name="DialogRichTextLabel" type="RichTextLabel" parent="Control/DialogContainer/DialogControl"]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -112,8 +115,27 @@ offset_bottom = -21.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0.47265625, 0.4071289, 0.247406, 1)
-theme_override_constants/outline_size = 1
-theme_override_fonts/normal_font = ExtResource("4_k7kej")
+theme_override_fonts/normal_font = ExtResource("4_s5s1j")
 theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
 text = "Salut je m'appelle David, je suis un développeur"
+
+[node name="DialogArrow" type="Control" parent="Control/DialogContainer/DialogControl"]
+anchors_preset = 0
+offset_left = 653.0
+offset_top = 100.0
+offset_right = 719.0
+offset_bottom = 166.0
+
+[node name="DialogArrowTexture" type="TextureRect" parent="Control/DialogContainer/DialogControl/DialogArrow"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_right = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_ikg07")
+expand_mode = 1
+stretch_mode = 5

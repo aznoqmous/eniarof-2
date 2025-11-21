@@ -6,23 +6,24 @@
 [ext_resource type="Texture2D" uid="uid://do5vth2it6qy7" path="res://assets/sprites/npcs/Characters_PNJ_Lapin_Brun_01.png" id="4_4wlns"]
 [ext_resource type="Texture2D" uid="uid://dy1j8hscy8tlj" path="res://assets/sprites/speech-bubble.png" id="4_7n8xq"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_rv78h"]
-height = 2.152832
-radius = 1.9023438
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n45ic"]
 albedo_color = Color(1, 0.578125, 0.9835205, 1)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_7n8xq"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_4wlns"]
 resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_n45ic")
 size = Vector2(0.1, 0)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rv78h"]
+height = 2.152832
+radius = 1.9023438
 
 [node name="NPC" instance=ExtResource("1_abqhh")]
 collision_layer = 5
 script = ExtResource("2_7n8xq")
 texture = null
 actions = Array[ExtResource("3_4wlns")]([])
+npc_name = ""
 speech = ""
 JUMP_MODIFIER = 0.5
 CHARGE_MODIFIER = 0.5
@@ -30,6 +31,9 @@ CHARGE_MODIFIER = 0.5
 [node name="Sprite3D" parent="SpriteContainer" index="0"]
 transform = Transform3D(0.23, 0, 0, 0, 0.23, 0, 0, 0, 0.23, 0, 0.9416977, 0)
 texture = ExtResource("4_4wlns")
+
+[node name="TongueMesh" parent="SpriteContainer/Sprite3D/TongueContainer" index="0"]
+mesh = SubResource("PlaneMesh_4wlns")
 
 [node name="InteractionZone" type="Area3D" parent="." index="4"]
 collision_layer = 0
@@ -46,20 +50,14 @@ text = "[E] Talk"
 [node name="SpeechBubble" type="Sprite3D" parent="." index="6"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.3366923, 2.3297482, 0)
 visible = false
+modulate = Color(1, 0.9490196, 0.7882353, 1)
 texture = ExtResource("4_7n8xq")
 
 [node name="SpeechDots" type="Label3D" parent="SpeechBubble" index="0"]
 transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0.56638026, 0.11452266)
-modulate = Color(0, 0, 0, 1)
+modulate = Color(0.45703125, 0.42178854, 0.31063843, 1)
 text = "..."
 font_size = 256
-
-[node name="TongueMesh" parent="TongueContainer" index="0"]
-mesh = SubResource("PlaneMesh_7n8xq")
-
-[node name="TongueArea3D" parent="TongueContainer" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8136692, 0)
-collision_mask = 0
 
 [connection signal="body_entered" from="InteractionZone" to="." method="_on_interaction_zone_body_entered"]
 [connection signal="body_exited" from="InteractionZone" to="." method="_on_interaction_zone_body_exited"]
