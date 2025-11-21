@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://co6ttgu24k5yk" path="res://assets/sprites/npcs/Characters_PNJ_Tamanoire_1_Belier_1.PNG" id="7_bpcmn"]
 [ext_resource type="PackedScene" uid="uid://ua12uqm5pvg0" path="res://scenes/npcs/rabbit_base.tscn" id="7_vy0r0"]
 [ext_resource type="PackedScene" uid="uid://c4gq5premh6yy" path="res://scenes/npcs/ram.tscn" id="8_bpcmn"]
+[ext_resource type="Texture2D" uid="uid://csnfs86j68e05" path="res://assets/sprites/npcs/Characters_PNJ_Lapin_1_tamanoire_1.PNG" id="8_d3ea0"]
 [ext_resource type="Texture2D" uid="uid://iravptvue1h4" path="res://assets/sprites/npcs/Characters_PNJ_tamanoire_1_belier_2.PNG" id="10_67852"]
 [ext_resource type="Texture2D" uid="uid://bsb5ubdlsjnvj" path="res://assets/sprites/npcs/Characters_PNJ_Lapin_2_tamanoire_1.PNG" id="11_e72gq"]
 [ext_resource type="Texture2D" uid="uid://dtkjiwev3bfn6" path="res://assets/sprites/npcs/Characters_PNJ_Tamanoire_2_Lapin_1.PNG" id="12_5qjab"]
@@ -87,8 +88,6 @@ transparency = 1
 albedo_texture = SubResource("CompressedTexture2D_d3ea0")
 uv1_scale = Vector3(2, 2, 2)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_67852"]
-
 [node name="ClairiereLevel" type="Node3D"]
 
 [node name="ground" type="Node3D" parent="."]
@@ -121,7 +120,7 @@ material_overlay = SubResource("StandardMaterial3D_8kf30")
 
 [node name="Anteater" parent="NPCs" instance=ExtResource("6_kkuiy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.424603, 7.520774, 19.081312)
-texture = SubResource("CompressedTexture2D_67852")
+texture = ExtResource("8_d3ea0")
 actions = Array[ExtResource("12_ef2cb")]([ExtResource("13_yb8ec"), ExtResource("16_8kf30"), ExtResource("15_d3ea0"), ExtResource("14_viq5n")])
 npc_name = "Tamataggueur"
 speech = "Haha !! Lààà haut ! Persoooonne pourra l'effacer ! | Bim ! Couuuup de laaaangue ! | Il est trop beau mon tag ! Allez Saute !"
