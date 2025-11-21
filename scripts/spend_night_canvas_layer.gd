@@ -3,7 +3,10 @@ class_name SpendNightCanvasLayer extends CanvasLayer
 @onready var main: Main = $/root/Main
 @onready var night_overlay_control: Control = $NightOverlayControl
 @onready var spend_night_button: Button = $Control/SpendNightButton
-@onready var night_confirm_button: Button = $NightOverlayControl/NightConfirmButton
+
+@onready var night_confirm_button: Button = $NightOverlayControl/HBoxContainer/NightConfirmButton
+@onready var game_exit_button: Button = $NightOverlayControl/HBoxContainer/GameExitButton
+
 
 @onready var night_circle: TextureRect = $NightOverlayControl/Control/NightCircle
 @onready var rabbit_container: Control = $NightOverlayControl/Control/RabbitContainer
@@ -24,13 +27,21 @@ func _ready() -> void:
 	spend_night_button.pressed.connect(spend_night)
 	night_confirm_button.pressed.connect(close)
 	night_overlay_control.set_visible(false)
+	game_exit_button.set_visible(false)
+	
+	game_exit_button.pressed.connect(func():
+		get_tree().quit()
+	)
 
 func _process(delta):
 	night_circle.pivot_offset = night_circle.size / 2.0
 	night_circle.rotation += delta * TAU / 20.0
 	
 func spend_night():
+	main.player.current_species = main.player.species[main.player.get_most_performed_action()]
+
 	current_day += 1
+	game_exit_button.set_visible(current_day >= 3)
 	day_label.text = str("JOUR ", current_day)
 	
 	intro_label.modulate.a = 0.0
@@ -86,9 +97,12 @@ func close():
 	get_tree().create_tween().tween_property(night_overlay_control, "modulate:a", 0.0, animation_duration)
 	await get_tree().create_timer(animation_duration).timeout
 	night_overlay_control.set_visible(false)
-	main.player.current_species = main.player.species[main.player.get_most_performed_action()]
 	main.player.reset_action_counts()
 	main.player.reset_stamina()
 	main.player.update_modifiers()
 
 signal spend_night_end()
+
+
+func _on_spend_night_end() -> void:
+	main.player.position = main.start.position

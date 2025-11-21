@@ -24,6 +24,6 @@ texture = ExtResource("2_a6whb")
 [node name="TongueMesh" parent="SpriteContainer/Sprite3D/TongueContainer" index="0"]
 mesh = SubResource("PlaneMesh_d2pwb")
 
-[node name="Talk" parent="Sounds" index="5"]
+[node name="TalkAudio" parent="Sounds" index="5"]
 event_name = "event:/Voices/Voice Belier"
 event_guid = "{159a4751-1667-4b17-a63d-9fe8c9c6c12f}"
