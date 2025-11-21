@@ -1,8 +1,11 @@
 class_name DialogCanvasLayer extends CanvasLayer
 
 @onready var main: Main = $/root/Main
-@onready var name_rich_text_label: RichTextLabel = $Control/NameControl/NameRichTextLabel
-@onready var dialog_rich_text_label: RichTextLabel = $Control/DialogControl/DialogRichTextLabel
+@onready var name_margin_container: MarginContainer = $Control/DialogContainer/NameMarginContainer
+@onready var name_rich_text_label: RichTextLabel = $Control/DialogContainer/NameMarginContainer/NameRichTextLabel
+@onready var dialog_rich_text_label: RichTextLabel = $Control/DialogContainer/DialogControl/DialogRichTextLabel
+@onready var dialog_arrow: Control = $Control/DialogContainer/DialogControl/DialogArrow
+@onready var dialog_arrow_texture: TextureRect = $Control/DialogContainer/DialogControl/DialogArrow/DialogArrowTexture
 
 @export var char_speed := 0.02
 @export var space_speed := 0.1
@@ -17,13 +20,17 @@ var is_writing = false
 func _ready():
 	set_visible(false)
 
+func _process(delta: float) -> void:
+	dialog_arrow_texture.position.x = sin(main.get_time() * TAU) * 5.0
+
 func talk(speech: String, npc: NPC):
 	if not visible:
 		talking_npc = npc
 		talking_npc.speech_bubble.set_visible(true)
 		set_visible(true)
 		speech_sequence(speech)
-		name_rich_text_label.text = npc.npc_name
+		name_rich_text_label.text = npc.npc_name if npc.npc_name else "???"
+		name_margin_container.size.x = 0
 		return;
 		
 	if is_writing:
@@ -45,6 +52,7 @@ func speech_sequence(speech: String):
 	write_text(speeches[0])
 
 func write_text(text: String):
+	dialog_arrow.set_visible(false)
 	text = text.replace("[species]", str("[b]",main.player.current_species.species_name, "[/b]"))
 	dialog_rich_text_label.text = ""
 	var is_tag = false
@@ -61,4 +69,5 @@ func write_text(text: String):
 		if not is_tag:
 			await get_tree().create_timer(dialog_speed / base_speed).timeout
 			
+	dialog_arrow.set_visible(true)
 	is_writing = false

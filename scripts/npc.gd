@@ -48,6 +48,8 @@ func _process(delta: float) -> void:
 		speech_dots.text += "."
 		if speech_dots.text.length() > 3: speech_dots.text = "."
 	
+	global_rotation.y = 0
+	
 func _physics_process(delta: float) -> void:
 	live(delta)
 	super(delta)
