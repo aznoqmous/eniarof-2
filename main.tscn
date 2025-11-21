@@ -1,28 +1,18 @@
-[gd_scene load_steps=25 format=3 uid="uid://cmlhp3bgeip3e"]
+[gd_scene load_steps=21 format=3 uid="uid://cmlhp3bgeip3e"]
 
 [ext_resource type="Script" uid="uid://dlsptbxcmtms2" path="res://scripts/main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://d2jcxmqkru15e" path="res://scenes/player.tscn" id="2_h2yge"]
 [ext_resource type="Texture2D" uid="uid://qp556mhmny4v" path="res://assets/sprites/clairière_tileable.jpg" id="2_kek77"]
-[ext_resource type="Texture2D" uid="uid://bvakch7j1m1d6" path="res://assets/sprites/textures/Texture_SolBélier_01.jpg" id="3_yaehf"]
 [ext_resource type="Shader" uid="uid://ceyqrsqchfjot" path="res://shaders/water.gdshader" id="4_2cqfq"]
 [ext_resource type="PackedScene" uid="uid://c7jxsig5q4dgf" path="res://scenes/levels/anteater_level.tscn" id="4_074og"]
-[ext_resource type="Script" path="res://scripts/water.gd" id="4_yaehf"]
+[ext_resource type="Script" uid="uid://3ie2b8f123dv" path="res://scripts/water.gd" id="4_yaehf"]
 [ext_resource type="Texture2D" uid="uid://crr1h60asguyr" path="res://assets/sprites/water/voronoi.png" id="5_yaehf"]
 [ext_resource type="Script" uid="uid://1eqrfby7r8i4" path="res://scripts/directional_light_3d.gd" id="6_ycdy4"]
-[ext_resource type="PackedScene" uid="uid://bd7vcr4so1sr4" path="res://scenes/levels/ram_level.tscn" id="8_ycdy4"]
+[ext_resource type="PackedScene" path="res://scenes/levels/ram_level.tscn" id="8_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://dxjabvfh4xcul" path="res://scenes/levels/clairiere_level.tscn" id="9_w48qg"]
 [ext_resource type="PackedScene" uid="uid://cb33c6pcwsm7s" path="res://scenes/uis/spend_night_canvas_layer.tscn" id="12_w48qg"]
 [ext_resource type="PackedScene" uid="uid://17emcoltidd5" path="res://scenes/uis/dialog_canvas_layer.tscn" id="13_w48qg"]
 [ext_resource type="PackedScene" uid="uid://dcrs1qatqwlf4" path="res://scenes/levels/lapin_level.tscn" id="14_vivmo"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_074og"]
-albedo_texture = ExtResource("3_yaehf")
-
-[sub_resource type="BoxMesh" id="BoxMesh_efxa6"]
-size = Vector3(100, 1, 100)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_dg77c"]
-size = Vector3(100, 1, 100)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_w48qg"]
 
@@ -60,18 +50,6 @@ bank_paths = ["res://assets/soundbanks/Desktop/Master.strings.bank", "res://asse
 
 [node name="Level" type="Node3D" parent="."]
 
-[node name="clairiere" type="StaticBody3D" parent="Level"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -2.768567, 0)
-visible = false
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/clairiere"]
-transform = Transform3D(0.6253661, 0, 0, 0, 1, 0, 0, 0, 0.6253661, -0.07971572, 0, -0.06996632)
-material_override = SubResource("StandardMaterial3D_074og")
-mesh = SubResource("BoxMesh_efxa6")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/clairiere"]
-shape = SubResource("BoxShape3D_dg77c")
-
 [node name="LapinLevel" parent="Level" instance=ExtResource("14_vivmo")]
 transform = Transform3D(0.7760464, 0, 0.6306758, 0, 1, 0, -0.6306758, 0, 0.7760464, -53.873688, -10.027153, -55.89064)
 
@@ -106,7 +84,7 @@ transform = Transform3D(-3.2531837e-08, -0.6679105, 0.7442416, -2.9195299e-08, 0
 script = ExtResource("6_ycdy4")
 
 [node name="Player" parent="." node_paths=PackedStringArray("species_sprites") instance=ExtResource("2_h2yge")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.501114, -1.4003406, -17.757061)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.168133, -1.4003406, -4.5228004)
 species_sprites = {
 0: NodePath("SpriteContainer/Sprite3D/Rabbit"),
 1: NodePath("SpriteContainer/Sprite3D/Ram"),

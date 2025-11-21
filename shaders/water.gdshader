@@ -31,6 +31,3 @@ void fragment() {
 	ALBEDO = color;
 }
 
-void light() {
-	DIFFUSE_LIGHT = vec3(1.0);
-}
