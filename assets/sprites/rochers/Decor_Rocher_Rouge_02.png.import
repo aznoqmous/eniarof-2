@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bd2lppc20cuoq"
-path="res://.godot/imported/Texture_SolLapin_02.jpg-da21f00babf5afb21cf660812ff6884f.ctex"
+uid="uid://d0fa0tirv28li"
+path="res://.godot/imported/Decor_Rocher_Rouge_02.png-4496e6def4abd6ecc6cfed126290712a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Textures/Texture_SolLapin_02.jpg"
-dest_files=["res://.godot/imported/Texture_SolLapin_02.jpg-da21f00babf5afb21cf660812ff6884f.ctex"]
+source_file="res://assets/sprites/rochers/Decor_Rocher_Rouge_02.png"
+dest_files=["res://.godot/imported/Decor_Rocher_Rouge_02.png-4496e6def4abd6ecc6cfed126290712a.ctex"]
 
 [params]
 
