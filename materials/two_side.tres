@@ -2,7 +2,7 @@
 
 [ext_resource type="Shader" uid="uid://bhr2y4wnt3hs7" path="res://shaders/two_side.gdshader" id="1_watp8"]
 [ext_resource type="Texture2D" uid="uid://qp556mhmny4v" path="res://assets/sprites/clairière_tileable.jpg" id="3_axrvm"]
-[ext_resource type="Texture2D" uid="uid://bvakch7j1m1d6" path="res://sprites/Textures/Texture_SolBélier_01.jpg" id="3_ka35l"]
+[ext_resource type="Texture2D" uid="uid://bd2lppc20cuoq" path="res://sprites/Textures/Texture_SolLapin_02.jpg" id="3_ka35l"]
 
 [resource]
 render_priority = 0

@@ -1,4 +1,5 @@
 shader_type spatial;
+//render_mode unshaded;
 
 uniform sampler2D side_texture;
 uniform sampler2D top_texture;
@@ -27,15 +28,8 @@ void fragment() {
 	else{
 		color = texture(top_texture,UV*tilling_top+offset_top);
 	}
-	METALLIC = 0.5;
+	METALLIC = 0.0;
+	SPECULAR =0.5;
 	ROUGHNESS =1.0;
-	ALBEDO = 4.0*color.xyz;
-}
-
-void light() {
-	// Called for every pixel for every light affecting the material.
-	// Uncomment to replace the default light processing function with this one.
-		DIFFUSE_LIGHT = vec3(0.1);
-		
-
+	ALBEDO = color.xyz;
 }
