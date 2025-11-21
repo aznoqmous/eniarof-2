@@ -41,7 +41,7 @@ func spend_night():
 	main.player.current_species = main.player.species[main.player.get_most_performed_action()]
 
 	current_day += 1
-	game_exit_button.set_visible(current_day >= 3)
+	game_exit_button.set_visible(false)
 	day_label.text = str("JOUR ", current_day)
 	
 	intro_label.modulate.a = 0.0
@@ -67,9 +67,21 @@ func spend_night():
 	total += main.player.species[SpeciesResource.ActionType.Tongue].action_count
 	
 	var duration = 1.0
-	evolve(SpeciesResource.ActionType.Jump, total, rabbit_container, duration)
-	evolve(SpeciesResource.ActionType.Charge, total, ram_container, duration)
-	evolve(SpeciesResource.ActionType.Tongue, total, anteater_container, duration)
+	evolve(SpeciesResource.ActionType.Jump, total)
+	evolve(SpeciesResource.ActionType.Charge, total)
+	evolve(SpeciesResource.ActionType.Tongue, total)
+	
+	var maxed_levels = []
+	if main.player.species[SpeciesResource.ActionType.Jump].current_level >= 2: maxed_levels.append(SpeciesResource.ActionType.Jump)
+	if main.player.species[SpeciesResource.ActionType.Charge].current_level >= 2: maxed_levels.append(SpeciesResource.ActionType.Charge)
+	if main.player.species[SpeciesResource.ActionType.Tongue].current_level >= 2: maxed_levels.append(SpeciesResource.ActionType.Tongue)
+	if maxed_levels.size() > 1:
+		for action in maxed_levels:
+			if action != main.player.current_species.action: main.player.species[action].current_level = 1
+	evolve_animation(SpeciesResource.ActionType.Jump, rabbit_container, duration)
+	evolve_animation(SpeciesResource.ActionType.Charge, ram_container, duration)
+	evolve_animation(SpeciesResource.ActionType.Tongue, anteater_container, duration)
+	
 	main.player.update_species_sprites()
 	
 	get_tree().create_tween().tween_property(species_label, "modulate:a", 1.0, 2.0)
@@ -77,13 +89,16 @@ func spend_night():
 	
 	await get_tree().create_timer(duration + 0.5).timeout
 	night_confirm_button.set_visible(true)
+	game_exit_button.set_visible(current_day >= 3)
+
+
 	
-	
-	
-func evolve(action : SpeciesResource.ActionType, total_actions : int, texture, duration: float):
+func evolve(action : SpeciesResource.ActionType, total_actions : int):
 	var ratio = float(main.player.species[action].action_count) / float(total_actions)
 	if ratio < 0.16: main.player.species[action].current_level = clamp(main.player.species[action].current_level - 1, 0, 2)
 	if ratio > 0.32: main.player.species[action].current_level = clamp(main.player.species[action].current_level + 1, 0, 2)
+	
+func evolve_animation(action : SpeciesResource.ActionType, texture, duration: float):
 	get_tree().create_tween().tween_property(
 		texture, 
 		"scale", 
@@ -91,7 +106,6 @@ func evolve(action : SpeciesResource.ActionType, total_actions : int, texture, d
 		duration
 	)
 	
-
 func close():
 	spend_night_end.emit()
 	get_tree().create_tween().tween_property(night_overlay_control, "modulate:a", 0.0, animation_duration)
