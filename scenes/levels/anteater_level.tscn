@@ -1,6 +1,6 @@
 [gd_scene load_steps=30 format=4 uid="uid://c7jxsig5q4dgf"]
 
-[ext_resource type="Material" uid="uid://nogjss73jq2e" path="res://materials/two_side.tres" id="1_fm0g7"]
+[ext_resource type="Material" uid="uid://5ky6hfmc6cak" path="res://materials/two_side_anteater.tres" id="1_a5v0j"]
 [ext_resource type="PackedScene" uid="uid://cvm3u7fwuuof3" path="res://scenes/bridge.tscn" id="2_ep8g3"]
 [ext_resource type="PackedScene" uid="uid://6ine6a8uim35" path="res://scenes/metrics/height_jumps_metrics.tscn" id="2_k0e5p"]
 [ext_resource type="Script" uid="uid://bsjxs0qm4pghh" path="res://scripts/npc_action_resource.gd" id="4_6m2dx"]
@@ -166,7 +166,7 @@ data = PackedVector3Array(1.361, 0, -1.3062999, 1.6344, 0, -1.6344, 1.4484999, 0
 
 [node name="part_1" type="MeshInstance3D" parent="ground_parts"]
 transform = Transform3D(17, 0, 0, 0, 17, 0, 0, 0, 17, 0, 0.06612825, 0)
-material_override = ExtResource("1_fm0g7")
+material_override = ExtResource("1_a5v0j")
 mesh = SubResource("ArrayMesh_jloaf")
 skeleton = NodePath("")
 
@@ -177,7 +177,7 @@ shape = SubResource("ConcavePolygonShape3D_jloaf")
 
 [node name="part_2" type="MeshInstance3D" parent="ground_parts"]
 transform = Transform3D(16.888254, 0, -1.9459736, 0, 16.999998, 0, 1.9459736, 0, 16.888254, 8.44574, -0.92229414, -0.64049816)
-material_override = ExtResource("1_fm0g7")
+material_override = ExtResource("1_a5v0j")
 mesh = SubResource("ArrayMesh_fm0g7")
 skeleton = NodePath("")
 
@@ -188,7 +188,7 @@ shape = SubResource("ConcavePolygonShape3D_fm0g7")
 
 [node name="part_3" type="MeshInstance3D" parent="ground_parts"]
 transform = Transform3D(16.997559, 0, -0.2880877, 0, 17, 0, 0.2880877, 0, 16.997559, 18.297638, -1.2080708, 0.47905278)
-material_override = ExtResource("1_fm0g7")
+material_override = ExtResource("1_a5v0j")
 mesh = SubResource("ArrayMesh_ep8g3")
 skeleton = NodePath("")
 
@@ -199,7 +199,7 @@ shape = SubResource("ConcavePolygonShape3D_ep8g3")
 
 [node name="part_4" type="MeshInstance3D" parent="ground_parts"]
 transform = Transform3D(17, 0, 0, 0, 17, 0, 0, 0, 17, 28.69312, -1.0982466, -2.693349)
-material_override = ExtResource("1_fm0g7")
+material_override = ExtResource("1_a5v0j")
 mesh = SubResource("ArrayMesh_k0e5p")
 skeleton = NodePath("")
 

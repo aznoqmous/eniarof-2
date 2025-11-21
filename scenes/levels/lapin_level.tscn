@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://dcrs1qatqwlf4"]
+[gd_scene load_steps=12 format=3 uid="uid://dcrs1qatqwlf4"]
 
 [ext_resource type="PackedScene" uid="uid://b7jl00yavhgpu" path="res://scenes/levels/parts/lapin_ground.tscn" id="1_hp1lk"]
 [ext_resource type="PackedScene" uid="uid://b8865ulgxw3ru" path="res://scenes/levels/parts/lapin_elevation_1.tscn" id="2_rmt7n"]
+[ext_resource type="Material" uid="uid://b1urfbqsutvf1" path="res://materials/two_side_lapins.tres" id="3_87o4d"]
 [ext_resource type="PackedScene" uid="uid://djq4e4xx31fit" path="res://scenes/levels/parts/platform_1.tscn" id="3_hco53"]
 [ext_resource type="PackedScene" uid="uid://d3kvs84nbroyd" path="res://scenes/levels/parts/platform_2.tscn" id="4_b8hau"]
 [ext_resource type="PackedScene" uid="uid://bujumm47i8rtu" path="res://scenes/levels/parts/platform_3.tscn" id="5_jkroq"]
+[ext_resource type="Material" uid="uid://nogjss73jq2e" path="res://materials/two_side.tres" id="6_7yi17"]
 [ext_resource type="PackedScene" uid="uid://6ine6a8uim35" path="res://scenes/metrics/height_jumps_metrics.tscn" id="6_rmt7n"]
 [ext_resource type="PackedScene" uid="uid://ua12uqm5pvg0" path="res://scenes/npcs/rabbit_base.tscn" id="7_hco53"]
 [ext_resource type="Texture2D" uid="uid://by6df8hbun6gy" path="res://assets/sprites/npcs/Characters_PNJ_Lapin_Gris_02.png" id="8_jkroq"]
@@ -16,65 +18,85 @@
 
 [node name="LapinElevation_1" parent="." instance=ExtResource("2_rmt7n")]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -2.6059198, 2.3375964, 5.383718)
+material_override = ExtResource("3_87o4d")
 
 [node name="Plateforms" type="Node3D" parent="."]
 
 [node name="Platform_1" parent="Plateforms" instance=ExtResource("3_hco53")]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -20.31638, 10.216657, 4.1209426)
+material_override = ExtResource("3_87o4d")
 
 [node name="Platform_2" parent="Plateforms" instance=ExtResource("4_b8hau")]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -12.532911, 17.837147, -19.202103)
+material_override = ExtResource("3_87o4d")
 
 [node name="Platform_3" parent="Plateforms" instance=ExtResource("5_jkroq")]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -4.3721595, 9.061481, -5.120974)
+material_override = ExtResource("6_7yi17")
 
 [node name="Platform_4" parent="Plateforms" instance=ExtResource("5_jkroq")]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 12.15744, 9.008776, -1.0908623)
+material_override = ExtResource("3_87o4d")
 
 [node name="Platform_5" parent="Plateforms" instance=ExtResource("3_hco53")]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 6.5763054, 8.210549, -4.287327)
+material_override = ExtResource("3_87o4d")
 
 [node name="Platform_6" parent="Plateforms" instance=ExtResource("4_b8hau")]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -15.5640545, 10.213303, -14.761125)
+material_override = ExtResource("3_87o4d")
 
 [node name="Platform_7" parent="Plateforms" instance=ExtResource("3_hco53")]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -5.848728, 13.891445, -16.565084)
+material_override = ExtResource("3_87o4d")
 
 [node name="Platform_8" parent="Plateforms" instance=ExtResource("5_jkroq")]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -18.84981, 9.1088915, -8.772904)
+material_override = ExtResource("3_87o4d")
 
 [node name="Platform_9" parent="Plateforms" instance=ExtResource("5_jkroq")]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -15.395718, 9.091942, -0.1729145)
+material_override = ExtResource("3_87o4d")
 
 [node name="Platform_10" parent="Plateforms" instance=ExtResource("3_hco53")]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -5.848728, 7.4327097, -16.565084)
+material_override = ExtResource("3_87o4d")
 
 [node name="Platform_11" parent="Plateforms" instance=ExtResource("4_b8hau")]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -12.532911, 11.387783, -19.202103)
+material_override = ExtResource("3_87o4d")
 
 [node name="Platform_12" parent="Plateforms" instance=ExtResource("3_hco53")]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -12.353072, 4.610251, 25.515392)
+material_override = ExtResource("3_87o4d")
 
 [node name="Platform_13" parent="Plateforms" instance=ExtResource("3_hco53")]
 transform = Transform3D(-5.323237, 0, 19.278566, 0, 20, 0, -19.278566, 0, -5.323237, 14.624015, 4.610249, 35.707756)
+material_override = ExtResource("3_87o4d")
 
 [node name="Platform_14" parent="Plateforms" instance=ExtResource("3_hco53")]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 21.329306, 6.468085, 19.800325)
+material_override = ExtResource("3_87o4d")
 
 [node name="Platform_15" parent="Plateforms" instance=ExtResource("5_jkroq")]
 transform = Transform3D(-7.3874755, 0, -18.585619, 0, 20, 0, 18.585619, 0, -7.3874755, -3.4130187, 6.301091, 16.53857)
+material_override = ExtResource("3_87o4d")
 
 [node name="Platform_16" parent="Plateforms" instance=ExtResource("5_jkroq")]
 transform = Transform3D(8.797529, 0, -17.961166, 0, 20, 0, 17.961166, 0, 8.797529, -22.612146, 6.301091, 19.325508)
+material_override = ExtResource("3_87o4d")
 
 [node name="Platform_17" parent="Plateforms" instance=ExtResource("5_jkroq")]
 transform = Transform3D(18.514378, 0, 7.5642486, 0, 20, 0, -7.5642486, 0, 18.514378, 8.077081, 6.301091, 19.340855)
+material_override = ExtResource("3_87o4d")
 
 [node name="Platform_18" parent="Plateforms" instance=ExtResource("5_jkroq")]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 35.368694, 6.301091, -7.384428)
+material_override = ExtResource("3_87o4d")
 
 [node name="Platform_19" parent="Plateforms" instance=ExtResource("5_jkroq")]
 transform = Transform3D(11.962856, 0, 16.027792, 0, 20, 0, -16.027792, 0, 11.962856, 32.47961, 7.1818495, -3.5976677)
+material_override = ExtResource("3_87o4d")
 
 [node name="Platform_20" parent="Plateforms" instance=ExtResource("5_jkroq")]
 transform = Transform3D(13.018135, 0, -15.183154, 0, 20, 0, 15.183154, 0, 13.018135, 32.074924, 6.301091, 16.80006)
@@ -91,11 +113,14 @@ visible = false
 [node name="RabbitBase" parent="." instance=ExtResource("7_hco53")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0286903, 14.82085, -3.4338837)
 texture = ExtResource("8_jkroq")
+speech = "HAAAAA ! | Tu m'as fait peur ! | J'ai cru que c'était un bélier | Y'en a un qui me suis, j'en suis sûr ! | J'ai commencé à creuser un trou derrière ce rocher ! | Comme ça quand il foncera dedans, PAAAF | Il va chuter, le cornu !  "
 
 [node name="RabbitBase2" parent="." instance=ExtResource("7_hco53")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.521563, 24.423449, -19.736427)
 texture = ExtResource("9_7yi17")
+speech = "Sa-salut ! | Pourquoi t'es là ? | Tu nous espionnes ? | Ah non, tu fais partie du plan ? | Le tunnel est presque prêt. Ils vont payer ces cornus ! | Etape 1 On s'infiltre. | Etape 2 on vole la couronne. | Etape 3 : on se tire. | Etape 4 : Ils vont se cogner les uns les autres. | Ca leur apprendra. [b]ILS AVAIENT QU A PAS NOUS NOYER ![/b] | Saletés d'ovidés !"
 
 [node name="RabbitBase3" parent="." instance=ExtResource("7_hco53")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5664806, 10.2128725, 16.736502)
 texture = ExtResource("8_jkroq")
+speech = "Quoi ? | Mes oreilles sont plus toutes jeunes, gamin. Elles se sont bouchées à cause de l'eau. | Tu sais petit, l'eau ça mouille. | Et ça s'infiltre dans nos galeries. | Et ensuite on est mouillés. | Avant on était dans une plaine, à l'est. | Mais un jour, ces fumiers de béliers ont voulu nous chasser. | Ils ont vidé le lac dans notre plaine. | Comment on le sait ? Parceque la pierre qui retenait l'eau a été brisée. | Y'a que des cornus pour casser une pierre si dure. | On est bien ici. On est protégés. | Qu'est ce que tu dis ? J'entends rien. "
