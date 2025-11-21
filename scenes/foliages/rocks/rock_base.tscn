@@ -1,13 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://ceudlwne5f3bk"]
+[gd_scene load_steps=4 format=3 uid="uid://ceudlwne5f3bk"]
 
 [ext_resource type="PackedScene" uid="uid://da84dcpolgi8x" path="res://scenes/foliages/rigid_foliage.tscn" id="1_udj1m"]
 [ext_resource type="Texture2D" uid="uid://ct1i772ei1608" path="res://assets/sprites/rochers/Decor_Rocher_02.png" id="2_q3n58"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_udj1m"]
+height = 6.4107666
+radius = 1.9790039
 
 [node name="RockBase" instance=ExtResource("1_udj1m")]
 texture = ExtResource("2_q3n58")
 
 [node name="CollisionShape3D" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2800293, 1.6851044, 0.38986206)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.039860725, 3.0423431, 0.049980164)
+shape = SubResource("CylinderShape3D_udj1m")
 
 [node name="Sprite3D" parent="." index="1"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.7997885, 0)
