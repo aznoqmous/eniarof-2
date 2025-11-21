@@ -74,7 +74,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_cegan")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.252388, -9.937084, 26.072475)
 
 [node name="ClairiereLevel" parent="Level" instance=ExtResource("9_w48qg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.824837, -8.568832, -22.080254)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.824837, -8.331719, -22.080254)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_1bvp3")
