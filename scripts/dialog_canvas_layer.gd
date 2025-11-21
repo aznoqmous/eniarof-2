@@ -59,11 +59,12 @@ func write_text(text: String):
 	var is_tag = false
 	is_writing = true
 	base_speed = 1.0
+	talking_npc.talk_sound()
 	for character in text:
 		dialog_rich_text_label.text += character
 		if not is_tag and character == "[": is_tag = true
 		if character == "]": is_tag = false
-		
+		if character == " ": talking_npc.talk_sound()
 		var dialog_speed = randf_range(char_speed, char_speed * 2.0)
 		if character == " ": dialog_speed = space_speed
 		if character == ".": dialog_speed = dot_speed

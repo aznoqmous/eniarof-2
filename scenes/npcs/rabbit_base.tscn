@@ -9,7 +9,7 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n45ic"]
 albedo_color = Color(1, 0.578125, 0.9835205, 1)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_2jaej"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_5cj4i"]
 resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_n45ic")
 size = Vector2(0.1, 0)
@@ -20,5 +20,5 @@ actions = Array[ExtResource("2_5cj4i")]([ExtResource("3_ajf46"), ExtResource("4_
 [node name="Sprite3D" parent="SpriteContainer" index="0"]
 texture = ExtResource("5_5cj4i")
 
-[node name="TongueMesh" parent="TongueContainer" index="0"]
-mesh = SubResource("PlaneMesh_2jaej")
+[node name="TongueMesh" parent="SpriteContainer/Sprite3D/TongueContainer" index="0"]
+mesh = SubResource("PlaneMesh_5cj4i")

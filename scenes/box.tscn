@@ -1,12 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqqdms2b2ic0x"]
+[gd_scene load_steps=6 format=3 uid="uid://da3oxe4m6e4fa"]
 
-[ext_resource type="Texture2D" uid="uid://bdeid6ms7xvb2" path="res://assets/sprites/textures/Texture_Boite_01.jpg" id="1_3inec"]
 [ext_resource type="Script" uid="uid://0ihe1tsm7l11" path="res://scripts/tonguable_foliage.gd" id="1_ks2v0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_272bh"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3inec"]
+load_path = "res://.godot/imported/Texture_Boite_01.jpg-cfd5d446f3d05c94f2beac255c5440e9.s3tc.ctex"
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ks2v0"]
-albedo_texture = ExtResource("1_3inec")
+albedo_texture = SubResource("CompressedTexture2D_3inec")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5vw27"]
 albedo_color = Color(1, 0, 0, 1)

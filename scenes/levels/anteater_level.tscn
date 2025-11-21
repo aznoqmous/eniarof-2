@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://b5v4bwgbsj88x" path="res://assets/sprites/foliages/trees/Decor_Arbre_Rose_01.png" id="11_072fb"]
 [ext_resource type="Texture2D" uid="uid://b2ofcj1fv51d1" path="res://assets/sprites/flower/Décor_Fleur_05.png" id="12_auwxb"]
 [ext_resource type="Texture2D" uid="uid://bcvxq54e3k8g6" path="res://assets/sprites/flower/Décor_Fleur_07.png" id="13_a5v0j"]
-[ext_resource type="PackedScene" uid="uid://bqqdms2b2ic0x" path="res://scenes/box.tscn" id="15_3wo5u"]
+[ext_resource type="PackedScene" uid="uid://da3oxe4m6e4fa" path="res://scenes/box.tscn" id="15_3wo5u"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3wo5u"]
 load_path = "res://.godot/imported/Texture_Herbe.png-1d2f2f3bf46c32e124365c26eaf42ead.s3tc.ctex"
@@ -432,82 +432,106 @@ transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 8.332951, 9.237419, 23.
 texture = ExtResource("13_a5v0j")
 
 [node name="flower24" parent="Foliages/Flowers" instance=ExtResource("6_qhgga")]
-transform = Transform3D(0.04330687, 0, -0.29685774, 0, 0.29999998, 0, 0.29685774, 0, 0.04330687, 4.514187, 9.237419, 18.103569)
+transform = Transform3D(0.3, 0, 0, 0, 0.29999998, 0, 0, 0, 0.3, 4.514187, 9.237419, 18.103569)
 texture = ExtResource("13_a5v0j")
 
 [node name="Box" type="Node3D" parent="."]
 
 [node name="boxBody" parent="Box" instance=ExtResource("15_3wo5u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3145888, 9.841583, -14.547827)
+tonguable_level = 1
 
 [node name="boxBody2" parent="Box" instance=ExtResource("15_3wo5u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2680546, 9.841583, -15.068453)
+tonguable_level = 1
 
 [node name="boxBody3" parent="Box" instance=ExtResource("15_3wo5u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4185933, 9.841583, -13.738394)
+tonguable_level = 1
 
 [node name="boxBody4" parent="Box" instance=ExtResource("15_3wo5u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.066525, 9.841583, -16.190994)
+tonguable_level = 1
 
 [node name="boxBody5" parent="Box" instance=ExtResource("15_3wo5u")]
 transform = Transform3D(0.5158308, 0, 0.8566905, 0, 1, 0, -0.8566905, 0, 0.5158308, -1.3145888, 10.890444, -14.547827)
+tonguable_level = 1
 
 [node name="boxBody6" parent="Box" instance=ExtResource("15_3wo5u")]
 transform = Transform3D(0.8010867, 0, 0.59854835, 0, 1, 0, -0.59854835, 0, 0.8010867, 0.2680546, 10.890444, -15.068453)
+tonguable_level = 1
 
 [node name="boxBody7" parent="Box" instance=ExtResource("15_3wo5u")]
 transform = Transform3D(0.9884146, 0, 0.1517784, 0, 1, 0, -0.1517784, 0, 0.9884146, 0.4185933, 10.890444, -13.738394)
+tonguable_level = 1
 
 [node name="boxBody8" parent="Box" instance=ExtResource("15_3wo5u")]
 transform = Transform3D(0.9503041, 0, 0.31132337, 0, 1, 0, -0.31132337, 0, 0.9503041, -2.066525, 10.890444, -16.190994)
+tonguable_level = 1
 
 [node name="boxBody9" parent="Box" instance=ExtResource("15_3wo5u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.528166, 9.841583, 1.3030357)
+tonguable_level = 1
 
 [node name="boxBody10" parent="Box" instance=ExtResource("15_3wo5u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.110809, 9.841583, 0.78240967)
+tonguable_level = 1
 
 [node name="boxBody11" parent="Box" instance=ExtResource("15_3wo5u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.261348, 9.841583, 2.1124687)
+tonguable_level = 1
 
 [node name="boxBody12" parent="Box" instance=ExtResource("15_3wo5u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.77623, 9.841583, -0.34013176)
+tonguable_level = 1
 
 [node name="boxBody13" parent="Box" instance=ExtResource("15_3wo5u")]
 transform = Transform3D(0.5158308, 0, 0.8566905, 0, 1, 0, -0.8566905, 0, 0.5158308, 11.528166, 10.890444, 1.3030357)
+tonguable_level = 1
 
 [node name="boxBody14" parent="Box" instance=ExtResource("15_3wo5u")]
 transform = Transform3D(0.8010867, 0, 0.59854835, 0, 1, 0, -0.59854835, 0, 0.8010867, 13.110809, 10.890444, 0.78240967)
+tonguable_level = 1
 
 [node name="boxBody15" parent="Box" instance=ExtResource("15_3wo5u")]
 transform = Transform3D(0.9884146, 0, 0.1517784, 0, 1, 0, -0.1517784, 0, 0.9884146, 13.261348, 10.890444, 2.1124687)
+tonguable_level = 1
 
 [node name="boxBody16" parent="Box" instance=ExtResource("15_3wo5u")]
 transform = Transform3D(0.9503041, 0, 0.31132337, 0, 1, 0, -0.31132337, 0, 0.9503041, 10.77623, 10.890444, -0.34013176)
+tonguable_level = 1
 
 [node name="boxBody17" parent="Box" instance=ExtResource("15_3wo5u")]
 transform = Transform3D(0.2876447, 0, -0.9577372, 0, 1, 0, 0.9577372, 0, 0.2876447, 18.813677, 9.841583, 15.594271)
+tonguable_level = 1
 
 [node name="boxBody18" parent="Box" instance=ExtResource("15_3wo5u")]
 transform = Transform3D(0.2876447, 0, -0.9577372, 0, 1, 0, 0.9577372, 0, 0.2876447, 19.76754, 9.841583, 16.960274)
+tonguable_level = 1
 
 [node name="boxBody19" parent="Box" instance=ExtResource("15_3wo5u")]
 transform = Transform3D(0.2876447, 0, -0.9577372, 0, 1, 0, 0.9577372, 0, 0.2876447, 18.536995, 9.841583, 17.487034)
+tonguable_level = 1
 
 [node name="boxBody20" parent="Box" instance=ExtResource("15_3wo5u")]
 transform = Transform3D(0.2876447, 0, -0.9577372, 0, 1, 0, 0.9577372, 0, 0.2876447, 20.17111, 9.841583, 14.401467)
+tonguable_level = 1
 
 [node name="boxBody21" parent="Box" instance=ExtResource("15_3wo5u")]
 transform = Transform3D(0.9688603, 0, -0.24760786, 0, 1, 0, 0.24760786, 0, 0.9688603, 18.813677, 10.890444, 15.594271)
+tonguable_level = 1
 
 [node name="boxBody22" parent="Box" instance=ExtResource("15_3wo5u")]
 transform = Transform3D(0.8036803, 0, -0.5950613, 0, 1, 0, 0.5950613, 0, 0.8036803, 19.76754, 10.890444, 16.960274)
+tonguable_level = 1
 
 [node name="boxBody23" parent="Box" instance=ExtResource("15_3wo5u")]
 transform = Transform3D(0.429676, 0, -0.9029831, 0, 1, 0, 0.9029831, 0, 0.429676, 18.536995, 10.890444, 17.487034)
+tonguable_level = 1
 
 [node name="boxBody24" parent="Box" instance=ExtResource("15_3wo5u")]
 transform = Transform3D(0.5715159, 0, -0.8205911, 0, 1, 0, 0.8205911, 0, 0.5715159, 20.17111, 10.890444, 14.401467)
+tonguable_level = 1
 
 [node name="boxBody25" parent="Box" instance=ExtResource("15_3wo5u")]
 transform = Transform3D(0.2876447, 0, -0.9577372, 0, 1, 0, 0.9577372, 0, 0.2876447, -5.8508015, 9.841583, 13.769833)
@@ -556,6 +580,69 @@ transform = Transform3D(0.429676, 0, -0.9029831, 0, 1, 0, 0.9029831, 0, 0.429676
 
 [node name="boxBody40" parent="Box" instance=ExtResource("15_3wo5u")]
 transform = Transform3D(0.5715159, 0, -0.8205911, 0, 1, 0, 0.8205911, 0, 0.5715159, -16.923498, 10.529071, -6.9697294)
+
+[node name="boxBody41" parent="Box" instance=ExtResource("15_3wo5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.886696, 9.841583, -15.650849)
+tonguable_level = 2
+
+[node name="boxBody42" parent="Box" instance=ExtResource("15_3wo5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.46934, 9.841583, -16.171474)
+tonguable_level = 2
+
+[node name="boxBody43" parent="Box" instance=ExtResource("15_3wo5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.619879, 9.841583, -14.841416)
+tonguable_level = 2
+
+[node name="boxBody44" parent="Box" instance=ExtResource("15_3wo5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.13476, 9.841583, -17.294018)
+tonguable_level = 2
+
+[node name="boxBody45" parent="Box" instance=ExtResource("15_3wo5u")]
+transform = Transform3D(0.5158308, 0, 0.8566905, 0, 1, 0, -0.8566905, 0, 0.5158308, 29.886696, 10.890444, -15.650849)
+tonguable_level = 2
+
+[node name="boxBody46" parent="Box" instance=ExtResource("15_3wo5u")]
+transform = Transform3D(0.8010867, 0, 0.59854835, 0, 1, 0, -0.59854835, 0, 0.8010867, 31.46934, 10.890444, -16.171474)
+tonguable_level = 2
+
+[node name="boxBody47" parent="Box" instance=ExtResource("15_3wo5u")]
+transform = Transform3D(0.9884146, 0, 0.1517784, 0, 1, 0, -0.1517784, 0, 0.9884146, 31.619879, 10.890444, -14.841416)
+tonguable_level = 2
+
+[node name="boxBody48" parent="Box" instance=ExtResource("15_3wo5u")]
+transform = Transform3D(0.9503041, 0, 0.31132337, 0, 1, 0, -0.31132337, 0, 0.9503041, 29.13476, 10.890444, -17.294018)
+tonguable_level = 2
+
+[node name="boxBody49" parent="Box" instance=ExtResource("15_3wo5u")]
+transform = Transform3D(-0.107131764, 0, 0.9942448, 0, 1, 0, -0.9942448, 0, -0.107131764, 41.204124, 9.841583, 1.3689537)
+
+[node name="boxBody50" parent="Box" instance=ExtResource("15_3wo5u")]
+transform = Transform3D(-0.107131764, 0, 0.9942448, 0, 1, 0, -0.9942448, 0, -0.107131764, 40.51694, 9.841583, -0.1488077)
+tonguable_level = 2
+
+[node name="boxBody51" parent="Box" instance=ExtResource("15_3wo5u")]
+transform = Transform3D(-0.107131764, 0, 0.9942448, 0, 1, 0, -0.9942448, 0, -0.107131764, 41.82322, 9.841583, -0.4409684)
+tonguable_level = 2
+
+[node name="boxBody52" parent="Box" instance=ExtResource("15_3wo5u")]
+transform = Transform3D(-0.107131764, 0, 0.9942448, 0, 1, 0, -0.9942448, 0, -0.107131764, 39.650967, 9.841583, 2.2925959)
+tonguable_level = 2
+
+[node name="boxBody53" parent="Box" instance=ExtResource("15_3wo5u")]
+transform = Transform3D(-0.90702194, 0, 0.42108333, 0, 1, 0, -0.42108333, 0, -0.90702194, 41.204124, 10.890444, 1.3689537)
+tonguable_level = 2
+
+[node name="boxBody54" parent="Box" instance=ExtResource("15_3wo5u")]
+transform = Transform3D(-0.68092537, 0, 0.73235273, 0, 1, 0, -0.73235273, 0, -0.68092537, 40.51694, 10.890444, -0.1488077)
+tonguable_level = 2
+
+[node name="boxBody55" parent="Box" instance=ExtResource("15_3wo5u")]
+transform = Transform3D(-0.25679547, 0, 0.9664658, 0, 1, 0, -0.9664658, 0, -0.25679547, 41.82322, 10.890444, -0.4409684)
+tonguable_level = 2
+
+[node name="boxBody56" parent="Box" instance=ExtResource("15_3wo5u")]
+transform = Transform3D(-0.4113394, 0, 0.9114823, 0, 1, 0, -0.9114823, 0, -0.4113394, 39.650967, 10.890444, 2.2925959)
+tonguable_level = 2
 
 [node name="FloorTest8" parent="." instance=ExtResource("2_k0e5p")]
 transform = Transform3D(0.9561413, 0, -0.29290557, 0, 1, 0, 0.29290557, 0, 0.9561413, 27.99175, 11.090787, 5.4127765)

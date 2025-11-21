@@ -9,7 +9,7 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n45ic"]
 albedo_color = Color(1, 0.578125, 0.9835205, 1)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_xqe01"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_d2pwb"]
 resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_n45ic")
 size = Vector2(0.1, 0)
@@ -21,5 +21,9 @@ actions = Array[ExtResource("2_d2pwb")]([ExtResource("3_7bfb2"), ExtResource("4_
 transform = Transform3D(0.26, 0, 0, 0, 0.26, 0, 0, 0, 0.26, 0, 0.986529, 0)
 texture = ExtResource("2_a6whb")
 
-[node name="TongueMesh" parent="TongueContainer" index="0"]
-mesh = SubResource("PlaneMesh_xqe01")
+[node name="TongueMesh" parent="SpriteContainer/Sprite3D/TongueContainer" index="0"]
+mesh = SubResource("PlaneMesh_d2pwb")
+
+[node name="Talk" parent="Sounds" index="5"]
+event_name = "event:/Voices/Voice Belier"
+event_guid = "{159a4751-1667-4b17-a63d-9fe8c9c6c12f}"
