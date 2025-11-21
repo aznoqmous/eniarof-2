@@ -1,7 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://cb33c6pcwsm7s"]
+[gd_scene load_steps=12 format=3 uid="uid://cb33c6pcwsm7s"]
 
 [ext_resource type="Script" uid="uid://dnlxmm83vk1pd" path="res://scripts/spend_night_canvas_layer.gd" id="1_fj3st"]
-[ext_resource type="Texture2D" uid="uid://ptpg2b08b5jr" path="res://assets/sprites/peer.png" id="2_s658f"]
+[ext_resource type="Texture2D" uid="uid://deq37iw4lgo64" path="res://assets/sprites/uis/UI_CercleNuit_01.png" id="2_r5gbc"]
+[ext_resource type="Texture2D" uid="uid://cgwbx3n05ew22" path="res://assets/sprites/uis/Characters_Joueur_Lapin_Phase3_nuit.png" id="2_xlo1c"]
+[ext_resource type="Texture2D" uid="uid://cepwf5tjvqetu" path="res://assets/sprites/uis/Characters_Joueur_Belier_Phase3_nuit.png" id="3_r5gbc"]
+[ext_resource type="Texture2D" uid="uid://bfvkdm1rt00hm" path="res://assets/sprites/uis/Personnage_Tamanoir_2_nuit.png" id="4_anu7o"]
+[ext_resource type="FontFile" uid="uid://c3s20mmkmgw68" path="res://assets/fonts/Gaegu-Bold.ttf" id="6_med8x"]
+[ext_resource type="FontFile" uid="uid://blaaw468uyyon" path="res://assets/fonts/PatrickHand-Regular.ttf" id="7_760k8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dg77c"]
 content_margin_left = 0.0
@@ -15,8 +20,28 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
+[sub_resource type="LabelSettings" id="LabelSettings_df1e4"]
+font = ExtResource("6_med8x")
+font_size = 36
+outline_size = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_5mdls"]
+font = ExtResource("7_760k8")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_med8x"]
+line_spacing = -3.755
+font = ExtResource("7_760k8")
+font_size = 20
+
 [node name="SpendNightCanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_fj3st")
+night_intros = Array[String](["fiou sacré journée..... zzzz...... ", "J'ai parlé à beaucoup de gens dites donc, on dit qu'on rêve souvent de la journée précéden..... zzzz....", "olalaaaa fiouuuuu besoins de rependre de l'énergie ! j'arrive plus à tenir debo....."])
+night_species_texts = Dictionary[int, Array]({
+0: ["... au loin, des lapins sautent, il y en a des miliers, on dirait de l'eau en ébullition ...", "... des lapins bondissent de trou en trou, en grandes enjambées  ...", ".... BOING BOING BOING BOING BOING BOING...."],
+1: [".... j'entends des cornes qui s'entrechoquent, le bruit forme une cacophonie étrangement agréable ....", ".... coupe du monde 2006.... je vois un bélier, face à l'Italie, coup de corne et carton rounge.... Zinedine Belier qui sort, un cauchemar.....", ".... des cornes géantes, qui traverse l'univers et détruit toutes les planètes sur son passage ...."],
+2: [".... j'imagine une trompe qui s'aggrandie, et qui attrape loin, toujours plus loin, jusqu'à toucher le soleil ...", "... oooh !! des mouches qui dansent ! mmmmiaaaam j'aimerais bien toutes les manger ....", ".... J suis dans babylooooooooooooooooone, c'est le paradis maaaaaaaaaaaaaaan ...."]
+})
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -60,29 +85,163 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_dg77c")
 
-[node name="Label" type="Label" parent="NightOverlayControl"]
+[node name="Control" type="Control" parent="NightOverlayControl"]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -21.5
-offset_top = 41.0
-offset_right = 21.5
-offset_bottom = 64.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
-text = "Day 2"
+grow_vertical = 2
 
-[node name="Label2" type="Label" parent="NightOverlayControl"]
+[node name="NightCircle" type="TextureRect" parent="NightOverlayControl/Control"]
+modulate = Color(1, 1, 1, 0.34117648)
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -21.5
-offset_top = 129.0
-offset_right = 21.5
-offset_bottom = 152.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 151.08197
+offset_top = 99.0
+offset_right = -150.91803
+offset_bottom = -99.0
 grow_horizontal = 2
-text = "The night was long and you feel aoidoaizdhza"
+grow_vertical = 2
+pivot_offset = Vector2(425, 225)
+texture = ExtResource("2_r5gbc")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RabbitContainer" type="Control" parent="NightOverlayControl/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -169.0
+offset_top = -112.0
+offset_right = -69.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(50, 50)
+
+[node name="RabbitTexture" type="TextureRect" parent="NightOverlayControl/Control/RabbitContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_xlo1c")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RamContainer" type="Control" parent="NightOverlayControl/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.0
+offset_top = 62.0
+offset_right = 47.0
+offset_bottom = 162.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(50, 50)
+
+[node name="RabbitTexture" type="TextureRect" parent="NightOverlayControl/Control/RamContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_r5gbc")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AnteaterContainer" type="Control" parent="NightOverlayControl/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 68.0
+offset_top = -105.0
+offset_right = 168.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(50, 50)
+
+[node name="RabbitTexture" type="TextureRect" parent="NightOverlayControl/Control/AnteaterContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -35.0
+offset_top = -14.0
+offset_right = 35.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_anu7o")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DayLabel" type="Label" parent="NightOverlayControl"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -270.0
+offset_right = 46.0
+offset_bottom = -233.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "DAY 2"
+label_settings = SubResource("LabelSettings_df1e4")
+
+[node name="IntroLabel" type="Label" parent="NightOverlayControl"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.5
+offset_top = -217.0
+offset_right = 140.5
+offset_bottom = -180.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "fiou sacré journée..... zzzz...... "
+label_settings = SubResource("LabelSettings_5mdls")
+vertical_alignment = 1
+
+[node name="SpeciesLabel" type="Label" parent="NightOverlayControl"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -304.0
+offset_top = 175.0
+offset_right = 304.0
+offset_bottom = 246.0
+grow_horizontal = 2
+grow_vertical = 2
+text = ".... j'imagine une trompe qui s'aggrandie, et qui attrape loin, toujours plus loin, jusqu'à toucher le soleil ..."
+label_settings = SubResource("LabelSettings_med8x")
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="NightConfirmButton" type="Button" parent="NightOverlayControl"]
 layout_mode = 1
@@ -97,75 +256,6 @@ offset_right = 36.0
 offset_bottom = -32.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "Wake up"
-
-[node name="Control" type="Control" parent="NightOverlayControl"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="RabbitContainer" type="Control" parent="NightOverlayControl/Control"]
-anchors_preset = 0
-offset_left = -31.0
-offset_top = -58.0
-offset_right = 69.0
-offset_bottom = 42.0
-pivot_offset = Vector2(50, 50)
-
-[node name="RabbitTexture" type="TextureRect" parent="NightOverlayControl/Control/RabbitContainer"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_s658f")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="RamContainer" type="Control" parent="NightOverlayControl/Control"]
-anchors_preset = 0
-offset_left = -92.0
-offset_top = 24.0
-offset_right = 8.0
-offset_bottom = 124.0
-pivot_offset = Vector2(50, 50)
-
-[node name="RabbitTexture" type="TextureRect" parent="NightOverlayControl/Control/RamContainer"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_s658f")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="AnteaterContainer" type="Control" parent="NightOverlayControl/Control"]
-anchors_preset = 0
-offset_left = 20.0
-offset_top = 25.0
-offset_right = 120.0
-offset_bottom = 125.0
-pivot_offset = Vector2(50, 50)
-
-[node name="RabbitTexture" type="TextureRect" parent="NightOverlayControl/Control/AnteaterContainer"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_s658f")
-expand_mode = 1
-stretch_mode = 5
+theme_override_fonts/font = ExtResource("6_med8x")
+theme_override_font_sizes/font_size = 26
+text = "SE REVEILLER"
