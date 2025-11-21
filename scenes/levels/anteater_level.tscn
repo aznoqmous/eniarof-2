@@ -291,7 +291,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.46104, 9.444995, 15.41628)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.563114, 9.444995, -8.572661)
 
 [node name="ThinTree14" parent="Foliages/Trees" instance=ExtResource("6_qhgga")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 57.540493, 9.444994, -11.551549)
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 57.540493, 9.444994, -11.551549)
 texture = ExtResource("11_072fb")
 
 [node name="ThinTree15" parent="Foliages/Trees" instance=ExtResource("6_qhgga")]
