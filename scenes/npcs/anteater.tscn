@@ -9,7 +9,7 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n45ic"]
 albedo_color = Color(1, 0.578125, 0.9835205, 1)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_ev0wi"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_xg4w8"]
 resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_n45ic")
 size = Vector2(0.1, 0)
@@ -22,11 +22,9 @@ speech = "licky licky yo"
 transform = Transform3D(0.395, 0, 0, 0, 0.395, 0, 0, 0, 0.395, 0, 0.8392266, 0)
 texture = ExtResource("2_o127y")
 
-[node name="TongueContainer" parent="." index="7"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1335869, 0.48704243, 0)
+[node name="TongueMesh" parent="SpriteContainer/Sprite3D/TongueContainer" index="0"]
+mesh = SubResource("PlaneMesh_xg4w8")
 
-[node name="TongueMesh" parent="TongueContainer" index="0"]
-mesh = SubResource("PlaneMesh_ev0wi")
-
-[node name="TongueArea3D" parent="TongueContainer" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1335869, -0.48704243, 0)
+[node name="TalkAudio" parent="Sounds" index="5"]
+event_name = "event:/Voices/Voice Tamanoir"
+event_guid = "{51426337-a9af-4afd-8d21-efd67d477a4e}"
