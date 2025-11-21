@@ -82,6 +82,7 @@ func evolve(action : SpeciesResource.ActionType, total_actions : int, texture, d
 	
 
 func close():
+	spend_night_end.emit()
 	get_tree().create_tween().tween_property(night_overlay_control, "modulate:a", 0.0, animation_duration)
 	await get_tree().create_timer(animation_duration).timeout
 	night_overlay_control.set_visible(false)
@@ -89,3 +90,5 @@ func close():
 	main.player.reset_action_counts()
 	main.player.reset_stamina()
 	main.player.update_modifiers()
+
+signal spend_night_end()
