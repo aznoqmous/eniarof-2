@@ -102,4 +102,12 @@ texture = ExtResource("13_ycdy4")
 transform = Transform3D(1, 0, 2.9345415e-12, 0, 1, 0, -2.9345415e-12, 0, 1, 0.8189702, 0.34448266, 0.33739853)
 shape = SubResource("BoxShape3D_ycdy4")
 
+[node name="MusicClair" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/Ambiances/Clairiere"
+event_guid = "{61bdfa54-dfa7-41a3-b219-be6a460da9d2}"
+
+[node name="MusicStart" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/Music/Play_Music"
+event_guid = "{1e199d03-6847-4c4b-89a4-98fe2916d9b4}"
+
 [connection signal="body_entered" from="Level/Water" to="Level/Water" method="_on_body_entered"]
