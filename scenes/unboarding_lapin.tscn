@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dvv1x2ycnayeh"]
+[gd_scene load_steps=26 format=3 uid="uid://dvv1x2ycnayeh"]
 
 [ext_resource type="Script" uid="uid://dlsptbxcmtms2" path="res://scripts/main.gd" id="1_ijab1"]
 [ext_resource type="PackedScene" uid="uid://d2jcxmqkru15e" path="res://scenes/player.tscn" id="2_yqw4i"]
@@ -6,6 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://cebs1vpbs452i" path="res://assets/sprites/textures/Texture_SolTamanoir.png" id="4_jner6"]
 [ext_resource type="Texture2D" uid="uid://x1l5312r7ooy" path="res://assets/terrier/Décor_Maisonprota_01.png" id="5_yqw4i"]
 [ext_resource type="Script" uid="uid://mdpk251v3g3s" path="res://scripts/terrier.gd" id="6_gkjoq"]
+[ext_resource type="Texture2D" uid="uid://y1s635cc5ole" path="res://assets/terrier/Decor_MaisonProta_interieur_01.png" id="7_jner6"]
+[ext_resource type="Texture2D" uid="uid://b2ofcj1fv51d1" path="res://assets/sprites/flower/Décor_Fleur_05.png" id="8_i70wy"]
+[ext_resource type="Texture2D" uid="uid://yhqgxdj2fbdb" path="res://assets/sprites/flower/Décor_Fleur_01.png" id="8_jcb05"]
+[ext_resource type="Texture2D" uid="uid://d62lu2721buu" path="res://assets/sprites/flower/Décor_Fleur_02.png" id="10_ekmdm"]
+[ext_resource type="Texture2D" uid="uid://83pg6xtpnnw0" path="res://assets/sprites/flower/Décor_Fleur_03.png" id="11_nlr0i"]
+[ext_resource type="Texture2D" uid="uid://c17wstf2jopt6" path="res://assets/sprites/flower/Décor_Fleur_04.png" id="12_i07rh"]
+[ext_resource type="Texture2D" uid="uid://csakcw0v1a03j" path="res://assets/sprites/flower/Décor_Fleur_08.png" id="13_fmxr1"]
+[ext_resource type="Texture2D" uid="uid://bcvxq54e3k8g6" path="res://assets/sprites/flower/Décor_Fleur_07.png" id="14_6yqj1"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xy3p7"]
 
@@ -17,7 +25,7 @@ uv2_scale = Vector3(5, 5, 5)
 [sub_resource type="BoxMesh" id="BoxMesh_xy3p7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_68c3h"]
-size = Vector3(1.1107712, 1.6417065, 1.6488498)
+size = Vector3(1.1107712, 1.6417065, 2.005209)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mylfl"]
 albedo_texture = ExtResource("4_jner6")
@@ -32,6 +40,9 @@ albedo_texture = ExtResource("4_jner6")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qoj3v"]
 albedo_texture = ExtResource("4_jner6")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jner6"]
+size = Vector3(1.1107712, 1.6417065, 1.7242026)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gkjoq"]
 size = Vector3(50.088577, 172.99683, 4.124939)
@@ -52,12 +63,14 @@ species_sprites = {
 }
 max_stamina = 500.0
 JUMP_SPEED = 11.0
+MAX_TONGUE_DISTANCE = 10
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.9853279, 7.4914427, -6.229892, 1.4292222, 22.706085, 27.529993, 6.6183524, -1.8353356, 1.1701514, 110.32195, 636.15186, 78.463)
-shadow_enabled = true
+light_energy = 0.24
 
 [node name="DialogCanvasLayer" parent="." instance=ExtResource("3_gkjoq")]
+visible = false
 
 [node name="level_unb_lapin" type="Node3D" parent="."]
 transform = Transform3D(1.54276, 0, 0, 0, 0.9999997, 0, 0, 0, 0.7739911, 0, 0, 0)
@@ -119,7 +132,7 @@ material_override = SubResource("StandardMaterial3D_qq1ir")
 mesh = SubResource("BoxMesh_xy3p7")
 
 [node name="d" type="CollisionShape3D" parent="level_unb_lapin/plateform2_unb_lapin2"]
-transform = Transform3D(342.40927, 0, 0, 0, 0.9999465, 0, 0, 0, 220.05214, 1.1644592, 0.24622077, 42.287643)
+transform = Transform3D(342.40927, 0, 0, 0, 0.9999465, 0, 0, 0, 220.05214, 1.1644592, 0.24622077, 82.508835)
 shape = SubResource("BoxShape3D_68c3h")
 
 [node name="plateform2_unb_lapin3" type="StaticBody3D" parent="level_unb_lapin"]
@@ -149,7 +162,7 @@ material_override = SubResource("StandardMaterial3D_vyajk")
 mesh = SubResource("BoxMesh_xy3p7")
 
 [node name="d" type="CollisionShape3D" parent="level_unb_lapin/plateform2_unb_lapin5"]
-transform = Transform3D(342.40927, 0, 0, 0, 0.9999465, 0, 0, 0, 220.05179, 0.13415527, 0.43807417, 17.851685)
+transform = Transform3D(342.40927, 0, 0, 0, 0.9999465, 0, 0, 0, 220.05179, 0.13415527, 0.438074, 97.28174)
 shape = SubResource("BoxShape3D_68c3h")
 
 [node name="plateform2_unb_lapin4" type="StaticBody3D" parent="level_unb_lapin"]
@@ -174,13 +187,13 @@ disable_mode = 1
 physics_material_override = SubResource("PhysicsMaterial_xy3p7")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="level_unb_lapin/plateform2_unb_lapin6"]
-transform = Transform3D(380.77826, 0, 0, 0, 2.1092558, 0, 0, 0, 311.69443, 0.5596733, 0.05158584, 16.924316)
+transform = Transform3D(380.77826, 0, 0, 0, 2.109256, 0, 0, 3.469447e-18, 311.69443, 0.6813278, 0.04942967, 16.626343)
 material_override = SubResource("StandardMaterial3D_vyajk")
 mesh = SubResource("BoxMesh_xy3p7")
 
 [node name="d" type="CollisionShape3D" parent="level_unb_lapin/plateform2_unb_lapin6"]
-transform = Transform3D(342.40927, 0, 0, 0, 0.9999465, 0, 0, 0, 220.05179, 0.13415527, 0.2819155, 17.851685)
-shape = SubResource("BoxShape3D_68c3h")
+transform = Transform3D(342.40927, -1.8189894e-11, 0, -3.9790393e-13, 0.99995047, 0, 2.910383e-11, 8.84709e-17, 220.05179, 0.13415146, 0.2819157, 48.76953)
+shape = SubResource("BoxShape3D_jner6")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(7.526, 0, 0, 0, 28.065, 0, 0, 0, 5.9900002, 185.1185, 149.49132, -42.35808)
@@ -205,10 +218,154 @@ transform = Transform3D(0.99999917, 0, 0, 0, 0.9995136, -0.029927233, 0, 0.02992
 shape = SubResource("BoxShape3D_yqw4i")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(10, 0, 0, 0, 35.714283, 0, 0, 0, 6.6666665, 202.46948, 197.90788, -52.030727)
+transform = Transform3D(10, 0, 0, 0, 35.714283, 0, 0, 0, 6.6666665, 211.12686, 93.40049, -48.558945)
 light_color = Color(1, 0.8901961, 0.67058825, 1)
-light_energy = 15.9
+light_energy = 16.75
+light_size = 1.0
 shadow_enabled = true
-omni_range = 14.0
+omni_range = 18.403152
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -962.0
+offset_top = -545.0
+offset_right = 963.0
+offset_bottom = 546.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_jner6")
+expand_mode = 1
+
+[node name="Flowers" type="Node3D" parent="."]
+
+[node name="Sprite3D" type="Sprite3D" parent="Flowers"]
+transform = Transform3D(1.581, 0, 0, 0, 8.954999, 0, 0, 0, 1.581, -43.73358, 35.208054, 5.705495)
+texture = ExtResource("8_i70wy")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Flowers"]
+transform = Transform3D(1.581, 0, 0, 0, 8.954999, 0, 0, 0, 1.581, -36.073975, 35.208054, -18.752033)
+texture = ExtResource("8_jcb05")
+
+[node name="Sprite3D3" type="Sprite3D" parent="Flowers"]
+transform = Transform3D(1.581, 0, 0, 0, 8.954999, 0, 0, 0, 1.581, -86.67492, 35.208054, 11.768797)
+texture = ExtResource("8_jcb05")
+
+[node name="Sprite3D4" type="Sprite3D" parent="Flowers"]
+transform = Transform3D(1.581, 0, 0, 0, 8.954999, 0, 0, 0, 1.581, -100.53528, 35.208054, -12.911506)
+texture = ExtResource("10_ekmdm")
+
+[node name="Sprite3D5" type="Sprite3D" parent="Flowers"]
+transform = Transform3D(1.581, 0, 0, 0, 8.954999, 0, 0, 0, 1.581, -111.67807, 35.208054, 24.015182)
+texture = ExtResource("11_nlr0i")
+
+[node name="Sprite3D6" type="Sprite3D" parent="Flowers"]
+transform = Transform3D(1.581, 0, 0, 0, 8.954999, 0, 0, 0, 1.581, -135.23552, 35.208054, 2.0599353)
+texture = ExtResource("12_i07rh")
+
+[node name="Sprite3D8" type="Sprite3D" parent="Flowers"]
+transform = Transform3D(1.581, 0, 0, 0, 8.954999, 0, 0, 0, 1.581, -175.54166, 35.208054, -31.587345)
+texture = ExtResource("14_6yqj1")
+
+[node name="Sprite3D9" type="Sprite3D" parent="Flowers"]
+transform = Transform3D(1.581, 0, 0, 0, 8.954999, 0, 0, 0, 1.581, -155.18721, 35.208054, 35.674774)
+texture = ExtResource("10_ekmdm")
+
+[node name="Sprite3D10" type="Sprite3D" parent="Flowers"]
+transform = Transform3D(1.581, 0, 0, 0, 8.954999, 0, 0, 0, 1.581, -53.58105, 35.208054, 47.067467)
+texture = ExtResource("10_ekmdm")
+
+[node name="Sprite3D11" type="Sprite3D" parent="Flowers"]
+transform = Transform3D(1.581, 0, 0, 0, 8.954999, 0, 0, 0, 1.581, -175.75838, 35.208035, 15.6928835)
+texture = ExtResource("12_i07rh")
+
+[node name="Sprite3D12" type="Sprite3D" parent="Flowers"]
+transform = Transform3D(1.581, 0, 0, 0, 8.954999, 0, 0, 0, 1.581, -87.44675, 35.208054, -34.323807)
+texture = ExtResource("14_6yqj1")
+
+[node name="Sprite3D14" type="Sprite3D" parent="Flowers"]
+transform = Transform3D(1.581, 0, 0, 0, 8.954999, 0, 0, 0, 1.581, 61.839005, 69.67884, 45.066902)
+texture = ExtResource("8_i70wy")
+
+[node name="path" type="Node3D" parent="Flowers"]
+
+[node name="Sprite3D7" type="Sprite3D" parent="Flowers/path"]
+transform = Transform3D(1.581, 0, 0, 0, 8.954999, 0, 0, 0, 1.581, -57.506104, 35.208054, 31.692421)
+texture = ExtResource("13_fmxr1")
+
+[node name="Sprite3D13" type="Sprite3D" parent="Flowers/path"]
+transform = Transform3D(1.581, 0, 0, 0, 8.954999, 0, 0, 0, 1.581, -30.776043, 35.208088, 32.65956)
+texture = ExtResource("13_fmxr1")
+
+[node name="Sprite3D15" type="Sprite3D" parent="Flowers/path"]
+transform = Transform3D(1.581, 0, 0, 0, 8.954999, 0, 0, 0, 1.581, 9.472051, 69.67884, 29.19974)
+texture = ExtResource("13_fmxr1")
+
+[node name="Sprite3D16" type="Sprite3D" parent="Flowers/path"]
+transform = Transform3D(1.581, 0, 0, 0, 8.954999, 0, 0, 0, 1.581, 40.784004, 69.6788, 20.065777)
+texture = ExtResource("13_fmxr1")
+
+[node name="Sprite3D17" type="Sprite3D" parent="Flowers/path"]
+transform = Transform3D(1.581, 0, 0, 0, 8.954999, 0, 0, 0, 1.581, 69.55985, 69.67884, 8.884506)
+texture = ExtResource("13_fmxr1")
+
+[node name="Sprite3D18" type="Sprite3D" parent="Flowers/path"]
+transform = Transform3D(1.581, 0, 0, 0, 8.954999, 0, 0, 0, 1.581, 72.15083, 126.68305, -17.904217)
+texture = ExtResource("13_fmxr1")
+
+[node name="Sprite3D19" type="Sprite3D" parent="Flowers/path"]
+transform = Transform3D(1.581, 0, 0, 0, 8.954999, 0, 0, 0, 1.581, 91.077805, 126.683044, -30.473415)
+texture = ExtResource("13_fmxr1")
+
+[node name="Sprite3D20" type="Sprite3D" parent="Flowers/path"]
+transform = Transform3D(1.581, 0, 0, 0, 8.954999, 0, 0, 0, 1.581, 119.92117, 126.683044, -43.250313)
+texture = ExtResource("13_fmxr1")
+
+[node name="Sprite3D21" type="Sprite3D" parent="Flowers/path"]
+transform = Transform3D(1.581, 0, 0, 0, 8.954999, 0, 0, 0, 1.581, 150.3607, 126.683044, -50.177383)
+texture = ExtResource("13_fmxr1")
+
+[node name="Sprite3D22" type="Sprite3D" parent="Flowers/path"]
+transform = Transform3D(1.581, 0, 0, 0, 8.954999, 0, 0, 0, 1.581, 180.23709, 126.683044, -51.887665)
+texture = ExtResource("13_fmxr1")
+
+[node name="Sprite3D15" type="Sprite3D" parent="Flowers"]
+transform = Transform3D(1.581, 0, 0, 0, 8.954999, 0, 0, 0, 1.581, 170.0042, 69.67887, 19.869085)
+texture = ExtResource("8_i70wy")
+
+[node name="Sprite3D13" type="Sprite3D" parent="Flowers"]
+transform = Transform3D(1.581, 0, 0, 0, 8.954999, 0, 0, 0, 1.581, 105.13679, 69.67887, 18.856125)
+texture = ExtResource("14_6yqj1")
+
+[node name="Sprite3D16" type="Sprite3D" parent="Flowers"]
+transform = Transform3D(1.581, 0, 0, 0, 8.954999, 0, 0, 0, 1.581, 141.16495, 69.67883, 51.77929)
+texture = ExtResource("14_6yqj1")
+
+[node name="Sprite3D7" type="Sprite3D" parent="Flowers"]
+transform = Transform3D(1.581, 0, 0, 0, 8.954999, 0, 0, 0, 1.581, -135.28139, 35.208054, -32.24807)
+texture = ExtResource("11_nlr0i")
+
+[node name="Sprite3D17" type="Sprite3D" parent="Flowers"]
+transform = Transform3D(1.581, 0, 0, 0, 8.954999, 0, 0, 0, 1.581, -183.23108, 35.208054, 50.290367)
+texture = ExtResource("11_nlr0i")
+
+[node name="Sprite3D18" type="Sprite3D" parent="Flowers"]
+transform = Transform3D(1.581, 0, 0, 0, 8.954999, 0, 0, 0, 1.581, 26.503582, 126.683044, -29.410711)
+texture = ExtResource("14_6yqj1")
+
+[node name="Sprite3D19" type="Sprite3D" parent="Flowers"]
+transform = Transform3D(1.581, 0, 0, 0, 8.954999, 0, 0, 0, 1.581, 42.35998, 126.68305, -17.951033)
+texture = ExtResource("10_ekmdm")
+
+[node name="Sprite3D20" type="Sprite3D" parent="Flowers"]
+transform = Transform3D(1.581, 0, 0, 0, 8.954999, 0, 0, 0, 1.581, 121.94519, 126.683044, -12.08663)
+texture = ExtResource("10_ekmdm")
+
+[node name="Sprite3D21" type="Sprite3D" parent="Flowers"]
+transform = Transform3D(1.581, 0, 0, 0, 8.954999, 0, 0, 0, 1.581, 51.3098, 126.683044, -46.12995)
+texture = ExtResource("8_jcb05")
 
 [connection signal="body_entered" from="Sprite3D/Area3D" to="Sprite3D/Area3D" method="_on_body_entered"]

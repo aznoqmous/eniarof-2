@@ -1,15 +1,36 @@
-[gd_scene load_steps=32 format=4 uid="uid://bd7vcr4so1sr4"]
+[gd_scene load_steps=53 format=4 uid="uid://bd7vcr4so1sr4"]
 
 [ext_resource type="Texture2D" uid="uid://b6fmhq68o82ga" path="res://assets/sprites/belier_v3_tileable.jpg" id="1_firrg"]
 [ext_resource type="Texture2D" uid="uid://qp556mhmny4v" path="res://assets/sprites/clairière_tileable.jpg" id="2_bw8lq"]
+[ext_resource type="PackedScene" uid="uid://5pcwdkdkscl7" path="res://scenes/foliages/trees/thin_tree.tscn" id="3_3w5pi"]
 [ext_resource type="PackedScene" uid="uid://ceudlwne5f3bk" path="res://scenes/foliages/rocks/rock_base.tscn" id="3_kpji2"]
+[ext_resource type="Texture2D" uid="uid://dhb6nnw5blh8i" path="res://assets/sprites/flower/Décor_Fleur_09.png" id="4_7ihqe"]
+[ext_resource type="PackedScene" uid="uid://c1nv2b80us7gx" path="res://scenes/foliages/foliage.tscn" id="4_t4hx7"]
+[ext_resource type="Texture2D" uid="uid://csakcw0v1a03j" path="res://assets/sprites/flower/Décor_Fleur_08.png" id="5_3mlrt"]
 [ext_resource type="Texture2D" uid="uid://bmmaqume4stis" path="res://assets/sprites/rochers/Decor_Rocher_Rouge_01.png" id="5_rg3jb"]
-[ext_resource type="Texture2D" uid="uid://cdk7gru6u03e4" path="res://assets/sprites/flower/Décor_Fleur_11.png" id="8_i4b85"]
+[ext_resource type="Texture2D" uid="uid://c17wstf2jopt6" path="res://assets/sprites/flower/Décor_Fleur_04.png" id="6_3mlrt"]
+[ext_resource type="Texture2D" uid="uid://bkbpf6mrroaaq" path="res://assets/sprites/rochers/Decor_Rocher_Colonne_02.png" id="6_t4hx7"]
+[ext_resource type="PackedScene" uid="uid://c4gq5premh6yy" path="res://scenes/npcs/ram.tscn" id="7_mb3hy"]
+[ext_resource type="Texture2D" uid="uid://ya4gacrw6gxr" path="res://assets/sprites/npcs/Characters_RoiBelier.png" id="8_nvrdk"]
+[ext_resource type="Script" uid="uid://bsjxs0qm4pghh" path="res://scripts/npc_action_resource.gd" id="9_hil40"]
+[ext_resource type="Resource" uid="uid://bcxfy8qv77y5k" path="res://resources/npc_actions/idle.tres" id="10_i4b85"]
 [ext_resource type="Texture2D" uid="uid://b8dhust7j11b5" path="res://assets/sprites/rochers/Decor_Rocher_Lière_01_.png" id="10_nvrdk"]
+[ext_resource type="Resource" uid="uid://c45ofdsl1ujd1" path="res://resources/npc_actions/move.tres" id="11_otex3"]
+[ext_resource type="Texture2D" uid="uid://bjwgdvh5p68e3" path="res://assets/sprites/npcs/Characters_PNJ_Belier_Blanc.png" id="12_hil40"]
+[ext_resource type="Texture2D" uid="uid://dxi8qbssptdgl" path="res://assets/sprites/npcs/Characters_PNJ_Belier_Brun.png" id="13_otex3"]
+[ext_resource type="Resource" uid="uid://cwdv7j5781076" path="res://resources/npc_actions/charge.tres" id="14_tbwax"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ihqe"]
 albedo_texture = ExtResource("1_firrg")
 uv1_scale = Vector3(7, 7, 7)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3mlrt"]
+load_path = "res://.godot/imported/Texture_Herbe.png-1d2f2f3bf46c32e124365c26eaf42ead.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4jfaj"]
+transparency = 1
+albedo_texture = SubResource("CompressedTexture2D_3mlrt")
+uv1_scale = Vector3(8, 8, 8)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fjebf"]
 
@@ -50,6 +71,14 @@ data = PackedVector3Array(-0.5485, 0, -1.301, -0.3524, 0, -1.1916, -0.4619, 0, -
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kpji2"]
 albedo_texture = ExtResource("1_firrg")
+uv1_scale = Vector3(5, 5, 5)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4jfaj"]
+load_path = "res://.godot/imported/Texture_Herbe.png-1d2f2f3bf46c32e124365c26eaf42ead.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5mccf"]
+transparency = 1
+albedo_texture = SubResource("CompressedTexture2D_4jfaj")
 uv1_scale = Vector3(5, 5, 5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wiqd8"]
@@ -93,6 +122,14 @@ data = PackedVector3Array(1.6956999, 0, 0.7147, 1.4115, 0, 0.93009996, 1.6998, 0
 albedo_texture = ExtResource("1_firrg")
 uv1_scale = Vector3(3, 3, 3)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_khj5a"]
+load_path = "res://.godot/imported/Texture_Herbe.png-1d2f2f3bf46c32e124365c26eaf42ead.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ochqc"]
+transparency = 1
+albedo_texture = SubResource("CompressedTexture2D_khj5a")
+uv1_scale = Vector3(3, 3, 3)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1olde"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_034pl"]
@@ -132,6 +169,14 @@ data = PackedVector3Array(0.0256, 0, 0.9291, -0.22469999, 0, 0.7467, -0.1837, 0,
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hil40"]
 albedo_texture = ExtResource("1_firrg")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nqse1"]
+load_path = "res://.godot/imported/Texture_Herbe.png-1d2f2f3bf46c32e124365c26eaf42ead.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5l1ke"]
+transparency = 1
+albedo_texture = SubResource("CompressedTexture2D_nqse1")
+uv1_scale = Vector3(3, 3, 3)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pc1r6"]
 
@@ -217,6 +262,7 @@ transform = Transform3D(17, 0, 0, 0, 17, 0, 0, 0, 17, 0, 0, 0)
 
 [node name="Plane" type="MeshInstance3D" parent="Node3D"]
 material_override = SubResource("StandardMaterial3D_7ihqe")
+material_overlay = SubResource("StandardMaterial3D_4jfaj")
 mesh = SubResource("ArrayMesh_itqhs")
 skeleton = NodePath("")
 
@@ -228,6 +274,7 @@ shape = SubResource("ConcavePolygonShape3D_mb3hy")
 [node name="Plane_001" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.10133055, 0)
 material_override = SubResource("StandardMaterial3D_kpji2")
+material_overlay = SubResource("StandardMaterial3D_5mccf")
 mesh = SubResource("ArrayMesh_gjvii")
 skeleton = NodePath("")
 
@@ -239,6 +286,7 @@ shape = SubResource("ConcavePolygonShape3D_gskfd")
 [node name="Plane_002" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.30935386, 0)
 material_override = SubResource("StandardMaterial3D_18bb5")
+material_overlay = SubResource("StandardMaterial3D_ochqc")
 mesh = SubResource("ArrayMesh_h3qqf")
 skeleton = NodePath("")
 
@@ -250,6 +298,7 @@ shape = SubResource("ConcavePolygonShape3D_nvrdk")
 [node name="Plane_003" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3891695, 0)
 material_override = SubResource("StandardMaterial3D_hil40")
+material_overlay = SubResource("StandardMaterial3D_5l1ke")
 mesh = SubResource("ArrayMesh_rp15s")
 skeleton = NodePath("")
 
@@ -259,15 +308,89 @@ skeleton = NodePath("")
 shape = SubResource("ConcavePolygonShape3D_i4b85")
 
 [node name="Plane_004" type="MeshInstance3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.34543428, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.56777227, 0)
 material_override = SubResource("StandardMaterial3D_otex3")
 mesh = SubResource("ArrayMesh_3eq4d")
 skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Node3D/Plane_004"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52975905, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Plane_004/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_tbwax")
+
+[node name="ThinTree" parent="Node3D" instance=ExtResource("3_3w5pi")]
+transform = Transform3D(0.05882353, 0, 0, 0, 0.05882353, 0, 0, 0, 0.05882353, -0.22563101, 0.5696305, -0.02457118)
+
+[node name="ThinTree2" parent="Node3D" instance=ExtResource("3_3w5pi")]
+transform = Transform3D(0.05882353, 0, 0, 0, 0.05882353, 0, 0, 0, 0.05882353, 0.65206563, 0.6128539, 0.1303673)
+
+[node name="ThinTree3" parent="Node3D" instance=ExtResource("3_3w5pi")]
+transform = Transform3D(0.05882353, 0, 0, 0, 0.05882353, 0, 0, 0, 0.05882353, 1.5121214, 0.6613695, 0.55266166)
+
+[node name="Foliage" parent="Node3D" instance=ExtResource("4_t4hx7")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -0.38721246, 0.5928639, 0.29617035)
+texture = ExtResource("5_3mlrt")
+
+[node name="Foliage2" parent="Node3D" instance=ExtResource("4_t4hx7")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -0.013491322, 0.5928639, -0.18880288)
+texture = ExtResource("5_3mlrt")
+
+[node name="Foliage3" parent="Node3D" instance=ExtResource("4_t4hx7")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0.5276774, 0.5928639, -0.48994356)
+texture = ExtResource("5_3mlrt")
+
+[node name="Foliage4" parent="Node3D" instance=ExtResource("4_t4hx7")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -0.26252815, 0.5928639, 0.4740863)
+texture = ExtResource("5_3mlrt")
+
+[node name="Foliage5" parent="Node3D" instance=ExtResource("4_t4hx7")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 1.0861199, 0.5928639, -0.64312893)
+texture = ExtResource("5_3mlrt")
+
+[node name="Foliage6" parent="Node3D" instance=ExtResource("4_t4hx7")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0.46061173, 0.63766986, 0.47229055)
+texture = ExtResource("5_3mlrt")
+
+[node name="Foliage11" parent="Node3D" instance=ExtResource("4_t4hx7")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0.62878853, 0.63766986, 0.107117094)
+texture = ExtResource("6_3mlrt")
+
+[node name="Foliage12" parent="Node3D" instance=ExtResource("4_t4hx7")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0.2477539, 0.63766986, 0.34861642)
+texture = ExtResource("6_3mlrt")
+
+[node name="Foliage13" parent="Node3D" instance=ExtResource("4_t4hx7")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -0.5210134, 0.5875295, 0.5325557)
+texture = ExtResource("6_3mlrt")
+
+[node name="Foliage16" parent="Node3D" instance=ExtResource("4_t4hx7")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 1.0493379, 0.68240625, 0.7798867)
+texture = ExtResource("6_3mlrt")
+
+[node name="Foliage14" parent="Node3D" instance=ExtResource("4_t4hx7")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -0.26171064, 0.5875295, -0.043686364)
+texture = ExtResource("6_3mlrt")
+
+[node name="Foliage15" parent="Node3D" instance=ExtResource("4_t4hx7")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0.24942029, 0.5910427, -0.5473619)
+texture = ExtResource("6_3mlrt")
+
+[node name="Foliage8" parent="Node3D" instance=ExtResource("4_t4hx7")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 1.1767486, 0.6853625, 0.6684582)
+texture = ExtResource("5_3mlrt")
+
+[node name="Foliage9" parent="Node3D" instance=ExtResource("4_t4hx7")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 1.4546111, 0.6853625, 0.79338914)
+texture = ExtResource("5_3mlrt")
+
+[node name="Foliage10" parent="Node3D" instance=ExtResource("4_t4hx7")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 1.4224428, 0.8603141, 0.4457154)
+texture = ExtResource("6_t4hx7")
+
+[node name="Foliage7" parent="Node3D" instance=ExtResource("4_t4hx7")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0.862884, 0.63766986, 0.059917506)
+texture = ExtResource("5_3mlrt")
 
 [node name="RockBase" parent="." instance=ExtResource("3_kpji2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4268875, 9.996355, 15.935683)
@@ -289,16 +412,8 @@ charge_breakable = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.028876, 9.996355, 7.6085467)
 charge_breakable = false
 
-[node name="RockBase17" parent="." instance=ExtResource("3_kpji2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.916102, 9.996355, 5.399878)
-charge_breakable = false
-
 [node name="RockBase8" parent="." instance=ExtResource("3_kpji2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.836123, 9.996355, -1.9527802)
-charge_breakable = false
-
-[node name="RockBase18" parent="." instance=ExtResource("3_kpji2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.884806, 9.996355, 0.0072717667)
 charge_breakable = false
 
 [node name="RockBase9" parent="." instance=ExtResource("3_kpji2")]
@@ -314,7 +429,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5990057, 9.996355, -7.6254
 charge_breakable = false
 
 [node name="RockBase10" parent="." instance=ExtResource("3_kpji2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.152277, 9.996355, -8.229308)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9742513, 9.996355, -7.9367)
+charge_breakable = false
+
+[node name="RockBase17" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6548054, 9.996355, -9.406335)
+charge_breakable = false
+
+[node name="RockBase18" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.86729217, 9.996354, -10.486263)
 charge_breakable = false
 
 [node name="RockBase11" parent="." instance=ExtResource("3_kpji2")]
@@ -366,12 +489,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.007284, 9.996355, -14.2853
 charge_breakable = false
 
 [node name="BreakerFoliage1" parent="." instance=ExtResource("3_kpji2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.166109, 9.996355, 3.0158749)
-texture = ExtResource("8_i4b85")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.802408, 9.996355, 2.6336808)
+texture = ExtResource("4_7ihqe")
 
-[node name="BreakerFoliage2" parent="." instance=ExtResource("3_kpji2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7879267, 9.996355, -9.970468)
-texture = ExtResource("8_i4b85")
+[node name="BreakerFoliage3" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.727432, 9.996355, 0.6895933)
+texture = ExtResource("4_7ihqe")
+
+[node name="BreakerFoliage4" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.507029, 9.996355, 4.960784)
+texture = ExtResource("4_7ihqe")
 
 [node name="RockBase27" parent="." instance=ExtResource("3_kpji2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.928452, 10.5308695, -5.047896)
@@ -425,16 +552,8 @@ charge_breakable = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6308823, 10.53087, 3.342909)
 charge_breakable = false
 
-[node name="RockBase40" parent="." instance=ExtResource("3_kpji2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4059548, 10.53087, 1.3337221)
-charge_breakable = false
-
 [node name="RockBase41" parent="." instance=ExtResource("3_kpji2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.681623, 10.53087, -2.811633)
-charge_breakable = false
-
-[node name="RockBase42" parent="." instance=ExtResource("3_kpji2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6603785, 10.53087, -0.9444318)
 charge_breakable = false
 
 [node name="RockBase43" parent="." instance=ExtResource("3_kpji2")]
@@ -447,10 +566,6 @@ charge_breakable = false
 
 [node name="RockBase45" parent="." instance=ExtResource("3_kpji2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.640062, 11.459091, 5.1822057)
-charge_breakable = false
-
-[node name="RockBase46" parent="." instance=ExtResource("3_kpji2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.507853, 11.459093, 5.120726)
 charge_breakable = false
 
 [node name="RockBase48" parent="." instance=ExtResource("3_kpji2")]
@@ -466,25 +581,56 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.492704, 11.459091, 10.0103
 charge_breakable = false
 
 [node name="RockBase51" parent="." instance=ExtResource("3_kpji2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.200372, 11.459091, 7.9392605)
-charge_breakable = false
-
-[node name="RockBase52" parent="." instance=ExtResource("3_kpji2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.894676, 11.459091, 5.7749195)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.121884, 11.459091, 8.817124)
 charge_breakable = false
 
 [node name="BreakerStone1" parent="." instance=ExtResource("3_kpji2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.05606, 11.459091, 5.1388063)
-charge_breakable = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.580502, 11.459091, 5.88122)
+charge_breakable_level = 2
+texture = ExtResource("10_nvrdk")
+
+[node name="BreakerStone7" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.935455, 11.459091, 8.021137)
+charge_breakable_level = 2
+texture = ExtResource("10_nvrdk")
+
+[node name="BreakerStone5" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.68259, 11.459091, 5.347414)
+charge_breakable_level = 2
+texture = ExtResource("10_nvrdk")
+
+[node name="BreakerStone6" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.971533, 11.459091, 5.089388)
+charge_breakable_level = 2
+texture = ExtResource("10_nvrdk")
+
+[node name="BreakerStone3" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.719992, 11.459091, 6.9079113)
+charge_breakable_level = 2
+texture = ExtResource("10_nvrdk")
+
+[node name="BreakerStone4" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.824249, 11.459091, 7.3806467)
+charge_breakable_level = 2
 texture = ExtResource("10_nvrdk")
 
 [node name="BreakerStone2" parent="." instance=ExtResource("3_kpji2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.659, 11.459091, 6.524515)
-charge_breakable = false
+charge_breakable_level = 2
 texture = ExtResource("10_nvrdk")
 
 [node name="BreakerWood1" parent="." instance=ExtResource("3_kpji2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6109242, 10.53087, 0.99487114)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.084745, 10.53087, -2.349992)
+charge_breakable_level = 1
+texture = ExtResource("5_rg3jb")
+
+[node name="BreakerWood3" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.0548115, 10.53087, -1.4175868)
+charge_breakable_level = 1
+texture = ExtResource("5_rg3jb")
+
+[node name="BreakerWood4" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.947052, 10.53087, -0.5061896)
 charge_breakable_level = 1
 texture = ExtResource("5_rg3jb")
 
@@ -492,3 +638,37 @@ texture = ExtResource("5_rg3jb")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.247147, 10.53087, 0.66995525)
 charge_breakable_level = 1
 texture = ExtResource("5_rg3jb")
+
+[node name="BreakerWood5" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9577403, 10.53087, 1.7525973)
+charge_breakable_level = 1
+texture = ExtResource("5_rg3jb")
+
+[node name="RoiBelier" parent="." instance=ExtResource("7_mb3hy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.998194, 11.244997, 10.219737)
+texture = ExtResource("8_nvrdk")
+actions = Array[ExtResource("9_hil40")]([ExtResource("10_i4b85"), ExtResource("11_otex3"), ExtResource("10_i4b85")])
+npc_name = "Roi Belier"
+speech = "Bbbbbbonjour, camarade bbbbbélier. | J'admire ta bbbbbbravoure pour être venu jusqu'ici. | J'ai quelques déconvenues à gérer avec les rongeurs. | J'ai entendu dire qu'ils nous préparent un mauvais coup. | J'ai ordonné que notre territoire soit bbbbbbordé de gardes pour éviter toute intrusion. | Je ne sais pas pourquoi ils nous en veulent, nous avons toujours été de bons voisins. | A l'époque ils vivaient dans la plaine juste au dessus d'ici. | Un jour, ils sont partis s'isoler et ont commencé à fomenter contre nous. Je pense qu'ils convoitent nos carottes. | Bbbbbbande de traitres. 
+"
+JUMP_MODIFIER = 0.0
+CHARGE_MODIFIER = 1.0
+TONGUE_MODIFIER = 0.0
+
+[node name="Cornegarde" parent="." instance=ExtResource("7_mb3hy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.428007, 10.420231, 6.542988)
+texture = ExtResource("12_hil40")
+actions = Array[ExtResource("9_hil40")]([ExtResource("10_i4b85"), ExtResource("11_otex3"), ExtResource("14_tbwax"), ExtResource("11_otex3")])
+npc_name = "Cornegarde"
+speech = "Halte là ! Bbbbravo, tes cornes sont bbbbbelles comme tout. | Tu es le bbbbbienvenue au Royaume des bbbbbéliers. | Ici, on se prépare contre les lapins. Ils nous veulent du mal. | Bbbbbande de sales bbbbêtes. Nous avons été si bbbbbbons avec eux, c'est injuste."
+JUMP_MODIFIER = 0.0
+TONGUE_MODIFIER = 0.0
+
+[node name="Ram" parent="." instance=ExtResource("7_mb3hy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7445955, 9.9971895, -8.646603)
+texture = ExtResource("13_otex3")
+actions = Array[ExtResource("9_hil40")]([ExtResource("10_i4b85"), ExtResource("14_tbwax"), ExtResource("11_otex3")])
+npc_name = "Aubergeriste"
+speech = "Bbbbbien le bbbbbonjour ! | Tu prendras bbbien une petite bbbbboisssson ? | Un petit lait de bbbbbrebis peut être ?"
+JUMP_MODIFIER = 0.0
+TONGUE_MODIFIER = 0.0

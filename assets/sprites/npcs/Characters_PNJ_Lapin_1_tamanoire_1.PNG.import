@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csakcw0v1a03j"
-path.s3tc="res://.godot/imported/Décor_Fleur_08.png-5d3b64716fab2b3c1e80181562f0b52d.s3tc.ctex"
+uid="uid://csnfs86j68e05"
+path.s3tc="res://.godot/imported/Characters_PNJ_Lapin_1_tamanoire_1.PNG-0708e5d7a8e3d19bf8137e746a0beb9f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/sprites/flower/Décor_Fleur_08.png"
-dest_files=["res://.godot/imported/Décor_Fleur_08.png-5d3b64716fab2b3c1e80181562f0b52d.s3tc.ctex"]
+source_file="res://assets/sprites/npcs/Characters_PNJ_Lapin_1_tamanoire_1.PNG"
+dest_files=["res://.godot/imported/Characters_PNJ_Lapin_1_tamanoire_1.PNG-0708e5d7a8e3d19bf8137e746a0beb9f.s3tc.ctex"]
 
 [params]
 
