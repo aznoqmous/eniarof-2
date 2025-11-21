@@ -15,7 +15,7 @@ General/banks_path="res://assets/soundbanks/Desktop"
 [application]
 
 config/name="hiawatha"
-run/main_scene="uid://cmlhp3bgeip3e"
+run/main_scene="uid://d3icrtajubwy2"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
