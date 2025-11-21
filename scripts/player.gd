@@ -81,12 +81,19 @@ func _physics_process(delta: float) -> void:
 
 func reset_stamina():
 	current_stamina = max_stamina
-
+	# Met à jour le paramètre DayNight de Fmod (qui vas de 0 à 1)
+	FmodServer.set_global_parameter_by_name("DayNight", (max_stamina - current_stamina)/max_stamina)
+	FmodServer.set_global_parameter_by_name("Tamanoir_State", species[SpeciesResource.ActionType.Tongue].current_level)
+	FmodServer.set_global_parameter_by_name("Lapin_State", species[SpeciesResource.ActionType.Jump].current_level)
+	FmodServer.set_global_parameter_by_name("Belier_State", species[SpeciesResource.ActionType.Charge].current_level)
+	
 func lose_stamina(value=1.0):
 	current_stamina = max(0, current_stamina - value)
 	if current_stamina <= 0:
 		main.spend_night_canvas_layer.spend_night_button.set_visible(true)
 		force_modifiers_level(0)
+	# Met à jour le paramètre DayNight de Fmod (qui vas de 0 à 1)
+	FmodServer.set_global_parameter_by_name("DayNight", (max_stamina - current_stamina)/max_stamina)
 	
 func register_action(action: SpeciesResource.ActionType, count:=1):
 	species[action].action_count += count

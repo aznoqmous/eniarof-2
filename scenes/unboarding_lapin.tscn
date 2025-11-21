@@ -63,7 +63,6 @@ species_sprites = {
 }
 max_stamina = 500.0
 JUMP_SPEED = 11.0
-MAX_TONGUE_DISTANCE = 10
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.9853279, 7.4914427, -6.229892, 1.4292222, 22.706085, 27.529993, 6.6183524, -1.8353356, 1.1701514, 110.32195, 636.15186, 78.463)
@@ -367,5 +366,8 @@ texture = ExtResource("10_ekmdm")
 [node name="Sprite3D21" type="Sprite3D" parent="Flowers"]
 transform = Transform3D(1.581, 0, 0, 0, 8.954999, 0, 0, 0, 1.581, 51.3098, 126.683044, -46.12995)
 texture = ExtResource("8_jcb05")
+
+[node name="FmodBankLoader" type="FmodBankLoader" parent="."]
+bank_paths = ["res://assets/soundbanks/Desktop/Master.strings.bank", "res://assets/soundbanks/Desktop/Master.bank"]
 
 [connection signal="body_entered" from="Sprite3D/Area3D" to="Sprite3D/Area3D" method="_on_body_entered"]
