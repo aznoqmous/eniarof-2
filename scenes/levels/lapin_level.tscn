@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dcrs1qatqwlf4"]
+[gd_scene load_steps=20 format=3 uid="uid://dcrs1qatqwlf4"]
 
 [ext_resource type="PackedScene" uid="uid://b7jl00yavhgpu" path="res://scenes/levels/parts/lapin_ground.tscn" id="1_hp1lk"]
 [ext_resource type="PackedScene" uid="uid://b8865ulgxw3ru" path="res://scenes/levels/parts/lapin_elevation_1.tscn" id="2_rmt7n"]
@@ -16,7 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://5pcwdkdkscl7" path="res://scenes/foliages/trees/thin_tree.tscn" id="13_rifx7"]
 [ext_resource type="Texture2D" uid="uid://dk6ee1ked2nev" path="res://assets/sprites/foliages/trees/Decor_Arbre_Taillé_01.png" id="14_ciyc6"]
 [ext_resource type="PackedScene" uid="uid://c4gq5premh6yy" path="res://scenes/npcs/ram.tscn" id="15_aiceo"]
+[ext_resource type="Texture2D" uid="uid://dywu550tholta" path="res://assets/sprites/foliages/trees/Decor_Arbre_Bleu_02.png" id="16_ciyc6"]
 [ext_resource type="PackedScene" uid="uid://bahkqavktnhuv" path="res://scenes/npcs/anteater.tscn" id="16_ir1fq"]
+[ext_resource type="Texture2D" uid="uid://1dp4d8wgx6ci" path="res://assets/sprites/foliages/trees/Decor_Arbre_Blanc_01.png" id="17_aiceo"]
 
 [node name="LapinLevel" type="Node3D"]
 
@@ -137,32 +139,28 @@ speech = "Quoi ? | Mes oreilles sont plus toutes jeunes, gamin. Elles se sont bo
 [node name="RabbitBase4" parent="NPCs" instance=ExtResource("7_hco53")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1428404, 9.1764965, 30.534966)
 collision_mask = 1
-npc_name = null
 
 [node name="Ram" parent="NPCs" instance=ExtResource("15_aiceo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2457, 9.1569195, 34.17844)
 collision_mask = 1
-npc_name = null
 
 [node name="Anteater" parent="NPCs" instance=ExtResource("16_ir1fq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6533632, 9.169311, 35.35272)
 collision_mask = 1
-npc_name = null
 
 [node name="Anteater2" parent="NPCs" instance=ExtResource("16_ir1fq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5192976, 9.645767, 40.542873)
 collision_mask = 1
-npc_name = null
 
 [node name="Foliage" type="Node3D" parent="."]
 
 [node name="BigTreeFoliage" parent="Foliage" instance=ExtResource("12_t7fdv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8498584, 9.441196, 33.5845)
-texture = null
+texture = ExtResource("16_ciyc6")
 
 [node name="BigTreeFoliage2" parent="Foliage" instance=ExtResource("12_t7fdv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3267927, 9.441196, 26.9212)
-texture = null
+texture = ExtResource("17_aiceo")
 
 [node name="ThinTree" parent="Foliage" instance=ExtResource("13_rifx7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.672427, 9.329523, 35.147762)
