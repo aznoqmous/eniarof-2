@@ -19,17 +19,17 @@ void fragment() {
 	// Called for every pixel the material is visible on.
 	vec3 worldNormal = (INV_VIEW_MATRIX * vec4(NORMAL.xyz, 0.0)).xyz;
 	float dot = dot(worldNormal,vec3(0.0,1.0,0.0));
-	
+
 	vec4 color = vec4(0.);
-	
+
 	if(abs(dot) <=0.9){
 		color = texture(side_texture,(UV+offset_side)*tilling_side);
 	}
 	else{
 		color = texture(top_texture,UV*tilling_top+offset_top);
 	}
-	METALLIC = 0.0;
-	SPECULAR =0.5;
-	ROUGHNESS =1.0;
+	//METALLIC = 0.0;
+	//SPECULAR =0.5;
+	//ROUGHNESS =1.0;
 	ALBEDO = color.xyz;
 }
