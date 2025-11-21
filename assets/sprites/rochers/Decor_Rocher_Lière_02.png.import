@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwmf1d8gxr4b8"
-path="res://.godot/imported/Texture_SolTamanoir.png-a498cb76be6402253594e217bb77d5a2.ctex"
+uid="uid://umpuv424x6dm"
+path="res://.godot/imported/Decor_Rocher_Lière_02.png-2353ac8fd69c3c0530546d117fe87760.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Textures/Texture_SolTamanoir.png"
-dest_files=["res://.godot/imported/Texture_SolTamanoir.png-a498cb76be6402253594e217bb77d5a2.ctex"]
+source_file="res://assets/sprites/rochers/Decor_Rocher_Lière_02.png"
+dest_files=["res://.godot/imported/Decor_Rocher_Lière_02.png-2353ac8fd69c3c0530546d117fe87760.ctex"]
 
 [params]
 

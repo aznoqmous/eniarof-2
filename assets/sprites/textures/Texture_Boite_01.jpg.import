@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmmaqume4stis"
-path.s3tc="res://.godot/imported/Decor_Rocher_Rouge_01.png-8899fdc12ee575a9d51bb7fe96a1e044.s3tc.ctex"
+uid="uid://bdeid6ms7xvb2"
+path.s3tc="res://.godot/imported/Texture_Boite_01.jpg-cfd5d446f3d05c94f2beac255c5440e9.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://sprites/rochers/Decor_Rocher_Rouge_01.png"
-dest_files=["res://.godot/imported/Decor_Rocher_Rouge_01.png-8899fdc12ee575a9d51bb7fe96a1e044.s3tc.ctex"]
+source_file="res://assets/sprites/textures/Texture_Boite_01.jpg"
+dest_files=["res://.godot/imported/Texture_Boite_01.jpg-cfd5d446f3d05c94f2beac255c5440e9.s3tc.ctex"]
 
 [params]
 

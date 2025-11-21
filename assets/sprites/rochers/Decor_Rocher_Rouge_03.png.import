@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5q61njelmwyr"
-path="res://.godot/imported/Decor_Rocher_Lière_03.png-93d7161fb384354ce2cec2614fe12a1e.ctex"
+uid="uid://dr1r37caj0iug"
+path="res://.godot/imported/Decor_Rocher_Rouge_03.png-c3c6dddfa31ab665a620e416950fb605.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/rochers/Decor_Rocher_Lière_03.png"
-dest_files=["res://.godot/imported/Decor_Rocher_Lière_03.png-93d7161fb384354ce2cec2614fe12a1e.ctex"]
+source_file="res://assets/sprites/rochers/Decor_Rocher_Rouge_03.png"
+dest_files=["res://.godot/imported/Decor_Rocher_Rouge_03.png-c3c6dddfa31ab665a620e416950fb605.ctex"]
 
 [params]
 
