@@ -194,8 +194,8 @@ func _on_tongue_area_3d_body_entered(body: RigidBody3D) -> void:
 	tongue_tween.finished.emit()
 	if body is TonguableFoliage and self == main.player:
 		if body.tonguable and body.tonguable_level <= main.player.species[SpeciesResource.ActionType.Tongue].current_level:
+			body.freeze = false
 			body.apply_central_impulse((global_position - body.global_position).normalized() * 10.0)
-
 signal jumped()
 signal charged()
 signal tongued()

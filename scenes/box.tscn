@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bqqdms2b2ic0x"]
 
 [ext_resource type="Texture2D" uid="uid://bdeid6ms7xvb2" path="res://assets/sprites/textures/Texture_Boite_01.jpg" id="1_3inec"]
-[ext_resource type="Script" uid="uid://5hvx2g280m7f" path="res://scripts/tonguable_foliage.gd" id="1_ks2v0"]
+[ext_resource type="Script" uid="uid://0ihe1tsm7l11" path="res://scripts/tonguable_foliage.gd" id="1_ks2v0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_272bh"]
 
@@ -16,6 +16,7 @@ collision_layer = 4
 collision_mask = 7
 axis_lock_angular_x = true
 axis_lock_angular_z = true
+freeze = true
 script = ExtResource("1_ks2v0")
 tonguable = true
 
