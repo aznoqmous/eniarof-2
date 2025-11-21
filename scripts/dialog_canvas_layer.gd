@@ -25,6 +25,7 @@ func _process(delta: float) -> void:
 
 func talk(speech: String, npc: NPC):
 	if not visible:
+		main.player.lose_stamina(1.0)
 		talking_npc = npc
 		talking_npc.speech_bubble.set_visible(true)
 		set_visible(true)
