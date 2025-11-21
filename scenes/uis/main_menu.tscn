@@ -6,15 +6,16 @@
 [ext_resource type="Texture2D" uid="uid://tg20ut2w8dhs" path="res://assets/sprites/uis/logo enjmin.png" id="3_wrpo0"]
 [ext_resource type="Texture2D" uid="uid://osypfw0x55m4" path="res://assets/sprites/uis/Logo_Magelis_25.jpg" id="4_3wgmo"]
 [ext_resource type="Texture2D" uid="uid://bubqivync3g6d" path="res://assets/sprites/uis/UI_boitedialogue_01.png" id="4_35gci"]
-[ext_resource type="FontFile" uid="uid://b3pwe165xrl06" path="res://assets/fonts/CraftyGirls-Regular.ttf" id="5_bbokv"]
 [ext_resource type="Texture2D" uid="uid://drh6nj8uvrbb1" path="res://assets/sprites/uis/logo_eesi.png" id="5_wrpo0"]
 [ext_resource type="FontFile" uid="uid://c3s20mmkmgw68" path="res://assets/fonts/Gaegu-Bold.ttf" id="7_yfuaq"]
+[ext_resource type="Texture2D" uid="uid://xap50cehh4q1" path="res://assets/sprites/uis/UI_pc.png" id="10_bfbqf"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_g5up0")
@@ -54,47 +55,41 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 8.0
 offset_top = -8.0
-offset_right = 8.0
-offset_bottom = -8.0
+offset_right = 152.0
+offset_bottom = 80.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.27450982)
 
 [node name="Quit" type="Button" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -152.0
-offset_top = 148.0
-offset_right = 154.0
-offset_bottom = 254.5
-grow_horizontal = 2
+offset_left = 153.51833
+offset_top = 29.999146
+offset_right = 537.5183
+offset_bottom = 137.99915
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("5_bbokv")
-theme_override_font_sizes/font_size = 50
+theme_override_fonts/font = ExtResource("7_yfuaq")
+theme_override_font_sizes/font_size = 100
 text = "Exit"
 
 [node name="Start" type="Button" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -152.0
-offset_top = -4.0
-offset_right = 160.0
-offset_bottom = 100.0
-grow_horizontal = 2
+offset_left = 152.01405
+offset_top = -140.0
+offset_right = 541.9624
+offset_bottom = -32.0
 grow_vertical = 2
 rotation = 0.00013016051
 size_flags_horizontal = 4
 size_flags_vertical = 8
-theme_override_fonts/font = ExtResource("5_bbokv")
-theme_override_font_sizes/font_size = 50
+theme_override_fonts/font = ExtResource("7_yfuaq")
+theme_override_font_sizes/font_size = 100
 text = "Start"
 
 [node name="Logo" type="Control" parent="."]
@@ -107,18 +102,18 @@ offset_right = 40.0
 grow_vertical = 0
 
 [node name="LogoMagelis25" type="Sprite2D" parent="Logo"]
-position = Vector2(64.00001, -23.999996)
-scale = Vector2(0.16100003, 0.16162647)
+position = Vector2(96, -111.43579)
+scale = Vector2(0.25600004, 0.2569961)
 texture = ExtResource("4_3wgmo")
 
 [node name="LogoEesi" type="Sprite2D" parent="Logo"]
-position = Vector2(160, -23.999985)
-scale = Vector2(0.3560417, 0.3572545)
+position = Vector2(254.99315, -110.93525)
+scale = Vector2(0.5778385, 0.5798068)
 texture = ExtResource("5_wrpo0")
 
 [node name="LogoEnjmin" type="Sprite2D" parent="Logo"]
-position = Vector2(256, -24)
-scale = Vector2(0.3559722, 0.3514662)
+position = Vector2(413.98828, -110.41877)
+scale = Vector2(0.58677083, 0.5793433)
 texture = ExtResource("3_wrpo0")
 
 [node name="Names" type="Control" parent="."]
@@ -128,10 +123,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -364.0
-offset_top = -240.0
-offset_right = -8.0
-offset_bottom = -24.0
+offset_left = -672.0
+offset_top = -392.0
+offset_right = -64.0
+offset_bottom = -72.0
 grow_horizontal = 0
 grow_vertical = 0
 
@@ -170,7 +165,7 @@ theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 1
 theme_override_fonts/normal_font = ExtResource("7_yfuaq")
-theme_override_font_sizes/normal_font_size = 22
+theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 text = "Paul - Tristan Debeaune
 David Goblot - Vassili
@@ -179,6 +174,20 @@ Loïc Florentin - Joris Pineda
 Antoine Castro - Séverin Richard
 Audrey Wagner  "
 scroll_active = false
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="UiPc" type="Sprite2D" parent="Control"]
+position = Vector2(-425.57294, 310)
+scale = Vector2(0.7135416, 0.7135417)
+texture = ExtResource("10_bfbqf")
 
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
