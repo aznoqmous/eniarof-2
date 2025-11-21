@@ -37,7 +37,7 @@ size = Vector3(8.685303, 4.9311523, 1.6748047)
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_h2yge")
-night_speechs = Array[String](["zzzzzzz...", "Im sleepy..."])
+night_speechs = Array[String](["zzz... zzzz...", "Je suis fatigué...", "zzz... ZZZZ... zzz..."])
 
 [node name="FmodBankLoader" type="FmodBankLoader" parent="."]
 bank_paths = ["res://assets/soundbanks/Desktop/Master.strings.bank", "res://assets/soundbanks/Desktop/Master.bank"]
@@ -84,6 +84,7 @@ species_sprites = {
 1: NodePath("SpriteContainer/Sprite3D/Ram"),
 2: NodePath("SpriteContainer/Sprite3D/Anteater")
 }
+max_stamina = 40.0
 
 [node name="SpendNightCanvasLayer" parent="." instance=ExtResource("12_w48qg")]
 
