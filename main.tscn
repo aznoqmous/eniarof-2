@@ -1,34 +1,19 @@
-[gd_scene load_steps=32 format=3 uid="uid://cmlhp3bgeip3e"]
+[gd_scene load_steps=25 format=3 uid="uid://cmlhp3bgeip3e"]
 
 [ext_resource type="Script" uid="uid://dlsptbxcmtms2" path="res://scripts/main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://d2jcxmqkru15e" path="res://scenes/player.tscn" id="2_h2yge"]
 [ext_resource type="Texture2D" uid="uid://qp556mhmny4v" path="res://assets/sprites/clairière_tileable.jpg" id="2_kek77"]
-[ext_resource type="Texture2D" uid="uid://dcs77mnpgvnug" path="res://assets/sprites/textures/Texture_SolBélier_01.jpg" id="3_yaehf"]
+[ext_resource type="Texture2D" uid="uid://bvakch7j1m1d6" path="res://assets/sprites/textures/Texture_SolBélier_01.jpg" id="3_yaehf"]
 [ext_resource type="Shader" uid="uid://ceyqrsqchfjot" path="res://shaders/water.gdshader" id="4_2cqfq"]
 [ext_resource type="PackedScene" uid="uid://c7jxsig5q4dgf" path="res://scenes/levels/anteater_level.tscn" id="4_074og"]
 [ext_resource type="Script" path="res://scripts/water.gd" id="4_yaehf"]
 [ext_resource type="Texture2D" uid="uid://crr1h60asguyr" path="res://assets/sprites/water/voronoi.png" id="5_yaehf"]
 [ext_resource type="Script" uid="uid://1eqrfby7r8i4" path="res://scripts/directional_light_3d.gd" id="6_ycdy4"]
-[ext_resource type="PackedScene" uid="uid://c4gq5premh6yy" path="res://scenes/npcs/ram.tscn" id="11_dg77c"]
-[ext_resource type="PackedScene" uid="uid://dvke267jyev2m" path="res://scenes/foliages/trees/big_tree_foliage.tscn" id="11_efxa6"]
-[ext_resource type="PackedScene" uid="uid://5pcwdkdkscl7" path="res://scenes/foliages/trees/thin_tree.tscn" id="12_dg77c"]
-[ext_resource type="Texture2D" uid="uid://dk6ee1ked2nev" path="res://assets/sprites/foliages/trees/Decor_Arbre_Taillé_01.png" id="12_vivmo"]
+[ext_resource type="PackedScene" uid="uid://bd7vcr4so1sr4" path="res://scenes/levels/ram_level.tscn" id="8_ycdy4"]
+[ext_resource type="PackedScene" uid="uid://dxjabvfh4xcul" path="res://scenes/levels/clairiere_level.tscn" id="9_w48qg"]
 [ext_resource type="PackedScene" uid="uid://cb33c6pcwsm7s" path="res://scenes/uis/spend_night_canvas_layer.tscn" id="12_w48qg"]
 [ext_resource type="PackedScene" uid="uid://17emcoltidd5" path="res://scenes/uis/dialog_canvas_layer.tscn" id="13_w48qg"]
 [ext_resource type="PackedScene" uid="uid://dcrs1qatqwlf4" path="res://scenes/levels/lapin_level.tscn" id="14_vivmo"]
-[ext_resource type="PackedScene" uid="uid://bahkqavktnhuv" path="res://scenes/npcs/anteater.tscn" id="14_w48qg"]
-[ext_resource type="PackedScene" uid="uid://ua12uqm5pvg0" path="res://scenes/npcs/rabbit_base.tscn" id="15_vivmo"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_efxa6"]
-albedo_texture = ExtResource("2_kek77")
-rim = 0.1
-uv1_scale = Vector3(30, 30, 30)
-
-[sub_resource type="BoxMesh" id="BoxMesh_kek77"]
-size = Vector3(100, 100, 100)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_4c57u"]
-size = Vector3(100, 100, 100)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_074og"]
 albedo_texture = ExtResource("3_yaehf")
@@ -75,29 +60,23 @@ bank_paths = ["res://assets/soundbanks/Desktop/Master.strings.bank", "res://asse
 
 [node name="Level" type="Node3D" parent="."]
 
-[node name="FloorTest" type="StaticBody3D" parent="Level"]
-transform = Transform3D(-0.105, 0, -1.9629454e-08, 0, 0.275, 0, 1.5854559e-08, 0, -0.13, -21.987953, -13.186258, -6.9731064)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/FloorTest"]
-material_override = SubResource("StandardMaterial3D_efxa6")
-mesh = SubResource("BoxMesh_kek77")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/FloorTest"]
-shape = SubResource("BoxShape3D_4c57u")
-
-[node name="FloorBélier" type="StaticBody3D" parent="Level"]
+[node name="clairiere" type="StaticBody3D" parent="Level"]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -2.768567, 0)
+visible = false
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/FloorBélier"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07971572, 0, -0.06996632)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/clairiere"]
+transform = Transform3D(0.6253661, 0, 0, 0, 1, 0, 0, 0, 0.6253661, -0.07971572, 0, -0.06996632)
 material_override = SubResource("StandardMaterial3D_074og")
 mesh = SubResource("BoxMesh_efxa6")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/FloorBélier"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/clairiere"]
 shape = SubResource("BoxShape3D_dg77c")
 
-[node name="AnteaterLevel" parent="Level/FloorBélier" instance=ExtResource("4_074og")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -77.740845, -8.963201, 51.636993)
+[node name="LapinLevel" parent="Level" instance=ExtResource("14_vivmo")]
+transform = Transform3D(0.7760464, 0, 0.6306758, 0, 1, 0, -0.6306758, 0, 0.7760464, -53.873688, -10.027153, -55.89064)
+
+[node name="AnteaterLevel" parent="Level" instance=ExtResource("4_074og")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.18446, -11.731768, -41.64445)
 
 [node name="Water" type="Area3D" parent="Level"]
 collision_layer = 16
@@ -113,6 +92,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
 mesh = SubResource("PlaneMesh_074og")
 surface_material_override/0 = SubResource("ShaderMaterial_cegan")
 
+[node name="RamLevel" parent="Level" instance=ExtResource("8_ycdy4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.252388, -9.937084, 26.072475)
+
+[node name="ClairiereLevel" parent="Level" instance=ExtResource("9_w48qg")]
+transform = Transform3D(2.8, 0, 0, 0, 2.8, 0, 0, 0, 2.8, 29.824837, -8.568832, -22.080254)
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_1bvp3")
 
@@ -121,7 +106,7 @@ transform = Transform3D(-3.2531837e-08, -0.6679105, 0.7442416, -2.9195299e-08, 0
 script = ExtResource("6_ycdy4")
 
 [node name="Player" parent="." node_paths=PackedStringArray("species_sprites") instance=ExtResource("2_h2yge")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.973724, -1.4003386, -44.1094)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.501114, -1.4003406, -17.757061)
 species_sprites = {
 0: NodePath("SpriteContainer/Sprite3D/Rabbit"),
 1: NodePath("SpriteContainer/Sprite3D/Ram"),
@@ -147,42 +132,5 @@ material = SubResource("StandardMaterial3D_5vw27")
 [node name="SpendNightCanvasLayer" parent="." instance=ExtResource("12_w48qg")]
 
 [node name="DialogCanvasLayer" parent="." instance=ExtResource("13_w48qg")]
-
-[node name="RabbitBase" parent="." instance=ExtResource("15_vivmo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86.88397, -2.0602648, -34.087116)
-collision_mask = 1
-
-[node name="BigTreeFoliage" parent="." instance=ExtResource("11_efxa6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78.89127, -1.7955651, -31.037584)
-texture = null
-
-[node name="BigTreeFoliage2" parent="." instance=ExtResource("11_efxa6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -83.067924, -1.7955651, -37.700882)
-texture = null
-
-[node name="ThinTree" parent="." instance=ExtResource("12_dg77c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -87.41356, -1.9072385, -29.47432)
-texture = ExtResource("12_vivmo")
-
-[node name="ThinTree3" parent="." instance=ExtResource("12_dg77c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.79993, -1.9072385, -39.4828)
-
-[node name="ThinTree2" parent="." instance=ExtResource("12_dg77c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -92.33177, 0.6192136, -35.218666)
-
-[node name="Ram" parent="." instance=ExtResource("11_dg77c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.98683, -2.079842, -30.443642)
-collision_mask = 1
-
-[node name="Anteater" parent="." instance=ExtResource("14_w48qg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.08777, -2.0674505, -29.269363)
-collision_mask = 1
-
-[node name="Anteater2" parent="." instance=ExtResource("14_w48qg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84.26043, -1.5909936, -24.07921)
-collision_mask = 1
-
-[node name="LapinLevel" parent="." instance=ExtResource("14_vivmo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.49373, -10.947978, -68.81305)
 
 [connection signal="body_entered" from="Level/Water" to="Level/Water" method="_on_body_entered"]
