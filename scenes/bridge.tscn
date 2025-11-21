@@ -1,8 +1,46 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvm3u7fwuuof3"]
+[gd_scene load_steps=6 format=4 uid="uid://cvm3u7fwuuof3"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_4j2h4"]
+[ext_resource type="Texture2D" uid="uid://b3wakubo1wfkx" path="res://models/bridge2_Illustration_sans_titre.png" id="1_7ct4w"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7ct4w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_an4no"]
+resource_name = "Material_0"
+albedo_texture = ExtResource("1_7ct4w")
+metallic = 0.5951662
+roughness = 0.9939577
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_s3qaa"]
+_surfaces = [{
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 1, 1),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAAAEAAEAAgAFAAMAAQAFAAIAAAADAAYABgADAAUAAAAGAAQAAQAHAAUABgAFAAcABAAHAAEABAAGAAcA"),
+"name": "Material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAAAAAAD//wAA//8AAP//AAAAAAAAAAD//wAAAAAAAAAA//8AAP////8AAAAAAAD/////AAD///////8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_im2sa"]
+resource_name = "bridge2_Mesh_0_002"
+_surfaces = [{
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 1, 1),
+"attribute_data": PackedByteArray("XNRFW0zBNUhc1DVITMFFW1zUNUhMwSU1XNQlNUzBNUhs50VbXNQ1SGznNUhc1EVbbOc1SFzUJTVs5yU1XNQ1SEzBFSJc1CU1TMElNVzUFSJs5yU1XNQVImznFSJc1CU1"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_an4no"),
+"name": "Material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAAAAY8v//wAA//9ly///AAAAAEnMAAAAAP//SswAAAAAAABU1QAA/////1TVAAAAAP//VNUAAP//AABU1QAAAAD///+//////////7///wAA////vwAA//////+///8AAAAARPUAAP//AAD//wAAAAAAADz0/////wAA//8AAP////9U1f////8AAFTV////////VNUAAP//AABU1f//AAD//1TV/////wAAVNX//wAAAAB31f///////1TV+1ppUvpagVJ/Wp1Sf1rgUlRVqqpUVaqqVFWqqlRVqqr/f/9//3//f/9//3//f/9/cz9sv/8//7+ZwL9A/z//v1TVqipU1aoqVNWqKlTVqiqSobtUqqpUVWCyv1SqqlRV")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_s3qaa")
 
 [node name="Bridge" type="Node3D"]
 
@@ -12,7 +50,17 @@ collision_layer = 7
 collision_mask = 7
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-mesh = SubResource("BoxMesh_4j2h4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("BoxShape3D_7ct4w")
+
+[node name="Bridge_002" type="Node3D" parent="."]
+
+[node name="StaticBody3D_002" type="Node3D" parent="Bridge_002"]
+transform = Transform3D(15, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="CollisionShape3D" type="Node3D" parent="Bridge_002/StaticBody3D_002"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Bridge_002/StaticBody3D_002"]
+mesh = SubResource("ArrayMesh_im2sa")
+skeleton = NodePath("")
