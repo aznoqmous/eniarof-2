@@ -1,9 +1,11 @@
-[gd_scene load_steps=30 format=4 uid="uid://bd7vcr4so1sr4"]
+[gd_scene load_steps=32 format=4 uid="uid://bd7vcr4so1sr4"]
 
 [ext_resource type="Texture2D" uid="uid://b6fmhq68o82ga" path="res://assets/sprites/belier_v3_tileable.jpg" id="1_firrg"]
 [ext_resource type="Texture2D" uid="uid://qp556mhmny4v" path="res://assets/sprites/clairière_tileable.jpg" id="2_bw8lq"]
 [ext_resource type="PackedScene" uid="uid://ceudlwne5f3bk" path="res://scenes/foliages/rocks/rock_base.tscn" id="3_kpji2"]
+[ext_resource type="Texture2D" uid="uid://bmmaqume4stis" path="res://assets/sprites/rochers/Decor_Rocher_Rouge_01.png" id="5_rg3jb"]
 [ext_resource type="Texture2D" uid="uid://cdk7gru6u03e4" path="res://assets/sprites/flower/Décor_Fleur_11.png" id="8_i4b85"]
+[ext_resource type="Texture2D" uid="uid://b8dhust7j11b5" path="res://assets/sprites/rochers/Decor_Rocher_Lière_01_.png" id="10_nvrdk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ihqe"]
 albedo_texture = ExtResource("1_firrg")
@@ -363,10 +365,130 @@ charge_breakable = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.007284, 9.996355, -14.285306)
 charge_breakable = false
 
-[node name="RockBase6" parent="." instance=ExtResource("3_kpji2")]
+[node name="BreakerFoliage1" parent="." instance=ExtResource("3_kpji2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.166109, 9.996355, 3.0158749)
 texture = ExtResource("8_i4b85")
 
-[node name="RockBase7" parent="." instance=ExtResource("3_kpji2")]
+[node name="BreakerFoliage2" parent="." instance=ExtResource("3_kpji2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7879267, 9.996355, -9.970468)
 texture = ExtResource("8_i4b85")
+
+[node name="RockBase27" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.928452, 10.5308695, -5.047896)
+charge_breakable = false
+
+[node name="RockBase28" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.998472, 10.5308695, -4.54391)
+charge_breakable = false
+
+[node name="RockBase29" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.2837, 10.5308695, -4.013647)
+charge_breakable = false
+
+[node name="RockBase30" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.82298, 10.5308695, -3.5964746)
+charge_breakable = false
+
+[node name="RockBase31" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.04, 10.5308695, -3.1146126)
+charge_breakable = false
+
+[node name="RockBase32" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.357226, 10.5308695, -2.7110095)
+charge_breakable = false
+
+[node name="RockBase33" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.032696, 10.5308695, -3.4239807)
+charge_breakable = false
+
+[node name="RockBase34" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9540105, 10.5308695, 14.1843605)
+charge_breakable = false
+
+[node name="RockBase35" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13648725, 10.53087, 12.218522)
+charge_breakable = false
+
+[node name="RockBase36" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39928842, 10.53087, 9.839917)
+charge_breakable = false
+
+[node name="RockBase37" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.94978714, 10.53087, 7.6388836)
+charge_breakable = false
+
+[node name="RockBase38" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.611887, 10.53087, 5.54598)
+charge_breakable = false
+
+[node name="RockBase39" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6308823, 10.53087, 3.342909)
+charge_breakable = false
+
+[node name="RockBase40" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4059548, 10.53087, 1.3337221)
+charge_breakable = false
+
+[node name="RockBase41" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.681623, 10.53087, -2.811633)
+charge_breakable = false
+
+[node name="RockBase42" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6603785, 10.53087, -0.9444318)
+charge_breakable = false
+
+[node name="RockBase43" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.843204, 11.459091, 4.4226184)
+charge_breakable = false
+
+[node name="RockBase44" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.109503, 11.459091, 4.8594856)
+charge_breakable = false
+
+[node name="RockBase45" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.640062, 11.459091, 5.1822057)
+charge_breakable = false
+
+[node name="RockBase46" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.507853, 11.459093, 5.120726)
+charge_breakable = false
+
+[node name="RockBase48" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.925671, 11.459091, 14.150764)
+charge_breakable = false
+
+[node name="RockBase49" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.137646, 11.459091, 12.053543)
+charge_breakable = false
+
+[node name="RockBase50" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.492704, 11.459091, 10.01039)
+charge_breakable = false
+
+[node name="RockBase51" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.200372, 11.459091, 7.9392605)
+charge_breakable = false
+
+[node name="RockBase52" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.894676, 11.459091, 5.7749195)
+charge_breakable = false
+
+[node name="BreakerStone1" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.05606, 11.459091, 5.1388063)
+charge_breakable = false
+texture = ExtResource("10_nvrdk")
+
+[node name="BreakerStone2" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.659, 11.459091, 6.524515)
+charge_breakable = false
+texture = ExtResource("10_nvrdk")
+
+[node name="BreakerWood1" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6109242, 10.53087, 0.99487114)
+charge_breakable_level = 1
+texture = ExtResource("5_rg3jb")
+
+[node name="BreakerWood2" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.247147, 10.53087, 0.66995525)
+charge_breakable_level = 1
+texture = ExtResource("5_rg3jb")
