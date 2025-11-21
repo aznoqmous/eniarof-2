@@ -12,5 +12,5 @@ func break_self():
 	
 func _process(delta):
 	super(delta)
-	sprite_3d.texture = texture
-	sprite_3d_2.texture = texture
+	if sprite_3d: sprite_3d.texture = texture
+	if sprite_3d_2: sprite_3d_2.texture = texture
