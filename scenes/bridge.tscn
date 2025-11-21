@@ -5,12 +5,14 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_7ct4w"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4j2h4"]
-size = Vector3(15, 5.5, 1.5)
+size = Vector3(15, 13, 1.5)
 
 [node name="Bridge" type="Node3D"]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(15, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0)
+collision_layer = 0
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = SubResource("BoxMesh_4j2h4")
@@ -19,9 +21,9 @@ mesh = SubResource("BoxMesh_4j2h4")
 shape = SubResource("BoxShape3D_7ct4w")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 2.25)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.75, 2.25)
 shape = SubResource("BoxShape3D_4j2h4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2.25)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.25, -2.25)
 shape = SubResource("BoxShape3D_4j2h4")
