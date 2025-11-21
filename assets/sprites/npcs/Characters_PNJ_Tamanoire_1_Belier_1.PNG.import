@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://v27fqqf35haa"
-path.s3tc="res://.godot/imported/Characters_PNJ_Lapin_Blond_03.png-13b2de8c7ea440a1cb3170fbeb9c8232.s3tc.ctex"
+uid="uid://co6ttgu24k5yk"
+path.s3tc="res://.godot/imported/Characters_PNJ_Tamanoire_1_Belier_1.PNG-34b3c42ad91a5f814c81e10e32e7b42f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/sprites/npcs/Characters_PNJ_Lapin_Blond_03.png"
-dest_files=["res://.godot/imported/Characters_PNJ_Lapin_Blond_03.png-13b2de8c7ea440a1cb3170fbeb9c8232.s3tc.ctex"]
+source_file="res://assets/sprites/npcs/Characters_PNJ_Tamanoire_1_Belier_1.PNG"
+dest_files=["res://.godot/imported/Characters_PNJ_Tamanoire_1_Belier_1.PNG-34b3c42ad91a5f814c81e10e32e7b42f.s3tc.ctex"]
 
 [params]
 
