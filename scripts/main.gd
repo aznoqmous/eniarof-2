@@ -18,6 +18,7 @@ func get_time():
 	return Time.get_ticks_msec() / 1000.0
 	
 func _ready() -> void:
-	music.play()
-	clair.play()
+	if music and clair:
+		music.play()
+		clair.play()
 	
