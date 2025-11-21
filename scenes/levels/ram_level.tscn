@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://bd7vcr4so1sr4"]
+[gd_scene load_steps=53 format=4 uid="uid://bd7vcr4so1sr4"]
 
 [ext_resource type="Texture2D" uid="uid://b6fmhq68o82ga" path="res://assets/sprites/belier_v3_tileable.jpg" id="1_firrg"]
 [ext_resource type="Texture2D" uid="uid://qp556mhmny4v" path="res://assets/sprites/clairière_tileable.jpg" id="2_bw8lq"]
@@ -23,6 +23,14 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ihqe"]
 albedo_texture = ExtResource("1_firrg")
 uv1_scale = Vector3(7, 7, 7)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3mlrt"]
+load_path = "res://.godot/imported/Texture_Herbe.png-1d2f2f3bf46c32e124365c26eaf42ead.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4jfaj"]
+transparency = 1
+albedo_texture = SubResource("CompressedTexture2D_3mlrt")
+uv1_scale = Vector3(8, 8, 8)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fjebf"]
 
@@ -63,6 +71,14 @@ data = PackedVector3Array(-0.5485, 0, -1.301, -0.3524, 0, -1.1916, -0.4619, 0, -
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kpji2"]
 albedo_texture = ExtResource("1_firrg")
+uv1_scale = Vector3(5, 5, 5)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4jfaj"]
+load_path = "res://.godot/imported/Texture_Herbe.png-1d2f2f3bf46c32e124365c26eaf42ead.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5mccf"]
+transparency = 1
+albedo_texture = SubResource("CompressedTexture2D_4jfaj")
 uv1_scale = Vector3(5, 5, 5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wiqd8"]
@@ -106,6 +122,14 @@ data = PackedVector3Array(1.6956999, 0, 0.7147, 1.4115, 0, 0.93009996, 1.6998, 0
 albedo_texture = ExtResource("1_firrg")
 uv1_scale = Vector3(3, 3, 3)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_khj5a"]
+load_path = "res://.godot/imported/Texture_Herbe.png-1d2f2f3bf46c32e124365c26eaf42ead.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ochqc"]
+transparency = 1
+albedo_texture = SubResource("CompressedTexture2D_khj5a")
+uv1_scale = Vector3(3, 3, 3)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1olde"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_034pl"]
@@ -145,6 +169,14 @@ data = PackedVector3Array(0.0256, 0, 0.9291, -0.22469999, 0, 0.7467, -0.1837, 0,
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hil40"]
 albedo_texture = ExtResource("1_firrg")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nqse1"]
+load_path = "res://.godot/imported/Texture_Herbe.png-1d2f2f3bf46c32e124365c26eaf42ead.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5l1ke"]
+transparency = 1
+albedo_texture = SubResource("CompressedTexture2D_nqse1")
+uv1_scale = Vector3(3, 3, 3)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pc1r6"]
 
@@ -230,6 +262,7 @@ transform = Transform3D(17, 0, 0, 0, 17, 0, 0, 0, 17, 0, 0, 0)
 
 [node name="Plane" type="MeshInstance3D" parent="Node3D"]
 material_override = SubResource("StandardMaterial3D_7ihqe")
+material_overlay = SubResource("StandardMaterial3D_4jfaj")
 mesh = SubResource("ArrayMesh_itqhs")
 skeleton = NodePath("")
 
@@ -241,6 +274,7 @@ shape = SubResource("ConcavePolygonShape3D_mb3hy")
 [node name="Plane_001" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.10133055, 0)
 material_override = SubResource("StandardMaterial3D_kpji2")
+material_overlay = SubResource("StandardMaterial3D_5mccf")
 mesh = SubResource("ArrayMesh_gjvii")
 skeleton = NodePath("")
 
@@ -252,6 +286,7 @@ shape = SubResource("ConcavePolygonShape3D_gskfd")
 [node name="Plane_002" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.30935386, 0)
 material_override = SubResource("StandardMaterial3D_18bb5")
+material_overlay = SubResource("StandardMaterial3D_ochqc")
 mesh = SubResource("ArrayMesh_h3qqf")
 skeleton = NodePath("")
 
@@ -263,6 +298,7 @@ shape = SubResource("ConcavePolygonShape3D_nvrdk")
 [node name="Plane_003" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3891695, 0)
 material_override = SubResource("StandardMaterial3D_hil40")
+material_overlay = SubResource("StandardMaterial3D_5l1ke")
 mesh = SubResource("ArrayMesh_rp15s")
 skeleton = NodePath("")
 
