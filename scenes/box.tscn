@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://byicsqyng42p3"]
+
+[ext_resource type="Texture2D" uid="uid://bdeid6ms7xvb2" path="res://assets/sprites/textures/Texture_Boite_01.jpg" id="1_3inec"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_272bh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ks2v0"]
+albedo_texture = ExtResource("1_3inec")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5vw27"]
+albedo_color = Color(1, 0, 0, 1)
+
+[node name="boxBody" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 7
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4883533, 0)
+shape = SubResource("BoxShape3D_272bh")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4883533, 0)
+material_override = SubResource("StandardMaterial3D_ks2v0")
+material = SubResource("StandardMaterial3D_5vw27")

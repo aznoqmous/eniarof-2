@@ -1,7 +1,9 @@
-[gd_scene load_steps=28 format=4 uid="uid://bd7vcr4so1sr4"]
+[gd_scene load_steps=30 format=4 uid="uid://bd7vcr4so1sr4"]
 
 [ext_resource type="Texture2D" uid="uid://b6fmhq68o82ga" path="res://assets/sprites/belier_v3_tileable.jpg" id="1_firrg"]
 [ext_resource type="Texture2D" uid="uid://qp556mhmny4v" path="res://assets/sprites/clairière_tileable.jpg" id="2_bw8lq"]
+[ext_resource type="PackedScene" uid="uid://ceudlwne5f3bk" path="res://scenes/foliages/rocks/rock_base.tscn" id="3_kpji2"]
+[ext_resource type="Texture2D" uid="uid://cdk7gru6u03e4" path="res://assets/sprites/flower/Décor_Fleur_11.png" id="8_i4b85"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ihqe"]
 albedo_texture = ExtResource("1_firrg")
@@ -222,7 +224,7 @@ skeleton = NodePath("")
 shape = SubResource("ConcavePolygonShape3D_mb3hy")
 
 [node name="Plane_001" type="MeshInstance3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15687953, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.10133055, 0)
 material_override = SubResource("StandardMaterial3D_kpji2")
 mesh = SubResource("ArrayMesh_gjvii")
 skeleton = NodePath("")
@@ -233,7 +235,7 @@ skeleton = NodePath("")
 shape = SubResource("ConcavePolygonShape3D_gskfd")
 
 [node name="Plane_002" type="MeshInstance3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.40012646, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.30935386, 0)
 material_override = SubResource("StandardMaterial3D_18bb5")
 mesh = SubResource("ArrayMesh_h3qqf")
 skeleton = NodePath("")
@@ -244,7 +246,7 @@ skeleton = NodePath("")
 shape = SubResource("ConcavePolygonShape3D_nvrdk")
 
 [node name="Plane_003" type="MeshInstance3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5350165, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3891695, 0)
 material_override = SubResource("StandardMaterial3D_hil40")
 mesh = SubResource("ArrayMesh_rp15s")
 skeleton = NodePath("")
@@ -255,6 +257,7 @@ skeleton = NodePath("")
 shape = SubResource("ConcavePolygonShape3D_i4b85")
 
 [node name="Plane_004" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.34543428, 0)
 material_override = SubResource("StandardMaterial3D_otex3")
 mesh = SubResource("ArrayMesh_3eq4d")
 skeleton = NodePath("")
@@ -263,3 +266,107 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Plane_004/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_tbwax")
+
+[node name="RockBase" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4268875, 9.996355, 15.935683)
+charge_breakable = false
+
+[node name="RockBase2" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.396372, 9.996355, 13.973945)
+charge_breakable = false
+
+[node name="RockBase3" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0655985, 9.996355, 11.846976)
+charge_breakable = false
+
+[node name="RockBase4" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.546752, 9.996355, 9.74631)
+charge_breakable = false
+
+[node name="RockBase5" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.028876, 9.996355, 7.6085467)
+charge_breakable = false
+
+[node name="RockBase17" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.916102, 9.996355, 5.399878)
+charge_breakable = false
+
+[node name="RockBase8" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.836123, 9.996355, -1.9527802)
+charge_breakable = false
+
+[node name="RockBase18" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.884806, 9.996355, 0.0072717667)
+charge_breakable = false
+
+[node name="RockBase9" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.288724, 9.996355, -4.371684)
+charge_breakable = false
+
+[node name="RockBase19" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.4036417, 9.996355, -5.989156)
+charge_breakable = false
+
+[node name="RockBase25" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5990057, 9.996355, -7.6254425)
+charge_breakable = false
+
+[node name="RockBase10" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.152277, 9.996355, -8.229308)
+charge_breakable = false
+
+[node name="RockBase11" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9720402, 9.996355, -12.030499)
+charge_breakable = false
+
+[node name="RockBase20" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.251337, 9.996355, -11.119674)
+charge_breakable = false
+
+[node name="RockBase12" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.947031, 9.996355, -12.438994)
+charge_breakable = false
+
+[node name="RockBase21" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5748234, 9.996355, -12.438994)
+charge_breakable = false
+
+[node name="RockBase13" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.874624, 9.996355, -12.864976)
+charge_breakable = false
+
+[node name="RockBase22" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.106012, 9.996355, -12.864976)
+charge_breakable = false
+
+[node name="RockBase23" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.32725, 9.996355, -13.194966)
+charge_breakable = false
+
+[node name="RockBase24" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.366018, 9.996355, -13.842241)
+charge_breakable = false
+
+[node name="RockBase14" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.06807, 9.996355, -12.898317)
+charge_breakable = false
+
+[node name="RockBase15" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.14925, 9.996355, -13.783679)
+charge_breakable = false
+
+[node name="RockBase16" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.162615, 9.996355, -14.285306)
+charge_breakable = false
+
+[node name="RockBase26" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.007284, 9.996355, -14.285306)
+charge_breakable = false
+
+[node name="RockBase6" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.166109, 9.996355, 3.0158749)
+texture = ExtResource("8_i4b85")
+
+[node name="RockBase7" parent="." instance=ExtResource("3_kpji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7879267, 9.996355, -9.970468)
+texture = ExtResource("8_i4b85")
