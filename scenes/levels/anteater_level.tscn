@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://c7jxsig5q4dgf"]
+[gd_scene load_steps=30 format=4 uid="uid://c7jxsig5q4dgf"]
 
 [ext_resource type="Material" uid="uid://nogjss73jq2e" path="res://materials/two_side.tres" id="1_fm0g7"]
 [ext_resource type="PackedScene" uid="uid://cvm3u7fwuuof3" path="res://scenes/bridge.tscn" id="2_ep8g3"]
@@ -10,6 +10,9 @@
 [ext_resource type="Resource" uid="uid://c45ofdsl1ujd1" path="res://resources/npc_actions/move.tres" id="6_auwxb"]
 [ext_resource type="PackedScene" uid="uid://5pcwdkdkscl7" path="res://scenes/foliages/trees/thin_tree.tscn" id="6_qhgga"]
 [ext_resource type="Resource" uid="uid://cq0skdj7me8wq" path="res://resources/npc_actions/tongue.tres" id="7_a5v0j"]
+[ext_resource type="Texture2D" uid="uid://b5v4bwgbsj88x" path="res://assets/sprites/foliages/trees/Decor_Arbre_Rose_01.png" id="11_072fb"]
+[ext_resource type="Texture2D" uid="uid://b2ofcj1fv51d1" path="res://assets/sprites/flower/Décor_Fleur_05.png" id="12_auwxb"]
+[ext_resource type="Texture2D" uid="uid://bcvxq54e3k8g6" path="res://assets/sprites/flower/Décor_Fleur_07.png" id="13_a5v0j"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sdiue"]
 
@@ -227,7 +230,7 @@ transform = Transform3D(-0.67919797, 0, -0.7339552, 0, 1, 0, 0.7339552, 0, -0.67
 [node name="Anteater" parent="NPCs" instance=ExtResource("4_8kmoq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.490381, 10.067479, -15.219893)
 actions = Array[ExtResource("4_6m2dx")]([ExtResource("5_072fb"), ExtResource("6_auwxb"), ExtResource("7_a5v0j"), ExtResource("5_072fb"), ExtResource("7_a5v0j")])
-speech = "zzzzzz.....  | zz... oh maaaaaaaan..... | blbllll tchip tchiiiiiip pliiiip !! yeaaaaah sous une p'tite briiiiiiiiise, j maaaaangeeeee !!! | sipisipisipiiiiiii bblblbbl que des gourmandiiiiiiiiiiiiiiiises, mouches et miels quel doux mélaaaaaaaaange.........  | zzzz...."
+speech = "zzzzzz.....  | zz... oh maaaaaaaan tu m'as réveillyeaaaa..... | blbllll tchip tchiiiiiip pliiiip !! yeaaaaah sous une p'tite briiiiiiiiise, j maaaaangeeeee !!! | sipisipisipiiiiiii bblblbbl que des gourmandiiiiiiiiiiiiiiiises, mouches et miels quel doux mélaaaaaaaaange.........  | zzzz...."
 
 [node name="Anteater2" parent="NPCs" instance=ExtResource("4_8kmoq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.470678, 10.067479, 9.962996)
@@ -246,41 +249,148 @@ visible = false
 
 [node name="Foliages" type="Node3D" parent="."]
 
-[node name="ThinTree" parent="Foliages" instance=ExtResource("6_qhgga")]
+[node name="Trees" type="Node3D" parent="Foliages"]
+
+[node name="ThinTree" parent="Foliages/Trees" instance=ExtResource("6_qhgga")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.560776, 9.444993, -19.238811)
 
-[node name="ThinTree2" parent="Foliages" instance=ExtResource("6_qhgga")]
+[node name="ThinTree2" parent="Foliages/Trees" instance=ExtResource("6_qhgga")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.046368, 9.444993, -27.11665)
 
-[node name="ThinTree3" parent="Foliages" instance=ExtResource("6_qhgga")]
+[node name="ThinTree3" parent="Foliages/Trees" instance=ExtResource("6_qhgga")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.070379, 9.444993, -25.100105)
 
-[node name="ThinTree4" parent="Foliages" instance=ExtResource("6_qhgga")]
+[node name="ThinTree4" parent="Foliages/Trees" instance=ExtResource("6_qhgga")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.286982, 9.444993, -24.402653)
 
-[node name="ThinTree5" parent="Foliages" instance=ExtResource("6_qhgga")]
+[node name="ThinTree5" parent="Foliages/Trees" instance=ExtResource("6_qhgga")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.491413, 9.444992, -17.498453)
 
-[node name="ThinTree6" parent="Foliages" instance=ExtResource("6_qhgga")]
+[node name="ThinTree6" parent="Foliages/Trees" instance=ExtResource("6_qhgga")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.437225, 9.444993, -6.67293)
 
-[node name="ThinTree7" parent="Foliages" instance=ExtResource("6_qhgga")]
+[node name="ThinTree7" parent="Foliages/Trees" instance=ExtResource("6_qhgga")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.51668, 9.444993, -1.8102236)
 
-[node name="ThinTree8" parent="Foliages" instance=ExtResource("6_qhgga")]
+[node name="ThinTree8" parent="Foliages/Trees" instance=ExtResource("6_qhgga")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.774532, 9.444995, 7.7125044)
 
-[node name="ThinTree9" parent="Foliages" instance=ExtResource("6_qhgga")]
+[node name="ThinTree9" parent="Foliages/Trees" instance=ExtResource("6_qhgga")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.93475, 9.444995, 5.7298403)
 
-[node name="ThinTree10" parent="Foliages" instance=ExtResource("6_qhgga")]
+[node name="ThinTree10" parent="Foliages/Trees" instance=ExtResource("6_qhgga")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.29664, 9.444995, 9.3014555)
 
-[node name="ThinTree11" parent="Foliages" instance=ExtResource("6_qhgga")]
+[node name="ThinTree11" parent="Foliages/Trees" instance=ExtResource("6_qhgga")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.432323, 9.444995, 13.303651)
 
-[node name="ThinTree12" parent="Foliages" instance=ExtResource("6_qhgga")]
+[node name="ThinTree12" parent="Foliages/Trees" instance=ExtResource("6_qhgga")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.46104, 9.444995, 15.41628)
 
-[node name="ThinTree13" parent="Foliages" instance=ExtResource("6_qhgga")]
+[node name="ThinTree13" parent="Foliages/Trees" instance=ExtResource("6_qhgga")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.563114, 9.444995, -8.572661)
+
+[node name="ThinTree14" parent="Foliages/Trees" instance=ExtResource("6_qhgga")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 57.540493, 9.444994, -11.551549)
+texture = ExtResource("11_072fb")
+
+[node name="ThinTree15" parent="Foliages/Trees" instance=ExtResource("6_qhgga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.93475, 9.444995, 5.7298403)
+
+[node name="Flowers" type="Node3D" parent="Foliages"]
+
+[node name="flower" parent="Foliages/Flowers" instance=ExtResource("6_qhgga")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 26.613565, 9.003956, 7.6960735)
+texture = ExtResource("12_auwxb")
+
+[node name="flower2" parent="Foliages/Flowers" instance=ExtResource("6_qhgga")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 38.122818, 9.003956, 10.534815)
+texture = ExtResource("12_auwxb")
+
+[node name="flower3" parent="Foliages/Flowers" instance=ExtResource("6_qhgga")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 7.8485184, 9.23742, 17.716667)
+texture = ExtResource("12_auwxb")
+
+[node name="flower4" parent="Foliages/Flowers" instance=ExtResource("6_qhgga")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.015624046, 9.23742, 16.788595)
+texture = ExtResource("12_auwxb")
+
+[node name="flower5" parent="Foliages/Flowers" instance=ExtResource("6_qhgga")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -9.49386, 9.237419, 9.867811)
+texture = ExtResource("12_auwxb")
+
+[node name="flower6" parent="Foliages/Flowers" instance=ExtResource("6_qhgga")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -32.190994, 9.237419, 9.9083395)
+texture = ExtResource("13_a5v0j")
+
+[node name="flower7" parent="Foliages/Flowers" instance=ExtResource("6_qhgga")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -28.788727, 9.237419, 16.066622)
+texture = ExtResource("13_a5v0j")
+
+[node name="flower8" parent="Foliages/Flowers" instance=ExtResource("6_qhgga")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -33.407352, 9.237419, 15.156779)
+texture = ExtResource("13_a5v0j")
+
+[node name="flower9" parent="Foliages/Flowers" instance=ExtResource("6_qhgga")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -30.719313, 9.237419, 13.53157)
+texture = ExtResource("13_a5v0j")
+
+[node name="flower10" parent="Foliages/Flowers" instance=ExtResource("6_qhgga")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -36.443863, 9.237419, 16.64075)
+texture = ExtResource("13_a5v0j")
+
+[node name="flower11" parent="Foliages/Flowers" instance=ExtResource("6_qhgga")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -36.984146, 9.237419, 11.521335)
+texture = ExtResource("13_a5v0j")
+
+[node name="flower12" parent="Foliages/Flowers" instance=ExtResource("6_qhgga")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -30.624926, 9.237419, 19.182266)
+texture = ExtResource("13_a5v0j")
+
+[node name="flower13" parent="Foliages/Flowers" instance=ExtResource("6_qhgga")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -26.005802, 9.23742, 18.085297)
+texture = ExtResource("13_a5v0j")
+
+[node name="flower14" parent="Foliages/Flowers" instance=ExtResource("6_qhgga")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -33.972546, 9.237419, 17.922691)
+texture = ExtResource("13_a5v0j")
+
+[node name="flower15" parent="Foliages/Flowers" instance=ExtResource("6_qhgga")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -26.563494, 9.237419, 3.5341396)
+texture = ExtResource("13_a5v0j")
+
+[node name="flower16" parent="Foliages/Flowers" instance=ExtResource("6_qhgga")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -22.008825, 9.237419, 12.321975)
+texture = ExtResource("13_a5v0j")
+
+[node name="flower17" parent="Foliages/Flowers" instance=ExtResource("6_qhgga")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -20.980299, 9.237419, 16.538155)
+texture = ExtResource("13_a5v0j")
+
+[node name="flower18" parent="Foliages/Flowers" instance=ExtResource("6_qhgga")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -12.664507, 9.237418, 18.296818)
+texture = ExtResource("13_a5v0j")
+
+[node name="flower19" parent="Foliages/Flowers" instance=ExtResource("6_qhgga")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -17.038242, 9.237419, 9.497643)
+texture = ExtResource("13_a5v0j")
+
+[node name="flower20" parent="Foliages/Flowers" instance=ExtResource("6_qhgga")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -26.194082, 9.237419, 9.664859)
+texture = ExtResource("13_a5v0j")
+
+[node name="flower21" parent="Foliages/Flowers" instance=ExtResource("6_qhgga")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -4.281088, 9.237418, 19.940773)
+texture = ExtResource("13_a5v0j")
+
+[node name="flower22" parent="Foliages/Flowers" instance=ExtResource("6_qhgga")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 4.514187, 9.237419, 18.103569)
+texture = ExtResource("13_a5v0j")
+
+[node name="flower23" parent="Foliages/Flowers" instance=ExtResource("6_qhgga")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 8.332951, 9.237419, 23.185955)
+texture = ExtResource("13_a5v0j")
+
+[node name="flower24" parent="Foliages/Flowers" instance=ExtResource("6_qhgga")]
+transform = Transform3D(0.04330687, 0, -0.29685774, 0, 0.29999998, 0, 0.29685774, 0, 0.04330687, 4.514187, 9.237419, 18.103569)
+texture = ExtResource("13_a5v0j")

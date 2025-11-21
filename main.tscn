@@ -97,7 +97,7 @@ mesh = SubResource("BoxMesh_efxa6")
 shape = SubResource("BoxShape3D_dg77c")
 
 [node name="AnteaterLevel" parent="Level/FloorBélier" instance=ExtResource("4_074og")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 11.730034, -6.681526, 85.08007)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -77.740845, -8.963201, 51.636993)
 
 [node name="Water" type="Area3D" parent="Level"]
 collision_layer = 16
@@ -121,7 +121,7 @@ transform = Transform3D(-3.2531837e-08, -0.6679105, 0.7442416, -2.9195299e-08, 0
 script = ExtResource("6_ycdy4")
 
 [node name="Player" parent="." node_paths=PackedStringArray("species_sprites") instance=ExtResource("2_h2yge")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.871357, 1.3278971, -70.53133)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.973724, -1.4003386, -44.1094)
 species_sprites = {
 0: NodePath("SpriteContainer/Sprite3D/Rabbit"),
 1: NodePath("SpriteContainer/Sprite3D/Ram"),
@@ -183,6 +183,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84.26043, -1.5909936, -24.07
 collision_mask = 1
 
 [node name="LapinLevel" parent="." instance=ExtResource("14_vivmo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.15664, -10.947977, -61.4083)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.49373, -10.947978, -68.81305)
 
 [connection signal="body_entered" from="Level/Water" to="Level/Water" method="_on_body_entered"]
