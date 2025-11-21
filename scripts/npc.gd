@@ -4,6 +4,7 @@ class_name NPC extends CharacterBase
 @onready var interact_label: Label3D = $InteractLabel
 @onready var speech_bubble: Sprite3D = $SpeechBubble
 @onready var speech_dots: Label3D = $SpeechBubble/SpeechDots
+@export var talk_audio: FmodEventEmitter3D
 
 @onready var sprite_3d: Sprite3D = $SpriteContainer/Sprite3D
 @export_category("Sprite")
@@ -70,7 +71,10 @@ func _on_interaction_zone_body_exited(body: Node3D) -> void:
 func talk():
 	#dialog_box.set_visible(true)
 	main.dialog_canvas_layer.talk(speech if not main.is_night else main.night_speechs.pick_random(), self)
-	
+
+func talk_sound():
+	talk_audio.play()
+
 func live(delta):
 	if not current_action: return;
 	if is_interactable:
