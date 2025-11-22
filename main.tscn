@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://cmlhp3bgeip3e"]
+[gd_scene load_steps=20 format=3 uid="uid://cmlhp3bgeip3e"]
 
 [ext_resource type="Script" uid="uid://dlsptbxcmtms2" path="res://scripts/main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://d2jcxmqkru15e" path="res://scenes/player.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://jauf2lsrtma7" path="res://scenes/FmodSoundManager.tscn" id="2_w48qg"]
 [ext_resource type="Shader" uid="uid://ceyqrsqchfjot" path="res://shaders/water.gdshader" id="4_2cqfq"]
 [ext_resource type="PackedScene" uid="uid://c7jxsig5q4dgf" path="res://scenes/levels/anteater_level.tscn" id="4_074og"]
-[ext_resource type="Script" path="res://scripts/water.gd" id="4_yaehf"]
+[ext_resource type="Script" uid="uid://3ie2b8f123dv" path="res://scripts/water.gd" id="4_yaehf"]
 [ext_resource type="Texture2D" uid="uid://crr1h60asguyr" path="res://assets/sprites/water/voronoi.png" id="5_yaehf"]
 [ext_resource type="Script" uid="uid://1eqrfby7r8i4" path="res://scripts/directional_light_3d.gd" id="6_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://bd7vcr4so1sr4" path="res://scenes/levels/ram_level.tscn" id="8_ycdy4"]
@@ -39,8 +40,7 @@ size = Vector3(8.685303, 4.9311523, 1.6748047)
 script = ExtResource("1_h2yge")
 night_speechs = Array[String](["zzz... zzzz...", "Je suis fatigué...", "zzz... ZZZZ... zzz..."])
 
-[node name="FmodBankLoader" type="FmodBankLoader" parent="."]
-bank_paths = ["res://assets/soundbanks/Desktop/Master.strings.bank", "res://assets/soundbanks/Desktop/Master.bank"]
+[node name="FmodBankLoader" parent="." instance=ExtResource("2_w48qg")]
 
 [node name="Level" type="Node3D" parent="."]
 
@@ -84,7 +84,7 @@ species_sprites = {
 1: NodePath("SpriteContainer/Sprite3D/Ram"),
 2: NodePath("SpriteContainer/Sprite3D/Anteater")
 }
-max_stamina = 40.0
+max_stamina = 30.0
 
 [node name="SpendNightCanvasLayer" parent="." instance=ExtResource("12_w48qg")]
 
@@ -102,13 +102,5 @@ texture = ExtResource("13_ycdy4")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Start/Sprite3D/StaticBody3D"]
 transform = Transform3D(1, 0, 2.9345415e-12, 0, 1, 0, -2.9345415e-12, 0, 1, 0.8189702, 0.34448266, 0.33739853)
 shape = SubResource("BoxShape3D_ycdy4")
-
-[node name="MusicClair" type="FmodEventEmitter3D" parent="."]
-event_name = "event:/Ambiances/Clairiere"
-event_guid = "{61bdfa54-dfa7-41a3-b219-be6a460da9d2}"
-
-[node name="MusicStart" type="FmodEventEmitter3D" parent="."]
-event_name = "event:/Music/Play_Music"
-event_guid = "{1e199d03-6847-4c4b-89a4-98fe2916d9b4}"
 
 [connection signal="body_entered" from="Level/Water" to="Level/Water" method="_on_body_entered"]

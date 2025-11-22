@@ -4,8 +4,8 @@ class_name Main extends Node3D
 @onready var start: Node3D = $Start
 @onready var spend_night_canvas_layer: SpendNightCanvasLayer = $SpendNightCanvasLayer
 @onready var dialog_canvas_layer: DialogCanvasLayer = $DialogCanvasLayer
-@onready var music: FmodEventEmitter3D = $MusicStart
-@onready var clair: FmodEventEmitter3D = $MusicClair
+@onready var music: FmodEventEmitter3D = $FmodBankLoader/MusicStart
+@onready var clair: FmodEventEmitter3D = $FmodBankLoader/MusicClair
 @export_multiline var night_speechs : Array[String]
 
 var is_night : bool :

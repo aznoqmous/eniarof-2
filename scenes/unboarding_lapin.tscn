@@ -1,6 +1,7 @@
-[gd_scene load_steps=26 format=3 uid="uid://dvv1x2ycnayeh"]
+[gd_scene load_steps=27 format=3 uid="uid://dvv1x2ycnayeh"]
 
 [ext_resource type="Script" uid="uid://dlsptbxcmtms2" path="res://scripts/main.gd" id="1_ijab1"]
+[ext_resource type="PackedScene" uid="uid://jauf2lsrtma7" path="res://scenes/FmodSoundManager.tscn" id="2_ekmdm"]
 [ext_resource type="PackedScene" uid="uid://d2jcxmqkru15e" path="res://scenes/player.tscn" id="2_yqw4i"]
 [ext_resource type="PackedScene" uid="uid://17emcoltidd5" path="res://scenes/uis/dialog_canvas_layer.tscn" id="3_gkjoq"]
 [ext_resource type="Texture2D" uid="uid://cebs1vpbs452i" path="res://assets/sprites/textures/Texture_SolTamanoir.png" id="4_jner6"]
@@ -53,6 +54,8 @@ size = Vector3(4.9644775, 6.1330566, 3.2554932)
 [node name="Main" type="Node3D"]
 transform = Transform3D(0.1, 0, 0, 0, 0.028, 0, 0, 0, 0.15, 0, 0, 0)
 script = ExtResource("1_ijab1")
+
+[node name="FmodBankLoader" parent="." instance=ExtResource("2_ekmdm")]
 
 [node name="Player" parent="." node_paths=PackedStringArray("species_sprites") instance=ExtResource("2_yqw4i")]
 transform = Transform3D(10, 0, 0, 0, 35.714275, 0, 0, 0, 6.6666646, -88.837585, 18.83451, 36.198048)
@@ -366,8 +369,5 @@ texture = ExtResource("10_ekmdm")
 [node name="Sprite3D21" type="Sprite3D" parent="Flowers"]
 transform = Transform3D(1.581, 0, 0, 0, 8.954999, 0, 0, 0, 1.581, 51.3098, 126.683044, -46.12995)
 texture = ExtResource("8_jcb05")
-
-[node name="FmodBankLoader" type="FmodBankLoader" parent="."]
-bank_paths = ["res://assets/soundbanks/Desktop/Master.strings.bank", "res://assets/soundbanks/Desktop/Master.bank"]
 
 [connection signal="body_entered" from="Sprite3D/Area3D" to="Sprite3D/Area3D" method="_on_body_entered"]

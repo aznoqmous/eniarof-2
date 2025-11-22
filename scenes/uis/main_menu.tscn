@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://d3icrtajubwy2"]
+[gd_scene load_steps=12 format=3 uid="uid://d3icrtajubwy2"]
 
 [ext_resource type="Script" uid="uid://bd1wo8ndju3qq" path="res://scripts/main_menu.gd" id="1_g5up0"]
 [ext_resource type="Texture2D" uid="uid://b1xibvpqtvc0i" path="res://assets/terrier/Decor_MaisonProta_interieur_02.png" id="1_qgruj"]
-[ext_resource type="Script" path="res://scripts/tile_scale_container.gd" id="3_18yf2"]
+[ext_resource type="PackedScene" uid="uid://jauf2lsrtma7" path="res://scenes/FmodSoundManager.tscn" id="2_h8liu"]
+[ext_resource type="Script" uid="uid://t0fm3kyt6ama" path="res://scripts/tile_scale_container.gd" id="3_18yf2"]
 [ext_resource type="Texture2D" uid="uid://tg20ut2w8dhs" path="res://assets/sprites/uis/logo enjmin.png" id="3_wrpo0"]
 [ext_resource type="Texture2D" uid="uid://osypfw0x55m4" path="res://assets/sprites/uis/Logo_Magelis_25.jpg" id="4_3wgmo"]
 [ext_resource type="Texture2D" uid="uid://bubqivync3g6d" path="res://assets/sprites/uis/UI_boitedialogue_01.png" id="4_35gci"]
@@ -11,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://xap50cehh4q1" path="res://assets/sprites/uis/UI_pc.png" id="10_bfbqf"]
 [ext_resource type="Texture2D" uid="uid://y2uu5utcrrhh" path="res://assets/sprites/uis/logo-cryptid.png" id="10_h8liu"]
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("UI_audio", "MusicMenu_audio")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,6 +21,12 @@ offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_g5up0")
+UI_audio = NodePath("")
+MusicMenu_audio = NodePath("")
+
+[node name="FmodBankLoader" parent="." instance=ExtResource("2_h8liu")]
+
+[node name="FmodListener2D" type="FmodListener2D" parent="."]
 
 [node name="Background" type="Control" parent="."]
 layout_mode = 1

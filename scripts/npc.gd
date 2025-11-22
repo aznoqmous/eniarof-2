@@ -73,7 +73,8 @@ func talk():
 	main.dialog_canvas_layer.talk(speech if not main.is_night else main.night_speechs.pick_random(), self)
 
 func talk_sound():
-	talk_audio.play()
+	talk_audio.play_one_shot()
+	# talk_audio.play()
 
 func live(delta):
 	if not current_action: return;

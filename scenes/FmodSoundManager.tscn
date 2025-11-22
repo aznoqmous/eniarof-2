@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://jauf2lsrtma7"]
+
+[node name="FmodBankLoader" type="FmodBankLoader"]
+bank_paths = ["res://assets/soundbanks/Desktop/Master.strings.bank", "res://assets/soundbanks/Desktop/Master.bank"]
+
+[node name="MusicClair" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/Ambiances/Clairiere"
+event_guid = "{61bdfa54-dfa7-41a3-b219-be6a460da9d2}"
+
+[node name="MusicStart" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/Music/Play_Music"
+event_guid = "{1e199d03-6847-4c4b-89a4-98fe2916d9b4}"
+fmod_parameters/MusicSpeed/id = 2297129892710845602
+fmod_parameters/MusicSpeed = 100.0
+fmod_parameters/MusicSpeed/variant_type = 3
+
+[node name="UI_Click" type="FmodEventEmitter2D" parent="."]
+event_name = "event:/UI/UI_Click"
+event_guid = "{42f20557-e2cc-4442-b3b6-f14a5d1616d3}"
+
+[node name="MusicMenu" type="FmodEventEmitter2D" parent="."]
+event_name = "event:/Music/Menu_Music"
+event_guid = "{08981245-a5fc-44ff-92e9-f7fd61b25968}"
+
+[node name="Night_audio" type="FmodEventEmitter2D" parent="."]
+event_name = "event:/Go_Sleep"
+event_guid = "{b53a53e2-71fe-461b-b392-ebe42da4be77}"

@@ -17,6 +17,9 @@ class_name SpendNightCanvasLayer extends CanvasLayer
 @onready var intro_label: Label = $NightOverlayControl/IntroLabel
 @onready var species_label: Label = $NightOverlayControl/SpeciesLabel
 
+@onready var UI_audio: FmodEventEmitter2D = $/root/Main/FmodBankLoader/UI_Click
+@onready var Spend_night_audio: FmodEventEmitter2D = $/root/Main/FmodBankLoader/Night_audio
+
 @export_multiline var night_intros : Array[String]
 @export var night_species_texts : Dictionary[SpeciesResource.ActionType, Array]
 
@@ -38,6 +41,7 @@ func _process(delta):
 	night_circle.rotation += delta * TAU / 20.0
 	
 func spend_night():
+	UI_audio.play_one_shot()
 	main.player.current_species = main.player.species[main.player.get_most_performed_action()]
 
 	current_day += 1
@@ -54,6 +58,7 @@ func spend_night():
 	night_overlay_control.set_visible(true)
 	night_confirm_button.set_visible(false)
 	night_overlay_control.modulate.a = 0.0
+	Spend_night_audio.play_one_shot()
 	get_tree().create_tween().tween_property(night_overlay_control, "modulate:a", 1.0, animation_duration)
 	await get_tree().create_timer(animation_duration).timeout
 	
@@ -107,6 +112,7 @@ func evolve_animation(action : SpeciesResource.ActionType, texture, duration: fl
 	)
 	
 func close():
+	UI_audio.play_one_shot()
 	spend_night_end.emit()
 	get_tree().create_tween().tween_property(night_overlay_control, "modulate:a", 0.0, animation_duration)
 	await get_tree().create_timer(animation_duration).timeout
